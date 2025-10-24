@@ -1,0 +1,129 @@
+// Prisma schema for MerkadAgency
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id          String        @id @default(uuid())
+  title       String
+  brief       String?
+  status      ProjectStatus @default(draft)
+  ratio       VideoRatio    @default(VERTICAL)
+  brandTheme  Json          // Store BrandTheme as JSON
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  assets      Asset[]
+  scenes      Scene[]
+  voSegments  VoSegment[]
+  renderJobs  RenderJob[]
+  musicAsset  Asset?        @relation("ProjectMusic", fields: [musicAssetId], references: [id])
+  musicAssetId String?      @unique
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Asset {
+  id           String    @id @default(uuid())
+  projectId    String
+  kind         AssetKind
+  url          String
+  thumbnailUrl String?
+  meta         Json      // Store AssetMeta as JSON
+  createdAt    DateTime  @default(now())
+
+  project      Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  scenes       Scene[]
+  projectMusic Project?  @relation("ProjectMusic")
+
+  @@index([projectId, kind])
+}
+
+model Scene {
+  id            String    @id @default(uuid())
+  projectId     String
+  index         Int
+  durationMs    Int
+  imageAssetId  String?
+  overlayText   String?
+  voSegmentId   String?
+  createdAt     DateTime  @default(now())
+
+  project       Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  imageAsset    Asset?    @relation(fields: [imageAssetId], references: [id], onDelete: SetNull)
+  voSegment     VoSegment? @relation(fields: [voSegmentId], references: [id], onDelete: SetNull)
+
+  @@unique([projectId, index])
+  @@index([projectId])
+}
+
+model VoSegment {
+  id         String   @id @default(uuid())
+  projectId  String
+  sceneId    String?
+  text       String
+  audioUrl   String?
+  durationMs Int?
+  timestamps Json?    // Array of word timestamps
+  createdAt  DateTime @default(now())
+
+  project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  scenes     Scene[]
+
+  @@index([projectId])
+}
+
+model RenderJob {
+  id          String          @id @default(uuid())
+  projectId   String
+  status      RenderJobStatus @default(queued)
+  artifacts   Json            // Store RenderArtifacts as JSON
+  logs        String[]        @default([])
+  error       String?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  completedAt DateTime?
+
+  project     Project         @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([status])
+}
+
+enum ProjectStatus {
+  draft
+  storyboard_generated
+  assets_uploaded
+  vo_generated
+  music_selected
+  rendering
+  completed
+  failed
+}
+
+enum RenderJobStatus {
+  queued
+  processing
+  completed
+  failed
+}
+
+enum VideoRatio {
+  VERTICAL  // 9:16
+  HORIZONTAL // 16:9
+  SQUARE    // 1:1
+}
+
+enum AssetKind {
+  image
+  video
+  audio
+  logo
+}
