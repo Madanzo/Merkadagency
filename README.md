@@ -43,41 +43,53 @@ packages/
 
 ### Prerequisites
 
-- Node.js 20+
+- Node.js 18.18+ (see `.nvmrc`)
 - pnpm 9+
-- Docker & Docker Compose
-- FFmpeg installed locally
+- Docker & Docker Compose (for backend services)
+- FFmpeg installed locally (for video rendering)
 
 ### Installation
 
 1. **Clone and install dependencies**:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Madanzo/Merkadagency.git
 cd Merkadagency
 pnpm install
 ```
 
-2. **Set up environment variables**:
+2. **Start the web app** (frontend only):
+
+```bash
+pnpm --filter web dev
+```
+
+The web app will be available at http://localhost:3000
+
+### Full Stack Setup
+
+If you want to run the complete backend (API, workers, database):
+
+1. **Set up environment variables**:
 
 ```bash
 cp .env.example .env
 # Edit .env if needed (defaults work for local dev)
 ```
 
-3. **Start infrastructure** (Postgres, Redis, MinIO):
+2. **Start infrastructure** (Postgres, Redis, MinIO):
 
 ```bash
 docker-compose up -d
 ```
 
-4. **Initialize database**:
+3. **Initialize database**:
 
 ```bash
 pnpm db:push
 ```
 
-5. **Start all services**:
+4. **Start all services**:
 
 ```bash
 pnpm dev
