@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Image as ImageIcon, Plus, Trash2, MoveUp, MoveDown } from 'lucide-react';
+import { Image as ImageIcon, Plus, Trash2, MoveUp, MoveDown, Sparkles, Video, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
@@ -10,8 +10,11 @@ interface Scene {
   id: string;
   order: number;
   imageUrl?: string;
+  videoUrl?: string;
   visualDescription: string;
   duration: number;
+  generatingImage?: boolean;
+  generatingVideo?: boolean;
 }
 
 interface StoryboardPanelProps {
@@ -20,6 +23,8 @@ interface StoryboardPanelProps {
   onDeleteScene?: (id: string) => void;
   onReorderScene?: (id: string, direction: 'up' | 'down') => void;
   onEditScene?: (scene: Scene) => void;
+  onGenerateImage?: (sceneId: string) => void;
+  onGenerateVideo?: (sceneId: string) => void;
   className?: string;
 }
 
@@ -33,6 +38,8 @@ export function StoryboardPanel({
   onDeleteScene,
   onReorderScene,
   onEditScene,
+  onGenerateImage,
+  onGenerateVideo,
   className,
 }: StoryboardPanelProps) {
   return (
@@ -123,9 +130,69 @@ export function StoryboardPanel({
               </div>
 
               {/* Scene Description */}
-              <p className="text-xs text-graycool line-clamp-2">
+              <p className="text-xs text-graycool line-clamp-2 mb-3">
                 {scene.visualDescription}
               </p>
+
+              {/* AI Generation Buttons */}
+              <div className="flex gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="flex-1 text-xs h-7"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onGenerateImage?.(scene.id);
+                  }}
+                  disabled={scene.generatingImage}
+                >
+                  {scene.generatingImage ? (
+                    <>
+                      <Loader2 className="mr-1 h-3 w-3 animate-spin" />
+                      Generating...
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles className="mr-1 h-3 w-3" />
+                      {scene.imageUrl ? 'Regenerate' : 'Generate'} Image
+                    </>
+                  )}
+                </Button>
+
+                {scene.imageUrl && (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="flex-1 text-xs h-7 border-teal/30 text-teal hover:bg-teal/10"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onGenerateVideo?.(scene.id);
+                    }}
+                    disabled={scene.generatingVideo || !scene.imageUrl}
+                  >
+                    {scene.generatingVideo ? (
+                      <>
+                        <Loader2 className="mr-1 h-3 w-3 animate-spin" />
+                        Generating...
+                      </>
+                    ) : (
+                      <>
+                        <Video className="mr-1 h-3 w-3" />
+                        {scene.videoUrl ? 'Regenerate' : 'Generate'} Video
+                      </>
+                    )}
+                  </Button>
+                )}
+              </div>
+
+              {/* Video Status Badge */}
+              {scene.videoUrl && (
+                <div className="mt-2">
+                  <Badge variant="secondary" className="text-xs bg-teal/20 text-teal border-teal/30">
+                    Video Ready
+                  </Badge>
+                </div>
+              )}
             </motion.div>
           ))
         )}

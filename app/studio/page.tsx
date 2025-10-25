@@ -188,6 +188,120 @@ export default function StudioPage() {
     });
   };
 
+  const handleGenerateImage = async (sceneId: string) => {
+    // Set loading state
+    setScenes(
+      scenes.map((s) => (s.id === sceneId ? { ...s, generatingImage: true } : s))
+    );
+
+    try {
+      const scene = scenes.find((s) => s.id === sceneId);
+      if (!scene) return;
+
+      const response = await fetch('/api/generate-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          prompt: scene.visualDescription,
+          aspectRatio: '9:16', // Vertical video format
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate image');
+      }
+
+      const data = await response.json();
+
+      // Update scene with generated image
+      setScenes(
+        scenes.map((s) =>
+          s.id === sceneId
+            ? {
+                ...s,
+                imageUrl: data.image_url,
+                generatingImage: false,
+              }
+            : s
+        )
+      );
+
+      toast({
+        title: 'Image Generated',
+        description: `Scene ${scene.order} image created successfully`,
+      });
+    } catch (error) {
+      console.error('[Studio] Error generating image:', error);
+      setScenes(
+        scenes.map((s) => (s.id === sceneId ? { ...s, generatingImage: false } : s))
+      );
+      toast({
+        title: 'Error',
+        description: 'Failed to generate image. Please try again.',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const handleGenerateVideo = async (sceneId: string) => {
+    // Set loading state
+    setScenes(
+      scenes.map((s) => (s.id === sceneId ? { ...s, generatingVideo: true } : s))
+    );
+
+    try {
+      const scene = scenes.find((s) => s.id === sceneId);
+      if (!scene || !scene.imageUrl) {
+        throw new Error('Image required for video generation');
+      }
+
+      const response = await fetch('/api/generate-video', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          imageUrl: scene.imageUrl,
+          script: scene.visualDescription,
+          duration: scene.duration,
+          aspectRatio: '9:16',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate video');
+      }
+
+      const data = await response.json();
+
+      // Update scene with generated video
+      setScenes(
+        scenes.map((s) =>
+          s.id === sceneId
+            ? {
+                ...s,
+                videoUrl: data.video_url,
+                generatingVideo: false,
+              }
+            : s
+        )
+      );
+
+      toast({
+        title: 'Video Generated',
+        description: `Scene ${scene.order} video is ready`,
+      });
+    } catch (error) {
+      console.error('[Studio] Error generating video:', error);
+      setScenes(
+        scenes.map((s) => (s.id === sceneId ? { ...s, generatingVideo: false } : s))
+      );
+      toast({
+        title: 'Error',
+        description: error instanceof Error ? error.message : 'Failed to generate video',
+        variant: 'destructive',
+      });
+    }
+  };
+
   const handleGenerateVo = async () => {
     toast({
       title: 'Generating Voice-Over',
@@ -373,6 +487,8 @@ export default function StudioPage() {
                   onAddScene={handleAddScene}
                   onDeleteScene={handleDeleteScene}
                   onReorderScene={handleReorderScene}
+                  onGenerateImage={handleGenerateImage}
+                  onGenerateVideo={handleGenerateVideo}
                 />
               </TabsContent>
 

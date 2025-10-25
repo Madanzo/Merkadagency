@@ -16,8 +16,11 @@ export interface Scene {
   id: string;
   order: number;
   imageUrl?: string;
+  videoUrl?: string;
   visualDescription: string;
   duration: number;
+  generatingImage?: boolean;
+  generatingVideo?: boolean;
 }
 
 export interface VoSegment {
