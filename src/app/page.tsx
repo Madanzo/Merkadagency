@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useParticles } from '@/hooks';
 
 // Icons components
 const StarIcon = () => (
@@ -73,8 +74,14 @@ const stats = [
 ];
 
 export default function Home() {
+  // Use the particle hook for React-idiomatic particle effects
+  const { particles } = useParticles({ interval: 4000, maxParticles: 8 });
+
+  // Ref for scroll animation container
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Scroll animation effect
   useEffect(() => {
-    // Intersection Observer for scroll animations
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -89,51 +96,35 @@ export default function Home() {
     }, observerOptions);
 
     // Observe all animated elements
-    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
-      (el as HTMLElement).style.animationPlayState = 'paused';
-      observer.observe(el);
-    });
-
-    // Dynamic particle generation
-    const particlesContainer = document.querySelector('.particles');
-
-    const createParticle = () => {
-      if (!particlesContainer) return;
-
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 20 + 's';
-      particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-      particlesContainer.appendChild(particle);
-
-      setTimeout(() => {
-        particle.remove();
-      }, 25000);
-    };
-
-    const interval = setInterval(createParticle, 3000);
+    const container = containerRef.current;
+    if (container) {
+      container.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+        // Removed explicit pause to prevent elements getting stuck in invisible state
+        // (el as HTMLElement).style.animationPlayState = 'paused';
+        observer.observe(el);
+      });
+    }
 
     return () => {
-      clearInterval(interval);
       observer.disconnect();
     };
   }, []);
 
   return (
-    <>
+    <div ref={containerRef}>
       {/* Tech Grid Background */}
       <div className="tech-grid"></div>
 
-      {/* Floating Particles */}
+      {/* Floating Particles - now using hook-managed state */}
       <div className="particles">
-        {[...Array(9)].map((_, i) => (
+        {particles.map((p) => (
           <div
-            key={i}
+            key={p.id}
             className="particle"
             style={{
-              left: `${(i + 1) * 10}%`,
-              animationDelay: `${i * 2}s`
+              left: `${p.left}%`,
+              animationDelay: `${p.animationDelay}s`,
+              animationDuration: `${p.animationDuration}s`
             }}
           />
         ))}
@@ -235,8 +226,8 @@ export default function Home() {
                 key={step.number}
                 className={`timeline-item fade-in ${index > 0 ? `delay-${index}00` : ''}`}
               >
-                <div className="timeline-dot">{step.number}</div>
                 <h3 className="timeline-title">{step.title}</h3>
+                <div className="timeline-dot">{step.number}</div>
                 <p className="timeline-desc">{step.description}</p>
               </div>
             ))}
@@ -276,6 +267,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

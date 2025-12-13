@@ -30,7 +30,7 @@ const services = [
             { value: '2.5x', label: 'More Qualified Leads' },
             { value: '24/7', label: 'Response Time' }
         ],
-        caseStudyLink: '/ai-lead-capture-qualification/'
+        caseStudyLink: '/ai-lead-capture'
     },
     {
         id: 'website-development',
@@ -84,7 +84,7 @@ const services = [
             { value: '5x', label: 'ROI Average' },
             { value: '-72%', label: 'Manual Work' }
         ],
-        caseStudyLink: '/marketing-automation/'
+        caseStudyLink: '/crm-automation'
     },
     {
         id: 'ai-seo',
@@ -301,10 +301,11 @@ export default function ServicesPage() {
                                         <div className="service-buttons">
                                             <Link href="/book/" className="btn-primary">Get Started</Link>
                                             <Link href={service.caseStudyLink} className="btn-outline">
-                                                {service.id === 'website-development' ? 'View Portfolio' :
-                                                    service.id === 'ai-seo' ? 'SEO Audit' :
-                                                        service.id === 'content-systems' ? 'View Samples' :
-                                                            service.id === 'crm-automation' ? 'See Examples' : 'View Case Study'}
+                                                {service.id === 'ai-lead-capture' ? 'View Service' :
+                                                    service.id === 'website-development' ? 'View Portfolio' :
+                                                        service.id === 'ai-seo' ? 'SEO Audit' :
+                                                            service.id === 'content-systems' ? 'View Samples' :
+                                                                service.id === 'crm-automation' ? 'See Examples' : 'View Case Study'}
                                             </Link>
                                         </div>
                                     </div>

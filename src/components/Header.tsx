@@ -21,7 +21,7 @@ export default function Header() {
                 {/* Logo */}
                 <Link href="/" className="ma-logo">
                     <Image
-                        src="https://storage.googleapis.com/msgsndr/B3r5jIhXrxu7hUG7cLQF/media/68b6557a869d5bfed5327965.png"
+                        src="/images/merkadagency-logo.png"
                         alt="MerkadAgency"
                         width={160}
                         height={40}
@@ -49,7 +49,6 @@ export default function Header() {
                         <div className="ma-dropdown-menu">
                             <Link href="/portfolio-web/">Website Projects</Link>
                             <Link href="/content-social-media/">Video & Content</Link>
-                            <Link href="/marketing-automation/">Email/SMS Examples</Link>
                         </div>
                     </div>
 
@@ -82,7 +81,6 @@ export default function Header() {
                 <Link href="/portfolio-web/" onClick={closeMobileMenu}>Portfolio</Link>
                 <Link href="/portfolio-web/" className="ma-dropdown-item" onClick={closeMobileMenu}>Website Projects</Link>
                 <Link href="/content-social-media/" className="ma-dropdown-item" onClick={closeMobileMenu}>Video & Content</Link>
-                <Link href="/marketing-automation/" className="ma-dropdown-item" onClick={closeMobileMenu}>Email/SMS Examples</Link>
                 <Link href="/seo-audit/" onClick={closeMobileMenu}>Free Audit</Link>
                 <Link href="/innovation-log/" onClick={closeMobileMenu}>Innovation Log</Link>
                 <Link href="/book/" className="ma-cta-mobile" onClick={closeMobileMenu}>Book a Call</Link>

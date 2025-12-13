@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MerkadAgency Website
 
-## Getting Started
+AI-powered marketing agency website built with Next.js 16, React 19, and Tailwind CSS 4.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![React](https://img.shields.io/badge/React-19-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38B2AC)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.17 or later
+- npm, yarn, pnpm, or bun
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/merkadagency/website.git
+cd merkadagency
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx           # Homepage
+│   ├── layout.tsx         # Root layout with Header/Footer
+│   ├── globals.css        # Global styles and design tokens
+│   ├── service/           # Services page
+│   ├── book/              # Booking page with GoHighLevel widget
+│   ├── ai-lead-capture/   # AI Lead Capture service page
+│   ├── portfolio-web/     # Portfolio page
+│   ├── innovation-log/    # Blog/Innovation log
+│   ├── seo-audit/         # SEO audit tool page
+│   ├── privacy-policy/    # Privacy policy
+│   ├── terms-conditions/  # Terms and conditions
+│   ├── cookies-policy/    # Cookies policy
+│   └── api/               # API routes (WordPress proxy)
+├── components/            # Shared React components
+│   ├── Header.tsx         # Site header with navigation
+│   └── Footer.tsx         # Site footer with links
+├── hooks/                 # Custom React hooks
+│   ├── useScrollAnimation.ts  # Scroll-triggered animations
+│   ├── useParticles.ts       # Particle effect system
+│   └── index.ts              # Barrel export
+└── public/                # Static assets
+    └── images/            # Images including logo
+```
 
-## Learn More
+## 🎨 Design System
 
-To learn more about Next.js, take a look at the following resources:
+The project uses CSS custom properties (design tokens) defined in `globals.css`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Colors
+- `--royal-purple`: Primary dark background
+- `--secondary-pink`: Accent color
+- `--gradient-purple`: Primary gradient
+- `--gradient-accent`: Accent gradient
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Spacing
+- `--space-xs` to `--space-4xl`: Consistent spacing scale
 
-## Deploy on Vercel
+### Typography
+- `--font-size-xs` to `--font-size-5xl`: Font size scale
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Layout
+- `--header-height`: Header height (responsive)
+- `--max-width`: Container max width
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔧 Key Features
+
+- **AI Lead Capture** - Service pages showcasing automation capabilities
+- **WordPress Integration** - Blog content proxied via API routes
+- **GoHighLevel Integration** - Embedded booking widgets and forms
+- **Scroll Animations** - Custom hooks for intersection observer animations
+- **Particle Effects** - React-based particle system
+- **Responsive Design** - Mobile-first responsive layouts
+- **Security Headers** - XSS protection, clickjacking prevention
+
+## 📦 Dependencies
+
+### Production
+- `next` - React framework
+- `react` / `react-dom` - UI library
+
+### Development
+- `typescript` - Type safety
+- `tailwindcss` - Utility CSS
+- `eslint` - Code linting
+
+## 🧪 Scripts
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
+
+## 🔒 Security
+
+Security headers are configured in `next.config.ts`:
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: SAMEORIGIN`
+- `X-XSS-Protection: 1; mode=block`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+
+## 📝 Environment Variables
+
+See `.env.example` for available environment variables.
+
+Currently, no environment variables are required for basic functionality.
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+```bash
+npm run build
+```
+
+Deploy to [Vercel](https://vercel.com) for the best Next.js experience.
+
+### Other Platforms
+
+The site can be deployed to any platform that supports Next.js:
+- Netlify
+- AWS Amplify
+- Docker containers
+- Self-hosted Node.js
+
+## 📄 License
+
+Copyright © 2025 MerkadAgency. All rights reserved.
+
+## 📞 Contact
+
+- Website: [merkadagency.com](https://merkadagency.com)
+- Email: info@merkadagency.com
+- Phone: +1 (512) 434-3793

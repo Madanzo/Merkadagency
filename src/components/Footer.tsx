@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ContactForm } from './ContactForm';
 
 // Social Icons
 const FacebookIcon = () => (
@@ -57,20 +57,6 @@ const ClockIcon = () => (
 );
 
 export default function Footer() {
-    useEffect(() => {
-        // Load GoHighLevel form script
-        const script = document.createElement('script');
-        script.src = 'https://link.merkadagency.com/js/form_embed.js';
-        script.async = true;
-        document.body.appendChild(script);
-
-        return () => {
-            if (document.body.contains(script)) {
-                document.body.removeChild(script);
-            }
-        };
-    }, []);
-
     return (
         <footer className="ma-footer">
             {/* Background Pattern */}
@@ -84,25 +70,14 @@ export default function Footer() {
                         <h3 className="ma-newsletter-title">Stay Ahead with Innovation</h3>
                         <p className="ma-newsletter-text">Get the latest AI marketing insights and growth strategies delivered to your inbox</p>
 
-                        {/* Embedded GoHighLevel Form */}
+                        {/* Native Newsletter Form */}
                         <div className="ma-newsletter-form-container">
-                            <iframe
-                                src="https://link.merkadagency.com/widget/form/O02zDE04cUDyr5nA8R4c"
-                                style={{ width: '100%', height: '180px', border: 'none', borderRadius: '12px' }}
-                                id="inline-O02zDE04cUDyr5nA8R4c"
-                                data-layout="{'id':'INLINE'}"
-                                data-trigger-type="alwaysShow"
-                                data-trigger-value=""
-                                data-activation-type="alwaysActivated"
-                                data-activation-value=""
-                                data-deactivation-type="neverDeactivate"
-                                data-deactivation-value=""
-                                data-form-name="Email Capture"
-                                data-height="180"
-                                data-layout-iframe-id="inline-O02zDE04cUDyr5nA8R4c"
-                                data-form-id="O02zDE04cUDyr5nA8R4c"
-                                title="Email Capture"
-                            ></iframe>
+                            <ContactForm
+                                formType="newsletter"
+                                compact={true}
+                                submitText="Subscribe"
+                                successMessage="You're subscribed! Welcome to the innovation community."
+                            />
                         </div>
                     </div>
 
@@ -113,7 +88,7 @@ export default function Footer() {
                             <div>
                                 <Link href="/" className="ma-footer-logo">
                                     <Image
-                                        src="https://storage.googleapis.com/msgsndr/B3r5jIhXrxu7hUG7cLQF/media/68b6557a869d5bfed5327965.png"
+                                        src="/images/merkadagency-logo.png"
                                         alt="MerkadAgency"
                                         width={180}
                                         height={45}
@@ -158,7 +133,6 @@ export default function Footer() {
                                 <li><Link href="/portfolio-web/">Portfolio</Link></li>
                                 <li><Link href="/innovation-log/">Innovation Log</Link></li>
                                 <li><Link href="/seo-audit/">Free SEO Audit</Link></li>
-                                <li><Link href="/marketing-automation/">Examples</Link></li>
                                 <li><Link href="/book/">Book a Call</Link></li>
                             </ul>
                         </div>
