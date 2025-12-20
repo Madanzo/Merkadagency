@@ -34,9 +34,12 @@
     --status-error: #EF4444;
 
     /* Spacing */
-    --section-padding: 4rem; /* 64px max */
-    --section-gap-tight: 3rem; /* 48px for tightly coupled sections */
-    --hero-top-padding: 3rem; /* Keep hero in top 20% */
+    --section-padding: 4rem;
+    /* 64px max */
+    --section-padding-tight: 3rem;
+    /* 48px for tightly coupled sections */
+    --hero-top-padding: 2.5rem;
+    /* Keep hero in top 20% */
     --container-max: 1100px;
     --radius-sm: 4px;
     --radius-md: 6px;
@@ -96,9 +99,9 @@ body {
     padding-top: var(--section-gap-tight);
 }
 
-/* Final CTA Section - max 300px height */
+/* Final CTA Section - max 300px height, tight */
 .section-final-cta {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
     max-height: 300px;
     display: flex;
     align-items: center;
@@ -519,25 +522,28 @@ body>* {
     max-width: 540px;
 }
 
-/* Hero Right Column - Supporting proof */
+/* Hero Right Column - Supporting proof (gap ≤24px) */
 .hero-right {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    /* Tighter gap between video and console */
 }
 
 @media (min-width: 1024px) {
     .hero-right {
-        padding-top: 2rem; /* Align with headline baseline */
+        padding-top: 2rem;
+        /* Align with headline baseline */
     }
 }
 
-/* Status Panel - Tight coupling with CTA */
+/* Status Panel - Tight coupling with CTA (gap ≤16px) */
 .hero-status-group {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+    /* Tighter gap from CTA */
 }
 
 @media (min-width: 640px) {

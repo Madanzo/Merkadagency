@@ -3,6 +3,7 @@
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 import StatusCard from "@/components/StatusCard";
+import CalendarEmbed from "@/components/CalendarEmbed";
 
 export default function BookPage() {
     return (
@@ -63,30 +64,13 @@ export default function BookPage() {
                 </div>
             </Section>
 
-            {/* ========== BOOKING WIDGET ========== */}
-            <Section style={{ paddingTop: "3rem", paddingBottom: "3rem", textAlign: "center" }}>
-                <div style={{ maxWidth: "500px", margin: "0 auto" }}>
-                    <Card style={{ padding: "2rem 1.5rem" }}>
-                        <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem", fontSize: "0.8125rem" }}>
-                            Booking widget loading...
-                        </p>
-                        {/* TODO: Replace with Calendly or GoHighLevel embed */}
-                        <p style={{ color: "var(--text-muted)", fontSize: "0.6875rem", marginBottom: "1.5rem" }}>
-                            For now, reach out directly:
-                        </p>
-                        <a
-                            href="mailto:camilo.reyna@merkadagency.com"
-                            className="btn-primary"
-                            style={{ marginBottom: "1rem", display: "inline-block" }}
-                        >
-                            Email Us
-                        </a>
-                        <p style={{ marginTop: "1rem" }}>
-                            <a href="tel:+15124343793" style={{ color: "var(--text-secondary)", fontSize: "0.8125rem" }}>
-                                +1 (512) 434-3793
-                            </a>
-                        </p>
-                    </Card>
+            {/* ========== BOOKING CALENDAR ========== */}
+            <Section style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
+                <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+                    <p className="label" style={{ marginBottom: "1rem", textAlign: "center" }}>
+                        SELECT A TIME
+                    </p>
+                    <CalendarEmbed />
                 </div>
             </Section>
 
