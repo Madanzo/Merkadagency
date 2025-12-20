@@ -34,7 +34,9 @@
     --status-error: #EF4444;
 
     /* Spacing */
-    --section-padding: 5rem;
+    --section-padding: 4rem; /* 64px max */
+    --section-gap-tight: 3rem; /* 48px for tightly coupled sections */
+    --hero-top-padding: 3rem; /* Keep hero in top 20% */
     --container-max: 1100px;
     --radius-sm: 4px;
     --radius-md: 6px;
@@ -87,6 +89,20 @@ body {
 
 .section:last-of-type {
     border-bottom: none;
+}
+
+/* Section tight spacing - for coupled sections */
+.section-tight {
+    padding-top: var(--section-gap-tight);
+}
+
+/* Final CTA Section - max 300px height */
+.section-final-cta {
+    padding: 3rem 0;
+    max-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Typography - Technical, declarative */
@@ -483,9 +499,59 @@ body>* {
     gap: 2rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
     .hero-grid {
-        grid-template-columns: 1.2fr 1fr;
-        align-items: center;
+        grid-template-columns: 1fr 400px;
+        align-items: start;
+        gap: 3rem;
+    }
+}
+
+/* Hero Section - Top 20% viewport positioning */
+.hero-section {
+    padding-top: var(--hero-top-padding);
+    padding-bottom: var(--section-padding);
+    min-height: auto;
+}
+
+/* Hero Left Column - Primary control column */
+.hero-left {
+    max-width: 540px;
+}
+
+/* Hero Right Column - Supporting proof */
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .hero-right {
+        padding-top: 2rem; /* Align with headline baseline */
+    }
+}
+
+/* Status Panel - Tight coupling with CTA */
+.hero-status-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .hero-status-group {
+        flex-direction: row;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+}
+
+/* Mobile touch targets */
+@media (max-width: 1023px) {
+    .btn-primary {
+        min-height: 44px;
+        padding: 0.875rem 1.5rem;
     }
 }

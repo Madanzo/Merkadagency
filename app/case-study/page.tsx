@@ -16,18 +16,20 @@ export default function CaseStudyPage() {
     return (
         <main>
             {/* ========== HERO ========== */}
-            <Section style={{ minHeight: "50vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                <p className="label" style={{ marginBottom: "0.5rem" }}>
-                    CASE STUDY
-                </p>
-                <h1 style={{ marginBottom: "1rem", maxWidth: "700px" }}>
-                    Cannabis Dispensary: Lead Response System
-                </h1>
-                <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", maxWidth: "520px", marginBottom: "1.5rem", lineHeight: "1.7" }}>
-                    Multi-location dispensary. Leads were going cold. No follow-up system in place.
-                </p>
-                <ConsolePanel style={{ maxWidth: "300px" }} />
-            </Section>
+            <section className="section hero-section">
+                <div className="container">
+                    <p className="label" style={{ marginBottom: "0.5rem" }}>
+                        CASE STUDY
+                    </p>
+                    <h1 style={{ marginBottom: "1rem", maxWidth: "700px" }}>
+                        Cannabis Dispensary: Lead Response System
+                    </h1>
+                    <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", maxWidth: "520px", marginBottom: "1.5rem", lineHeight: "1.7" }}>
+                        Multi-location dispensary. Leads were going cold. No follow-up system in place.
+                    </p>
+                    <ConsolePanel style={{ maxWidth: "300px" }} />
+                </div>
+            </section>
 
             {/* ========== INPUTS ========== */}
             <Section elevated>
@@ -48,7 +50,7 @@ export default function CaseStudyPage() {
             </Section>
 
             {/* ========== SYSTEM CHANGES ========== */}
-            <Section>
+            <Section style={{ paddingTop: "3rem" }}>
                 <p className="label" style={{ marginBottom: "0.5rem" }}>
                     SYSTEM CHANGES
                 </p>
@@ -67,7 +69,7 @@ export default function CaseStudyPage() {
                     OUTPUTS
                 </p>
                 <h2 style={{ marginBottom: "1.5rem" }}>Results after 60 days.</h2>
-                <div className="grid-3" style={{ marginBottom: "2rem" }}>
+                <div className="grid-3" style={{ marginBottom: "1.5rem" }}>
                     <Card>
                         <p className="label" style={{ marginBottom: "0.25rem" }}>RESPONSE TIME</p>
                         <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>&lt; 2 min</p>
@@ -102,13 +104,15 @@ export default function CaseStudyPage() {
             </Section>
 
             {/* ========== FINAL CTA ========== */}
-            <Section centered>
-                <h2 style={{ marginBottom: "0.5rem" }}>Ready to see similar results?</h2>
-                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginBottom: "1.5rem" }}>
-                    One call to map your system.
-                </p>
-                <CTAButton location="case-study-final" />
-            </Section>
+            <section className="section section-final-cta" style={{ textAlign: "center" }}>
+                <div className="container">
+                    <h2 style={{ marginBottom: "0.5rem" }}>Ready to see similar results?</h2>
+                    <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginBottom: "1.25rem" }}>
+                        One call to map your system.
+                    </p>
+                    <CTAButton location="case-study-final" />
+                </div>
+            </section>
         </main>
     );
 }

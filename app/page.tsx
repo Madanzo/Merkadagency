@@ -13,52 +13,46 @@ export default function HomePage() {
     return (
         <main>
             {/* ========== HERO ========== */}
-            <Section style={{ minHeight: "90vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                {/* Hero Grid - Text left, Video right on desktop */}
-                <div
-                    style={{
-                        display: "grid",
-                        gridTemplateColumns: "1fr",
-                        gap: "2rem",
-                    }}
-                    className="hero-grid"
-                >
-                    {/* Left: Text content */}
-                    <div>
-                        <p className="label" style={{ marginBottom: "0.75rem" }}>
-                            ACQUISITION INFRASTRUCTURE
-                        </p>
-                        <h1 style={{ marginBottom: "1rem", maxWidth: "700px" }}>
-                            AI-Driven Acquisition Systems Built to Convert
-                        </h1>
-                        <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", maxWidth: "520px", marginBottom: "1.75rem", lineHeight: "1.7" }}>
-                            Conversion infrastructure that turns traffic into booked conversations.
-                            Measured by cost per lead and response time.
-                        </p>
-                        <CTAButton location="hero" />
+            <section className="section hero-section">
+                <div className="container">
+                    <div className="hero-grid">
+                        {/* Left Column: Primary / Dominant */}
+                        <div className="hero-left">
+                            <p className="label" style={{ marginBottom: "0.75rem" }}>
+                                ACQUISITION INFRASTRUCTURE
+                            </p>
+                            <h1 style={{ marginBottom: "1rem" }}>
+                                AI-Driven Acquisition Systems Built to Convert
+                            </h1>
+                            <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", marginBottom: "1.5rem", lineHeight: "1.7" }}>
+                                Conversion infrastructure that turns traffic into booked conversations.
+                                Measured by cost per lead and response time.
+                            </p>
+                            <CTAButton location="hero" />
 
-                        {/* System Panels */}
-                        <div style={{ display: "flex", gap: "1rem", marginTop: "2.5rem", flexWrap: "wrap" }}>
-                            <StatusCard
-                                title="STATUS"
-                                items={[
-                                    { label: "Conversion funnel", value: "ACTIVE", active: true },
-                                    { label: "Follow-ups", value: "AUTOMATED", active: true },
-                                    { label: "Response time", value: "< 60s" },
-                                    { label: "Bottlenecks", value: "IDENTIFIED" },
-                                ]}
-                                style={{ maxWidth: "260px", flex: "1 1 200px" }}
-                            />
-                            <ConsolePanel style={{ maxWidth: "260px", flex: "1 1 200px" }} />
+                            {/* Status Panel - Tightly coupled with CTA */}
+                            <div className="hero-status-group">
+                                <StatusCard
+                                    title="STATUS"
+                                    items={[
+                                        { label: "Conversion funnel", value: "ACTIVE", active: true },
+                                        { label: "Follow-ups", value: "AUTOMATED", active: true },
+                                        { label: "Response time", value: "< 60s" },
+                                        { label: "Bottlenecks", value: "IDENTIFIED" },
+                                    ]}
+                                    style={{ maxWidth: "260px", flex: "1 1 200px" }}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Right Column: Supporting Proof */}
+                        <div className="hero-right">
+                            <SystemBriefVideo style={{ width: "100%", maxWidth: "400px" }} />
+                            <ConsolePanel style={{ maxWidth: "400px" }} />
                         </div>
                     </div>
-
-                    {/* Right: Video (desktop) / Below status (mobile) */}
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                        <SystemBriefVideo style={{ width: "100%", maxWidth: "400px" }} />
-                    </div>
                 </div>
-            </Section>
+            </section>
 
             {/* ========== PROBLEM ========== */}
             <Section elevated>
@@ -78,7 +72,7 @@ export default function HomePage() {
             </Section>
 
             {/* ========== SYSTEM ========== */}
-            <Section>
+            <Section style={{ paddingTop: "3rem" }}>
                 <p className="label" style={{ marginBottom: "0.5rem" }}>SYSTEM</p>
                 <h2 style={{ marginBottom: "1.25rem", maxWidth: "500px" }}>
                     We build the infrastructure — not just the ads.
@@ -131,10 +125,10 @@ export default function HomePage() {
             </Section>
 
             {/* ========== PROCESS ========== */}
-            <Section>
+            <Section style={{ paddingTop: "3rem" }}>
                 <p className="label" style={{ marginBottom: "0.5rem" }}>PROCESS</p>
-                <h2 style={{ marginBottom: "2rem" }}>How we work.</h2>
-                <div className="grid-3" style={{ marginBottom: "2rem" }}>
+                <h2 style={{ marginBottom: "1.5rem" }}>How we work.</h2>
+                <div className="grid-3" style={{ marginBottom: "1.5rem" }}>
                     <div>
                         <span className="step-number">01</span>
                         <h3 style={{ margin: "0.5rem 0 0.375rem" }}>Discovery</h3>
@@ -161,13 +155,15 @@ export default function HomePage() {
             </Section>
 
             {/* ========== FINAL CTA ========== */}
-            <Section elevated centered>
-                <h2 style={{ marginBottom: "0.5rem" }}>Ready to fix the system?</h2>
-                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginBottom: "1.5rem" }}>
-                    One call. Identify bottlenecks. Get a strategy.
-                </p>
-                <CTAButton location="final-cta" />
-            </Section>
+            <section className="section section-final-cta bg-elevated" style={{ textAlign: "center" }}>
+                <div className="container">
+                    <h2 style={{ marginBottom: "0.5rem" }}>Ready to fix the system?</h2>
+                    <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginBottom: "1.25rem" }}>
+                        One call. Identify bottlenecks. Get a strategy.
+                    </p>
+                    <CTAButton location="final-cta" />
+                </div>
+            </section>
         </main>
     );
 }

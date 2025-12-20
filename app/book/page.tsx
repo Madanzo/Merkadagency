@@ -8,32 +8,34 @@ export default function BookPage() {
     return (
         <main>
             {/* ========== HERO ========== */}
-            <Section style={{ paddingTop: "3rem", paddingBottom: "2rem", textAlign: "center" }}>
-                <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-                    <p className="label" style={{ marginBottom: "0.5rem" }}>
-                        BOOK CONSULTATION
-                    </p>
-                    <h1 style={{ marginBottom: "1rem" }}>Strategy Call</h1>
-                    <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", marginBottom: "1.5rem" }}>
-                        A short call to map your bottlenecks. No pressure.
-                    </p>
+            <section className="section hero-section" style={{ textAlign: "center" }}>
+                <div className="container">
+                    <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+                        <p className="label" style={{ marginBottom: "0.5rem" }}>
+                            BOOK CONSULTATION
+                        </p>
+                        <h1 style={{ marginBottom: "1rem" }}>Strategy Call</h1>
+                        <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", marginBottom: "1.5rem" }}>
+                            A short call to map your bottlenecks. No pressure.
+                        </p>
 
-                    {/* Process Status */}
-                    <StatusCard
-                        title="PROCESS"
-                        items={[
-                            { label: "Duration", value: "15 MIN" },
-                            { label: "Format", value: "VIDEO CALL" },
-                            { label: "Follow-up", value: "< 24h", active: true },
-                            { label: "Pressure", value: "NONE", active: true },
-                        ]}
-                        style={{ maxWidth: "260px", margin: "0 auto", textAlign: "left" }}
-                    />
+                        {/* Process Status */}
+                        <StatusCard
+                            title="PROCESS"
+                            items={[
+                                { label: "Duration", value: "15 MIN" },
+                                { label: "Format", value: "VIDEO CALL" },
+                                { label: "Follow-up", value: "< 24h", active: true },
+                                { label: "Pressure", value: "NONE", active: true },
+                            ]}
+                            style={{ maxWidth: "260px", margin: "0 auto", textAlign: "left" }}
+                        />
+                    </div>
                 </div>
-            </Section>
+            </section>
 
             {/* ========== FIT CHECK ========== */}
-            <Section elevated style={{ paddingTop: "2rem" }}>
+            <Section elevated style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
                 <div style={{ maxWidth: "700px", margin: "0 auto" }}>
                     <div className="grid-2">
                         <Card>
@@ -62,9 +64,9 @@ export default function BookPage() {
             </Section>
 
             {/* ========== BOOKING WIDGET ========== */}
-            <Section style={{ paddingTop: "2rem", paddingBottom: "2rem", textAlign: "center" }}>
+            <Section style={{ paddingTop: "3rem", paddingBottom: "3rem", textAlign: "center" }}>
                 <div style={{ maxWidth: "500px", margin: "0 auto" }}>
-                    <Card style={{ padding: "2.5rem 2rem" }}>
+                    <Card style={{ padding: "2rem 1.5rem" }}>
                         <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem", fontSize: "0.8125rem" }}>
                             Booking widget loading...
                         </p>

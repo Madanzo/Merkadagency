@@ -10,33 +10,35 @@ export default function ServicesPage() {
     return (
         <main>
             {/* ========== HERO ========== */}
-            <Section style={{ minHeight: "70vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                <p className="label" style={{ marginBottom: "0.5rem" }}>
-                    CRM AUTOMATION
-                </p>
-                <h1 style={{ marginBottom: "1rem", maxWidth: "700px" }}>
-                    Lead Capture and Response Infrastructure
-                </h1>
-                <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", maxWidth: "520px", marginBottom: "1.75rem", lineHeight: "1.7" }}>
-                    Automated systems that capture, qualify, and follow up with leads until a conversation happens.
-                </p>
-                <CTAButton location="services-hero" />
+            <section className="section hero-section">
+                <div className="container">
+                    <p className="label" style={{ marginBottom: "0.5rem" }}>
+                        CRM AUTOMATION
+                    </p>
+                    <h1 style={{ marginBottom: "1rem", maxWidth: "700px" }}>
+                        Lead Capture and Response Infrastructure
+                    </h1>
+                    <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", maxWidth: "520px", marginBottom: "1.5rem", lineHeight: "1.7" }}>
+                        Automated systems that capture, qualify, and follow up with leads until a conversation happens.
+                    </p>
+                    <CTAButton location="services-hero" />
 
-                {/* System Panels */}
-                <div style={{ display: "flex", gap: "1rem", marginTop: "2.5rem", flexWrap: "wrap" }}>
-                    <StatusCard
-                        title="SYSTEM"
-                        items={[
-                            { label: "Lead capture", value: "AUTOMATED", active: true },
-                            { label: "Follow-up sequence", value: "ACTIVE", active: true },
-                            { label: "Response time", value: "< 60s" },
-                            { label: "Manual chasing", value: "ELIMINATED", active: true },
-                        ]}
-                        style={{ maxWidth: "260px", flex: "1 1 240px" }}
-                    />
-                    <CRMConsolePanel style={{ maxWidth: "280px", flex: "1 1 240px" }} />
+                    {/* System Panels */}
+                    <div className="hero-status-group">
+                        <StatusCard
+                            title="SYSTEM"
+                            items={[
+                                { label: "Lead capture", value: "AUTOMATED", active: true },
+                                { label: "Follow-up sequence", value: "ACTIVE", active: true },
+                                { label: "Response time", value: "< 60s" },
+                                { label: "Manual chasing", value: "ELIMINATED", active: true },
+                            ]}
+                            style={{ maxWidth: "260px", flex: "1 1 240px" }}
+                        />
+                        <CRMConsolePanel style={{ maxWidth: "280px", flex: "1 1 240px" }} />
+                    </div>
                 </div>
-            </Section>
+            </section>
 
             {/* ========== PROBLEM REMOVED ========== */}
             <Section elevated>
@@ -55,7 +57,7 @@ export default function ServicesPage() {
             </Section>
 
             {/* ========== WHAT'S AUTOMATED ========== */}
-            <Section>
+            <Section style={{ paddingTop: "3rem" }}>
                 <p className="label" style={{ marginBottom: "0.5rem" }}>
                     AUTOMATED
                 </p>
@@ -93,7 +95,7 @@ export default function ServicesPage() {
             </Section>
 
             {/* ========== FIT CHECK ========== */}
-            <Section>
+            <Section style={{ paddingTop: "3rem" }}>
                 <p className="label" style={{ marginBottom: "0.5rem" }}>
                     FIT CHECK
                 </p>
@@ -119,13 +121,15 @@ export default function ServicesPage() {
             </Section>
 
             {/* ========== FINAL CTA ========== */}
-            <Section elevated centered>
-                <h2 style={{ marginBottom: "0.5rem" }}>Ready to automate?</h2>
-                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginBottom: "1.5rem" }}>
-                    One call to map your bottlenecks.
-                </p>
-                <CTAButton location="services-final" />
-            </Section>
+            <section className="section section-final-cta bg-elevated" style={{ textAlign: "center" }}>
+                <div className="container">
+                    <h2 style={{ marginBottom: "0.5rem" }}>Ready to automate?</h2>
+                    <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginBottom: "1.25rem" }}>
+                        One call to map your bottlenecks.
+                    </p>
+                    <CTAButton location="services-final" />
+                </div>
+            </section>
         </main>
     );
 }
