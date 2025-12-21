@@ -10,6 +10,7 @@ interface TrackedCTAProps {
     className?: string;
     style?: React.CSSProperties;
     children: ReactNode;
+    onClick?: () => void;
 }
 
 export default function TrackedCTA({
@@ -18,9 +19,11 @@ export default function TrackedCTA({
     className,
     style,
     children,
+    onClick,
 }: TrackedCTAProps) {
     const handleClick = () => {
         trackCTAClick(location);
+        onClick?.();
     };
 
     return (
