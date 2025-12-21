@@ -1,27 +1,42 @@
 import { NextRequest, NextResponse } from "next/server";
-import { initializeApp, getApps, cert } from "firebase-admin/app";
+import { initializeApp, getApps, cert, App } from "firebase-admin/app";
 import { getFirestore, Timestamp } from "firebase-admin/firestore";
 
-// Initialize Firebase Admin for server-side operations
-// Note: For production, use service account credentials
-const getAdminApp = () => {
-    if (getApps().length === 0) {
-        // In production, use service account from environment variable
-        // For now, using default credentials (works in Firebase-hosted environments)
-        // or you can add FIREBASE_SERVICE_ACCOUNT_KEY env variable
-        if (process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
-            const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
-            return initializeApp({
+// Singleton for Firebase Admin
+let adminApp: App | null = null;
+
+const getAdminApp = (): App => {
+    if (adminApp) {
+        return adminApp;
+    }
+
+    if (getApps().length > 0) {
+        adminApp = getApps()[0];
+        return adminApp;
+    }
+
+    // Check for service account key
+    const serviceAccountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
+
+    if (serviceAccountKey) {
+        console.log("[Cal Webhook] Initializing with service account credentials");
+        try {
+            const serviceAccount = JSON.parse(serviceAccountKey);
+            adminApp = initializeApp({
                 credential: cert(serviceAccount),
                 projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
             });
+            return adminApp;
+        } catch (parseError) {
+            console.error("[Cal Webhook] Failed to parse service account key:", parseError);
+            throw new Error("Invalid FIREBASE_SERVICE_ACCOUNT_KEY format");
         }
-        // Fallback: Initialize without credentials (limited functionality)
-        return initializeApp({
-            projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-        });
     }
-    return getApps()[0];
+
+    // No service account - this won't work for Firestore writes
+    console.error("[Cal Webhook] ERROR: FIREBASE_SERVICE_ACCOUNT_KEY not set!");
+    console.error("[Cal Webhook] The webhook cannot write to Firestore without service account credentials.");
+    throw new Error("Firebase Admin requires FIREBASE_SERVICE_ACCOUNT_KEY environment variable");
 };
 
 interface CalBookingPayload {
@@ -44,33 +59,58 @@ interface CalBookingPayload {
 }
 
 export async function POST(request: NextRequest) {
+    console.log("[Cal Webhook] ========== REQUEST RECEIVED ==========");
+    console.log("[Cal Webhook] Time:", new Date().toISOString());
+
     try {
-        // Verify webhook secret (optional but recommended)
+        // Log headers for debugging
+        const contentType = request.headers.get("content-type");
+        console.log("[Cal Webhook] Content-Type:", contentType);
+
+        // Check webhook secret
         const webhookSecret = process.env.CAL_WEBHOOK_SECRET;
-        if (webhookSecret) {
-            const authHeader = request.headers.get("authorization");
-            if (authHeader !== `Bearer ${webhookSecret}`) {
-                console.warn("Cal.com webhook: Invalid authorization");
-                // Still process for now, but log warning
-            }
+        const authHeader = request.headers.get("authorization");
+        console.log("[Cal Webhook] Auth header present:", !!authHeader);
+        console.log("[Cal Webhook] Webhook secret configured:", !!webhookSecret);
+
+        // Parse body
+        const rawBody = await request.text();
+        console.log("[Cal Webhook] Raw body length:", rawBody.length);
+        console.log("[Cal Webhook] Raw body preview:", rawBody.substring(0, 500));
+
+        let body: CalBookingPayload;
+        try {
+            body = JSON.parse(rawBody);
+        } catch (parseError) {
+            console.error("[Cal Webhook] Failed to parse JSON:", parseError);
+            return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
         }
 
-        const body: CalBookingPayload = await request.json();
+        console.log("[Cal Webhook] Trigger event:", body.triggerEvent);
+        console.log("[Cal Webhook] Payload keys:", Object.keys(body.payload || {}));
 
         // Only process booking confirmations
         if (body.triggerEvent !== "BOOKING_CREATED") {
-            return NextResponse.json({ received: true, processed: false });
+            console.log("[Cal Webhook] Ignoring event (not BOOKING_CREATED)");
+            return NextResponse.json({ received: true, processed: false, reason: "Event type not handled" });
         }
 
-        const attendee = body.payload.attendees?.[0];
+        const attendee = body.payload?.attendees?.[0];
         if (!attendee) {
-            console.error("Cal.com webhook: No attendee in payload");
-            return NextResponse.json({ error: "No attendee" }, { status: 400 });
+            console.error("[Cal Webhook] No attendee in payload");
+            console.log("[Cal Webhook] Attendees array:", body.payload?.attendees);
+            return NextResponse.json({ error: "No attendee in payload" }, { status: 400 });
         }
 
-        // Initialize admin and create lead
+        console.log("[Cal Webhook] Attendee found:", { name: attendee.name, email: attendee.email });
+
+        // Initialize Firebase Admin
+        console.log("[Cal Webhook] Initializing Firebase Admin...");
         const app = getAdminApp();
+        console.log("[Cal Webhook] Firebase Admin initialized successfully");
+
         const db = getFirestore(app);
+        console.log("[Cal Webhook] Firestore instance obtained");
 
         const now = Timestamp.now();
         const leadData = {
@@ -89,17 +129,46 @@ export async function POST(request: NextRequest) {
             ],
         };
 
-        await db.collection("leads").add(leadData);
+        console.log("[Cal Webhook] Lead data prepared:", JSON.stringify(leadData, null, 2));
+        console.log("[Cal Webhook] Writing to Firestore...");
 
-        console.log(`Cal.com webhook: Lead created for ${attendee.email}`);
-        return NextResponse.json({ received: true, processed: true });
+        const docRef = await db.collection("leads").add(leadData);
+
+        console.log("[Cal Webhook] ✅ SUCCESS! Lead created with ID:", docRef.id);
+        console.log("[Cal Webhook] ========== REQUEST COMPLETE ==========");
+
+        return NextResponse.json({
+            received: true,
+            processed: true,
+            leadId: docRef.id,
+            email: attendee.email
+        });
     } catch (error) {
-        console.error("Cal.com webhook error:", error);
-        return NextResponse.json({ error: "Internal error" }, { status: 500 });
+        console.error("[Cal Webhook] ❌ ERROR:", error);
+        console.error("[Cal Webhook] Error type:", typeof error);
+        console.error("[Cal Webhook] Error message:", error instanceof Error ? error.message : String(error));
+        console.error("[Cal Webhook] Error stack:", error instanceof Error ? error.stack : "No stack");
+        console.log("[Cal Webhook] ========== REQUEST FAILED ==========");
+
+        return NextResponse.json({
+            error: "Internal error",
+            message: error instanceof Error ? error.message : "Unknown error"
+        }, { status: 500 });
     }
 }
 
 // Handle GET for webhook verification
 export async function GET() {
-    return NextResponse.json({ status: "Cal.com webhook endpoint active" });
+    console.log("[Cal Webhook] GET request - health check");
+    const hasServiceAccount = !!process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
+    const hasProjectId = !!process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
+
+    return NextResponse.json({
+        status: "Cal.com webhook endpoint active",
+        timestamp: new Date().toISOString(),
+        config: {
+            serviceAccountConfigured: hasServiceAccount,
+            projectIdConfigured: hasProjectId,
+        }
+    });
 }
