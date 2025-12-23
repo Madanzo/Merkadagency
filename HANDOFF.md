@@ -1,6 +1,6 @@
 # MerkadAgency - Project Handoff Document
 
-> Last Updated: December 20, 2024
+> Last Updated: December 21, 2024
 
 ## Current Project State
 
@@ -18,10 +18,10 @@
 
 ## Tech Stack
 
-- **Framework:** Next.js 15.5.9 (App Router)
-- **React:** 19
-- **TypeScript:** 5.x
-- **Styling:** Vanilla CSS (globals.css design system)
+- **Framework:** Next.js 15.1.0 (App Router)
+- **React:** 19.0.0
+- **TypeScript:** 5.7.2
+- **Styling:** Vanilla CSS (globals.css design system) + Tailwind CSS 4.0
 - **Database:** Firebase Firestore
 - **Auth:** Firebase Authentication (Google provider)
 - **Deployment:** Vercel
@@ -111,7 +111,7 @@ CAL_WEBHOOK_SECRET=
 ├── app/
 │   ├── layout.tsx              # Root layout with Header/Footer
 │   ├── page.tsx                # Homepage
-│   ├── globals.css             # Design system tokens
+│   ├── globals.css             # Design system tokens + CSS variables
 │   ├── admin/
 │   │   └── page.tsx            # Admin CRM dashboard
 │   ├── api/
@@ -121,6 +121,7 @@ CAL_WEBHOOK_SECRET=
 │   ├── book/
 │   │   └── page.tsx            # Cal.com booking embed
 │   ├── case-study/
+│   │   ├── layout.tsx          # Case study shared layout
 │   │   ├── page.tsx            # Case study index
 │   │   └── kravingsclub/
 │   │       └── page.tsx        # Kravings Club case study
@@ -157,7 +158,9 @@ CAL_WEBHOOK_SECRET=
 │
 ├── .env.local                  # Local environment variables (not committed)
 ├── .env.example                # Example env file template
+├── BRAND.md                    # Branding guidelines
 ├── next.config.ts              # Next.js configuration
+├── postcss.config.mjs          # PostCSS configuration for Tailwind
 ├── package.json
 └── tsconfig.json
 ```
@@ -220,3 +223,39 @@ npm run build
 2. Vercel auto-deploys from GitHub
 3. Ensure all environment variables are set in Vercel dashboard
 4. Configure Cal.com webhook to point to `https://www.merkadagency.com/api/webhooks/cal`
+
+---
+
+## Testing the Funnel
+
+Verify the complete user journey works end-to-end:
+
+### 1. Landing → Services Flow
+- [ ] Navigate to homepage (`/`)
+- [ ] Click "Services" or CTA buttons
+- [ ] Verify `/services` page loads correctly
+- [ ] Check all content, images, and animations render
+
+### 2. Booking Flow
+- [ ] Click "Book a Call" CTA from any page
+- [ ] Verify `/book` page loads with Cal.com embed
+- [ ] Complete a test booking (use test email)
+- [ ] Confirm booking confirmation appears
+
+### 3. Webhook → CRM Flow
+- [ ] After booking, check `/admin` dashboard
+- [ ] Verify new lead appears with status `booked`
+- [ ] Confirm lead details (name, email, phone) are correct
+- [ ] Test lead status transitions work
+
+### 4. Case Study Flow
+- [ ] Navigate to `/case-study`
+- [ ] Click into `/case-study/kravingsclub`
+- [ ] Verify all content, stats, and images load
+- [ ] Check CTA buttons link to booking page
+
+### 5. Analytics Verification
+- [ ] Open browser DevTools → Network tab
+- [ ] Navigate through funnel pages
+- [ ] Confirm GA4 events fire for page views
+- [ ] Verify CTA click events are tracked

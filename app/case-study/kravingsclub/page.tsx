@@ -4,6 +4,7 @@ import Section from "@/components/Section";
 import StatusCard from "@/components/StatusCard";
 import CTAButton from "@/components/CTAButton";
 import Card from "@/components/Card";
+import ImageLightbox from "@/components/ImageLightbox";
 
 /**
  * Kravings Club Case Study
@@ -49,10 +50,9 @@ export default function KravingsClubCaseStudy() {
                                 overflow: "hidden",
                                 border: "1px solid var(--border-subtle)",
                             }}>
-                                <img
+                                <ImageLightbox
                                     src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FScreenshot%202025-08-21%20153207.png?alt=media&token=87afa2fd-ca5f-4683-ad24-fecb592cca89"
                                     alt="Kravings Club Website"
-                                    style={{ width: "100%", height: "auto", display: "block" }}
                                 />
                             </div>
                         </div>
@@ -127,10 +127,9 @@ export default function KravingsClubCaseStudy() {
                             overflow: "hidden",
                             border: "1px solid var(--border-subtle)",
                         }}>
-                            <img
+                            <ImageLightbox
                                 src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FScreenshot%202025-08-21%20153207.png?alt=media&token=87afa2fd-ca5f-4683-ad24-fecb592cca89"
                                 alt="Kravings Club Website"
-                                style={{ width: "100%", height: "auto", display: "block" }}
                             />
                         </div>
                     </div>
@@ -160,14 +159,14 @@ export default function KravingsClubCaseStudy() {
                             <li><span className="icon icon-active">→</span>Review requests</li>
                         </ul>
                     </div>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0.75rem" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0.5rem", alignItems: "end" }}>
                         {[
                             "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FSMS%201.jpg?alt=media&token=c40ef68e-31f7-47a2-a3be-164fae223363",
                             "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FSMS%202.jpg?alt=media&token=6e2cf95c-e378-47d2-97ec-af1c7a3d2976",
                             "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FSMS%203.jpg?alt=media&token=956641f7-420c-4dd1-8582-87fb43525b3b",
                         ].map((src, i) => (
-                            <div key={i} style={{ borderRadius: "var(--radius-sm)", overflow: "hidden", border: "1px solid var(--border-subtle)" }}>
-                                <img src={src} alt={`SMS Screenshot ${i + 1}`} style={{ width: "100%", height: "auto", display: "block" }} />
+                            <div key={i} style={{ borderRadius: "var(--radius-sm)", overflow: "hidden", border: "1px solid var(--border-subtle)", maxHeight: "400px" }}>
+                                <ImageLightbox src={src} alt={`SMS Screenshot ${i + 1}`} style={{ maxHeight: "400px", objectFit: "contain" }} />
                             </div>
                         ))}
                     </div>
@@ -195,15 +194,15 @@ export default function KravingsClubCaseStudy() {
                             <li><span className="icon icon-active">→</span>Review requests</li>
                         </ul>
                     </div>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "0.75rem" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "0.5rem" }}>
                         {[
                             "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Fkravings-email1.png?alt=media&token=84e7dadb-2ac7-4fc3-be6b-9f4cd19033f1",
                             "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Fkravings-email2.png?alt=media&token=ce8b23e0-de09-4d03-aa66-043316df5628",
                             "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Fkravings-email3.png?alt=media&token=43b5bc06-cd50-4532-a45a-151d65bcf0d4",
                             "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Fkravings-email4.png?alt=media&token=bda0de8f-61b1-4efb-8644-13d1dd8028c1",
                         ].map((src, i) => (
-                            <div key={i} style={{ borderRadius: "var(--radius-sm)", overflow: "hidden", border: "1px solid var(--border-subtle)" }}>
-                                <img src={src} alt={`Email Screenshot ${i + 1}`} style={{ width: "100%", height: "auto", display: "block" }} />
+                            <div key={i} style={{ borderRadius: "var(--radius-sm)", overflow: "hidden", border: "1px solid var(--border-subtle)", maxHeight: "300px" }}>
+                                <ImageLightbox src={src} alt={`Email Screenshot ${i + 1}`} style={{ maxHeight: "300px", objectFit: "cover" }} />
                             </div>
                         ))}
                     </div>
@@ -238,10 +237,9 @@ export default function KravingsClubCaseStudy() {
                         overflow: "hidden",
                         border: "1px solid var(--border-subtle)",
                     }}>
-                        <img
+                        <ImageLightbox
                             src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Fgoogle%20rankings%20kravings.png?alt=media&token=640525af-64a6-4891-9939-0db521cc7253"
                             alt="Google Rankings"
-                            style={{ width: "100%", height: "auto", display: "block" }}
                         />
                     </div>
                 </div>
@@ -252,51 +250,67 @@ export default function KravingsClubCaseStudy() {
                 <p className="label" style={{ marginBottom: "0.5rem" }}>OUTPUTS</p>
                 <h2 style={{ marginBottom: "1.5rem" }}>Results After 4 Months</h2>
 
-                {/* Revenue - 2 column layout: metrics left, images right */}
-                <div className="outputs-grid-revenue" style={{ marginBottom: "2.5rem" }}>
+                {/* Revenue - Paired cards with screenshots */}
+                <div style={{ marginBottom: "2.5rem" }}>
+                    <h3 style={{ marginBottom: "1rem", color: "var(--text-primary)" }}>Revenue Growth</h3>
                     <style jsx>{`
-                        .outputs-grid-revenue {
+                        .revenue-row {
                             display: grid;
                             grid-template-columns: 1fr;
-                            gap: 2rem;
-                            align-items: start;
+                            gap: 1rem;
+                            align-items: center;
+                            margin-bottom: 1rem;
                         }
-                        @media (min-width: 1024px) {
-                            .outputs-grid-revenue {
+                        @media (min-width: 768px) {
+                            .revenue-row {
                                 grid-template-columns: 1fr 1.5fr;
                             }
                         }
                     `}</style>
-                    <div>
-                        <h3 style={{ marginBottom: "1rem", color: "var(--text-primary)" }}>Revenue Growth</h3>
-                        <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-                            <Card>
-                                <p className="label" style={{ marginBottom: "0.25rem" }}>DECEMBER</p>
-                                <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>$1,659</p>
-                                <p style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>net sales</p>
-                            </Card>
-                            <Card>
-                                <p className="label" style={{ marginBottom: "0.25rem" }}>JANUARY</p>
-                                <p style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--status-active)" }}>$5,674</p>
-                                <p style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>+3.4x increase</p>
-                            </Card>
-                            <Card>
-                                <p className="label" style={{ marginBottom: "0.25rem" }}>MARCH</p>
-                                <p style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--status-active)" }}>$6,988</p>
-                                <p style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>+4.2x from start</p>
-                            </Card>
+
+                    {/* December */}
+                    <div className="revenue-row">
+                        <Card>
+                            <p className="label" style={{ marginBottom: "0.25rem" }}>DECEMBER</p>
+                            <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>$1,659</p>
+                            <p style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>net sales</p>
+                        </Card>
+                        <div style={{ borderRadius: "var(--radius-sm)", overflow: "hidden", border: "1px solid var(--border-subtle)", maxWidth: "400px" }}>
+                            <ImageLightbox
+                                src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Frevenue-12.24-01.25.png?alt=media&token=d4ab92c8-6fe6-4a75-a9aa-1e24f5e02b78"
+                                alt="December Revenue Dashboard"
+                            />
                         </div>
                     </div>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "0.75rem" }}>
-                        {[
-                            "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Frevenue-12.24-01.25.png?alt=media&token=d4ab92c8-6fe6-4a75-a9aa-1e24f5e02b78",
-                            "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Frevenue-01.25-02.25.png?alt=media&token=7f92d550-f0e9-47f9-8d3a-a5032ad972ed",
-                            "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Frevenue-03.25-04.25.png?alt=media&token=89817fec-22f4-4178-a350-73f5654aeb75",
-                        ].map((src, i) => (
-                            <div key={i} style={{ borderRadius: "var(--radius-sm)", overflow: "hidden", border: "1px solid var(--border-subtle)" }}>
-                                <img src={src} alt={`Revenue Month ${i + 1}`} style={{ width: "100%", height: "auto", display: "block" }} />
-                            </div>
-                        ))}
+
+                    {/* January */}
+                    <div className="revenue-row">
+                        <Card>
+                            <p className="label" style={{ marginBottom: "0.25rem" }}>JANUARY</p>
+                            <p style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--status-active)" }}>$5,674</p>
+                            <p style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>+3.4x increase</p>
+                        </Card>
+                        <div style={{ borderRadius: "var(--radius-sm)", overflow: "hidden", border: "1px solid var(--border-subtle)", maxWidth: "400px" }}>
+                            <ImageLightbox
+                                src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Frevenue-01.25-02.25.png?alt=media&token=7f92d550-f0e9-47f9-8d3a-a5032ad972ed"
+                                alt="January Revenue Dashboard"
+                            />
+                        </div>
+                    </div>
+
+                    {/* March */}
+                    <div className="revenue-row">
+                        <Card>
+                            <p className="label" style={{ marginBottom: "0.25rem" }}>MARCH</p>
+                            <p style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--status-active)" }}>$6,988</p>
+                            <p style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>+4.2x from start</p>
+                        </Card>
+                        <div style={{ borderRadius: "var(--radius-sm)", overflow: "hidden", border: "1px solid var(--border-subtle)", maxWidth: "400px" }}>
+                            <ImageLightbox
+                                src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Frevenue-03.25-04.25.png?alt=media&token=89817fec-22f4-4178-a350-73f5654aeb75"
+                                alt="March Revenue Dashboard"
+                            />
+                        </div>
                     </div>
                 </div>
 
@@ -348,10 +362,9 @@ export default function KravingsClubCaseStudy() {
                         overflow: "hidden",
                         border: "1px solid var(--border-subtle)",
                     }}>
-                        <img
+                        <ImageLightbox
                             src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Fimpresions-kraivngs.png?alt=media&token=9d0dd6aa-5f41-4ffe-9e89-b006c13ccf8b"
                             alt="Impressions Growth"
-                            style={{ width: "100%", height: "auto", display: "block" }}
                         />
                     </div>
                 </div>
@@ -389,10 +402,9 @@ export default function KravingsClubCaseStudy() {
                         overflow: "hidden",
                         border: "1px solid var(--border-subtle)",
                     }}>
-                        <img
+                        <ImageLightbox
                             src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2Freviews-kravings.png?alt=media&token=abe396e1-7f7e-448d-b481-35edfc4bddc6"
                             alt="Google Reviews"
-                            style={{ width: "100%", height: "auto", display: "block" }}
                         />
                     </div>
                 </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import Section from "@/components/Section";
 import StatusCard from "@/components/StatusCard";
 import CTAButton from "@/components/CTAButton";
 import Card from "@/components/Card";
@@ -55,104 +54,150 @@ export default function HomePage() {
             </section>
 
             {/* ========== PROBLEM ========== */}
-            <Section elevated>
-                <p className="label" style={{ marginBottom: "0.5rem" }}>PROBLEM</p>
-                <h2 style={{ marginBottom: "1.25rem", maxWidth: "500px" }}>
-                    Most marketing systems leak leads.
-                </h2>
-                <ul className="structured-list" style={{ maxWidth: "420px" }}>
-                    <li><span className="icon icon-error">✕</span>Slow response times — leads go cold</li>
-                    <li><span className="icon icon-error">✕</span>No follow-up automation</li>
-                    <li><span className="icon icon-error">✕</span>Agencies optimize clicks, not conversations</li>
-                    <li><span className="icon icon-error">✕</span>No visibility into what&apos;s working</li>
-                </ul>
-                <p style={{ marginTop: "1.5rem", color: "var(--text-muted)", fontSize: "0.8125rem" }}>
-                    The issue isn&apos;t traffic. It&apos;s the system behind it.
-                </p>
-            </Section>
+            <section className="section bg-elevated">
+                <div className="container">
+                    <div className="problem-system-grid">
+                        <div className="grid-left">
+                            <p className="label" style={{ marginBottom: "0.5rem" }}>PROBLEM</p>
+                            <h2 style={{ marginBottom: "1.25rem" }}>
+                                Most marketing systems leak leads.
+                            </h2>
+                            <ul className="structured-list">
+                                <li><span className="icon icon-error">✕</span>Slow response times — leads go cold</li>
+                                <li><span className="icon icon-error">✕</span>No follow-up automation</li>
+                                <li><span className="icon icon-error">✕</span>Agencies optimize clicks, not conversations</li>
+                                <li><span className="icon icon-error">✕</span>No visibility into what&apos;s working</li>
+                            </ul>
+                            <p style={{ marginTop: "1.5rem", color: "var(--text-muted)", fontSize: "0.8125rem" }}>
+                                The issue isn&apos;t traffic. It&apos;s the system behind it.
+                            </p>
+                        </div>
+                        <div className="grid-right">
+                            <StatusCard
+                                title="SYSTEM STATUS"
+                                items={[
+                                    { label: "Response time", value: "TIMEOUT", active: false },
+                                    { label: "Follow-up", value: "MISSING", active: false },
+                                    { label: "Lead routing", value: "FAILED", active: false },
+                                    { label: "Visibility", value: "NONE", active: false },
+                                ]}
+                                style={{ maxWidth: "280px" }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* ========== SYSTEM ========== */}
-            <Section style={{ paddingTop: "3rem" }}>
-                <p className="label" style={{ marginBottom: "0.5rem" }}>SYSTEM</p>
-                <h2 style={{ marginBottom: "1.25rem", maxWidth: "500px" }}>
-                    We build the infrastructure — not just the ads.
-                </h2>
-                <ul className="structured-list" style={{ maxWidth: "420px", marginBottom: "1.5rem" }}>
-                    <li><span className="icon icon-active">→</span>Conversion-first landing infrastructure</li>
-                    <li><span className="icon icon-active">→</span>Automated follow-up sequences</li>
-                    <li><span className="icon icon-active">→</span>Lead qualification and routing</li>
-                    <li><span className="icon icon-active">→</span>Response time optimization</li>
-                </ul>
-                <Link
-                    href="/services"
-                    onClick={() => trackCTAClick("services-link")}
-                    style={{ color: "var(--text-muted)", fontSize: "0.8125rem", textDecoration: "underline", textUnderlineOffset: "3px" }}
-                >
-                    View system details →
-                </Link>
-            </Section>
+            <section className="section">
+                <div className="container">
+                    <div className="problem-system-grid">
+                        <div className="grid-left">
+                            <p className="label" style={{ marginBottom: "0.5rem" }}>SYSTEM</p>
+                            <h2 style={{ marginBottom: "1.25rem" }}>
+                                We build the infrastructure — not just the ads.
+                            </h2>
+                            <ul className="structured-list" style={{ marginBottom: "1.5rem" }}>
+                                <li><span className="icon icon-active">→</span>Conversion-first landing infrastructure</li>
+                                <li><span className="icon icon-active">→</span>Automated follow-up sequences</li>
+                                <li><span className="icon icon-active">→</span>Lead qualification and routing</li>
+                                <li><span className="icon icon-active">→</span>Response time optimization</li>
+                            </ul>
+                            <Link
+                                href="/services"
+                                onClick={() => trackCTAClick("services-link")}
+                                style={{ color: "var(--text-muted)", fontSize: "0.8125rem", textDecoration: "underline", textUnderlineOffset: "3px" }}
+                            >
+                                View system details →
+                            </Link>
+                        </div>
+                        <div className="grid-right">
+                            <StatusCard
+                                title="SYSTEM STATUS"
+                                items={[
+                                    { label: "Conversion funnel", value: "ACTIVE", active: true },
+                                    { label: "Follow-up", value: "AUTOMATED", active: true },
+                                    { label: "Lead routing", value: "CONNECTED", active: true },
+                                    { label: "Response time", value: "OPTIMIZED", active: true },
+                                ]}
+                                style={{ maxWidth: "280px" }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* ========== MARKETS ========== */}
-            <Section elevated>
-                <p className="label" style={{ marginBottom: "0.5rem" }}>MARKETS</p>
-                <h2 style={{ marginBottom: "1.5rem" }}>Regulated &amp; competitive.</h2>
-                <div className="grid-2">
-                    <Card>
-                        <h3 style={{ marginBottom: "0.375rem" }}>Cannabis</h3>
-                        <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
-                            Compliance-aware systems for restricted platforms.
-                        </p>
-                    </Card>
-                    <Card>
-                        <h3 style={{ marginBottom: "0.375rem" }}>Med Spas</h3>
-                        <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
-                            Local demand capture with booking-first funnels.
-                        </p>
-                    </Card>
-                    <Card>
-                        <h3 style={{ marginBottom: "0.375rem" }}>Roofing &amp; Construction</h3>
-                        <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
-                            Speed-to-lead that wins before competitors respond.
-                        </p>
-                    </Card>
-                    <Card>
-                        <h3 style={{ marginBottom: "0.375rem" }}>E-commerce</h3>
-                        <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
-                            Lifecycle flows that convert traffic to revenue.
-                        </p>
-                    </Card>
+            <section className="section bg-elevated section-transition">
+                <div className="container">
+                    <div className="section-header-centered">
+                        <p className="label">MARKETS</p>
+                        <h2>Regulated &amp; competitive.</h2>
+                    </div>
+                    <div className="grid-2">
+                        <Card>
+                            <h3 style={{ marginBottom: "0.375rem" }}>Cannabis</h3>
+                            <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
+                                Compliance-aware systems for restricted platforms.
+                            </p>
+                        </Card>
+                        <Card>
+                            <h3 style={{ marginBottom: "0.375rem" }}>Med Spas</h3>
+                            <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
+                                Local demand capture with booking-first funnels.
+                            </p>
+                        </Card>
+                        <Card>
+                            <h3 style={{ marginBottom: "0.375rem" }}>Roofing &amp; Construction</h3>
+                            <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
+                                Speed-to-lead that wins before competitors respond.
+                            </p>
+                        </Card>
+                        <Card>
+                            <h3 style={{ marginBottom: "0.375rem" }}>E-commerce</h3>
+                            <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
+                                Lifecycle flows that convert traffic to revenue.
+                            </p>
+                        </Card>
+                    </div>
                 </div>
-            </Section>
+            </section>
 
             {/* ========== PROCESS ========== */}
-            <Section style={{ paddingTop: "3rem" }}>
-                <p className="label" style={{ marginBottom: "0.5rem" }}>PROCESS</p>
-                <h2 style={{ marginBottom: "1.5rem" }}>How we work.</h2>
-                <div className="grid-3" style={{ marginBottom: "1.5rem" }}>
-                    <div>
-                        <span className="step-number">01</span>
-                        <h3 style={{ margin: "0.5rem 0 0.375rem" }}>Discovery</h3>
-                        <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
-                            15 min to map goals and bottlenecks.
-                        </p>
+            <section className="section">
+                <div className="container">
+                    <div className="section-header-centered">
+                        <p className="label">PROCESS</p>
+                        <h2>How we work.</h2>
                     </div>
-                    <div>
-                        <span className="step-number">02</span>
-                        <h3 style={{ margin: "0.5rem 0 0.375rem" }}>Strategy</h3>
-                        <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
-                            Custom system design for your market.
-                        </p>
+                    <div className="process-timeline">
+                        <div className="process-step">
+                            <span className="step-number">01</span>
+                            <h3 style={{ margin: "0.5rem 0 0.375rem" }}>Discovery</h3>
+                            <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
+                                15 min to map goals and bottlenecks.
+                            </p>
+                        </div>
+                        <div className="process-step">
+                            <span className="step-number">02</span>
+                            <h3 style={{ margin: "0.5rem 0 0.375rem" }}>Strategy</h3>
+                            <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
+                                Custom system design for your market.
+                            </p>
+                        </div>
+                        <div className="process-step">
+                            <span className="step-number">03</span>
+                            <h3 style={{ margin: "0.5rem 0 0.375rem" }}>Deployment</h3>
+                            <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
+                                Build, launch, optimize.
+                            </p>
+                        </div>
                     </div>
-                    <div>
-                        <span className="step-number">03</span>
-                        <h3 style={{ margin: "0.5rem 0 0.375rem" }}>Deployment</h3>
-                        <p style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
-                            Build, launch, optimize.
-                        </p>
+                    <div className="process-cta-wrapper">
+                        <CTAButton location="how-it-works" />
                     </div>
                 </div>
-                <CTAButton location="how-it-works" />
-            </Section>
+            </section>
 
             {/* ========== FINAL CTA ========== */}
             <section className="section section-final-cta bg-elevated" style={{ textAlign: "center" }}>

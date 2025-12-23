@@ -1,6 +1,5 @@
 "use client";
 
-import Section from "@/components/Section";
 import StatusCard from "@/components/StatusCard";
 import CTAButton from "@/components/CTAButton";
 import Card from "@/components/Card";
@@ -41,84 +40,120 @@ export default function ServicesPage() {
             </section>
 
             {/* ========== PROBLEM REMOVED ========== */}
-            <Section elevated>
-                <p className="label" style={{ marginBottom: "0.5rem" }}>
-                    PROBLEM REMOVED
-                </p>
-                <h2 style={{ marginBottom: "1.25rem", maxWidth: "500px" }}>
-                    What this system eliminates.
-                </h2>
-                <ul className="structured-list" style={{ maxWidth: "420px" }}>
-                    <li><span className="icon icon-error">✕</span>Leads going cold from slow response</li>
-                    <li><span className="icon icon-error">✕</span>Manual follow-up that gets forgotten</li>
-                    <li><span className="icon icon-error">✕</span>No visibility into lead status</li>
-                    <li><span className="icon icon-error">✕</span>Agencies optimizing clicks, not calls</li>
-                </ul>
-            </Section>
+            <section className="section bg-elevated section-transition">
+                <div className="container">
+                    <div className="problem-system-grid">
+                        <div className="grid-left">
+                            <p className="label" style={{ marginBottom: "0.5rem" }}>PROBLEM REMOVED</p>
+                            <h2 style={{ marginBottom: "1.25rem" }}>
+                                What this system eliminates.
+                            </h2>
+                            <ul className="structured-list">
+                                <li><span className="icon icon-error">✕</span>Leads going cold from slow response</li>
+                                <li><span className="icon icon-error">✕</span>Manual follow-up that gets forgotten</li>
+                                <li><span className="icon icon-error">✕</span>No visibility into lead status</li>
+                                <li><span className="icon icon-error">✕</span>Agencies optimizing clicks, not calls</li>
+                            </ul>
+                        </div>
+                        <div className="grid-right">
+                            <StatusCard
+                                title="SYSTEM STATUS"
+                                items={[
+                                    { label: "Response time", value: "TIMEOUT", active: false },
+                                    { label: "Follow-up", value: "MISSING", active: false },
+                                    { label: "Lead tracking", value: "BLIND", active: false },
+                                    { label: "Optimization", value: "CLICKS ONLY", active: false },
+                                ]}
+                                style={{ maxWidth: "280px" }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* ========== WHAT'S AUTOMATED ========== */}
-            <Section style={{ paddingTop: "3rem" }}>
-                <p className="label" style={{ marginBottom: "0.5rem" }}>
-                    AUTOMATED
-                </p>
-                <h2 style={{ marginBottom: "1.25rem", maxWidth: "500px" }}>
-                    What the system handles.
-                </h2>
-                <ul className="structured-list" style={{ maxWidth: "420px" }}>
-                    <li><span className="icon icon-active">→</span>Instant lead capture from all sources</li>
-                    <li><span className="icon icon-active">→</span>SMS + email follow-up sequences</li>
-                    <li><span className="icon icon-active">→</span>Lead qualification routing</li>
-                    <li><span className="icon icon-active">→</span>Calendar booking integration</li>
-                </ul>
-            </Section>
+            <section className="section">
+                <div className="container">
+                    <div className="problem-system-grid">
+                        <div className="grid-left">
+                            <p className="label" style={{ marginBottom: "0.5rem" }}>AUTOMATED</p>
+                            <h2 style={{ marginBottom: "1.25rem" }}>
+                                What the system handles.
+                            </h2>
+                            <ul className="structured-list">
+                                <li><span className="icon icon-active">→</span>Instant lead capture from all sources</li>
+                                <li><span className="icon icon-active">→</span>SMS + email follow-up sequences</li>
+                                <li><span className="icon icon-active">→</span>Lead qualification routing</li>
+                                <li><span className="icon icon-active">→</span>Calendar booking integration</li>
+                            </ul>
+                        </div>
+                        <div className="grid-right">
+                            <StatusCard
+                                title="SYSTEM STATUS"
+                                items={[
+                                    { label: "Lead capture", value: "INSTANT", active: true },
+                                    { label: "Follow-up", value: "AUTOMATED", active: true },
+                                    { label: "Qualification", value: "ROUTED", active: true },
+                                    { label: "Booking", value: "INTEGRATED", active: true },
+                                ]}
+                                style={{ maxWidth: "280px" }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* ========== WHAT IMPROVES ========== */}
-            <Section elevated>
-                <p className="label" style={{ marginBottom: "0.5rem" }}>
-                    PERFORMANCE
-                </p>
-                <h2 style={{ marginBottom: "1.5rem" }}>What improves.</h2>
-                <div className="grid-3">
-                    <Card>
-                        <p className="label" style={{ marginBottom: "0.25rem" }}>RESPONSE TIME</p>
-                        <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>&lt; 60s</p>
-                    </Card>
-                    <Card>
-                        <p className="label" style={{ marginBottom: "0.25rem" }}>FOLLOW-UP RATE</p>
-                        <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>100%</p>
-                    </Card>
-                    <Card>
-                        <p className="label" style={{ marginBottom: "0.25rem" }}>BOOKING RATE</p>
-                        <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>+40%</p>
-                    </Card>
+            <section className="section bg-elevated section-transition">
+                <div className="container">
+                    <div className="section-header-centered">
+                        <p className="label">PERFORMANCE</p>
+                        <h2>What improves.</h2>
+                    </div>
+                    <div className="grid-3">
+                        <Card>
+                            <p className="label" style={{ marginBottom: "0.25rem" }}>RESPONSE TIME</p>
+                            <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>&lt; 60s</p>
+                        </Card>
+                        <Card>
+                            <p className="label" style={{ marginBottom: "0.25rem" }}>FOLLOW-UP RATE</p>
+                            <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>100%</p>
+                        </Card>
+                        <Card>
+                            <p className="label" style={{ marginBottom: "0.25rem" }}>BOOKING RATE</p>
+                            <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>+40%</p>
+                        </Card>
+                    </div>
                 </div>
-            </Section>
+            </section>
 
             {/* ========== FIT CHECK ========== */}
-            <Section style={{ paddingTop: "3rem" }}>
-                <p className="label" style={{ marginBottom: "0.5rem" }}>
-                    FIT CHECK
-                </p>
-                <h2 style={{ marginBottom: "1.5rem" }}>Who this is for.</h2>
-                <div className="grid-2">
-                    <Card>
-                        <p className="label" style={{ marginBottom: "0.75rem", color: "var(--status-active)" }}>✓ THIS IS A FIT IF</p>
-                        <ul className="structured-list">
-                            <li>You need consistent inbound conversations</li>
-                            <li>You operate in a regulated market</li>
-                            <li>You value systems over hacks</li>
-                        </ul>
-                    </Card>
-                    <Card>
-                        <p className="label" style={{ marginBottom: "0.75rem", color: "var(--status-error)" }}>✕ NOT A FIT IF</p>
-                        <ul className="structured-list">
-                            <li>You want cheap traffic with no follow-up</li>
-                            <li>You&apos;re looking for a one-off campaign</li>
-                            <li>You&apos;re not ready to invest in infrastructure</li>
-                        </ul>
-                    </Card>
+            <section className="section">
+                <div className="container">
+                    <div className="section-header-centered">
+                        <p className="label">FIT CHECK</p>
+                        <h2>Who this is for.</h2>
+                    </div>
+                    <div className="grid-2">
+                        <Card>
+                            <p className="label" style={{ marginBottom: "0.75rem", color: "var(--status-active)" }}>✓ THIS IS A FIT IF</p>
+                            <ul className="structured-list">
+                                <li>You need consistent inbound conversations</li>
+                                <li>You operate in a regulated market</li>
+                                <li>You value systems over hacks</li>
+                            </ul>
+                        </Card>
+                        <Card>
+                            <p className="label" style={{ marginBottom: "0.75rem", color: "var(--status-error)" }}>✕ NOT A FIT IF</p>
+                            <ul className="structured-list">
+                                <li>You want cheap traffic with no follow-up</li>
+                                <li>You&apos;re looking for a one-off campaign</li>
+                                <li>You&apos;re not ready to invest in infrastructure</li>
+                            </ul>
+                        </Card>
+                    </div>
                 </div>
-            </Section>
+            </section>
 
             {/* ========== FINAL CTA ========== */}
             <section className="section section-final-cta bg-elevated" style={{ textAlign: "center" }}>
