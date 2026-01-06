@@ -9,13 +9,13 @@ const videos = {
         {
             title: 'Pachis - Peach Flavor',
             client: 'Pachis Cannabis Store',
-            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FHotel%20San%20Pancho%203.mp4?alt=media&token=f5404cac-1f2e-4f2b-84c8-11e4eed1a9e7',
+            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FPachis%20Peach%20Flavor%20.mp4?alt=media&token=ada85e84-66b1-4c3e-b1c9-10323f315d3a',
             type: 'Product Showcase'
         },
         {
             title: 'Pachis - Dabs',
             client: 'Pachis Cannabis Store',
-            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FOrange%20Grasshopper%201.mp4?alt=media&token=5004b83b-72b4-4ef3-ab7e-3c33896ba0b7',
+            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FPachis%20Dabs.mp4?alt=media&token=9a7efb7f-0151-4241-93f2-47d93c9345c4',
             type: 'Product Showcase'
         },
         {
@@ -53,13 +53,13 @@ const videos = {
         {
             title: 'Hotel San Pancho',
             client: 'Mexican Hotel Showcase',
-            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FPachis%20Peach%20Flavor%20.mp4?alt=media&token=ada85e84-66b1-4c3e-b1c9-10323f315d3a',
+            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FHotel%20San%20Pancho%203.mp4?alt=media&token=f5404cac-1f2e-4f2b-84c8-11e4eed1a9e7',
             type: 'Hospitality Tour'
         },
         {
             title: 'Orange Grasshopper',
             client: 'Yard Lawn Mowing Service',
-            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FPachis%20Dabs.mp4?alt=media&token=9a7efb7f-0151-4241-93f2-47d93c9345c4',
+            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FOrange%20Grasshopper%201.mp4?alt=media&token=5004b83b-72b4-4ef3-ab7e-3c33896ba0b7',
             type: 'Service Highlight'
         }
     ]
