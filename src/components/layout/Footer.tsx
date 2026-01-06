@@ -8,6 +8,11 @@ const footerLinks = {
     { name: 'SEO & Content', href: '/services/seo-content' },
     { name: 'Paid Advertising', href: '/services/paid-advertising' },
   ],
+  industries: [
+    { name: 'Medical Spas', href: '/industries/medspas' },
+    { name: 'Cannabis', href: '/industries/cannabis' },
+    { name: 'Construction', href: '/industries/construction' },
+  ],
   company: [
     { name: 'About Us', href: '/about' },
     { name: 'Our Method', href: '/about/method' },
@@ -65,6 +70,23 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
+                    className="text-merkad-text-secondary hover:text-white transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Industries Links */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Industries</h4>
+            <ul className="space-y-3">
+              {footerLinks.industries.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
