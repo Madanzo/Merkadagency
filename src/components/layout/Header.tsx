@@ -29,7 +29,7 @@ const navigation = [
     name: 'Results',
     href: '/results',
     children: [
-      { name: 'Portfolio', href: '/results' },
+      { name: 'Portfolio', href: '/portfolio' },
       { name: 'Case Studies', href: '/case-studies' },
     ],
   },

@@ -23,6 +23,7 @@ const footerLinks = {
   resources: [
     { name: 'Free Audit', href: '/resources/free-audit' },
     { name: 'ROI Calculator', href: '/resources/roi-calculator' },
+    { name: 'Portfolio', href: '/portfolio' },
     { name: 'Case Studies', href: '/case-studies' },
   ],
 };
