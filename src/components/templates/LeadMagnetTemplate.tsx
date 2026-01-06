@@ -130,8 +130,7 @@ export function LeadMagnetTemplate({
                                         </p>
                                         <a
                                             href={downloadUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            download
                                             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-purple text-white font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 transition-all duration-300"
                                         >
                                             <Download className="w-5 h-5" />
