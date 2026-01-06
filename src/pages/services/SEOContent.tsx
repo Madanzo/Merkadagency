@@ -114,6 +114,8 @@ export function SEOContent() {
         </div>
       </section>
 
+      <NicheCallout />
+
       {/* Problem */}
       <section className="py-20 bg-merkad-bg-primary/50">
         <div className="container-custom">
