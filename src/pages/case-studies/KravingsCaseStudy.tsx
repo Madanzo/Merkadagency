@@ -1,6 +1,7 @@
 import { Layout } from '@/components/layout/Layout';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, BarChart3, Star, Clock, Image as ImageIcon } from 'lucide-react';
+import { IndustryTag } from '@/components/common/IndustryTag';
 import { StatCard } from '@/components/common/StatCard';
 import { ImageLightbox } from '@/components/common/ImageLightbox';
 
@@ -159,7 +160,7 @@ export default function KravingsCaseStudy() {
                     </div>
                     <div className="flex items-center justify-between text-sm font-mono">
                       <span className="text-merkad-text-muted">• Industry</span>
-                      <span className="text-white">CANNABIS</span>
+                      <IndustryTag type="cannabis" />
                     </div>
                     <div className="flex items-center justify-between text-sm font-mono">
                       <span className="text-merkad-text-muted">• Timeline</span>
