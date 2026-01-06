@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { CheckCircle2, Download, ArrowRight, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
+import { createLead } from '@/lib/firestore';
 
 interface LeadMagnetTemplateProps {
     title: string;
@@ -38,15 +39,29 @@ export function LeadMagnetTemplate({
         if (!email) return;
 
         setLoading(true);
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
 
-        console.log(`Lead captured for ${industry}: ${email}`);
-        setLoading(false);
-        setSubmitted(true);
-        toast.success("Resource sent!", {
-            description: "Check your inbox for the download link."
-        });
+        try {
+            // Save lead to Firestore
+            await createLead({
+                name: `Lead Magnet: ${resourceName}`,
+                email: email,
+                source: 'form',
+                status: 'new',
+                notes: `Downloaded: ${resourceName} | Industry: ${industry}`
+            });
+
+            setSubmitted(true);
+            toast.success("Resource sent!", {
+                description: "Check your inbox for the download link."
+            });
+        } catch (error) {
+            console.error('Error saving lead:', error);
+            toast.error("Something went wrong", {
+                description: "Please try again."
+            });
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
