@@ -1,4 +1,5 @@
 import { Flower, Gem, Hammer } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const industries = [
     {
@@ -6,21 +7,24 @@ const industries = [
         title: 'Medical Spas & Aesthetics',
         description: 'Booking systems and patient acquisition for high-end aesthetic clinics.',
         gradient: 'from-pink-500/20 to-purple-500/20',
-        iconColor: 'text-pink-400'
+        iconColor: 'text-pink-400',
+        href: '/industries/medspas'
     },
     {
         icon: Flower,
         title: 'Cannabis Dispensaries',
         description: 'Compliant delivery logistics and customer retention automation.',
         gradient: 'from-green-500/20 to-emerald-500/20',
-        iconColor: 'text-green-400'
+        iconColor: 'text-green-400',
+        href: '/industries/cannabis'
     },
     {
         icon: Hammer,
         title: 'Construction & Home Services',
         description: 'Lead qualification and project scheduling for contractors.',
         gradient: 'from-amber-500/20 to-orange-500/20',
-        iconColor: 'text-amber-400'
+        iconColor: 'text-amber-400',
+        href: '/industries/construction'
     }
 ];
 
@@ -39,9 +43,10 @@ export function IndustriesSection() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                     {industries.map((industry) => (
-                        <div
+                        <Link
                             key={industry.title}
-                            className="group relative p-6 rounded-2xl bg-merkad-bg-tertiary border border-white/5 hover:border-white/10 transition-all duration-300"
+                            to={industry.href}
+                            className="group relative p-6 rounded-2xl bg-merkad-bg-tertiary border border-white/5 hover:border-white/10 transition-all duration-300 block"
                         >
                             {/* Hover Gradient Background */}
                             <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${industry.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
@@ -58,7 +63,7 @@ export function IndustriesSection() {
                                     {industry.description}
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
