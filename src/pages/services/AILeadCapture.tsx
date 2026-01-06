@@ -33,12 +33,16 @@ const benefits = [
   'Scale lead handling without scaling headcount',
 ];
 
+import { NicheCallout } from '@/components/common/NicheCallout';
+
 export default function AILeadCapture() {
   return (
     <Layout>
       {/* Hero */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32">
         <div className="container-custom">
+          {/* ... Hero Content ... */}
+          {/* (Skipping internal hero details for brevity, inserting callout at end of hero section) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Content */}
             <div>
@@ -77,6 +81,7 @@ export default function AILeadCapture() {
             {/* Visual */}
             <div className="relative">
               <div className="browser-frame image-floating">
+                {/* ... existing browser frame content ... */}
                 <div className="browser-frame-header">
                   <div className="browser-frame-dot bg-red-500" />
                   <div className="browser-frame-dot bg-yellow-500" />
@@ -113,6 +118,8 @@ export default function AILeadCapture() {
           </div>
         </div>
       </section>
+
+      <NicheCallout />
 
       {/* Problem */}
       <section className="py-20 bg-merkad-bg-primary/50">
