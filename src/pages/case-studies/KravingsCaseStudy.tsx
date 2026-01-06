@@ -35,13 +35,6 @@ const galleryImages = {
       label: 'Mar - Apr Revenue',
     },
   ],
-  website: [
-    {
-      src: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FScreenshot%202025-08-21%20153207.png?alt=media&token=87afa2fd-ca5f-4683-ad24-fecb592cca89',
-      alt: 'Kravings Club Website Homepage',
-      label: 'Custom Website Homepage',
-    },
-  ],
   sms: [
     {
       src: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FSMS-workflow.png?alt=media&token=e109fd6d-73f6-412e-ad9c-1a8dbfcd6e82',
@@ -336,26 +329,6 @@ export default function KravingsCaseStudy() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {galleryImages.revenue.map((image) => (
-                <div key={image.src} className="space-y-2">
-                  <ImageLightbox
-                    src={image.src}
-                    alt={image.alt}
-                    className="aspect-video w-full"
-                  />
-                  <p className="text-sm text-merkad-text-muted text-center">{image.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Website */}
-          <div className="mb-16">
-            <h3 className="text-xl font-display font-bold text-white mb-6 flex items-center gap-2">
-              <ImageIcon className="w-5 h-5 text-merkad-purple-light" />
-              Custom Website
-            </h3>
-            <div className="max-w-4xl mx-auto">
-              {galleryImages.website.map((image) => (
                 <div key={image.src} className="space-y-2">
                   <ImageLightbox
                     src={image.src}
