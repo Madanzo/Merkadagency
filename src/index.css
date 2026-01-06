@@ -259,6 +259,8 @@
   }
 
   .card-gradient-border-inner {
+    position: relative;
+    z-index: 1;
     background: hsl(262 28% 12%);
     border-radius: 15px;
     padding: 32px;
