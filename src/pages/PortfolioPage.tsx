@@ -111,6 +111,7 @@ export default function PortfolioPage() {
                                 <Video className="w-4 h-4" />
                                 AI Content
                             </button>
+                            {/* Camera Tab hidden until video files are fixed in Firebase
                             <button
                                 onClick={() => setActiveTab('camera')}
                                 className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === 'camera'
@@ -121,6 +122,7 @@ export default function PortfolioPage() {
                                 <Camera className="w-4 h-4" />
                                 Camera Production
                             </button>
+                            */}
                         </div>
                     </div>
 
