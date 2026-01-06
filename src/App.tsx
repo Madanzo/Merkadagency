@@ -35,6 +35,8 @@ import IndustriesHub from "./pages/industries/IndustriesHub";
 import MedspasPage from "./pages/industries/MedspasPage";
 import CannabisPage from "./pages/industries/CannabisPage";
 import ConstructionPage from "./pages/industries/ConstructionPage";
+import EcommercePage from "./pages/industries/EcommercePage";
+import EcommerceGuide from "./pages/resources/EcommerceGuide";
 
 const queryClient = new QueryClient();
 
@@ -57,6 +59,7 @@ const App = () => (
           <Route path="/industries/medspas" element={<MedspasPage />} />
           <Route path="/industries/cannabis" element={<CannabisPage />} />
           <Route path="/industries/construction" element={<ConstructionPage />} />
+          <Route path="/industries/ecommerce" element={<EcommercePage />} />
           {/* Case Studies */}
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/case-studies" element={<CaseStudiesHub />} />
@@ -68,6 +71,7 @@ const App = () => (
           <Route path="/resources/medspa-automation-checklist" element={<MedspaChecklist />} />
           <Route path="/resources/cannabis-marketing-playbook" element={<CannabisPlaybook />} />
           <Route path="/resources/contractor-lead-gen-guide" element={<ContractorGuide />} />
+          <Route path="/resources/ecommerce-automation-blueprint" element={<EcommerceGuide />} />
           {/* About */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/about/method" element={<MethodPage />} />

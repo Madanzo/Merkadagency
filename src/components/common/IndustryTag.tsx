@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Gem, Flower, Hammer } from 'lucide-react';
+import { Gem, Flower, Hammer, ShoppingCart } from 'lucide-react';
 
-type IndustryType = 'medspa' | 'cannabis' | 'construction';
+type IndustryType = 'medspa' | 'cannabis' | 'construction' | 'ecommerce';
 
 const config = {
     medspa: {
@@ -30,6 +30,15 @@ const config = {
         bg: 'bg-amber-500/10',
         border: 'border-amber-500/20',
         hover: 'hover:border-amber-500/50'
+    },
+    ecommerce: {
+        label: 'E-Commerce',
+        icon: ShoppingCart,
+        href: '/industries/ecommerce',
+        color: 'text-cyan-400',
+        bg: 'bg-cyan-500/10',
+        border: 'border-cyan-500/20',
+        hover: 'hover:border-cyan-500/50'
     }
 };
 

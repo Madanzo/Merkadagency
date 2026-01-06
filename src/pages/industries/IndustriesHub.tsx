@@ -1,7 +1,7 @@
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/common/SEO';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Gem, Flower, Hammer } from 'lucide-react';
+import { ArrowRight, Gem, Flower, Hammer, ShoppingCart } from 'lucide-react';
 
 const industries = [
     {
@@ -30,6 +30,15 @@ const industries = [
         gradient: 'from-amber-500/20 to-orange-500/20',
         iconColor: 'text-amber-400',
         features: ['Project Quoting', 'Field Coordination', 'Lead Filtering']
+    },
+    {
+        icon: ShoppingCart,
+        title: 'E-Commerce Stores',
+        description: 'Abandoned cart recovery and retention marketing automation.',
+        href: '/industries/ecommerce',
+        gradient: 'from-cyan-500/20 to-blue-500/20',
+        iconColor: 'text-cyan-400',
+        features: ['Cart Recovery', 'Email/SMS Flows', 'Customer Retention']
     }
 ];
 
