@@ -1,4 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
+import { IndustryTag } from '@/components/common/IndustryTag';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Eye } from 'lucide-react';
 
@@ -6,6 +7,7 @@ const caseStudies = [
   {
     client: 'Kravings Club',
     industry: 'Cannabis Delivery',
+    industryType: 'cannabis',
     metric: '196%',
     metricLabel: 'Revenue Growth',
     description: 'From $2,358/mo to $6,988/mo in just 4 months with automated lead capture and follow-up systems.',
@@ -72,9 +74,7 @@ export default function CaseStudiesHub() {
                 <div className="card-gradient-border-inner h-full">
                   {/* Industry Tag */}
                   <div className="flex items-center justify-between mb-6">
-                    <span className="px-3 py-1 rounded-full bg-merkad-bg-elevated text-xs font-medium text-merkad-text-muted">
-                      {study.industry}
-                    </span>
+                    <IndustryTag type={study.industryType as any} />
                     <div className="flex gap-2">
                       {study.services.map((service) => (
                         <span
