@@ -8,7 +8,7 @@ export default function EcommerceGuide() {
             subtitle="Stop leaving money on the table with abandoned carts and one-time buyers."
             description="The complete playbook for automating your e-commerce store's marketing and turning browsers into loyal customers."
             resourceName="E-Commerce Automation Blueprint"
-            image="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=60"
+            image="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Grid%20n%20Guard%2FGridnGuard%20Website.png?alt=media&token=e50c438d-1d9b-4d4e-9c30-afc4e7322f83"
             seoTitle="Free E-Commerce Automation Blueprint | MerkadAgency"
             seoDescription="Download the free guide to automating abandoned cart recovery, post-purchase flows, and retention marketing for your online store."
             benefits={[
