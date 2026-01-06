@@ -1,4 +1,4 @@
-import { Flower, Gem, Hammer } from 'lucide-react';
+import { Flower, Gem, Hammer, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const industries = [
@@ -25,6 +25,14 @@ const industries = [
         gradient: 'from-amber-500/20 to-orange-500/20',
         iconColor: 'text-amber-400',
         href: '/industries/construction'
+    },
+    {
+        icon: ShoppingCart,
+        title: 'E-Commerce Stores',
+        description: 'Cart recovery and retention marketing automation.',
+        gradient: 'from-cyan-500/20 to-blue-500/20',
+        iconColor: 'text-cyan-400',
+        href: '/industries/ecommerce'
     }
 ];
 
@@ -41,7 +49,7 @@ export function IndustriesSection() {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                     {industries.map((industry) => (
                         <Link
                             key={industry.title}
