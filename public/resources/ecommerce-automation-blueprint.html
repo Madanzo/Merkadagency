@@ -1,985 +1,1000 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" style=""><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The E-Commerce Automation Blueprint</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --merkad-purple: #5A27FF;
-        --merkad-pink: #FBCBD5;
-        --bg-dark: #0F1220;
-        --bg-elevated: #251540;
-        --deep-purple: #1F0E33;
-        --text-primary: #FAFAFA;
-        --text-secondary: #9CA3AF;
-        --text-muted: #A8A3B3;
-        --status-green: #22C55E;
-        --status-red: #EF4444;
-      }
+<html lang="en" data-theme="light" style="">
 
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--bg-dark);
-        color: var(--text-primary);
-        line-height: 1.6;
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 40px;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The E-Commerce Automation Blueprint</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --merkad-purple: #5A27FF;
+      --merkad-pink: #FBCBD5;
+      --bg-dark: #0F1220;
+      --bg-elevated: #251540;
+      --deep-purple: #1F0E33;
+      --text-primary: #FAFAFA;
+      --text-secondary: #9CA3AF;
+      --text-muted: #A8A3B3;
+      --status-green: #22C55E;
+      --status-red: #EF4444;
+    }
 
-      h1,
-      h2,
-      h3,
-      h4 {
-        font-family: 'Syne', sans-serif;
-        color: var(--text-primary);
-        margin-top: 1.5em;
-        margin-bottom: 0.5em;
-      }
+    html {
+      background-color: #FFFFFF;
+      min-height: 100%;
+    }
 
-      h1 {
-        font-size: 3rem;
-        text-align: center;
-        border-bottom: 3px solid var(--merkad-purple);
-        padding-bottom: 20px;
-        margin-top: 0;
-        background: linear-gradient(135deg, var(--merkad-purple), var(--merkad-pink));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 60px 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
 
-      .subtitle {
-        text-align: center;
-        font-size: 1.25rem;
-        color: var(--text-secondary);
-        font-weight: 300;
-        margin-top: -20px;
-        margin-bottom: 40px;
-        font-style: italic;
-      }
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Syne', sans-serif;
+      color: var(--text-primary);
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
 
-      h2 {
-        font-size: 2rem;
-        border-left: 5px solid var(--merkad-purple);
-        padding-left: 15px;
-        background-color: var(--bg-elevated);
-        padding: 10px 15px;
-        margin-top: 60px;
-        border-radius: 4px;
-      }
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      border-bottom: 3px solid var(--merkad-purple);
+      padding-bottom: 20px;
+      margin-top: 0;
+      background: linear-gradient(135deg, var(--merkad-purple), var(--merkad-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-      h3 {
-        font-size: 1.4rem;
-        color: var(--merkad-pink);
-        border-bottom: 1px solid var(--bg-elevated);
-        padding-bottom: 5px;
-      }
+    .subtitle {
+      text-align: center;
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-top: -20px;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
 
-      .intro-box {
-        background: linear-gradient(135deg, var(--deep-purple), var(--bg-elevated));
-        color: var(--text-primary);
-        padding: 30px;
-        border-radius: 8px;
-        margin-bottom: 40px;
-        border: 1px solid var(--merkad-purple);
-      }
+    h2 {
+      font-size: 2rem;
+      border-left: 5px solid var(--merkad-purple);
+      padding-left: 15px;
+      background-color: var(--bg-elevated);
+      padding: 10px 15px;
+      margin-top: 60px;
+      border-radius: 4px;
+    }
 
-      .intro-box h3 {
-        color: var(--merkad-purple);
-        border-bottom: none;
-        margin-top: 0;
-      }
+    h3 {
+      font-size: 1.4rem;
+      color: var(--merkad-pink);
+      border-bottom: 1px solid var(--bg-elevated);
+      padding-bottom: 5px;
+    }
 
-      .stat-box {
-        background-color: var(--bg-elevated);
-        border: 1px solid var(--merkad-purple);
-        padding: 20px;
-        border-radius: 8px;
-        margin: 20px 0;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
+    .intro-box {
+      background: linear-gradient(135deg, var(--deep-purple), var(--bg-elevated));
+      color: var(--text-primary);
+      padding: 30px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+      border: 1px solid var(--merkad-purple);
+    }
 
-      .stat-icon {
-        font-size: 24px;
-        min-width: 40px;
-        text-align: center;
-      }
+    .intro-box h3 {
+      color: var(--merkad-purple);
+      border-bottom: none;
+      margin-top: 0;
+    }
 
-      .tip-box {
-        background-color: rgba(90, 39, 255, 0.1);
-        border-left: 4px solid var(--merkad-purple);
-        padding: 15px;
-        margin: 20px 0;
-        border-radius: 4px;
-      }
+    .stat-box {
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--merkad-purple);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-      .checklist-box {
-        background-color: rgba(34, 197, 94, 0.1);
-        border: 1px solid var(--status-green);
-        padding: 20px;
-        border-radius: 8px;
-        margin: 20px 0;
-      }
+    .stat-icon {
+      font-size: 24px;
+      min-width: 40px;
+      text-align: center;
+    }
 
-      .checklist-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 8px;
-      }
+    .tip-box {
+      background-color: rgba(90, 39, 255, 0.1);
+      border-left: 4px solid var(--merkad-purple);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
 
-      .checklist-item:before {
-        content: '✅';
-        margin-right: 10px;
-      }
+    .checklist-box {
+      background-color: rgba(34, 197, 94, 0.1);
+      border: 1px solid var(--status-green);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-        border-radius: 8px;
-        overflow: hidden;
-      }
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
 
-      th,
-      td {
-        padding: 12px;
-        border: 1px solid var(--bg-elevated);
-        text-align: left;
-      }
+    .checklist-item:before {
+      content: '✅';
+      margin-right: 10px;
+    }
 
-      th {
-        background-color: var(--merkad-purple);
-        color: var(--text-primary);
-        font-weight: 600;
-      }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
 
-      tr:nth-child(even) {
-        background-color: var(--bg-elevated);
-      }
+    th,
+    td {
+      padding: 12px;
+      border: 1px solid var(--bg-elevated);
+      text-align: left;
+    }
 
-      tr:nth-child(odd) {
-        background-color: rgba(37, 21, 64, 0.5);
-      }
+    th {
+      background-color: var(--merkad-purple);
+      color: var(--text-primary);
+      font-weight: 600;
+    }
 
-      .toc {
-        background-color: var(--bg-elevated);
-        border: 1px solid var(--merkad-purple);
-        padding: 30px;
-        margin-bottom: 50px;
-        box-shadow: 0 4px 6px rgba(90, 39, 255, 0.2);
-        border-radius: 8px;
-      }
+    tr:nth-child(even) {
+      background-color: var(--bg-elevated);
+    }
 
-      .toc h3 {
-        text-align: center;
-        margin-top: 0;
-        color: var(--merkad-purple);
-      }
+    tr:nth-child(odd) {
+      background-color: rgba(37, 21, 64, 0.5);
+    }
 
-      .toc ul {
-        list-style-type: none;
-        padding: 0;
-      }
+    .toc {
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--merkad-purple);
+      padding: 30px;
+      margin-bottom: 50px;
+      box-shadow: 0 4px 6px rgba(90, 39, 255, 0.2);
+      border-radius: 8px;
+    }
 
-      .toc li {
-        margin-bottom: 10px;
-        border-bottom: 1px dotted var(--text-muted);
-        padding-bottom: 5px;
-      }
+    .toc h3 {
+      text-align: center;
+      margin-top: 0;
+      color: var(--merkad-purple);
+    }
 
-      .toc a {
-        text-decoration: none;
-        color: var(--text-primary);
-        font-weight: 500;
-        transition: color 0.3s ease;
-      }
+    .toc ul {
+      list-style-type: none;
+      padding: 0;
+    }
 
-      .toc a:hover {
-        color: var(--merkad-pink);
-      }
+    .toc li {
+      margin-bottom: 10px;
+      border-bottom: 1px dotted var(--text-muted);
+      padding-bottom: 5px;
+    }
 
-      .timeline {
-        position: relative;
-        padding-left: 30px;
-        border-left: 2px solid var(--merkad-purple);
-        margin: 20px 0;
-      }
+    .toc a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
 
-      .timeline-item {
-        position: relative;
-        margin-bottom: 25px;
-      }
+    .toc a:hover {
+      color: var(--merkad-pink);
+    }
 
-      .timeline-item:before {
-        content: '';
-        position: absolute;
-        left: -36px;
-        top: 5px;
-        width: 14px;
-        height: 14px;
-        background: var(--merkad-pink);
-        border-radius: 50%;
-        border: 2px solid var(--merkad-purple);
-      }
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      border-left: 2px solid var(--merkad-purple);
+      margin: 20px 0;
+    }
 
-      footer {
-        margin-top: 80px;
-        padding-top: 40px;
-        border-top: 1px solid var(--bg-elevated);
-        text-align: center;
-        color: var(--text-secondary);
-      }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 25px;
+    }
 
-      .highlight {
-        color: var(--merkad-purple);
-        font-weight: 700;
-      }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      background: var(--merkad-pink);
+      border-radius: 50%;
+      border: 2px solid var(--merkad-purple);
+    }
 
-      a {
-        color: var(--merkad-purple);
-        transition: color 0.3s ease;
-      }
+    footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid var(--bg-elevated);
+      text-align: center;
+      color: var(--text-secondary);
+    }
 
-      a:hover {
-        color: var(--merkad-pink);
-      }
+    .highlight {
+      color: var(--merkad-purple);
+      font-weight: 700;
+    }
 
-      strong {
-        color: var(--merkad-pink);
-      }
+    a {
+      color: var(--merkad-purple);
+      transition: color 0.3s ease;
+    }
 
-      code {
-        font-family: 'JetBrains Mono', monospace;
-        background-color: var(--bg-elevated);
-        padding: 2px 6px;
-        border-radius: 3px;
-        color: var(--merkad-pink);
-      }
-    </style>
-  </head>
-  <body style="">
-    <h1>The E-Commerce Automation Blueprint</h1>
-    <p class="subtitle">Stop leaving money on the table with abandoned carts and one-time buyers</p>
+    a:hover {
+      color: var(--merkad-pink);
+    }
 
-    <div class="intro-box">
-      <h3>Introduction</h3>
-      <p>
-        In the competitive landscape of modern e-commerce, acquiring a customer is only half the battle. The true engine
-        of profitability lies in retention, automation, and lifetime value optimization. This blueprint provides a
-        tactical, implementation-ready guide to the five critical pillars of e-commerce automation.
-      </p>
-      <p>
-        By implementing these strategies, you stop relying solely on expensive ad spend for growth and start building a
-        sustainable machine that converts, retains, and monetizes customers automatically.
-      </p>
+    strong {
+      color: var(--merkad-pink);
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background-color: var(--bg-elevated);
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: var(--merkad-pink);
+    }
+  </style>
+</head>
+
+<body style="">
+  <h1>The E-Commerce Automation Blueprint</h1>
+  <p class="subtitle">Stop leaving money on the table with abandoned carts and one-time buyers</p>
+
+  <div class="intro-box">
+    <h3>Introduction</h3>
+    <p>
+      In the competitive landscape of modern e-commerce, acquiring a customer is only half the battle. The true engine
+      of profitability lies in retention, automation, and lifetime value optimization. This blueprint provides a
+      tactical, implementation-ready guide to the five critical pillars of e-commerce automation.
+    </p>
+    <p>
+      By implementing these strategies, you stop relying solely on expensive ad spend for growth and start building a
+      sustainable machine that converts, retains, and monetizes customers automatically.
+    </p>
+  </div>
+
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li><a href="#section1">1. The Abandoned Cart Recovery Sequence</a></li>
+      <li><a href="#section2">2. Post-Purchase Email Flows</a></li>
+      <li><a href="#section3">3. Customer Segmentation for Personalization</a></li>
+      <li><a href="#section4">4. ROAS Optimization Strategies</a></li>
+      <li><a href="#section5">5. VIP Program Structures</a></li>
+    </ul>
+  </div>
+
+  <section id="section1">
+    <h2>1. The Abandoned Cart Recovery Sequence</h2>
+    <p>
+      Cart abandonment is the single largest leak in the e-commerce sales funnel. While it's impossible to recover
+      every cart, a well-structured automation sequence can reliably recover 25-30% of lost revenue.
+    </p>
+
+    <div class="stat-box">
+      <div class="stat-icon">📊</div>
+      <div>
+        <strong>Industry Benchmark:</strong> The average documented online shopping cart abandonment rate is
+        <strong>69.8%</strong>. For every $100 you make, you are potentially losing $230 to abandonment.
+      </div>
     </div>
 
-    <div class="toc">
-      <h3>Table of Contents</h3>
-      <ul>
-        <li><a href="#section1">1. The Abandoned Cart Recovery Sequence</a></li>
-        <li><a href="#section2">2. Post-Purchase Email Flows</a></li>
-        <li><a href="#section3">3. Customer Segmentation for Personalization</a></li>
-        <li><a href="#section4">4. ROAS Optimization Strategies</a></li>
-        <li><a href="#section5">5. VIP Program Structures</a></li>
-      </ul>
+    <h3>The Optimal Timing Strategy</h3>
+    <p>
+      Frequency and timing are critical. Sending too soon feels desperate; sending too late means the purchase intent
+      has cooled.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <strong>Email 1: The Nudge (1 Hour Post-Abandonment)</strong>
+        <p>
+          High purchase intent remains. Frame this as customer service: "Did something go wrong?" or "Saved your
+          cart." Do not offer a discount yet.
+        </p>
+      </div>
+      <div class="timeline-item">
+        <strong>Email 2: The Social Proof (24 Hours Later)</strong>
+        <p>
+          Remind them of the value. Use testimonials, reviews, or scarcity tactics ("Low stock alert"). Introduce a
+          small incentive if margins allow (e.g., Free Shipping).
+        </p>
+      </div>
+      <div class="timeline-item">
+        <strong>Email 3: The Final Offer (72 Hours Later)</strong>
+        <p>
+          The "Last Chance" email. This is where you deploy your best offer (10-15% off) to secure the sale before the
+          lead goes cold.
+        </p>
+      </div>
     </div>
 
-    <section id="section1">
-      <h2>1. The Abandoned Cart Recovery Sequence</h2>
-      <p>
-        Cart abandonment is the single largest leak in the e-commerce sales funnel. While it's impossible to recover
-        every cart, a well-structured automation sequence can reliably recover 25-30% of lost revenue.
-      </p>
+    <h3>The 4-Email Recovery Sequence</h3>
+    <p><strong>Email 1: The Gentle Reminder (Send: 1 hour after abandonment)</strong></p>
+    <ul>
+      <li><strong>Subject:</strong> "You left something behind, [Name]"</li>
+      <li><strong>Content:</strong> Simple product image, name, price, and clear CTA button</li>
+      <li><strong>Psychology:</strong> Assume technical difficulty, not disinterest</li>
+    </ul>
 
-      <div class="stat-box">
-        <div class="stat-icon">📊</div>
-        <div>
-          <strong>Industry Benchmark:</strong> The average documented online shopping cart abandonment rate is
-          <strong>69.8%</strong>. For every $100 you make, you are potentially losing $230 to abandonment.
-        </div>
+    <p><strong>Email 2: The Social Proof (Send: 24 hours later)</strong></p>
+    <ul>
+      <li><strong>Subject:</strong> "96 people bought this in the last 24 hours"</li>
+      <li><strong>Content:</strong> Customer reviews, ratings, urgency indicators</li>
+      <li><strong>Include:</strong> "Limited stock" messaging if applicable</li>
+    </ul>
+
+    <p><strong>Email 3: The Incentive (Send: 48 hours later)</strong></p>
+    <ul>
+      <li><strong>Subject:</strong> "Here's 10% off to complete your order"</li>
+      <li><strong>Content:</strong> Personalized discount code with expiration</li>
+      <li><strong>Strategy:</strong> First discount offer to overcome price objection</li>
+    </ul>
+
+    <p><strong>Email 4: The Last Call (Send: 72 hours later)</strong></p>
+    <ul>
+      <li><strong>Subject:</strong> "Last chance: Your cart expires in 24 hours"</li>
+      <li><strong>Content:</strong> Scarcity messaging, final incentive bump (15% off)</li>
+      <li><strong>Include:</strong> Alternative product suggestions</li>
+    </ul>
+
+    <h3>Advanced Recovery Tactics</h3>
+    <p><strong>Dynamic Product Images:</strong></p>
+    <ul>
+      <li>Show products in customer's preferred color/size</li>
+      <li>Include lifestyle imagery based on browsing behavior</li>
+      <li>Add urgency badges: "Only 3 left in stock"</li>
+    </ul>
+
+    <p><strong>Multi-Channel Retargeting:</strong></p>
+    <ul>
+      <li>Facebook/Instagram ads with same products</li>
+      <li>SMS follow-up for high-value carts ($100+)</li>
+      <li>Push notifications for mobile app users</li>
+    </ul>
+
+    <p><strong>Timing Optimization:</strong></p>
+    <ul>
+      <li>Test send times based on customer timezone</li>
+      <li>Industry-specific timing (B2B: business hours, B2C: evenings)</li>
+      <li>Seasonal adjustments for holidays/peak periods</li>
+    </ul>
+
+    <h3>Psychological Triggers &amp; Copy Frameworks</h3>
+    <p>Successful recovery emails leverage specific psychological triggers:</p>
+    <ul>
+      <li><strong>Scarcity:</strong> "We can only hold your items for 24 hours."</li>
+      <li>
+        <strong>Ownership:</strong> "Your items are waiting for you." (Implies the items already belong to them).
+      </li>
+      <li><strong>Social Proof:</strong> "See why 5,000+ customers love this product."</li>
+    </ul>
+
+    <div class="checklist-box">
+      <strong>✅ Implementation Checklist</strong>
+      <div class="checklist-item">Verify email capture triggers (pop-ups vs. checkout entry).</div>
+      <div class="checklist-item">Set up dynamic product blocks to show exact items left in cart.</div>
+      <div class="checklist-item">Exclude customers who purchased in the last 24 hours.</div>
+      <div class="checklist-item">A/B test subject lines: "Forgot something?" vs. "10% off your cart".</div>
+    </div>
+  </section>
+
+  <section id="section2">
+    <h2>2. Post-Purchase Email Flows</h2>
+    <p>
+      The sale is not the end of the journey; it is the beginning of the relationship. Post-purchase flows are
+      designed to turn one-time buyers into lifetime loyalists.
+    </p>
+
+    <h3>The "Stick Strategy" Timeline</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Timing</th>
+          <th>Email Objective</th>
+          <th>Key Content</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Immediate</td>
+          <td>Transactional + Brand Building</td>
+          <td>Order confirmation, "Welcome to the family," clear support links.</td>
+        </tr>
+        <tr>
+          <td>Shipping/Delivery</td>
+          <td>Excitement Building</td>
+          <td>Tracking info, "How to use" guides, anticipation building.</td>
+        </tr>
+        <tr>
+          <td>14-30 Days</td>
+          <td>Review Generation</td>
+          <td>Request for UGC (User Generated Content) or text review.</td>
+        </tr>
+        <tr>
+          <td>45-60 Days</td>
+          <td>Cross-Sell / Upsell</td>
+          <td>"You bought X, you might love Y." Data-driven recommendations.</td>
+        </tr>
+        <tr>
+          <td>90 Days+</td>
+          <td>Win-Back</td>
+          <td>"We miss you." Incentives for dormant customers.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>The 5-Email New Customer Sequence</h3>
+    <p><strong>Email 1: Order Confirmation (Immediate)</strong></p>
+    <ul>
+      <li><strong>Subject:</strong> "Your order is confirmed! Here's what happens next"</li>
+      <li><strong>Include:</strong> Expected delivery date, tracking info, customer service contact</li>
+      <li><strong>Bonus:</strong> Quick-start guide or unboxing video</li>
+    </ul>
+
+    <p><strong>Email 2: Shipping Confirmation (When shipped)</strong></p>
+    <ul>
+      <li><strong>Subject:</strong> "Your [Product] is on its way!"</li>
+      <li><strong>Include:</strong> Tracking link, delivery expectations, packaging preview</li>
+      <li><strong>Upsell:</strong> Complementary products (accessories, refills)</li>
+    </ul>
+
+    <p><strong>Email 3: Delivery Confirmation (When delivered)</strong></p>
+    <ul>
+      <li><strong>Subject:</strong> "Your order has arrived! Here's how to get started"</li>
+      <li><strong>Include:</strong> Setup instructions, care guide, first-use tips</li>
+      <li><strong>Request:</strong> Photo sharing, review invitation (timing-sensitive)</li>
+    </ul>
+
+    <p><strong>Email 4: The Check-In (3-5 days post-delivery)</strong></p>
+    <ul>
+      <li><strong>Subject:</strong> "How's your new [Product] working out?"</li>
+      <li><strong>Include:</strong> Troubleshooting tips, FAQ link, usage inspiration</li>
+      <li><strong>Goal:</strong> Address buyer's remorse, encourage usage</li>
+    </ul>
+
+    <p><strong>Email 5: The Review Request (7-14 days post-delivery)</strong></p>
+    <ul>
+      <li><strong>Subject:</strong> "Quick favor - 30 seconds for 15% off?"</li>
+      <li><strong>Include:</strong> Easy review process, incentive for next purchase</li>
+      <li><strong>Timing:</strong> After they've had time to use the product</li>
+    </ul>
+
+    <h3>The Repeat Customer Nurture Sequence</h3>
+    <p><strong>Week 1-2: Usage Education</strong></p>
+    <ul>
+      <li>How-to content, advanced features, creative uses</li>
+      <li>User-generated content showcase</li>
+      <li>Community invitation (Facebook group, forum)</li>
+    </ul>
+
+    <p><strong>Week 3-4: Complementary Products</strong></p>
+    <ul>
+      <li>"Complete the set" recommendations</li>
+      <li>Seasonal additions</li>
+      <li>Bundle deals for existing customers</li>
+    </ul>
+
+    <p><strong>Month 2: Loyalty Program Introduction</strong></p>
+    <ul>
+      <li>Points system explanation</li>
+      <li>VIP tier benefits preview</li>
+      <li>Exclusive member perks</li>
+    </ul>
+
+    <p><strong>Ongoing: Value-Driven Content</strong></p>
+    <ul>
+      <li>Monthly newsletters with tips/tricks</li>
+      <li>Early access to new products</li>
+      <li>Behind-the-scenes content</li>
+    </ul>
+
+    <h3>Product Education Sequences</h3>
+    <p>
+      Reduce buyer's remorse and returns by proactively teaching customers how to use your product. If you sell
+      skincare, send a "Routine Guide" 3 days after delivery. If you sell tech, send a "Hidden Features" video.
+    </p>
+
+    <div class="tip-box">
+      <div class="stat-icon">💡</div>
+      <strong>Pro Tip:</strong> Do not attempt to cross-sell immediately after purchase. Allow the customer to
+      experience the "Unboxing Joy" first. The optimal time for a second purchase request depends on the product's
+      consumption rate.
+    </div>
+  </section>
+
+  <section id="section3">
+    <h2>3. Customer Segmentation for Personalization</h2>
+    <p>
+      Generic "batch and blast" newsletters have diminishing returns. Segmentation allows you to speak directly to a
+      customer's specific needs and behaviors.
+    </p>
+
+    <h3>RFM Analysis Framework</h3>
+    <p>
+      The gold standard for e-commerce segmentation is
+      <strong>Recency, Frequency, and Monetary (RFM)</strong> analysis.
+    </p>
+    <ul>
+      <li><strong>Recency:</strong> How long since their last purchase? (Active vs. At-Risk vs. Churned)</li>
+      <li><strong>Frequency:</strong> How often do they buy? (One-time buyer vs. Repeat purchaser)</li>
+      <li><strong>Monetary:</strong> How much do they spend? (Low value vs. High Roller/VIP)</li>
+    </ul>
+
+    <h3>Behavioral Segmentation</h3>
+    <p><strong>The High-Value Segment (Top 20% of customers)</strong></p>
+    <ul>
+      <li><strong>Criteria:</strong> LTV &gt; $500, purchase frequency &gt; 3x/year</li>
+      <li><strong>Strategy:</strong> VIP treatment, early access, personal shopper service</li>
+      <li><strong>Communication:</strong> Handwritten notes, phone calls for big launches</li>
+    </ul>
+
+    <p><strong>The Bargain Hunters</strong></p>
+    <ul>
+      <li><strong>Criteria:</strong> Only purchase on sale, high discount sensitivity</li>
+      <li><strong>Strategy:</strong> Clearance alerts, bundle deals, loyalty points</li>
+      <li><strong>Communication:</strong> Sale announcements, exclusive coupons</li>
+    </ul>
+
+    <p><strong>The One-Time Buyers</strong></p>
+    <ul>
+      <li><strong>Criteria:</strong> Single purchase, no repeat activity in 90+ days</li>
+      <li><strong>Strategy:</strong> Win-back campaigns, product education, incentives</li>
+      <li><strong>Communication:</strong> "We miss you" sequences, new product alerts</li>
+    </ul>
+
+    <p><strong>The Seasonal Shoppers</strong></p>
+    <ul>
+      <li><strong>Criteria:</strong> Purchase during specific seasons/holidays</li>
+      <li><strong>Strategy:</strong> Early bird offers, seasonal prep content</li>
+      <li><strong>Communication:</strong> Pre-season teasers, holiday gift guides</li>
+    </ul>
+
+    <h3>Purchase-Based Segmentation</h3>
+    <p><strong>Product Category Enthusiasts</strong></p>
+    <ul>
+      <li><strong>Track:</strong> Which categories they browse/buy most</li>
+      <li><strong>Personalize:</strong> Category-specific recommendations</li>
+      <li><strong>Cross-sell:</strong> Complementary categories</li>
+    </ul>
+
+    <p><strong>Price Point Preferences</strong></p>
+    <ul>
+      <li><strong>Segment:</strong> Budget (&lt;$50), Mid-range ($50-200), Premium ($200+)</li>
+      <li><strong>Customize:</strong> Product suggestions at their comfort level</li>
+      <li><strong>Upgrade:</strong> Gradual price increases in recommendations</li>
+    </ul>
+
+    <p><strong>Purchase Cycle Trackers</strong></p>
+    <ul>
+      <li><strong>Analyze:</strong> Days between purchases</li>
+      <li><strong>Predict:</strong> When they're likely to buy again</li>
+      <li><strong>Trigger:</strong> Pre-emptive offers before typical purchase time</li>
+    </ul>
+
+    <h3>Engagement-Based Segmentation</h3>
+    <p><strong>The Email Champions</strong></p>
+    <ul>
+      <li><strong>Criteria:</strong> Open rate &gt; 40%, click rate &gt; 15%</li>
+      <li><strong>Strategy:</strong> Exclusive content, survey participation, beta testing</li>
+      <li><strong>Reward:</strong> First access to sales, special recognition</li>
+    </ul>
+
+    <p><strong>The Ghost Subscribers</strong></p>
+    <ul>
+      <li><strong>Criteria:</strong> No opens in 60+ days</li>
+      <li><strong>Strategy:</strong> Re-engagement campaign, preference center</li>
+      <li><strong>Last resort:</strong> "We miss you" with big incentive or unsubscribe</li>
+    </ul>
+
+    <p><strong>The Mobile Shoppers</strong></p>
+    <ul>
+      <li><strong>Criteria:</strong> &gt;70% of activity on mobile</li>
+      <li><strong>Strategy:</strong> Mobile-optimized content, app push notifications</li>
+      <li><strong>Format:</strong> Vertical images, thumb-friendly CTAs</li>
+    </ul>
+  </section>
+
+  <section id="section4">
+    <h2>4. ROAS Optimization Strategies</h2>
+    <p>
+      Optimizing Return on Ad Spend (ROAS) on Meta (Facebook/Instagram) and Google requires a shift from "hacking"
+      algorithms to feeding them better data and creative.
+    </p>
+
+    <h3>The Creative Testing Framework</h3>
+    <p>
+      Creative is the new targeting. Since privacy changes (iOS14+), algorithms rely on your ad creative to find the
+      right audience.
+    </p>
+    <ul>
+      <li>
+        <strong>Concept Phase:</strong> Test radically different angles (e.g., UGC vs. Studio Shot vs. Text-Overlay).
+      </li>
+      <li><strong>Iteration Phase:</strong> Take the winner and iterate on the first 3 seconds (Hook testing).</li>
+      <li>
+        <strong>Scale Phase:</strong> Move winning creatives to a dedicated scaling campaign with higher budgets.
+      </li>
+    </ul>
+
+    <h3>Audience Targeting Hierarchy</h3>
+    <div class="stat-box">
+      <div class="stat-icon">🎯</div>
+      <div>
+        <strong>Broad Targeting vs. Lookalikes:</strong> Modern ad platforms prefer broad targeting. However, seed
+        audiences are still vital. Upload your VIP customer list (LTV &gt; $200) to create "Super Lookalikes" (1-3%
+        match).
       </div>
-
-      <h3>The Optimal Timing Strategy</h3>
-      <p>
-        Frequency and timing are critical. Sending too soon feels desperate; sending too late means the purchase intent
-        has cooled.
-      </p>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <strong>Email 1: The Nudge (1 Hour Post-Abandonment)</strong>
-          <p>
-            High purchase intent remains. Frame this as customer service: "Did something go wrong?" or "Saved your
-            cart." Do not offer a discount yet.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <strong>Email 2: The Social Proof (24 Hours Later)</strong>
-          <p>
-            Remind them of the value. Use testimonials, reviews, or scarcity tactics ("Low stock alert"). Introduce a
-            small incentive if margins allow (e.g., Free Shipping).
-          </p>
-        </div>
-        <div class="timeline-item">
-          <strong>Email 3: The Final Offer (72 Hours Later)</strong>
-          <p>
-            The "Last Chance" email. This is where you deploy your best offer (10-15% off) to secure the sale before the
-            lead goes cold.
-          </p>
-        </div>
-      </div>
-
-      <h3>The 4-Email Recovery Sequence</h3>
-      <p><strong>Email 1: The Gentle Reminder (Send: 1 hour after abandonment)</strong></p>
-      <ul>
-        <li><strong>Subject:</strong> "You left something behind, [Name]"</li>
-        <li><strong>Content:</strong> Simple product image, name, price, and clear CTA button</li>
-        <li><strong>Psychology:</strong> Assume technical difficulty, not disinterest</li>
-      </ul>
-
-      <p><strong>Email 2: The Social Proof (Send: 24 hours later)</strong></p>
-      <ul>
-        <li><strong>Subject:</strong> "96 people bought this in the last 24 hours"</li>
-        <li><strong>Content:</strong> Customer reviews, ratings, urgency indicators</li>
-        <li><strong>Include:</strong> "Limited stock" messaging if applicable</li>
-      </ul>
-
-      <p><strong>Email 3: The Incentive (Send: 48 hours later)</strong></p>
-      <ul>
-        <li><strong>Subject:</strong> "Here's 10% off to complete your order"</li>
-        <li><strong>Content:</strong> Personalized discount code with expiration</li>
-        <li><strong>Strategy:</strong> First discount offer to overcome price objection</li>
-      </ul>
-
-      <p><strong>Email 4: The Last Call (Send: 72 hours later)</strong></p>
-      <ul>
-        <li><strong>Subject:</strong> "Last chance: Your cart expires in 24 hours"</li>
-        <li><strong>Content:</strong> Scarcity messaging, final incentive bump (15% off)</li>
-        <li><strong>Include:</strong> Alternative product suggestions</li>
-      </ul>
-
-      <h3>Advanced Recovery Tactics</h3>
-      <p><strong>Dynamic Product Images:</strong></p>
-      <ul>
-        <li>Show products in customer's preferred color/size</li>
-        <li>Include lifestyle imagery based on browsing behavior</li>
-        <li>Add urgency badges: "Only 3 left in stock"</li>
-      </ul>
-
-      <p><strong>Multi-Channel Retargeting:</strong></p>
-      <ul>
-        <li>Facebook/Instagram ads with same products</li>
-        <li>SMS follow-up for high-value carts ($100+)</li>
-        <li>Push notifications for mobile app users</li>
-      </ul>
-
-      <p><strong>Timing Optimization:</strong></p>
-      <ul>
-        <li>Test send times based on customer timezone</li>
-        <li>Industry-specific timing (B2B: business hours, B2C: evenings)</li>
-        <li>Seasonal adjustments for holidays/peak periods</li>
-      </ul>
-
-      <h3>Psychological Triggers &amp; Copy Frameworks</h3>
-      <p>Successful recovery emails leverage specific psychological triggers:</p>
-      <ul>
-        <li><strong>Scarcity:</strong> "We can only hold your items for 24 hours."</li>
-        <li>
-          <strong>Ownership:</strong> "Your items are waiting for you." (Implies the items already belong to them).
-        </li>
-        <li><strong>Social Proof:</strong> "See why 5,000+ customers love this product."</li>
-      </ul>
-
-      <div class="checklist-box">
-        <strong>✅ Implementation Checklist</strong>
-        <div class="checklist-item">Verify email capture triggers (pop-ups vs. checkout entry).</div>
-        <div class="checklist-item">Set up dynamic product blocks to show exact items left in cart.</div>
-        <div class="checklist-item">Exclude customers who purchased in the last 24 hours.</div>
-        <div class="checklist-item">A/B test subject lines: "Forgot something?" vs. "10% off your cart".</div>
-      </div>
-    </section>
-
-    <section id="section2">
-      <h2>2. Post-Purchase Email Flows</h2>
-      <p>
-        The sale is not the end of the journey; it is the beginning of the relationship. Post-purchase flows are
-        designed to turn one-time buyers into lifetime loyalists.
-      </p>
-
-      <h3>The "Stick Strategy" Timeline</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Timing</th>
-            <th>Email Objective</th>
-            <th>Key Content</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Immediate</td>
-            <td>Transactional + Brand Building</td>
-            <td>Order confirmation, "Welcome to the family," clear support links.</td>
-          </tr>
-          <tr>
-            <td>Shipping/Delivery</td>
-            <td>Excitement Building</td>
-            <td>Tracking info, "How to use" guides, anticipation building.</td>
-          </tr>
-          <tr>
-            <td>14-30 Days</td>
-            <td>Review Generation</td>
-            <td>Request for UGC (User Generated Content) or text review.</td>
-          </tr>
-          <tr>
-            <td>45-60 Days</td>
-            <td>Cross-Sell / Upsell</td>
-            <td>"You bought X, you might love Y." Data-driven recommendations.</td>
-          </tr>
-          <tr>
-            <td>90 Days+</td>
-            <td>Win-Back</td>
-            <td>"We miss you." Incentives for dormant customers.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>The 5-Email New Customer Sequence</h3>
-      <p><strong>Email 1: Order Confirmation (Immediate)</strong></p>
-      <ul>
-        <li><strong>Subject:</strong> "Your order is confirmed! Here's what happens next"</li>
-        <li><strong>Include:</strong> Expected delivery date, tracking info, customer service contact</li>
-        <li><strong>Bonus:</strong> Quick-start guide or unboxing video</li>
-      </ul>
-
-      <p><strong>Email 2: Shipping Confirmation (When shipped)</strong></p>
-      <ul>
-        <li><strong>Subject:</strong> "Your [Product] is on its way!"</li>
-        <li><strong>Include:</strong> Tracking link, delivery expectations, packaging preview</li>
-        <li><strong>Upsell:</strong> Complementary products (accessories, refills)</li>
-      </ul>
-
-      <p><strong>Email 3: Delivery Confirmation (When delivered)</strong></p>
-      <ul>
-        <li><strong>Subject:</strong> "Your order has arrived! Here's how to get started"</li>
-        <li><strong>Include:</strong> Setup instructions, care guide, first-use tips</li>
-        <li><strong>Request:</strong> Photo sharing, review invitation (timing-sensitive)</li>
-      </ul>
-
-      <p><strong>Email 4: The Check-In (3-5 days post-delivery)</strong></p>
-      <ul>
-        <li><strong>Subject:</strong> "How's your new [Product] working out?"</li>
-        <li><strong>Include:</strong> Troubleshooting tips, FAQ link, usage inspiration</li>
-        <li><strong>Goal:</strong> Address buyer's remorse, encourage usage</li>
-      </ul>
-
-      <p><strong>Email 5: The Review Request (7-14 days post-delivery)</strong></p>
-      <ul>
-        <li><strong>Subject:</strong> "Quick favor - 30 seconds for 15% off?"</li>
-        <li><strong>Include:</strong> Easy review process, incentive for next purchase</li>
-        <li><strong>Timing:</strong> After they've had time to use the product</li>
-      </ul>
-
-      <h3>The Repeat Customer Nurture Sequence</h3>
-      <p><strong>Week 1-2: Usage Education</strong></p>
-      <ul>
-        <li>How-to content, advanced features, creative uses</li>
-        <li>User-generated content showcase</li>
-        <li>Community invitation (Facebook group, forum)</li>
-      </ul>
-
-      <p><strong>Week 3-4: Complementary Products</strong></p>
-      <ul>
-        <li>"Complete the set" recommendations</li>
-        <li>Seasonal additions</li>
-        <li>Bundle deals for existing customers</li>
-      </ul>
-
-      <p><strong>Month 2: Loyalty Program Introduction</strong></p>
-      <ul>
-        <li>Points system explanation</li>
-        <li>VIP tier benefits preview</li>
-        <li>Exclusive member perks</li>
-      </ul>
-
-      <p><strong>Ongoing: Value-Driven Content</strong></p>
-      <ul>
-        <li>Monthly newsletters with tips/tricks</li>
-        <li>Early access to new products</li>
-        <li>Behind-the-scenes content</li>
-      </ul>
-
-      <h3>Product Education Sequences</h3>
-      <p>
-        Reduce buyer's remorse and returns by proactively teaching customers how to use your product. If you sell
-        skincare, send a "Routine Guide" 3 days after delivery. If you sell tech, send a "Hidden Features" video.
-      </p>
-
-      <div class="tip-box">
-        <div class="stat-icon">💡</div>
-        <strong>Pro Tip:</strong> Do not attempt to cross-sell immediately after purchase. Allow the customer to
-        experience the "Unboxing Joy" first. The optimal time for a second purchase request depends on the product's
-        consumption rate.
-      </div>
-    </section>
-
-    <section id="section3">
-      <h2>3. Customer Segmentation for Personalization</h2>
-      <p>
-        Generic "batch and blast" newsletters have diminishing returns. Segmentation allows you to speak directly to a
-        customer's specific needs and behaviors.
-      </p>
-
-      <h3>RFM Analysis Framework</h3>
-      <p>
-        The gold standard for e-commerce segmentation is
-        <strong>Recency, Frequency, and Monetary (RFM)</strong> analysis.
-      </p>
-      <ul>
-        <li><strong>Recency:</strong> How long since their last purchase? (Active vs. At-Risk vs. Churned)</li>
-        <li><strong>Frequency:</strong> How often do they buy? (One-time buyer vs. Repeat purchaser)</li>
-        <li><strong>Monetary:</strong> How much do they spend? (Low value vs. High Roller/VIP)</li>
-      </ul>
-
-      <h3>Behavioral Segmentation</h3>
-      <p><strong>The High-Value Segment (Top 20% of customers)</strong></p>
-      <ul>
-        <li><strong>Criteria:</strong> LTV &gt; $500, purchase frequency &gt; 3x/year</li>
-        <li><strong>Strategy:</strong> VIP treatment, early access, personal shopper service</li>
-        <li><strong>Communication:</strong> Handwritten notes, phone calls for big launches</li>
-      </ul>
-
-      <p><strong>The Bargain Hunters</strong></p>
-      <ul>
-        <li><strong>Criteria:</strong> Only purchase on sale, high discount sensitivity</li>
-        <li><strong>Strategy:</strong> Clearance alerts, bundle deals, loyalty points</li>
-        <li><strong>Communication:</strong> Sale announcements, exclusive coupons</li>
-      </ul>
-
-      <p><strong>The One-Time Buyers</strong></p>
-      <ul>
-        <li><strong>Criteria:</strong> Single purchase, no repeat activity in 90+ days</li>
-        <li><strong>Strategy:</strong> Win-back campaigns, product education, incentives</li>
-        <li><strong>Communication:</strong> "We miss you" sequences, new product alerts</li>
-      </ul>
-
-      <p><strong>The Seasonal Shoppers</strong></p>
-      <ul>
-        <li><strong>Criteria:</strong> Purchase during specific seasons/holidays</li>
-        <li><strong>Strategy:</strong> Early bird offers, seasonal prep content</li>
-        <li><strong>Communication:</strong> Pre-season teasers, holiday gift guides</li>
-      </ul>
-
-      <h3>Purchase-Based Segmentation</h3>
-      <p><strong>Product Category Enthusiasts</strong></p>
-      <ul>
-        <li><strong>Track:</strong> Which categories they browse/buy most</li>
-        <li><strong>Personalize:</strong> Category-specific recommendations</li>
-        <li><strong>Cross-sell:</strong> Complementary categories</li>
-      </ul>
-
-      <p><strong>Price Point Preferences</strong></p>
-      <ul>
-        <li><strong>Segment:</strong> Budget (&lt;$50), Mid-range ($50-200), Premium ($200+)</li>
-        <li><strong>Customize:</strong> Product suggestions at their comfort level</li>
-        <li><strong>Upgrade:</strong> Gradual price increases in recommendations</li>
-      </ul>
-
-      <p><strong>Purchase Cycle Trackers</strong></p>
-      <ul>
-        <li><strong>Analyze:</strong> Days between purchases</li>
-        <li><strong>Predict:</strong> When they're likely to buy again</li>
-        <li><strong>Trigger:</strong> Pre-emptive offers before typical purchase time</li>
-      </ul>
-
-      <h3>Engagement-Based Segmentation</h3>
-      <p><strong>The Email Champions</strong></p>
-      <ul>
-        <li><strong>Criteria:</strong> Open rate &gt; 40%, click rate &gt; 15%</li>
-        <li><strong>Strategy:</strong> Exclusive content, survey participation, beta testing</li>
-        <li><strong>Reward:</strong> First access to sales, special recognition</li>
-      </ul>
-
-      <p><strong>The Ghost Subscribers</strong></p>
-      <ul>
-        <li><strong>Criteria:</strong> No opens in 60+ days</li>
-        <li><strong>Strategy:</strong> Re-engagement campaign, preference center</li>
-        <li><strong>Last resort:</strong> "We miss you" with big incentive or unsubscribe</li>
-      </ul>
-
-      <p><strong>The Mobile Shoppers</strong></p>
-      <ul>
-        <li><strong>Criteria:</strong> &gt;70% of activity on mobile</li>
-        <li><strong>Strategy:</strong> Mobile-optimized content, app push notifications</li>
-        <li><strong>Format:</strong> Vertical images, thumb-friendly CTAs</li>
-      </ul>
-    </section>
-
-    <section id="section4">
-      <h2>4. ROAS Optimization Strategies</h2>
-      <p>
-        Optimizing Return on Ad Spend (ROAS) on Meta (Facebook/Instagram) and Google requires a shift from "hacking"
-        algorithms to feeding them better data and creative.
-      </p>
-
-      <h3>The Creative Testing Framework</h3>
-      <p>
-        Creative is the new targeting. Since privacy changes (iOS14+), algorithms rely on your ad creative to find the
-        right audience.
-      </p>
-      <ul>
-        <li>
-          <strong>Concept Phase:</strong> Test radically different angles (e.g., UGC vs. Studio Shot vs. Text-Overlay).
-        </li>
-        <li><strong>Iteration Phase:</strong> Take the winner and iterate on the first 3 seconds (Hook testing).</li>
-        <li>
-          <strong>Scale Phase:</strong> Move winning creatives to a dedicated scaling campaign with higher budgets.
-        </li>
-      </ul>
-
-      <h3>Audience Targeting Hierarchy</h3>
-      <div class="stat-box">
-        <div class="stat-icon">🎯</div>
-        <div>
-          <strong>Broad Targeting vs. Lookalikes:</strong> Modern ad platforms prefer broad targeting. However, seed
-          audiences are still vital. Upload your VIP customer list (LTV &gt; $200) to create "Super Lookalikes" (1-3%
-          match).
-        </div>
-      </div>
-
-      <h3>Meta (Facebook/Instagram) Ads Optimization</h3>
-      <p><strong>Audience Refinement</strong></p>
-      <ul>
-        <li>Create 1%, 3%, and 5% lookalikes of highest-value customers</li>
-        <li>Exclude recent purchasers (7-day window) to avoid overlap</li>
-        <li>Layer interests with purchase behaviors</li>
-        <li>Use value-based lookalikes for higher AOV targeting</li>
-      </ul>
-
-      <p><strong>Campaign Structure</strong></p>
-      <ul>
-        <li><strong>TOF (Traffic):</strong> Broad interests, lookalikes, optimized for landing page views</li>
-        <li><strong>MOF (Engagement):</strong> Video viewers, page engagers, optimized for add-to-cart</li>
-        <li><strong>BOF (Conversion):</strong> Website visitors, email list, optimized for purchase</li>
-        <li><strong>Retention:</strong> Existing customers for cross-sell/upsell</li>
-      </ul>
-
-      <p><strong>Budget Allocation Strategy</strong></p>
-      <ul>
-        <li>60% to BOF (highest ROAS)</li>
-        <li>25% to MOF (nurture)</li>
-        <li>15% to TOF (new customer acquisition)</li>
-        <li>Scale winning ad sets by 20% every 3 days</li>
-      </ul>
-
-      <h3>Google Ads Optimization</h3>
-      <p><strong>Search Campaign Structure</strong></p>
-      <ul>
-        <li>Single Keyword Ad Groups (SKAGs) for top 20% performers</li>
-        <li>Negative keyword list updated weekly</li>
-        <li>Ad extensions: Sitelinks, callouts, structured snippets</li>
-        <li>Quality Score optimization: CTR &gt;5%, relevance, landing page experience</li>
-      </ul>
-
-      <p><strong>Shopping Campaign Tactics</strong></p>
-      <ul>
-        <li>Segment by price point: &lt;$50, $50-200, $200+</li>
-        <li>Exclude low-margin products from high-bid campaigns</li>
-        <li>Use custom labels for seasonality, profit margins, best sellers</li>
-        <li>Showcase Shopping ads for broad category terms</li>
-      </ul>
-
-      <p><strong>Performance Max Campaigns</strong></p>
-      <ul>
-        <li>Feed optimization: Title tags with high-intent keywords</li>
-        <li>Asset groups by customer segment</li>
-        <li>Exclude brand terms to avoid cannibalization</li>
-        <li>Monitor placement reports for optimization</li>
-      </ul>
-
-      <p><strong>ROAS Bidding Strategy</strong></p>
-      <ul>
-        <li>Start with manual CPC for data collection (2-4 weeks)</li>
-        <li>Switch to tROAS with 15% higher target than current ROAS</li>
-        <li>Adjust targets by device: Mobile +20%, Desktop baseline, Tablet -10%</li>
-        <li>Seasonal adjustments: Increase 30% during peak periods</li>
-      </ul>
-
-      <h3>Cross-Platform Attribution</h3>
-      <p><strong>First-Click vs. Last-Click Analysis</strong></p>
-      <ul>
-        <li>Google Analytics multi-channel funnels</li>
-        <li>30-day click, 1-day view attribution window</li>
-        <li>Identify assist keywords/campaigns</li>
-        <li>Credit sharing between platforms</li>
-      </ul>
-
-      <p><strong>Incrementality Testing</strong></p>
-      <ul>
-        <li>Holdout groups for each major channel</li>
-        <li>Geo-split tests for market-level impact</li>
-        <li>Time-series analysis for seasonal effects</li>
-        <li>Customer survey data for validation</li>
-      </ul>
-
-      <h3>Conversion Tracking Essentials</h3>
-      <p>You cannot optimize what you cannot measure. Ensure you have:</p>
-      <ul>
-        <li><strong>Meta CAPI (Conversions API):</strong> Server-side tracking to bypass browser blockers.</li>
-        <li><strong>Google Enhanced Conversions:</strong> Matches first-party data to logged-in Google accounts.</li>
-        <li>
-          <strong>Attribution Window Alignment:</strong> Ensure your internal dashboard matches the ad platform's view
-          (e.g., 7-day click, 1-day view).
-        </li>
-      </ul>
-    </section>
-
-    <section id="section5">
-      <h2>5. VIP Program Structures</h2>
-      <p>
-        Increasing Customer Lifetime Value (LTV) by just 5% can increase profits by 25-95%. A VIP program is the
-        mechanism to drive this retention.
-      </p>
-      <p class="highlight" style="text-align: center; margin: 20px 0">
-        Goal: Boost LTV by 40% through gamification and exclusivity.
-      </p>
-
-      <h3>Tier System Design Example</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Tier Level</th>
-            <th>Entry Criteria</th>
-            <th>Rewards &amp; Perks</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Bronze</strong></td>
-            <td>Sign-up / 1st Purchase</td>
-            <td>1 point per $1 spent, Birthday Gift (500 pts).</td>
-          </tr>
-          <tr>
-            <td><strong>Silver</strong></td>
-            <td>Spend $250+ / Year</td>
-            <td>1.25 points per $1, Free Shipping, Early Access to Sales.</td>
-          </tr>
-          <tr>
-            <td><strong>Gold</strong></td>
-            <td>Spend $500+ / Year</td>
-            <td>1.5 points per $1, Priority Support, Double Point Days.</td>
-          </tr>
-          <tr>
-            <td><strong>Platinum</strong></td>
-            <td>Spend $1000+ / Year</td>
-            <td>2 points per $1, Annual Exclusive Gift, Invite to VIP Events.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Tiered VIP Program Design</h3>
-      <p><strong>Bronze Tier (Entry Level)</strong></p>
-      <ul>
-        <li><strong>Threshold:</strong> $200 annual spend or 2 purchases</li>
-        <li><strong>Benefits:</strong> Free shipping, birthday discount, early sale access</li>
-        <li><strong>Communication:</strong> Monthly VIP newsletter</li>
-        <li><strong>Retention rate:</strong> 65% vs. 45% non-members</li>
-      </ul>
-
-      <p><strong>Silver Tier (Loyal Customers)</strong></p>
-      <ul>
-        <li><strong>Threshold:</strong> $500 annual spend or 5 purchases</li>
-        <li><strong>Benefits:</strong> 10% permanent discount, double points, priority support</li>
-        <li><strong>Perks:</strong> Free returns, extended warranties</li>
-        <li><strong>Retention rate:</strong> 78%</li>
-      </ul>
-
-      <p><strong>Gold Tier (VIP Elite)</strong></p>
-      <ul>
-        <li><strong>Threshold:</strong> $1,000+ annual spend or 10+ purchases</li>
-        <li><strong>Benefits:</strong> 15% discount, triple points, personal shopper</li>
-        <li><strong>Exclusive:</strong> Product launches, VIP events, feedback panels</li>
-        <li><strong>Retention rate:</strong> 85%</li>
-      </ul>
-
-      <p><strong>Platinum Tier (Top 1%)</strong></p>
-      <ul>
-        <li><strong>Threshold:</strong> $2,500+ annual spend</li>
-        <li><strong>Benefits:</strong> 20% discount, free expedited shipping, concierge service</li>
-        <li><strong>White-glove:</strong> Custom products, direct CEO contact</li>
-        <li><strong>Retention rate:</strong> 92%</li>
-      </ul>
-
-      <h3>Points Program Mechanics</h3>
-      <p><strong>Earning Structure</strong></p>
-      <ul>
-        <li>1 point per $1 spent (baseline)</li>
-        <li>2x points during birthdays/month</li>
-        <li>5x points for reviews, referrals, social shares</li>
-        <li>Bonus points for category-specific purchases</li>
-      </ul>
-
-      <p><strong>Redemption Options</strong></p>
-      <ul>
-        <li>100 points = $5 credit (5% return rate)</li>
-        <li>Exclusive products (limited quantity)</li>
-        <li>Experiences (virtual events, meet-and-greets)</li>
-        <li>Charity donations (brand alignment)</li>
-      </ul>
-
-      <p><strong>Gamification Elements</strong></p>
-      <ul>
-        <li>Progress bars to next tier</li>
-        <li>Achievement badges (first review, 10th purchase)</li>
-        <li>Leaderboards (monthly top spenders)</li>
-        <li>Surprise point bonuses</li>
-      </ul>
-
-      <h3>VIP Program Implementation</h3>
-      <p><strong>Onboarding Sequence</strong></p>
-      <ul>
-        <li>Welcome email with tier explanation</li>
-        <li>Points balance tracker</li>
-        <li>First-purchase bonus activation</li>
-        <li>Mobile app download incentive</li>
-      </ul>
-
-      <p><strong>Ongoing Engagement</strong></p>
-      <ul>
-        <li>Monthly points statements</li>
-        <li>Tier progress updates</li>
-        <li>Personalized reward suggestions</li>
-        <li>Exclusive content access</li>
-      </ul>
-
-      <p><strong>Retention Strategies</strong></p>
-      <ul>
-        <li>Anniversary celebrations</li>
-        <li>Tier downgrade prevention (spend $X to maintain)</li>
-        <li>Win-back campaigns for inactive VIPs</li>
-        <li>Referral bonuses for bringing friends</li>
-      </ul>
-
-      <h3>Measuring VIP Success</h3>
-      <p><strong>Key Metrics</strong></p>
-      <ul>
-        <li>LTV increase: Target 40%+ vs. non-members</li>
-        <li>Purchase frequency: 2-3x higher</li>
-        <li>Average order value: 25-50% increase</li>
-        <li>Retention rate: 20-30% improvement</li>
-      </ul>
-
-      <p><strong>Financial Modeling</strong></p>
-      <ul>
-        <li>Program cost: 8-12% of incremental revenue</li>
-        <li>Break-even: 6-12 months depending on tier</li>
-        <li>ROI: 3-5x within 24 months</li>
-        <li>Customer acquisition through referrals: 15-25%</li>
-      </ul>
-
-      <h3>Exclusivity Tactics</h3>
-      <p>Points are commodities; experiences are sticky. The best VIP programs offer things money can't buy:</p>
-      <ul>
-        <li><strong>Beta Testing:</strong> Let VIPs try new products before the public.</li>
-        <li><strong>Community Access:</strong> Private Facebook group or Slack channel with the founders.</li>
-        <li><strong>Concierge Service:</strong> Skip the support queue.</li>
-      </ul>
-
-      <div class="checklist-box">
-        <strong>✅ Implementation Roadmap</strong>
-        <div class="checklist-item">Audit current LTV to set baselines.</div>
-        <div class="checklist-item">Choose a loyalty app (e.g., Yotpo, Smile.io, LoyaltyLion).</div>
-        <div class="checklist-item">Design the creative assets for the "Tier Welcome" emails.</div>
-        <div class="checklist-item">Launch to existing VIPs first as a "Founder's Circle" test.</div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Implementation Roadmap</h2>
-      
-      <div class="timeline">
-        <div class="timeline-item">
-          <strong>Month 1: Foundation</strong>
-          <ul>
-            <li>Set up abandoned cart sequence</li>
-            <li>Implement basic post-purchase flow</li>
-            <li>Launch Bronze VIP tier</li>
-            <li>Install tracking pixels</li>
-          </ul>
-        </div>
-        <div class="timeline-item">
-          <strong>Month 2: Optimization</strong>
-          <ul>
-            <li>A/B test email sequences</li>
-            <li>Refine customer segmentation</li>
-            <li>Launch Silver VIP tier</li>
-            <li>Start Meta/Google ads testing</li>
-          </ul>
-        </div>
-        <div class="timeline-item">
-          <strong>Month 3: Scaling</strong>
-          <ul>
-            <li>Add advanced segmentation</li>
-            <li>Implement full VIP program</li>
-            <li>Optimize ROAS campaigns</li>
-            <li>Launch referral program</li>
-          </ul>
-        </div>
-        <div class="timeline-item">
-          <strong>Ongoing: Refinement</strong>
-          <ul>
-            <li>Monthly performance reviews</li>
-            <li>Quarterly VIP tier analysis</li>
-            <li>Seasonal campaign adjustments</li>
-            <li>Annual program overhaul</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Quick Start Checklist</h2>
-      <div class="checklist-box">
-        <div class="checklist-item">Install email marketing platform (Klaviyo/Mailchimp)</div>
-        <div class="checklist-item">Set up abandoned cart triggers</div>
-        <div class="checklist-item">Create post-purchase email templates</div>
-        <div class="checklist-item">Implement customer tracking system</div>
-        <div class="checklist-item">Design VIP program structure</div>
-        <div class="checklist-item">Install Meta/Google pixels</div>
-        <div class="checklist-item">Create initial customer segments</div>
-        <div class="checklist-item">Set up ROAS tracking dashboard</div>
-        <div class="checklist-item">Train customer service team</div>
-        <div class="checklist-item">Launch first campaign</div>
-      </div>
-    </section>
-
-    <div style="margin-top: 60px; padding-top: 20px; border-top: 2px solid var(--merkad-purple)">
-      <h3>Conclusion &amp; Next Steps</h3>
-      <p>
-        Automation is not a "set it and forget it" task—it is an iterative process. By implementing these five pillars,
-        you build a resilient e-commerce ecosystem that recovers revenue, fosters loyalty, and maximizes ad spend
-        efficiency.
-      </p>
-      <p>
-        <strong>Start small:</strong> Begin with the Abandoned Cart sequence this week. Once that is generating revenue,
-        reinvest those funds into building your Post-Purchase flows and VIP program.
-      </p>
-      <p>
-        This blueprint provides the foundation for automating your e-commerce business and maximizing customer lifetime value. Start with one section, master it, then expand to the next for sustainable growth.
-      </p>
     </div>
 
-    <footer>
-      <p>© 2026 Merkadagency E-Commerce Automation Blueprint. All Rights Reserved.</p>
-    </footer>
-  
+    <h3>Meta (Facebook/Instagram) Ads Optimization</h3>
+    <p><strong>Audience Refinement</strong></p>
+    <ul>
+      <li>Create 1%, 3%, and 5% lookalikes of highest-value customers</li>
+      <li>Exclude recent purchasers (7-day window) to avoid overlap</li>
+      <li>Layer interests with purchase behaviors</li>
+      <li>Use value-based lookalikes for higher AOV targeting</li>
+    </ul>
 
-</body></html>
+    <p><strong>Campaign Structure</strong></p>
+    <ul>
+      <li><strong>TOF (Traffic):</strong> Broad interests, lookalikes, optimized for landing page views</li>
+      <li><strong>MOF (Engagement):</strong> Video viewers, page engagers, optimized for add-to-cart</li>
+      <li><strong>BOF (Conversion):</strong> Website visitors, email list, optimized for purchase</li>
+      <li><strong>Retention:</strong> Existing customers for cross-sell/upsell</li>
+    </ul>
+
+    <p><strong>Budget Allocation Strategy</strong></p>
+    <ul>
+      <li>60% to BOF (highest ROAS)</li>
+      <li>25% to MOF (nurture)</li>
+      <li>15% to TOF (new customer acquisition)</li>
+      <li>Scale winning ad sets by 20% every 3 days</li>
+    </ul>
+
+    <h3>Google Ads Optimization</h3>
+    <p><strong>Search Campaign Structure</strong></p>
+    <ul>
+      <li>Single Keyword Ad Groups (SKAGs) for top 20% performers</li>
+      <li>Negative keyword list updated weekly</li>
+      <li>Ad extensions: Sitelinks, callouts, structured snippets</li>
+      <li>Quality Score optimization: CTR &gt;5%, relevance, landing page experience</li>
+    </ul>
+
+    <p><strong>Shopping Campaign Tactics</strong></p>
+    <ul>
+      <li>Segment by price point: &lt;$50, $50-200, $200+</li>
+      <li>Exclude low-margin products from high-bid campaigns</li>
+      <li>Use custom labels for seasonality, profit margins, best sellers</li>
+      <li>Showcase Shopping ads for broad category terms</li>
+    </ul>
+
+    <p><strong>Performance Max Campaigns</strong></p>
+    <ul>
+      <li>Feed optimization: Title tags with high-intent keywords</li>
+      <li>Asset groups by customer segment</li>
+      <li>Exclude brand terms to avoid cannibalization</li>
+      <li>Monitor placement reports for optimization</li>
+    </ul>
+
+    <p><strong>ROAS Bidding Strategy</strong></p>
+    <ul>
+      <li>Start with manual CPC for data collection (2-4 weeks)</li>
+      <li>Switch to tROAS with 15% higher target than current ROAS</li>
+      <li>Adjust targets by device: Mobile +20%, Desktop baseline, Tablet -10%</li>
+      <li>Seasonal adjustments: Increase 30% during peak periods</li>
+    </ul>
+
+    <h3>Cross-Platform Attribution</h3>
+    <p><strong>First-Click vs. Last-Click Analysis</strong></p>
+    <ul>
+      <li>Google Analytics multi-channel funnels</li>
+      <li>30-day click, 1-day view attribution window</li>
+      <li>Identify assist keywords/campaigns</li>
+      <li>Credit sharing between platforms</li>
+    </ul>
+
+    <p><strong>Incrementality Testing</strong></p>
+    <ul>
+      <li>Holdout groups for each major channel</li>
+      <li>Geo-split tests for market-level impact</li>
+      <li>Time-series analysis for seasonal effects</li>
+      <li>Customer survey data for validation</li>
+    </ul>
+
+    <h3>Conversion Tracking Essentials</h3>
+    <p>You cannot optimize what you cannot measure. Ensure you have:</p>
+    <ul>
+      <li><strong>Meta CAPI (Conversions API):</strong> Server-side tracking to bypass browser blockers.</li>
+      <li><strong>Google Enhanced Conversions:</strong> Matches first-party data to logged-in Google accounts.</li>
+      <li>
+        <strong>Attribution Window Alignment:</strong> Ensure your internal dashboard matches the ad platform's view
+        (e.g., 7-day click, 1-day view).
+      </li>
+    </ul>
+  </section>
+
+  <section id="section5">
+    <h2>5. VIP Program Structures</h2>
+    <p>
+      Increasing Customer Lifetime Value (LTV) by just 5% can increase profits by 25-95%. A VIP program is the
+      mechanism to drive this retention.
+    </p>
+    <p class="highlight" style="text-align: center; margin: 20px 0">
+      Goal: Boost LTV by 40% through gamification and exclusivity.
+    </p>
+
+    <h3>Tier System Design Example</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tier Level</th>
+          <th>Entry Criteria</th>
+          <th>Rewards &amp; Perks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Bronze</strong></td>
+          <td>Sign-up / 1st Purchase</td>
+          <td>1 point per $1 spent, Birthday Gift (500 pts).</td>
+        </tr>
+        <tr>
+          <td><strong>Silver</strong></td>
+          <td>Spend $250+ / Year</td>
+          <td>1.25 points per $1, Free Shipping, Early Access to Sales.</td>
+        </tr>
+        <tr>
+          <td><strong>Gold</strong></td>
+          <td>Spend $500+ / Year</td>
+          <td>1.5 points per $1, Priority Support, Double Point Days.</td>
+        </tr>
+        <tr>
+          <td><strong>Platinum</strong></td>
+          <td>Spend $1000+ / Year</td>
+          <td>2 points per $1, Annual Exclusive Gift, Invite to VIP Events.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Tiered VIP Program Design</h3>
+    <p><strong>Bronze Tier (Entry Level)</strong></p>
+    <ul>
+      <li><strong>Threshold:</strong> $200 annual spend or 2 purchases</li>
+      <li><strong>Benefits:</strong> Free shipping, birthday discount, early sale access</li>
+      <li><strong>Communication:</strong> Monthly VIP newsletter</li>
+      <li><strong>Retention rate:</strong> 65% vs. 45% non-members</li>
+    </ul>
+
+    <p><strong>Silver Tier (Loyal Customers)</strong></p>
+    <ul>
+      <li><strong>Threshold:</strong> $500 annual spend or 5 purchases</li>
+      <li><strong>Benefits:</strong> 10% permanent discount, double points, priority support</li>
+      <li><strong>Perks:</strong> Free returns, extended warranties</li>
+      <li><strong>Retention rate:</strong> 78%</li>
+    </ul>
+
+    <p><strong>Gold Tier (VIP Elite)</strong></p>
+    <ul>
+      <li><strong>Threshold:</strong> $1,000+ annual spend or 10+ purchases</li>
+      <li><strong>Benefits:</strong> 15% discount, triple points, personal shopper</li>
+      <li><strong>Exclusive:</strong> Product launches, VIP events, feedback panels</li>
+      <li><strong>Retention rate:</strong> 85%</li>
+    </ul>
+
+    <p><strong>Platinum Tier (Top 1%)</strong></p>
+    <ul>
+      <li><strong>Threshold:</strong> $2,500+ annual spend</li>
+      <li><strong>Benefits:</strong> 20% discount, free expedited shipping, concierge service</li>
+      <li><strong>White-glove:</strong> Custom products, direct CEO contact</li>
+      <li><strong>Retention rate:</strong> 92%</li>
+    </ul>
+
+    <h3>Points Program Mechanics</h3>
+    <p><strong>Earning Structure</strong></p>
+    <ul>
+      <li>1 point per $1 spent (baseline)</li>
+      <li>2x points during birthdays/month</li>
+      <li>5x points for reviews, referrals, social shares</li>
+      <li>Bonus points for category-specific purchases</li>
+    </ul>
+
+    <p><strong>Redemption Options</strong></p>
+    <ul>
+      <li>100 points = $5 credit (5% return rate)</li>
+      <li>Exclusive products (limited quantity)</li>
+      <li>Experiences (virtual events, meet-and-greets)</li>
+      <li>Charity donations (brand alignment)</li>
+    </ul>
+
+    <p><strong>Gamification Elements</strong></p>
+    <ul>
+      <li>Progress bars to next tier</li>
+      <li>Achievement badges (first review, 10th purchase)</li>
+      <li>Leaderboards (monthly top spenders)</li>
+      <li>Surprise point bonuses</li>
+    </ul>
+
+    <h3>VIP Program Implementation</h3>
+    <p><strong>Onboarding Sequence</strong></p>
+    <ul>
+      <li>Welcome email with tier explanation</li>
+      <li>Points balance tracker</li>
+      <li>First-purchase bonus activation</li>
+      <li>Mobile app download incentive</li>
+    </ul>
+
+    <p><strong>Ongoing Engagement</strong></p>
+    <ul>
+      <li>Monthly points statements</li>
+      <li>Tier progress updates</li>
+      <li>Personalized reward suggestions</li>
+      <li>Exclusive content access</li>
+    </ul>
+
+    <p><strong>Retention Strategies</strong></p>
+    <ul>
+      <li>Anniversary celebrations</li>
+      <li>Tier downgrade prevention (spend $X to maintain)</li>
+      <li>Win-back campaigns for inactive VIPs</li>
+      <li>Referral bonuses for bringing friends</li>
+    </ul>
+
+    <h3>Measuring VIP Success</h3>
+    <p><strong>Key Metrics</strong></p>
+    <ul>
+      <li>LTV increase: Target 40%+ vs. non-members</li>
+      <li>Purchase frequency: 2-3x higher</li>
+      <li>Average order value: 25-50% increase</li>
+      <li>Retention rate: 20-30% improvement</li>
+    </ul>
+
+    <p><strong>Financial Modeling</strong></p>
+    <ul>
+      <li>Program cost: 8-12% of incremental revenue</li>
+      <li>Break-even: 6-12 months depending on tier</li>
+      <li>ROI: 3-5x within 24 months</li>
+      <li>Customer acquisition through referrals: 15-25%</li>
+    </ul>
+
+    <h3>Exclusivity Tactics</h3>
+    <p>Points are commodities; experiences are sticky. The best VIP programs offer things money can't buy:</p>
+    <ul>
+      <li><strong>Beta Testing:</strong> Let VIPs try new products before the public.</li>
+      <li><strong>Community Access:</strong> Private Facebook group or Slack channel with the founders.</li>
+      <li><strong>Concierge Service:</strong> Skip the support queue.</li>
+    </ul>
+
+    <div class="checklist-box">
+      <strong>✅ Implementation Roadmap</strong>
+      <div class="checklist-item">Audit current LTV to set baselines.</div>
+      <div class="checklist-item">Choose a loyalty app (e.g., Yotpo, Smile.io, LoyaltyLion).</div>
+      <div class="checklist-item">Design the creative assets for the "Tier Welcome" emails.</div>
+      <div class="checklist-item">Launch to existing VIPs first as a "Founder's Circle" test.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Implementation Roadmap</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <strong>Month 1: Foundation</strong>
+        <ul>
+          <li>Set up abandoned cart sequence</li>
+          <li>Implement basic post-purchase flow</li>
+          <li>Launch Bronze VIP tier</li>
+          <li>Install tracking pixels</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <strong>Month 2: Optimization</strong>
+        <ul>
+          <li>A/B test email sequences</li>
+          <li>Refine customer segmentation</li>
+          <li>Launch Silver VIP tier</li>
+          <li>Start Meta/Google ads testing</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <strong>Month 3: Scaling</strong>
+        <ul>
+          <li>Add advanced segmentation</li>
+          <li>Implement full VIP program</li>
+          <li>Optimize ROAS campaigns</li>
+          <li>Launch referral program</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <strong>Ongoing: Refinement</strong>
+        <ul>
+          <li>Monthly performance reviews</li>
+          <li>Quarterly VIP tier analysis</li>
+          <li>Seasonal campaign adjustments</li>
+          <li>Annual program overhaul</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Quick Start Checklist</h2>
+    <div class="checklist-box">
+      <div class="checklist-item">Install email marketing platform (Klaviyo/Mailchimp)</div>
+      <div class="checklist-item">Set up abandoned cart triggers</div>
+      <div class="checklist-item">Create post-purchase email templates</div>
+      <div class="checklist-item">Implement customer tracking system</div>
+      <div class="checklist-item">Design VIP program structure</div>
+      <div class="checklist-item">Install Meta/Google pixels</div>
+      <div class="checklist-item">Create initial customer segments</div>
+      <div class="checklist-item">Set up ROAS tracking dashboard</div>
+      <div class="checklist-item">Train customer service team</div>
+      <div class="checklist-item">Launch first campaign</div>
+    </div>
+  </section>
+
+  <div style="margin-top: 60px; padding-top: 20px; border-top: 2px solid var(--merkad-purple)">
+    <h3>Conclusion &amp; Next Steps</h3>
+    <p>
+      Automation is not a "set it and forget it" task—it is an iterative process. By implementing these five pillars,
+      you build a resilient e-commerce ecosystem that recovers revenue, fosters loyalty, and maximizes ad spend
+      efficiency.
+    </p>
+    <p>
+      <strong>Start small:</strong> Begin with the Abandoned Cart sequence this week. Once that is generating revenue,
+      reinvest those funds into building your Post-Purchase flows and VIP program.
+    </p>
+    <p>
+      This blueprint provides the foundation for automating your e-commerce business and maximizing customer lifetime
+      value. Start with one section, master it, then expand to the next for sustainable growth.
+    </p>
+  </div>
+
+  <footer>
+    <p>© 2026 Merkadagency E-Commerce Automation Blueprint. All Rights Reserved.</p>
+  </footer>
+
+
+</body>
+
+</html>
