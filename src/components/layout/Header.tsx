@@ -24,6 +24,7 @@ const navigation = [
       { name: 'Construction', href: '/industries/construction' },
     ],
   },
+  { name: 'Results', href: '/results' },
   {
     name: 'Case Studies',
     href: '/case-studies',
