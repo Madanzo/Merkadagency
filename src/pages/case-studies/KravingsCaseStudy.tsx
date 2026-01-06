@@ -179,7 +179,7 @@ export default function KravingsCaseStudy() {
             </div>
             <div className="p-2 bg-merkad-bg-tertiary">
               <img
-                src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Macbook.png?alt=media&token=8624128f-1cee-45e0-b663-e380ccf0267d"
+                src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FScreenshot%202025-08-21%20153207.png?alt=media&token=87afa2fd-ca5f-4683-ad24-fecb592cca89"
                 alt="Kravings Club Website"
                 className="w-full rounded"
               />
