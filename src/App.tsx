@@ -27,6 +27,11 @@ import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import { ProtectedRoute } from "./components/admin/ProtectedRoute";
 
+import IndustriesHub from "./pages/industries/IndustriesHub";
+import MedspasPage from "./pages/industries/MedspasPage";
+import CannabisPage from "./pages/industries/CannabisPage";
+import ConstructionPage from "./pages/industries/ConstructionPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -43,6 +48,11 @@ const App = () => (
           <Route path="/services/crm-automation" element={<CRMAutomation />} />
           <Route path="/services/seo-content" element={<SEOContent />} />
           <Route path="/services/paid-advertising" element={<PaidAdvertising />} />
+          {/* Industries */}
+          <Route path="/industries" element={<IndustriesHub />} />
+          <Route path="/industries/medspas" element={<MedspasPage />} />
+          <Route path="/industries/cannabis" element={<CannabisPage />} />
+          <Route path="/industries/construction" element={<ConstructionPage />} />
           {/* Case Studies */}
           <Route path="/case-studies" element={<CaseStudiesHub />} />
           <Route path="/case-studies/kravings" element={<KravingsCaseStudy />} />
