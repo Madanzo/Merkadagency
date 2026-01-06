@@ -19,6 +19,9 @@ import AboutPage from "./pages/about/AboutPage";
 import MethodPage from "./pages/about/MethodPage";
 import { FreeAudit } from "./pages/resources/FreeAudit";
 import { ROICalculator } from "./pages/resources/ROICalculator";
+import MedspaChecklist from "./pages/resources/MedspaChecklist";
+import CannabisPlaybook from "./pages/resources/CannabisPlaybook";
+import ContractorGuide from "./pages/resources/ContractorGuide";
 import { ContactPage } from "./pages/ContactPage";
 import { BlogPage } from "./pages/blog/BlogPage";
 import { PrivacyPage } from "./pages/legal/PrivacyPage";
@@ -62,6 +65,9 @@ const App = () => (
           {/* Resources */}
           <Route path="/resources/free-audit" element={<FreeAudit />} />
           <Route path="/resources/roi-calculator" element={<ROICalculator />} />
+          <Route path="/resources/medspa-automation-checklist" element={<MedspaChecklist />} />
+          <Route path="/resources/cannabis-marketing-playbook" element={<CannabisPlaybook />} />
+          <Route path="/resources/contractor-lead-gen-guide" element={<ContractorGuide />} />
           {/* About */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/about/method" element={<MethodPage />} />
