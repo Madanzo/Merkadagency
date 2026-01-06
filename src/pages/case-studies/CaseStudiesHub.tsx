@@ -29,6 +29,7 @@ const caseStudies = [
   {
     client: 'Teonanacatl',
     industry: 'Wellness & Retreats',
+    industryType: 'medspa',
     metric: '3x',
     metricLabel: 'Google Visibility',
     description: 'Custom website, CRM integration, and SEO optimization transformed their digital presence from zero.',
