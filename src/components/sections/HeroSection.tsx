@@ -87,18 +87,18 @@ export function HeroSection() {
 
                 {/* Content Overlay */}
                 <div className="text-center relative z-10">
-                  <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
-                    <div className="p-4 rounded-lg bg-merkad-bg-tertiary/80 backdrop-blur-sm border border-white/5">
-                      <div className="text-3xl font-mono font-bold text-merkad-purple-light text-glow">196%</div>
-                      <div className="text-xs text-merkad-text-muted mt-1">Revenue Growth</div>
+                  <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-lg mx-auto">
+                    <div className="p-2 sm:p-4 rounded-lg bg-merkad-bg-tertiary/80 backdrop-blur-sm border border-white/5">
+                      <div className="text-xl sm:text-3xl font-mono font-bold text-merkad-purple-light text-glow">196%</div>
+                      <div className="text-[10px] sm:text-xs text-merkad-text-muted mt-1">Revenue Growth</div>
                     </div>
-                    <div className="p-4 rounded-lg bg-merkad-bg-tertiary/80 backdrop-blur-sm border border-white/5">
-                      <div className="text-3xl font-mono font-bold text-merkad-green text-glow">47s</div>
-                      <div className="text-xs text-merkad-text-muted mt-1">Response Time</div>
+                    <div className="p-2 sm:p-4 rounded-lg bg-merkad-bg-tertiary/80 backdrop-blur-sm border border-white/5">
+                      <div className="text-xl sm:text-3xl font-mono font-bold text-merkad-green text-glow">47s</div>
+                      <div className="text-[10px] sm:text-xs text-merkad-text-muted mt-1">Response Time</div>
                     </div>
-                    <div className="p-4 rounded-lg bg-merkad-bg-tertiary/80 backdrop-blur-sm border border-white/5">
-                      <div className="text-3xl font-mono font-bold text-merkad-purple-light text-glow">24/7</div>
-                      <div className="text-xs text-merkad-text-muted mt-1">AI Active</div>
+                    <div className="p-2 sm:p-4 rounded-lg bg-merkad-bg-tertiary/80 backdrop-blur-sm border border-white/5">
+                      <div className="text-xl sm:text-3xl font-mono font-bold text-merkad-purple-light text-glow">24/7</div>
+                      <div className="text-[10px] sm:text-xs text-merkad-text-muted mt-1">AI Active</div>
                     </div>
                   </div>
                 </div>
