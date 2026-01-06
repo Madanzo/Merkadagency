@@ -1,4 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
+import { NicheCallout } from '@/components/common/NicheCallout';
 import { Link } from 'react-router-dom';
 import { ArrowRight, GitBranch, RefreshCw, BarChart3, Users, CheckCircle2, Bell } from 'lucide-react';
 

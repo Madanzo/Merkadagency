@@ -1,4 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
+import { NicheCallout } from '@/components/common/NicheCallout';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Search, TrendingUp, FileText, Globe, CheckCircle2, BarChart } from 'lucide-react';
 
