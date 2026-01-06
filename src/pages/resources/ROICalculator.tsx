@@ -11,8 +11,6 @@ export function ROICalculator() {
     responseTime: 6,
   });
 
-  const [showResults, setShowResults] = useState(false);
-
   // Calculate improvements
   const currentClosedDeals = Math.round(inputs.monthlyLeads * (inputs.closeRate / 100));
   const currentRevenue = currentClosedDeals * inputs.avgTransaction;
@@ -26,9 +24,7 @@ export function ROICalculator() {
   const revenueIncrease = projectedRevenue - currentRevenue;
   const percentIncrease = Math.round((revenueIncrease / currentRevenue) * 100);
 
-  const handleCalculate = () => {
-    setShowResults(true);
-  };
+  /* Removed handleCalculate and showResults state */
 
   return (
     <Layout>
@@ -134,14 +130,6 @@ export function ROICalculator() {
                         <span className="text-merkad-text-muted">24hrs</span>
                       </div>
                     </div>
-
-                    <button
-                      onClick={handleCalculate}
-                      className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-gradient-purple text-white font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 transition-all duration-300"
-                    >
-                      Calculate My ROI
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
                   </div>
                 </div>
               </div>
@@ -159,64 +147,54 @@ export function ROICalculator() {
                   </p>
                 </div>
 
-                {showResults && (
-                  <>
-                    {/* Projected State */}
-                    <div className="stats-card">
-                      <div className="stats-card-inner">
-                        <h4 className="text-sm font-mono text-merkad-text-muted uppercase tracking-wider mb-4">
-                          Projected With MerkadFlow
-                        </h4>
-                        <div className="text-4xl font-mono font-bold text-merkad-green text-glow">
-                          ${projectedRevenue.toLocaleString()}
-                        </div>
-                        <p className="text-merkad-text-muted text-sm mt-2">
-                          {improvedClosedDeals} deals at {Math.round(improvedCloseRate)}% close rate
-                        </p>
+                <>
+                  {/* Projected State */}
+                  <div className="stats-card">
+                    <div className="stats-card-inner">
+                      <h4 className="text-sm font-mono text-merkad-text-muted uppercase tracking-wider mb-4">
+                        Projected With MerkadFlow
+                      </h4>
+                      <div className="text-4xl font-mono font-bold text-merkad-green text-glow">
+                        ${projectedRevenue.toLocaleString()}
                       </div>
-                    </div>
-
-                    {/* Improvement */}
-                    <div className="bg-merkad-bg-tertiary rounded-xl p-6 border border-merkad-purple/30">
-                      <div className="grid grid-cols-2 gap-4">
-                        <div>
-                          <div className="text-sm text-merkad-text-muted mb-1">Monthly Increase</div>
-                          <div className="text-2xl font-mono font-bold text-merkad-green">
-                            +${revenueIncrease.toLocaleString()}
-                          </div>
-                        </div>
-                        <div>
-                          <div className="text-sm text-merkad-text-muted mb-1">Growth</div>
-                          <div className="text-2xl font-mono font-bold text-merkad-purple-light">
-                            +{percentIncrease}%
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* CTA */}
-                    <div className="text-center pt-4">
-                      <p className="text-merkad-text-secondary mb-4">
-                        Ready to unlock this growth?
+                      <p className="text-merkad-text-muted text-sm mt-2">
+                        {improvedClosedDeals} deals at {Math.round(improvedCloseRate)}% close rate
                       </p>
-                      <Link
-                        to="/book"
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-purple text-white font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 transition-all duration-300 btn-arrow"
-                      >
-                        Book Discovery Call
-                        <ArrowRight className="w-5 h-5" />
-                      </Link>
                     </div>
-                  </>
-                )}
-
-                {!showResults && (
-                  <div className="bg-merkad-bg-tertiary rounded-xl p-6 border border-white/5 text-center">
-                    <p className="text-merkad-text-muted">
-                      Adjust the sliders and click "Calculate My ROI" to see your potential growth.
-                    </p>
                   </div>
-                )}
+
+                  {/* Improvement */}
+                  <div className="bg-merkad-bg-tertiary rounded-xl p-6 border border-merkad-purple/30">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <div className="text-sm text-merkad-text-muted mb-1">Monthly Increase</div>
+                        <div className="text-2xl font-mono font-bold text-merkad-green">
+                          +${revenueIncrease.toLocaleString()}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-sm text-merkad-text-muted mb-1">Growth</div>
+                        <div className="text-2xl font-mono font-bold text-merkad-purple-light">
+                          +{percentIncrease}%
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="text-center pt-4">
+                    <p className="text-merkad-text-secondary mb-4">
+                      Ready to unlock this growth?
+                    </p>
+                    <Link
+                      to="/book"
+                      className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-purple text-white font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 transition-all duration-300 btn-arrow"
+                    >
+                      Book Discovery Call
+                      <ArrowRight className="w-5 h-5" />
+                    </Link>
+                  </div>
+                </>
               </div>
             </div>
           </div>
