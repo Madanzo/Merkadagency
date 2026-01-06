@@ -73,8 +73,24 @@ export function HeroSection() {
               </div>
             </div>
             <div className="p-4 bg-merkad-bg-tertiary">
+              {/* Stats Row - Above Video */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-lg mx-auto mb-4 sm:mb-6">
+                <div className="p-2 sm:p-4 rounded-lg bg-merkad-bg-elevated/50 border border-white/5 backdrop-blur-sm">
+                  <div className="text-xl sm:text-3xl font-mono font-bold text-merkad-purple-light text-glow">196%</div>
+                  <div className="text-[10px] sm:text-xs text-merkad-text-muted mt-1">Revenue Growth</div>
+                </div>
+                <div className="p-2 sm:p-4 rounded-lg bg-merkad-bg-elevated/50 border border-white/5 backdrop-blur-sm">
+                  <div className="text-xl sm:text-3xl font-mono font-bold text-merkad-green text-glow">47s</div>
+                  <div className="text-[10px] sm:text-xs text-merkad-text-muted mt-1">Response Time</div>
+                </div>
+                <div className="p-2 sm:p-4 rounded-lg bg-merkad-bg-elevated/50 border border-white/5 backdrop-blur-sm">
+                  <div className="text-xl sm:text-3xl font-mono font-bold text-merkad-purple-light text-glow">24/7</div>
+                  <div className="text-[10px] sm:text-xs text-merkad-text-muted mt-1">AI Active</div>
+                </div>
+              </div>
+
               {/* Dashboard Preview */}
-              <div className="aspect-video rounded-lg bg-merkad-bg-secondary flex items-center justify-center relative overflow-hidden">
+              <div className="aspect-video rounded-lg bg-merkad-bg-secondary flex items-center justify-center relative overflow-hidden shadow-inner border border-white/5">
                 {/* Hero Video Background */}
                 <video
                   src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Merkadagency%20video.mp4?alt=media&token=8f751477-b305-4e69-a9ae-a5129a670750"
@@ -82,26 +98,8 @@ export function HeroSection() {
                   loop
                   muted
                   playsInline
-                  className="absolute inset-0 w-full h-full object-cover opacity-50"
+                  className="absolute inset-0 w-full h-full object-cover opacity-90"
                 />
-
-                {/* Content Overlay */}
-                <div className="text-center relative z-10">
-                  <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-lg mx-auto">
-                    <div className="p-2 sm:p-4 rounded-lg bg-merkad-bg-tertiary/80 backdrop-blur-sm border border-white/5">
-                      <div className="text-xl sm:text-3xl font-mono font-bold text-merkad-purple-light text-glow">196%</div>
-                      <div className="text-[10px] sm:text-xs text-merkad-text-muted mt-1">Revenue Growth</div>
-                    </div>
-                    <div className="p-2 sm:p-4 rounded-lg bg-merkad-bg-tertiary/80 backdrop-blur-sm border border-white/5">
-                      <div className="text-xl sm:text-3xl font-mono font-bold text-merkad-green text-glow">47s</div>
-                      <div className="text-[10px] sm:text-xs text-merkad-text-muted mt-1">Response Time</div>
-                    </div>
-                    <div className="p-2 sm:p-4 rounded-lg bg-merkad-bg-tertiary/80 backdrop-blur-sm border border-white/5">
-                      <div className="text-xl sm:text-3xl font-mono font-bold text-merkad-purple-light text-glow">24/7</div>
-                      <div className="text-[10px] sm:text-xs text-merkad-text-muted mt-1">AI Active</div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
