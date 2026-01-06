@@ -13,6 +13,7 @@ const caseStudies = [
     description: 'From $2,358/mo to $6,988/mo in just 4 months with automated lead capture and follow-up systems.',
     href: '/case-studies/kravings',
     services: ['Website', 'SMS', 'SEO', 'CRM'],
+    image: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Macbook.png?alt=media&token=8624128f-1cee-45e0-b663-e380ccf0267d',
   },
   {
     client: 'Teonanacatl',
@@ -22,6 +23,7 @@ const caseStudies = [
     description: 'Custom website, CRM integration, and SEO optimization transformed their digital presence from zero.',
     href: '/case-studies/teonanacatl',
     services: ['Website', 'CRM', 'SEO'],
+    image: 'https://storage.googleapis.com/msgsndr/B3r5jIhXrxu7hUG7cLQF/media/68d17bdd83739a3e136f28ff.png',
   },
 ];
 
@@ -71,7 +73,16 @@ export default function CaseStudiesHub() {
                 to={study.href}
                 className="group card-gradient-border"
               >
-                <div className="card-gradient-border-inner h-full">
+                <div className="card-gradient-border-inner h-full flex flex-col">
+                  {/* Image Preview */}
+                  <div className="aspect-video rounded-lg overflow-hidden mb-6 bg-merkad-bg-primary">
+                    <img
+                      src={study.image}
+                      alt={`${study.client} Website`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
                   {/* Industry Tag */}
                   <div className="flex items-center justify-between mb-6">
                     {study.industryType ? (
