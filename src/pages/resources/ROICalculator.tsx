@@ -16,7 +16,10 @@ export function ROICalculator() {
   const currentRevenue = currentClosedDeals * inputs.avgTransaction;
 
   // With MerkadFlow improvements (based on real data)
-  const improvedCloseRate = Math.min(inputs.closeRate * 1.35, 80); // 35% improvement, max 80%
+  // Logic: Slower response time = Higher potential uplift from AI
+  // Base multiplier 1.2 (20% boost) + 1.5% per hour of delay
+  const improvementMultiplier = 1.2 + (inputs.responseTime * 0.015);
+  const improvedCloseRate = Math.min(inputs.closeRate * improvementMultiplier, 80); // Cap at 80%
   const improvedLeads = Math.round(inputs.monthlyLeads * 1.15); // 15% more leads captured
   const improvedClosedDeals = Math.round(improvedLeads * (improvedCloseRate / 100));
   const projectedRevenue = improvedClosedDeals * inputs.avgTransaction;
