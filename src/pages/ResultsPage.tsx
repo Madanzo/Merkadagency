@@ -95,9 +95,6 @@ export default function ResultsPage() {
                                 Deep dives into how we solved complex growth problems.
                             </p>
                         </div>
-                        <Link to="/case-studies" className="hidden sm:flex items-center gap-2 text-merkad-purple-light hover:text-white transition-colors">
-                            View All <ArrowRight className="w-4 h-4" />
-                        </Link>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

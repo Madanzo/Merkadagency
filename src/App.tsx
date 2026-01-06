@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ServicesHub from "./pages/services/ServicesHub";
@@ -10,7 +10,6 @@ import AILeadCapture from "./pages/services/AILeadCapture";
 import { CRMAutomation } from "./pages/services/CRMAutomation";
 import { SEOContent } from "./pages/services/SEOContent";
 import { PaidAdvertising } from "./pages/services/PaidAdvertising";
-import CaseStudiesHub from "./pages/case-studies/CaseStudiesHub";
 import ResultsPage from "./pages/ResultsPage";
 import KravingsCaseStudy from "./pages/case-studies/KravingsCaseStudy";
 import TeonanacatlCaseStudy from "./pages/case-studies/TeonanacatlCaseStudy";
@@ -59,7 +58,7 @@ const App = () => (
           <Route path="/industries/construction" element={<ConstructionPage />} />
           {/* Case Studies */}
           <Route path="/results" element={<ResultsPage />} />
-          <Route path="/case-studies" element={<CaseStudiesHub />} />
+          <Route path="/case-studies" element={<Navigate to="/results" replace />} />
           <Route path="/case-studies/kravings" element={<KravingsCaseStudy />} />
           <Route path="/case-studies/teonanacatl" element={<TeonanacatlCaseStudy />} />
           {/* Resources */}
