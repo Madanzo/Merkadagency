@@ -29,6 +29,7 @@ const navigation = [
     href: '/results',
     children: [
       { name: 'Portfolio', href: '/results' },
+      { name: 'Case Studies', isSection: true },
       { name: 'Kravings Club', href: '/case-studies/kravings' },
       { name: 'Teonanacatl', href: '/case-studies/teonanacatl' },
     ],
@@ -104,13 +105,19 @@ export function Header() {
                   <div className="absolute top-full left-0 pt-2">
                     <div className="bg-merkad-bg-elevated border border-white/10 rounded-xl shadow-2xl py-2 min-w-[200px]">
                       {item.children.map((child) => (
-                        <Link
-                          key={child.name}
-                          to={child.href}
-                          className="block px-4 py-2 text-sm text-merkad-text-secondary hover:text-white hover:bg-white/5 transition-colors"
-                        >
-                          {child.name}
-                        </Link>
+                        child.isSection ? (
+                          <div key={child.name} className="px-4 py-2 text-xs font-mono text-merkad-text-muted uppercase tracking-wider border-t border-white/5 mt-1 pt-2">
+                            {child.name}
+                          </div>
+                        ) : (
+                          <Link
+                            key={child.name}
+                            to={child.href}
+                            className="block px-4 py-2 text-sm text-merkad-text-secondary hover:text-white hover:bg-white/5 transition-colors"
+                          >
+                            {child.name}
+                          </Link>
+                        )
                       ))}
                     </div>
                   </div>
