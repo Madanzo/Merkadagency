@@ -11,6 +11,7 @@ import { CRMAutomation } from "./pages/services/CRMAutomation";
 import { SEOContent } from "./pages/services/SEOContent";
 import { PaidAdvertising } from "./pages/services/PaidAdvertising";
 import ResultsPage from "./pages/ResultsPage";
+import PortfolioPage from "./pages/PortfolioPage";
 import CaseStudiesHub from "./pages/case-studies/CaseStudiesHub";
 import KravingsCaseStudy from "./pages/case-studies/KravingsCaseStudy";
 import TeonanacatlCaseStudy from "./pages/case-studies/TeonanacatlCaseStudy";
