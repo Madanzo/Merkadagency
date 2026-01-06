@@ -74,7 +74,13 @@ export default function CaseStudiesHub() {
                 <div className="card-gradient-border-inner h-full">
                   {/* Industry Tag */}
                   <div className="flex items-center justify-between mb-6">
-                    <IndustryTag type={study.industryType as any} />
+                    {study.industryType ? (
+                      <IndustryTag type={study.industryType as any} />
+                    ) : (
+                      <span className="px-3 py-1 rounded-full bg-merkad-bg-elevated text-xs font-medium text-merkad-text-muted">
+                        {study.industry}
+                      </span>
+                    )}
                     <div className="flex gap-2">
                       {study.services.map((service) => (
                         <span
