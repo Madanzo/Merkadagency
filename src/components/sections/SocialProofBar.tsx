@@ -13,7 +13,7 @@ const stats = [
     icon: Users,
     value: '50+',
     label: 'Automations Deployed',
-    color: 'text-merkad-purple-light'
+    color: 'text-cyan-400'
   },
   {
     icon: Boxes,
