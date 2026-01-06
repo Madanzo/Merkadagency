@@ -9,13 +9,13 @@ const videos = {
         {
             title: 'Pachis - Peach Flavor',
             client: 'Pachis Cannabis Store',
-            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FPachis%20Peach%20Flavor%20.mp4?alt=media&token=ada85e84-66b1-4c3e-b1c9-10323f315d3a',
+            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FHotel%20San%20Pancho%203.mp4?alt=media&token=f5404cac-1f2e-4f2b-84c8-11e4eed1a9e7',
             type: 'Product Showcase'
         },
         {
             title: 'Pachis - Dabs',
             client: 'Pachis Cannabis Store',
-            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FPachis%20Dabs.mp4?alt=media&token=9a7efb7f-0151-4241-93f2-47d93c9345c4',
+            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FOrange%20Grasshopper%201.mp4?alt=media&token=5004b83b-72b4-4ef3-ab7e-3c33896ba0b7',
             type: 'Product Showcase'
         },
         {
@@ -53,13 +53,13 @@ const videos = {
         {
             title: 'Hotel San Pancho',
             client: 'Mexican Hotel Showcase',
-            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FHotel%20San%20Pancho%203.mp4?alt=media&token=f5404cac-1f2e-4f2b-84c8-11e4eed1a9e7',
+            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FPachis%20Peach%20Flavor%20.mp4?alt=media&token=ada85e84-66b1-4c3e-b1c9-10323f315d3a',
             type: 'Hospitality Tour'
         },
         {
             title: 'Orange Grasshopper',
             client: 'Yard Lawn Mowing Service',
-            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FOrange%20Grasshopper%201.mp4?alt=media&token=5004b83b-72b4-4ef3-ab7e-3c33896ba0b7',
+            url: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FPachis%20Dabs.mp4?alt=media&token=9a7efb7f-0151-4241-93f2-47d93c9345c4',
             type: 'Service Highlight'
         }
     ]
@@ -104,8 +104,8 @@ export default function PortfolioPage() {
                             <button
                                 onClick={() => setActiveTab('ai')}
                                 className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === 'ai'
-                                        ? 'bg-merkad-purple text-white shadow-lg'
-                                        : 'text-merkad-text-secondary hover:text-white hover:bg-white/5'
+                                    ? 'bg-merkad-purple text-white shadow-lg'
+                                    : 'text-merkad-text-secondary hover:text-white hover:bg-white/5'
                                     }`}
                             >
                                 <Video className="w-4 h-4" />
@@ -114,8 +114,8 @@ export default function PortfolioPage() {
                             <button
                                 onClick={() => setActiveTab('camera')}
                                 className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === 'camera'
-                                        ? 'bg-pink-500 text-white shadow-lg'
-                                        : 'text-merkad-text-secondary hover:text-white hover:bg-white/5'
+                                    ? 'bg-pink-500 text-white shadow-lg'
+                                    : 'text-merkad-text-secondary hover:text-white hover:bg-white/5'
                                     }`}
                             >
                                 <Camera className="w-4 h-4" />
