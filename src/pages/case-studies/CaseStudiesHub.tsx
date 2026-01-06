@@ -16,6 +16,17 @@ const caseStudies = [
     image: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FScreenshot%202025-08-21%20153207.png?alt=media&token=87afa2fd-ca5f-4683-ad24-fecb592cca89',
   },
   {
+    client: 'Grid & Guard',
+    industry: 'E-commerce',
+    industryType: 'ecommerce',
+    metric: '+150%',
+    metricLabel: 'Revenue Growth',
+    description: 'Abandoned cart recovery and retention automation scaling revenue by 150%.',
+    href: '/case-studies/gridnguard',
+    services: ['Email Marketing', 'CRM'],
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=60',
+  },
+  {
     client: 'Teonanacatl',
     industry: 'Wellness & Retreats',
     metric: '3x',

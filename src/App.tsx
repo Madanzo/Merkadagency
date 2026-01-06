@@ -14,6 +14,7 @@ import ResultsPage from "./pages/ResultsPage";
 import CaseStudiesHub from "./pages/case-studies/CaseStudiesHub";
 import KravingsCaseStudy from "./pages/case-studies/KravingsCaseStudy";
 import TeonanacatlCaseStudy from "./pages/case-studies/TeonanacatlCaseStudy";
+import GridNGuardCaseStudy from "./pages/case-studies/GridNGuardCaseStudy";
 import BookPage from "./pages/BookPage";
 import AboutPage from "./pages/about/AboutPage";
 import MethodPage from "./pages/about/MethodPage";
@@ -65,6 +66,7 @@ const App = () => (
           <Route path="/case-studies" element={<CaseStudiesHub />} />
           <Route path="/case-studies/kravings" element={<KravingsCaseStudy />} />
           <Route path="/case-studies/teonanacatl" element={<TeonanacatlCaseStudy />} />
+          <Route path="/case-studies/gridnguard" element={<GridNGuardCaseStudy />} />
           {/* Resources */}
           <Route path="/resources/free-audit" element={<FreeAudit />} />
           <Route path="/resources/roi-calculator" element={<ROICalculator />} />
