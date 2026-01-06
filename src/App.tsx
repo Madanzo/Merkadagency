@@ -65,7 +65,7 @@ const App = () => (
           {/* Case Studies */}
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
+
           <Route path="/case-studies" element={<CaseStudiesHub />} />
           <Route path="/case-studies/kravings" element={<KravingsCaseStudy />} />
           <Route path="/case-studies/teonanacatl" element={<TeonanacatlCaseStudy />} />
