@@ -36,7 +36,7 @@ const featuredWins = [
             { label: 'Revenue', value: '+150%' },
             { label: 'ROAS', value: '4.2x' }
         ],
-        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?w=800&auto=format&fit=crop&q=60',
+        image: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Grid%20n%20Guard%2FGridnGuard%20Website.png?alt=media&token=e50c438d-1d9b-4d4e-9c30-afc4e7322f83',
         href: '/case-studies/gridnguard'
     }
 ];

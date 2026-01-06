@@ -75,7 +75,7 @@ export default function GridNGuardCaseStudy() {
                 </div>
             </section>
 
-            {/* Hero Image / Placeholder */}
+            {/* Hero Image */}
             <section className="pb-20">
                 <div className="container-custom">
                     <div className="browser-frame max-w-4xl mx-auto image-floating">
@@ -84,11 +84,12 @@ export default function GridNGuardCaseStudy() {
                             <div className="browser-frame-dot bg-yellow-500" />
                             <div className="browser-frame-dot bg-green-500" />
                         </div>
-                        <div className="p-20 bg-merkad-bg-tertiary flex items-center justify-center">
-                            <div className="text-center">
-                                <ShoppingCart className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
-                                <p className="text-merkad-text-muted">Case Study Images Coming Soon</p>
-                            </div>
+                        <div className="relative aspect-video bg-merkad-bg-tertiary overflow-hidden">
+                            <img
+                                src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Grid%20n%20Guard%2FGridnGuard%20Website.png?alt=media&token=e50c438d-1d9b-4d4e-9c30-afc4e7322f83"
+                                alt="Grid & Guard E-Commerce Website"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                     </div>
                 </div>
@@ -100,29 +101,32 @@ export default function GridNGuardCaseStudy() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
                             <span className="text-sm font-mono text-cyan-400 uppercase tracking-wider">
-                                The Challenge
+                                The Scope
                             </span>
                             <h2 className="text-3xl lg:text-4xl font-display font-bold text-white mt-4">
-                                The Leak in the Bucket
+                                Complete Ecosystem Build
                             </h2>
                             <p className="text-merkad-text-secondary mt-4">
-                                Grid & Guard had a great product but was losing 70% of potential sales at checkout. They relied on manual emails and had no system to bring customers back for a second purchase.
+                                We designed and developed the entire product gallery experience and built a custom CRM Admin Backoffice to streamline operations.
+                            </p>
+                            <p className="text-merkad-text-secondary mt-4">
+                                Now that the foundation is solid, we are actively moving into the scaling phase to drive traffic and optimize conversions.
                             </p>
                         </div>
 
                         <div className="card-gradient-border">
                             <div className="card-gradient-inner p-8">
-                                <h3 className="text-xl font-bold text-white mb-6">Before MerkadFlow</h3>
+                                <h3 className="text-xl font-bold text-white mb-6">Execution Plan</h3>
                                 <ul className="space-y-4">
                                     {[
-                                        '70% Cart Abandonment Rate',
-                                        'Zero automated follow-up',
-                                        '100% reliance on new customer acquisition',
-                                        'Inconsistent email marketing'
+                                        'Full Website & Product Gallery Design',
+                                        'Custom CRM Backoffice Implementation',
+                                        'Scaling Phase (In Progress)',
+                                        'Conversion Optimization (Next Step)'
                                     ].map((item) => (
                                         <li key={item} className="flex items-start gap-3">
-                                            <div className="w-6 h-6 rounded-full bg-red-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <div className="w-2 h-2 bg-red-500 rounded-full" />
+                                            <div className="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                <div className="w-2 h-2 bg-cyan-500 rounded-full" />
                                             </div>
                                             <span className="text-merkad-text-secondary">{item}</span>
                                         </li>
@@ -134,18 +138,49 @@ export default function GridNGuardCaseStudy() {
                 </div>
             </section>
 
-            {/* The Solution */}
+            {/* Backoffice Showcase */}
             <section className="py-20">
                 <div className="container-custom">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <span className="text-sm font-mono text-cyan-400 uppercase tracking-wider">
-                            The Solution
+                            Operations
+                        </span>
+                        <h2 className="text-3xl lg:text-4xl font-display font-bold text-white mt-4">
+                            Custom CRM Admin Backoffice
+                        </h2>
+                        <p className="text-merkad-text-secondary mt-4">
+                            We built a dedicated dashboard to manage leads, orders, and customer data efficiently.
+                        </p>
+                    </div>
+                    <div className="browser-frame max-w-4xl mx-auto shadow-2xl shadow-cyan-900/20">
+                        <div className="browser-frame-header">
+                            <div className="browser-frame-dot bg-red-500" />
+                            <div className="browser-frame-dot bg-yellow-500" />
+                            <div className="browser-frame-dot bg-green-500" />
+                        </div>
+                        <div className="relative aspect-video bg-merkad-bg-tertiary overflow-hidden">
+                            <img
+                                src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Grid%20n%20Guard%2FGridnGuard%20BackOffice.png?alt=media&token=1312958b-8b41-4385-b194-2879743d934a"
+                                alt="Grid & Guard Admin Backoffice"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* The Solution (Was previous section, renamed to System Architecture or similar to fit flow) */}
+            <section className="py-20 bg-merkad-bg-secondary/30">
+                <div className="container-custom">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <span className="text-sm font-mono text-cyan-400 uppercase tracking-wider">
+                            Architecture
                         </span>
                         <h2 className="text-3xl lg:text-4xl font-display font-bold text-white mt-4">
                             MerkadFlow E-Commerce System
                         </h2>
                         <p className="text-merkad-text-secondary mt-4">
-                            We implemented our complete e-commerce automation suite to plug the leaks and scale revenue.
+                            The technical stack powering the scale.
                         </p>
                     </div>
 
