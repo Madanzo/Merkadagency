@@ -1,4 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/common/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Bot, Workflow, Search, Target, AlertTriangle, Hammer } from 'lucide-react';
 import {
@@ -11,6 +12,10 @@ import {
 export default function ConstructionPage() {
     return (
         <Layout>
+            <SEO
+                title="Construction Lead Generation"
+                description="Automated lead qualification and scheduling for contractors. Stop chasing tire-kickers and get consistent high-value projects."
+            />
             {/* Hero */}
             <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
                 <div className="container-custom relative z-10">

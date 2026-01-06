@@ -1,4 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/common/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Bot, Workflow, Search, Target, CheckCircle2, AlertTriangle, HelpCircle } from 'lucide-react';
 import {
@@ -11,6 +12,10 @@ import {
 export default function MedspasPage() {
     return (
         <Layout>
+            <SEO
+                title="MedSpa Marketing Agency"
+                description="AI-powered patient acquisition and booking automation for medical spas. Fill your schedule without adding front desk staff."
+            />
             {/* Hero */}
             <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
                 <div className="container-custom relative z-10">

@@ -1,4 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/common/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Gem, Flower, Hammer } from 'lucide-react';
 
@@ -35,6 +36,10 @@ const industries = [
 export default function IndustriesHub() {
     return (
         <Layout>
+            <SEO
+                title="Industries We Serve"
+                description="Specialized AI marketing systems for MedSpas, Cannabis Dispensaries, and Construction businesses. Automated growth tailored to your industry."
+            />
             <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32">
                 <div className="container-custom">
                     {/* Header */}
