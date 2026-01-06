@@ -27,6 +27,17 @@ const featuredWins = [
         ],
         image: 'https://storage.googleapis.com/msgsndr/B3r5jIhXrxu7hUG7cLQF/media/68d17bdd83739a3e136f28ff.png',
         href: '/case-studies/teonanacatl'
+    },
+    {
+        client: 'Grid & Guard',
+        industry: 'E-Commerce',
+        industryType: 'ecommerce',
+        stats: [
+            { label: 'Revenue', value: '+150%' },
+            { label: 'ROAS', value: '4.2x' }
+        ],
+        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?w=800&auto=format&fit=crop&q=60',
+        href: '/case-studies/gridnguard'
     }
 ];
 
@@ -142,6 +153,35 @@ export default function ResultsPage() {
                                 </div>
                             </Link>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Portfolio Cross-Link */}
+            <section className="py-20 border-t border-white/5 bg-merkad-bg-secondary/30">
+                <div className="container-custom">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-8 p-10 rounded-3xl bg-merkad-bg-tertiary border border-white/5 overflow-hidden relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-merkad-purple/10 to-pink-500/10 opacity-50" />
+                        <div className="relative z-10 max-w-xl">
+                            <span className="text-sm font-mono text-pink-400 uppercase tracking-wider mb-2 block">
+                                Visual Storytelling
+                            </span>
+                            <h3 className="text-3xl font-display font-bold text-white mb-4">
+                                Need High-Converting Video Creative?
+                            </h3>
+                            <p className="text-merkad-text-secondary">
+                                See our library of AI-generated and live-action video content designed to stop the scroll.
+                            </p>
+                        </div>
+                        <div className="relative z-10 flex-shrink-0">
+                            <Link
+                                to="/portfolio"
+                                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-merkad-bg-primary font-bold rounded-xl hover:bg-pink-50 transition-colors"
+                            >
+                                View Video Portfolio
+                                <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>
