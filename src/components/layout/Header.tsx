@@ -16,6 +16,15 @@ const navigation = [
     ],
   },
   {
+    name: 'Industries',
+    href: '/industries',
+    children: [
+      { name: 'Medical Spas', href: '/industries/medspas' },
+      { name: 'Cannabis', href: '/industries/cannabis' },
+      { name: 'Construction', href: '/industries/construction' },
+    ],
+  },
+  {
     name: 'Case Studies',
     href: '/case-studies',
     children: [
