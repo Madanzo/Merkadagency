@@ -24,11 +24,11 @@ const navigation = [
       { name: 'Construction', href: '/industries/construction' },
     ],
   },
-  { name: 'Results', href: '/results' },
   {
-    name: 'Case Studies',
-    href: '/case-studies',
+    name: 'Results',
+    href: '/results',
     children: [
+      { name: 'Portfolio', href: '/results' },
       { name: 'Kravings Club', href: '/case-studies/kravings' },
       { name: 'Teonanacatl', href: '/case-studies/teonanacatl' },
     ],
