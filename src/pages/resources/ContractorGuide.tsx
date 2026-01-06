@@ -18,6 +18,7 @@ export default function ContractorGuide() {
                 "5 red flags to spot in a prospect before you drive to the site.",
                 "Templates for 'price conditioning' emails."
             ]}
+            downloadUrl="/resources/contractor-lead-gen-guide.html"
         />
     );
 }

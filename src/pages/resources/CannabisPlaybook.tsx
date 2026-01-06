@@ -18,6 +18,7 @@ export default function CannabisPlaybook() {
                 "Loyalty program structures that actually retain customers.",
                 "Case study: How one dispensary added $45k/mo in new revenue."
             ]}
+            downloadUrl="/resources/cannabis-marketing-playbook.html"
         />
     );
 }

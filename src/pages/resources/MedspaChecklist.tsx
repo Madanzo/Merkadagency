@@ -18,6 +18,7 @@ export default function MedspaChecklist() {
                 "Tool recommendations for 2025 (CRM, Booking, AI).",
                 "A step-by-step roadmap to your first 50 automated bookings."
             ]}
+            downloadUrl="/resources/medspa-automation-checklist.html"
         />
     );
 }

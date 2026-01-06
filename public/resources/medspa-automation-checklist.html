@@ -1,0 +1,830 @@
+<html lang="en" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate MedSpa Automation Checklist</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --merkad-purple: #5A27FF;
+        --merkad-pink: #FBCBD5;
+        --bg-dark: #0F1220;
+        --bg-elevated: #251540;
+        --deep-purple: #1F0E33;
+        --text-primary: #FFFFFF;
+        --text-secondary: #9CA3AF;
+        --text-muted: #A8A3B3;
+        --status-green: #22C55E;
+        --status-red: #EF4444;
+      }
+
+      body {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 40px;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--text-secondary);
+        background: linear-gradient(135deg, var(--bg-dark) 0%, var(--deep-purple) 100%);
+        line-height: 1.7;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Syne', sans-serif;
+        color: var(--text-primary);
+        margin-bottom: 0.5em;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: 42px;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--merkad-purple) 0%, var(--merkad-pink) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+        letter-spacing: -0.5px;
+      }
+
+      .subtitle {
+        font-size: 20px;
+        color: var(--merkad-pink);
+        margin-bottom: 50px;
+        font-weight: 500;
+        font-family: 'Inter', sans-serif;
+      }
+
+      .section-header {
+        background: linear-gradient(135deg, rgba(90, 39, 255, 0.1) 0%, rgba(251, 203, 213, 0.05) 100%);
+        padding: 15px 20px;
+        border-left: 4px solid var(--merkad-purple);
+        margin-top: 50px;
+        margin-bottom: 30px;
+        border-radius: 0 8px 8px 0;
+      }
+
+      h2.section-title {
+        margin: 0;
+        font-size: 24px;
+        color: var(--text-primary);
+        font-family: 'Syne', sans-serif;
+        font-weight: 700;
+      }
+
+      .callout {
+        background-color: var(--bg-elevated);
+        border: 1px solid rgba(90, 39, 255, 0.2);
+        padding: 20px;
+        border-radius: 12px;
+        margin: 20px 0;
+      }
+
+      .callout h4 {
+        color: var(--merkad-pink);
+        margin-top: 0;
+      }
+
+      .stat-box {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        gap: 20px;
+      }
+
+      .stat-item {
+        flex: 1;
+        background: linear-gradient(135deg, var(--bg-elevated) 0%, rgba(90, 39, 255, 0.1) 100%);
+        padding: 25px;
+        text-align: center;
+        border-radius: 12px;
+        border: 1px solid rgba(90, 39, 255, 0.2);
+      }
+
+      .stat-number {
+        font-size: 36px;
+        font-weight: 800;
+        font-family: 'Syne', sans-serif;
+        color: var(--merkad-purple);
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .stat-label {
+        font-size: 14px;
+        color: var(--text-secondary);
+        line-height: 1.4;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 14px;
+      }
+
+      th {
+        background-color: var(--merkad-purple);
+        color: var(--text-primary);
+        text-align: left;
+        padding: 12px;
+        font-family: 'Syne', sans-serif;
+        font-weight: 600;
+      }
+
+      td {
+        border: 1px solid rgba(90, 39, 255, 0.2);
+        padding: 12px;
+        vertical-align: top;
+        background-color: var(--bg-elevated);
+        color: var(--text-secondary);
+      }
+
+      tr:nth-child(even) td {
+        background-color: rgba(31, 14, 51, 0.5);
+      }
+
+      .script-box {
+        border: 1px dashed var(--merkad-purple);
+        padding: 18px;
+        background-color: rgba(31, 14, 51, 0.6);
+        margin: 15px 0;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        color: var(--text-secondary);
+        border-radius: 8px;
+        line-height: 1.6;
+      }
+
+      .checklist-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .checkbox-square {
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--merkad-purple);
+        margin-right: 15px;
+        flex-shrink: 0;
+        border-radius: 4px;
+      }
+
+      .checklist-item span {
+        color: var(--text-secondary);
+      }
+
+      .roadmap-step {
+        margin-bottom: 25px;
+        padding-left: 25px;
+        border-left: 3px solid var(--merkad-purple);
+        background: linear-gradient(90deg, rgba(90, 39, 255, 0.05) 0%, transparent 100%);
+        padding: 20px 25px;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .roadmap-week {
+        font-weight: 700;
+        font-family: 'Syne', sans-serif;
+        color: var(--merkad-pink);
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+
+      .roi-calc {
+        background: linear-gradient(135deg, rgba(90, 39, 255, 0.15) 0%, rgba(251, 203, 213, 0.1) 100%);
+        border: 1px solid var(--merkad-purple);
+        padding: 30px;
+        margin-top: 30px;
+        border-radius: 12px;
+      }
+
+      .roi-calc h3, .roi-calc h4 {
+        color: var(--text-primary);
+      }
+
+      .roi-calc p {
+        color: var(--text-secondary);
+      }
+
+      .tip-box {
+        background-color: rgba(34, 197, 94, 0.1);
+        border-left: 5px solid var(--status-green);
+        padding: 18px;
+        margin: 15px 0;
+        font-size: 0.95em;
+        border-radius: 0 8px 8px 0;
+        color: var(--text-secondary);
+      }
+
+      strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      p {
+        color: var(--text-secondary);
+      }
+
+      ul, ol {
+        color: var(--text-secondary);
+      }
+
+      h3 {
+        color: var(--merkad-pink);
+        font-size: 20px;
+        margin-top: 30px;
+      }
+
+      h4 {
+        color: var(--text-primary);
+        font-size: 18px;
+        margin-top: 20px;
+      }
+
+      h5 {
+        color: var(--merkad-pink);
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body style="">
+    <h1>The Ultimate MedSpa Automation Checklist</h1>
+    <div class="subtitle">Stop losing 20-30% of your leads to missed calls and slow follow-up.</div>
+
+    <!-- Executive Overview -->
+    <div class="section-header">
+      <h2 class="section-title">Introduction</h2>
+    </div>
+    <p>
+      The average MedSpa loses 20-30% of potential revenue due to poor lead management and slow response times. This checklist will transform your practice into an automated lead-converting machine.
+    </p>
+    <p>
+      In the competitive aesthetic medicine landscape, speed to lead is the single biggest differentiator between
+      thriving practices and those that plateau. Data shows that MedSpas responding to inquiries within 5 minutes are
+      <strong>21x more likely</strong> to qualify that lead than those responding after 30 minutes.
+    </p>
+    <p>
+      Automation isn't about replacing the human touch; it's about ensuring no potential client slips through the cracks
+      while your front desk is busy with in-person patients. This resource outlines the exact systems needed to
+      recapture lost revenue and streamline operations.
+    </p>
+
+    <div class="stat-box">
+      <div class="stat-item">
+        <span class="stat-number">30%</span>
+        <span class="stat-label">Average Leads Lost to Slow Response</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">80%</span>
+        <span class="stat-label">Clients Who Choose the First Responder</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">15hrs</span>
+        <span class="stat-label">Weekly Staff Time Saved by Automation</span>
+      </div>
+    </div>
+
+    <!-- Critical Touchpoints -->
+    <div class="section-header">
+      <h2 class="section-title">2. The 3 Critical Touchpoints to Automate Immediately</h2>
+    </div>
+
+    <h3>Touchpoint #1: Instant Lead Response (0-5 minutes)</h3>
+    <p><strong>What to automate:</strong> New inquiry acknowledgment</p>
+    <p><strong>The Goal:</strong> Engage the lead while their intent is highest (within 5 minutes).</p>
+    
+    <h4>Automation Setup:</h4>
+    <div class="script-box">
+      <strong>SMS Template:</strong><br>
+      Hi [Name]! Thanks for reaching out to [MedSpa Name]. We received your inquiry about [service]. Our treatment coordinator will call you within 30 minutes. - [Your Name]
+    </div>
+    
+    <div class="script-box">
+      <strong>Email Template:</strong><br>
+      Send detailed service information + booking link
+    </div>
+    
+    <p>
+      <strong>Best Practice:</strong> Use an automated SMS "concierge" message immediately after a form fill. Email is
+      too slow; phone calls often go to voicemail. SMS has a 98% open rate.
+    </p>
+    <div class="tip-box">
+      <strong>Tip:</strong> Don't just confirm receipt. Ask a question to start a conversation. E.g., "Thanks for
+      inquiring about Botox! Are you looking for a morning or afternoon appointment?"
+    </div>
+    
+    <p><strong>Tools needed:</strong> CRM with SMS/email automation</p>
+
+    <h3>Touchpoint #2: Appointment Reminders (24h + 2h before)</h3>
+    <p><strong>What to automate:</strong> Appointment confirmations and reminders</p>
+    <p><strong>The Goal:</strong> Reduce no-show rates to under 5%.</p>
+    
+    <h4>Automation Setup:</h4>
+    <ul>
+      <li><strong>24 hours before:</strong> Confirmation text with prep instructions</li>
+      <li><strong>2 hours before:</strong> Final reminder with parking/directions</li>
+    </ul>
+    
+    <p>
+      <strong>Best Practice:</strong> Implement a "cadence of communication." Do not rely on a single reminder. A proven
+      cadence is: confirmation immediately upon booking, reminder 48 hours prior (requires confirmation), and a final
+      reminder 2 hours before.
+    </p>
+    
+    <p><strong>Tools needed:</strong> Scheduling software with automated reminders</p>
+
+    <h3>Touchpoint #3: Post-Treatment Follow-up (24h + 7 days + 30 days)</h3>
+    <p><strong>What to automate:</strong> Care instructions and review requests</p>
+    <p><strong>The Goal:</strong> Increase retention and generate 5-star reviews.</p>
+    
+    <h4>Automation Setup:</h4>
+    <ul>
+      <li><strong>24 hours:</strong> "How are you feeling? Here's your aftercare guide..."</li>
+      <li><strong>7 days:</strong> Check-in + next appointment suggestion</li>
+      <li><strong>30 days:</strong> Review request + referral program introduction</li>
+    </ul>
+    
+    <p>
+      <strong>Best Practice:</strong> Automate a "check-in" text 24 hours post-procedure. If they reply positively,
+      trigger an automated review request link. If they reply with a concern, alert staff immediately.
+    </p>
+
+    <!-- Dead Lead Revival -->
+    <div class="section-header">
+      <h2 class="section-title">3. Dead Lead Revival Strategy</h2>
+    </div>
+    <p>
+      Reviving "dead" leads is the lowest hanging fruit for revenue generation. These are prospects who inquired 3-6
+      months ago but never booked.
+    </p>
+
+    <h4>Strategy: The "9-Word Email" Approach</h4>
+    <p>
+      This approach works because it feels personal, not promotional. It requires no new staff, just a segmented list in
+      your CRM.
+    </p>
+
+    <div class="script-box">
+      <strong>Subject:</strong> Are you still looking?<br>
+      <strong>Body:</strong> Hi [First Name], are you still looking to get [Treatment of Interest] done?<br><br>
+      - [Your Name]
+    </div>
+
+    <h4>The 3-Email Revival Sequence</h4>
+    
+    <h5>Email 1: The Personal Touch (Send immediately)</h5>
+    <div class="script-box">
+      <strong>Subject:</strong> [Name], quick question about your [service] interest<br><br>
+      Hi [Name],<br><br>
+      I noticed you were interested in [service] a few weeks ago. I wanted to personally reach out because we just had a cancellation for this Friday at 2pm.<br><br>
+      Would you like me to hold this spot for you? We also have 15% off for new clients this month.<br><br>
+      Best,<br>
+      [Your name]
+    </div>
+    
+    <h5>Email 2: The Social Proof (Send 5 days later)</h5>
+    <div class="script-box">
+      <strong>Subject:</strong> See [Name]'s amazing [service] results<br><br>
+      Hi [Name],<br><br>
+      I thought you'd love to see Sarah's transformation after just one [service] treatment.<br><br>
+      [Before/after photos]<br><br>
+      She said: "I wish I'd done this sooner! The results are better than I imagined."<br><br>
+      We have openings next week if you're ready to start your journey.<br><br>
+      [Book now button]
+    </div>
+    
+    <h5>Email 3: The Last Call (Send 10 days later)</h5>
+    <div class="script-box">
+      <strong>Subject:</strong> Final notice: Your consultation expires soon<br><br>
+      Hi [Name],<br><br>
+      This is my final email about the [service] consultation we discussed.<br><br>
+      I'm removing you from our interest list tomorrow, but I wanted to give you one last chance to claim your complimentary consultation.<br><br>
+      [Book consultation button]<br><br>
+      If you're not interested, no worries - just ignore this email.<br><br>
+      [Your name]
+    </div>
+
+    <h4>The SMS Revival Campaign</h4>
+    <ul>
+      <li><strong>Day 1:</strong> "Hi [Name]! We miss you at [MedSpa]. New client special: 20% off any service this month. Book: [link]"</li>
+      <li><strong>Day 14:</strong> "Last chance for 20% off! Schedule by Friday: [link]"</li>
+      <li><strong>Day 30:</strong> "One final gift: Free skincare consultation + $50 credit. Valid this week only: [link]"</li>
+    </ul>
+
+    <h4>Timing &amp; Frequency</h4>
+    <ul>
+      <li><strong>Segment:</strong> Leads &gt; 90 days old with no booking.</li>
+      <li><strong>Channel:</strong> Send via SMS first, then Email if no response.</li>
+      <li><strong>Cadence:</strong> One message. Wait 48 hours. If no reply, archive. Do not spam.</li>
+    </ul>
+
+    <!-- SMS Scripts -->
+    <div class="section-header">
+      <h2 class="section-title">4. SMS Booking Confirmation Scripts</h2>
+    </div>
+
+    <h4>1. Pre-Appointment Confirmation (48 Hours Before)</h4>
+    <div class="script-box">
+      Hi [Client Name], looking forward to seeing you at [MedSpa Name] on [Date] at [Time] for your [Treatment]. Please
+      reply C to confirm or R to reschedule. Note: Our cancellation policy applies within 24 hours.
+    </div>
+
+    <h4>2. Day-Of Reminder (2 Hours Before)</h4>
+    <div class="script-box">
+      See you soon, [Client Name]! Your appointment is in 2 hours. Here is a link to directions: [Map Link]. Please
+      arrive 10 mins early for numbing if applicable.
+    </div>
+
+    <h4>3. Post-Appointment Thank You (2 Hours After)</h4>
+    <div class="script-box">
+      It was great seeing you today, [Client Name]! Please follow your aftercare instructions sent via email. Drink
+      plenty of water and let us know if you have any questions!
+    </div>
+
+    <h4>4. Review Request (24 Hours After - Only if happy)</h4>
+    <div class="script-box">
+      Hi [Client Name], we loved treating you! If you had a 5-star experience, would you mind leaving us a quick review?
+      It helps us tremendously: [Google Review Link]
+    </div>
+    
+    <h4>5. Reschedule Request Template</h4>
+    <div class="script-box">
+      No problem, [Name]! I can help reschedule your appointment.<br><br>
+      What works better for you?<br>
+      A) This week<br>
+      B) Next week<br>
+      C) I'll call you<br><br>
+      Just reply A, B, or C and we'll find the perfect time.<br>
+      - [Your Name]
+    </div>
+
+    <!-- Tool Recommendations -->
+    <div class="section-header">
+      <h2 class="section-title">5. 2025 Tool Recommendations</h2>
+    </div>
+
+    <h3>CRM Systems (Ranked by MedSpa Suitability)</h3>
+    
+    <div class="callout">
+      <h4>#1: Aesthetic Record</h4>
+      <ul>
+        <li>✅ Built specifically for medical spas</li>
+        <li>✅ Treatment notes + photos</li>
+        <li>✅ Automated marketing sequences</li>
+        <li><strong>Starting at $299/month</strong></li>
+      </ul>
+    </div>
+    
+    <div class="callout">
+      <h4>#2: PatientNow</h4>
+      <ul>
+        <li>✅ Comprehensive practice management</li>
+        <li>✅ Before/after photo management</li>
+        <li>✅ Automated follow-ups</li>
+        <li><strong>Starting at $399/month</strong></li>
+      </ul>
+    </div>
+    
+    <div class="callout">
+      <h4>#3: Mindbody</h4>
+      <ul>
+        <li>✅ Industry standard for booking</li>
+        <li>✅ Client self-scheduling</li>
+        <li>✅ Marketing automation</li>
+        <li><strong>Starting at $129/month</strong></li>
+      </ul>
+    </div>
+
+    <h3>Comprehensive Tool Comparison</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Top Pick</th>
+          <th>Best For</th>
+          <th>Est. Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>All-in-One CRM</strong></td>
+          <td>GoHighLevel (GHL)</td>
+          <td>Marketing automation, SMS, Funnels</td>
+          <td>$97-$297/mo</td>
+        </tr>
+        <tr>
+          <td><strong>Booking Engine</strong></td>
+          <td>Boulevard / AestheticsPro</td>
+          <td>Medical charting + Booking compliance</td>
+          <td>$300-$600/mo</td>
+        </tr>
+        <tr>
+          <td><strong>AI Phone Assistant</strong></td>
+          <td>Synthflow / Bland AI</td>
+          <td>Handling missed calls after hours</td>
+          <td>Usage Based ($0.12/min)</td>
+        </tr>
+        <tr>
+          <td><strong>Review Management</strong></td>
+          <td>Podium / Birdeye</td>
+          <td>Aggregating reputation</td>
+          <td>$250+/mo</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h3>Booking &amp; Scheduling Tools</h3>
+    <ul>
+      <li><strong>Acuity Scheduling</strong> - Best for self-booking ($20/month)</li>
+      <li><strong>Calendly</strong> - Simple integration ($12/month)</li>
+      <li><strong>Vagaro</strong> - All-in-one solution ($25/month)</li>
+    </ul>
+    
+    <h3>AI &amp; Automation Tools</h3>
+    <ul>
+      <li><strong>Manychat</strong> - SMS automation ($15/month)</li>
+      <li><strong>ActiveCampaign</strong> - Email sequences ($29/month)</li>
+      <li><strong>Zapier</strong> - Connect everything ($20/month)</li>
+    </ul>
+
+    <!-- Implementation Roadmap -->
+    <div class="section-header">
+      <h2 class="section-title">6. Step-by-Step Roadmap to Your First 50 Automated Bookings</h2>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="roadmap-week">Week 1: Foundation Setup</div>
+      <ul>
+        <li>☐ Choose and setup CRM system</li>
+        <li>☐ Connect phone number for SMS</li>
+        <li>☐ Create email templates</li>
+        <li>☐ Setup basic automation rules</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="roadmap-week">Week 2: Lead Capture Optimization</div>
+      <ul>
+        <li>☐ Add booking widget to website</li>
+        <li>☐ Create Facebook/Instagram booking buttons</li>
+        <li>☐ Setup Google My Business messaging</li>
+        <li>☐ Install website chat widget</li>
+      </ul>
+      <p>
+        <strong>Integration:</strong> Connect your Booking Software (EMR) to your Marketing CRM (e.g., GoHighLevel). Set up the "Missed Call Text Back" feature immediately. Import existing contacts.
+      </p>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="roadmap-week">Week 3: Automation Sequences</div>
+      <ul>
+        <li>☐ Build welcome email series</li>
+        <li>☐ Create SMS confirmation templates</li>
+        <li>☐ Setup appointment reminder sequences</li>
+        <li>☐ Design post-treatment follow-ups</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="roadmap-week">Week 4: Testing &amp; Refinement</div>
+      <ul>
+        <li>☐ Test all automation sequences</li>
+        <li>☐ Review analytics and conversion rates</li>
+        <li>☐ A/B test subject lines and timing</li>
+        <li>☐ Optimize based on initial results</li>
+      </ul>
+      <p>
+        Launch the "New Lead" automation workflow. Test SMS delivery rates. Ensure staff is notified when a human
+        response is required. Run a small "Database Reactivation" campaign to 50 past leads to test the waters.
+      </p>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="roadmap-week">Weeks 5-8: Scale &amp; Grow</div>
+      <ul>
+        <li>☐ Implement lead scoring</li>
+        <li>☐ Create VIP client sequences</li>
+        <li>☐ Setup referral program automation</li>
+        <li>☐ Launch reactivation campaigns</li>
+      </ul>
+      <p>
+        Turn on full automation for all traffic sources (Ads, Social, Website). Monitor the "Appointment Show Rate" KPI.
+        If show rate &lt;80%, increase reminder frequency.
+      </p>
+    </div>
+
+    <!-- Implementation Checklist -->
+    <div class="section-header">
+      <h2 class="section-title">7. Implementation Checklist</h2>
+    </div>
+
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Audit current lead response time (Goal: &lt; 5 mins)</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Enable "Missed Call Text Back" automation</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Draft and approve SMS confirmation scripts</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Sync Booking Calendar with Automation Software</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Create list of "Dead Leads" (older than 90 days)</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Set up Google My Business review link trigger</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Train front desk on handling automation hand-offs</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Setup lead scoring system in CRM</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Create VIP client automation sequences</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Implement referral program automation</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Connect Google My Business for messaging</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Install website chat widget</span>
+    </div>
+
+    <!-- Quick-Start Scripts -->
+    <div class="section-header">
+      <h2 class="section-title">8. Bonus: Quick-Start Automation Scripts</h2>
+    </div>
+    
+    <h3>The 5-Minute Lead Response</h3>
+    <div class="script-box">
+      Hi [Name]! Thanks for your interest in [service]. I'm [Your name] from [MedSpa].<br><br>
+      I have a few questions to help customize your treatment:<br>
+      1. What concerns are you hoping to address?<br>
+      2. Have you had this treatment before?<br>
+      3. When works best for a consultation?<br><br>
+      I can schedule you this week and we have 15% off for new clients!<br><br>
+      Best,<br>
+      [Your name]
+    </div>
+    
+    <h3>The Review Request</h3>
+    <div class="script-box">
+      Hi [Name]! How are you feeling after your [service] treatment?<br><br>
+      If you're happy with your results, would you mind leaving us a quick review? It helps other people find us.<br><br>
+      [Google review link]<br><br>
+      Thank you! 🌟<br>
+      - [Your name]
+    </div>
+
+    <!-- Daily/Weekly/Monthly Tasks -->
+    <div class="section-header">
+      <h2 class="section-title">9. Implementation Task Schedule</h2>
+    </div>
+    
+    <h3>Daily Tasks (Automated)</h3>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>New lead response within 5 minutes</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Appointment confirmations sent</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Birthday/anniversary messages</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Review requests for completed treatments</span>
+    </div>
+    
+    <h3>Weekly Tasks (15 minutes)</h3>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Review automation analytics</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Check for failed deliveries</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Update appointment availability</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Respond to automated sequence replies</span>
+    </div>
+    
+    <h3>Monthly Tasks (1 hour)</h3>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Analyze conversion rates</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Update promotional offers</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>Refresh email templates</span>
+    </div>
+    <div class="checklist-item">
+      <div class="checkbox-square"></div>
+      <span>A/B test new sequences</span>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="section-header">
+      <h2 class="section-title">10. Measuring Success: Key Metrics to Track</h2>
+    </div>
+    
+    <div class="stat-box">
+      <div class="stat-item">
+        <span class="stat-label"><strong>Response Rate</strong></span>
+        <span class="stat-number" style="font-size: 20px">&lt;5 minutes</span>
+        <span class="stat-label">Target for all inquiries</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label"><strong>Booking Rate</strong></span>
+        <span class="stat-number" style="font-size: 20px">60%+</span>
+        <span class="stat-label">Of consultations</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label"><strong>Show Rate</strong></span>
+        <span class="stat-number" style="font-size: 20px">85%+</span>
+        <span class="stat-label">Appointment attendance</span>
+      </div>
+    </div>
+    
+    <ul>
+      <li><strong>Revenue Per Lead:</strong> Track monthly growth</li>
+      <li><strong>Client Lifetime Value:</strong> Monitor 6-month rolling average</li>
+      <li><strong>Email Open Rate:</strong> Target 25-35%</li>
+      <li><strong>SMS Response Rate:</strong> Target 40-50%</li>
+      <li><strong>Review Generation:</strong> Aim for 10-15 new reviews per month</li>
+    </ul>
+    
+    <div class="tip-box">
+      <strong>Ready to transform your MedSpa?</strong> Start with the 3 critical touchpoints this week and watch your lead conversion rate soar!
+    </div>
+
+    <!-- ROI Calculator -->
+    <div class="section-header">
+      <h2 class="section-title">11. ROI Calculator</h2>
+    </div>
+
+    <div class="roi-calc">
+      <h3>How much is manual follow-up costing you?</h3>
+      <p>
+        <strong>Formula:</strong>
+        <em>(Monthly Leads x Lead Loss Rate) x Average Customer Lifetime Value = Monthly Revenue Lost</em>
+      </p>
+      <hr style="border-top: 1px solid #e0c476; margin: 15px 0">
+      <h4>Example Scenario:</h4>
+      <ul>
+        <li><strong>Monthly Leads:</strong> 100</li>
+        <li><strong>Current Loss Rate:</strong> 30% (30 leads lost to voicemail/slow reply)</li>
+        <li><strong>Avg Client Value (Year 1):</strong> $1,500</li>
+      </ul>
+      <p style="font-size: 1.2em; color: #856404">
+        <strong>Cost of Inaction:</strong> 30 leads x $1,500 = <strong>$45,000 / Year in Lost Revenue</strong>
+      </p>
+      <p><em>Automation software typically costs ~$300/mo ($3,600/yr). The ROI is immediate.</em></p>
+    </div>
+
+    <div style="margin-top: 60px; padding: 30px; text-align: center; background: linear-gradient(135deg, rgba(90, 39, 255, 0.1) 0%, rgba(251, 203, 213, 0.05) 100%); border-radius: 12px; border: 1px solid rgba(90, 39, 255, 0.2);">
+      <p style="color: var(--text-muted); font-size: 13px; margin: 0;">© 2026 MerkadAgency. All Rights Reserved.</p>
+      <p style="color: var(--merkad-purple); font-size: 12px; margin-top: 5px;">Powered by MerkadAgency Brand System</p>
+    </div>
+  
+
+</body></html>

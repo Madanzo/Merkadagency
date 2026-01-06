@@ -17,6 +17,7 @@ interface LeadMagnetTemplateProps {
     seoTitle: string;
     seoDescription: string;
     resourceName: string; // e.g. "MedSpa Automation Checklist"
+    downloadUrl: string; // URL to the resource content
 }
 
 export function LeadMagnetTemplate({
@@ -28,7 +29,8 @@ export function LeadMagnetTemplate({
     industry,
     seoTitle,
     seoDescription,
-    resourceName
+    resourceName,
+    downloadUrl
 }: LeadMagnetTemplateProps) {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
@@ -122,17 +124,22 @@ export function LeadMagnetTemplate({
                                         <div className="w-16 h-16 bg-merkad-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
                                             <CheckCircle2 className="w-8 h-8 text-merkad-green" />
                                         </div>
-                                        <h3 className="text-2xl font-bold text-white mb-2">Check your inbox!</h3>
-                                        <p className="text-merkad-text-secondary">
-                                            We've sent the <strong>{resourceName}</strong> to {email}.
+                                        <h3 className="text-2xl font-bold text-white mb-2">Your resource is ready!</h3>
+                                        <p className="text-merkad-text-secondary mb-6">
+                                            Click below to access your <strong>{resourceName}</strong>
                                         </p>
-                                        <Button
-                                            variant="ghost"
-                                            className="mt-6 text-merkad-purple-light hover:text-white"
-                                            onClick={() => setSubmitted(false)}
+                                        <a
+                                            href={downloadUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-purple text-white font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 transition-all duration-300"
                                         >
-                                            Send to another email
-                                        </Button>
+                                            <Download className="w-5 h-5" />
+                                            Access Resource
+                                        </a>
+                                        <p className="text-xs text-merkad-text-muted mt-4">
+                                            We'll also send a copy to {email}
+                                        </p>
                                     </div>
                                 ) : (
                                     <form onSubmit={handleSubmit} className="space-y-4">
