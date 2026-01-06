@@ -6,13 +6,13 @@ import { getStorage } from "firebase/storage";
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyDfGn-4IR0oXBY-BDwLJg1gXLmc_wxUbJw",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "merkadagency-dd2aa.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "merkadagency-dd2aa",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "merkadagency-dd2aa.firebasestorage.app",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "178054107670",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:178054107670:web:9713e11516f0978ad79b37",
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || "G-VZ97CVHQCF"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
