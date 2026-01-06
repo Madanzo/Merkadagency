@@ -12,6 +12,7 @@ const footerLinks = {
     { name: 'Medical Spas', href: '/industries/medspas' },
     { name: 'Cannabis', href: '/industries/cannabis' },
     { name: 'Construction', href: '/industries/construction' },
+    { name: 'E-Commerce', href: '/industries/ecommerce' },
   ],
   company: [
     { name: 'About Us', href: '/about' },
