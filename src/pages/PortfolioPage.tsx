@@ -135,6 +135,7 @@ export default function PortfolioPage() {
                                 {/* Video Player Wrapper */}
                                 <div className="aspect-[9/16] lg:aspect-video relative bg-black">
                                     <video
+                                        key={video.url}
                                         controls
                                         className="w-full h-full object-contain"
                                         poster={activeTab === 'ai' ? undefined : undefined} // Could add posters if user provides images
