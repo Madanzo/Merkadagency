@@ -5,6 +5,8 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 // Firebase configuration
+// These values come from .env and are safe to expose (public configuration).
+// We maintain strict type safety and presence checks in the environment usage.
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,

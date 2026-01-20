@@ -1,73 +1,144 @@
-# Welcome to your Lovable project
+# MerkadAgency
 
-## Project info
+AI-Powered Growth Systems for Service Businesses. A modern web application built with React, Vite, TypeScript, and Firebase.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Quick Start
 
-## How can I edit this code?
+### Prerequisites
+- **Node.js** v22.19.0+ (use `.nvmrc` with `nvm use`)
+- **npm** (comes with Node.js)
 
-There are several ways of editing your application.
+### Installation
 
-**Use Lovable**
+```bash
+# Clone the repository
+git clone https://github.com/Madanzo/Merkadagency.git
+cd Merkadagency
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+# Use correct Node version (if using nvm)
+nvm use
 
-Changes made via Lovable will be committed automatically to this repo.
+# Install dependencies
+npm install
 
-**Use your preferred IDE**
+# Configure environment
+cp .env.example .env
+# Edit .env with your Firebase credentials
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Verify Installation
+```bash
+# Build should complete without errors
+npm run build
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+# Run tests
+npm test
+```
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Tech Stack
 
-## What technologies are used for this project?
+| Category | Technology |
+|----------|------------|
+| Frontend | React 18, TypeScript |
+| Build Tool | Vite 5 |
+| Styling | Tailwind CSS, shadcn/ui |
+| Backend | Firebase (Hosting, Firestore, Auth) |
+| State | TanStack Query (React Query) |
+| Icons | Lucide React |
+| Scheduling | Cal.com Widget |
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Scripts
 
-## How can I deploy this project?
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server (port 8080) |
+| `npm run build` | Production build |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint |
+| `npm test` | Run Vitest tests |
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## Third-Party Accounts Required
 
-Yes, you can!
+| Service | Purpose | Setup Guide |
+|---------|---------|-------------|
+| **Firebase** | Hosting, Auth, Firestore | [SETUP.md#firebase](./SETUP.md#firebase) |
+| **Cal.com** | Booking widget | [SETUP.md#calcom](./SETUP.md#calcom) |
+| **Google Cloud** | OAuth for admin | Configured via Firebase |
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Project Structure
+
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed system design.
+
+```
+/
+├── src/
+│   ├── components/     # Reusable UI components
+│   │   └── ui/         # shadcn/ui base components
+│   ├── pages/          # Route components
+│   ├── lib/            # Utilities & Firebase config
+│   └── hooks/          # Custom React hooks
+├── public/             # Static assets
+├── checkpoints/        # Development milestones
+└── [config files]
+```
+
+---
+
+## Documentation
+
+| Document | Purpose |
+|----------|---------|
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | System design, data flow diagrams |
+| [CHANGELOG.md](./CHANGELOG.md) | Version history |
+| [DECISIONS.md](./DECISIONS.md) | Technical decision records |
+| [TODO.md](./TODO.md) | Backlog and upcoming work |
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | Commit conventions, workflow |
+| [SETUP.md](./SETUP.md) | Detailed setup instructions |
+
+---
+
+## Troubleshooting
+
+### Port 8080 already in use
+```bash
+# Kill existing process
+lsof -ti:8080 | xargs kill -9
+npm run dev
+```
+
+### Firebase connection errors
+1. Verify `.env` has correct Firebase credentials
+2. Check Firebase project is active at [console.firebase.google.com](https://console.firebase.google.com)
+3. Ensure Firestore rules allow reads
+
+### Build fails with TypeScript errors
+```bash
+# Check for type errors
+npx tsc --noEmit
+
+# Common fix: regenerate node_modules
+rm -rf node_modules package-lock.json
+npm install
+```
+
+### Cal.com widget not loading
+- Widget requires DOM fully rendered before initialization
+- Check browser console for CORS errors
+- Verify Cal.com link is correct in component
+
+---
+
+## License
+
+MIT License - see [LICENSE](./LICENSE) for details.

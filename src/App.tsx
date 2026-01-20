@@ -28,7 +28,6 @@ import { ContactPage } from "./pages/ContactPage";
 import { BlogPage } from "./pages/blog/BlogPage";
 import { PrivacyPage } from "./pages/legal/PrivacyPage";
 import { TermsPage } from "./pages/legal/TermsPage";
-import FirebaseTest from "./pages/FirebaseTest";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import { ProtectedRoute } from "./components/admin/ProtectedRoute";
@@ -87,8 +86,6 @@ const App = () => (
           {/* Legal */}
           <Route path="/legal/privacy" element={<PrivacyPage />} />
           <Route path="/legal/terms" element={<TermsPage />} />
-          {/* Firebase Test (temporary) */}
-          <Route path="/firebase-test" element={<FirebaseTest />} />
           {/* Admin */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
