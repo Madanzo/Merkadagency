@@ -1,4 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/common/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Eye, Globe, Users, Search, CheckCircle2 } from 'lucide-react';
 
@@ -18,6 +19,10 @@ const results = [
 export default function TeonanacatlCaseStudy() {
   return (
     <Layout>
+      <SEO
+        title="Teonanacatl Case Study"
+        description="From Invisible to 3x Google Visibility. How we built a complete digital presence for a wellness retreat center."
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-24">
         <div className="container-custom">
