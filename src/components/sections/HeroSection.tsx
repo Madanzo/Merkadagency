@@ -93,7 +93,7 @@ export function HeroSection() {
               <div className="aspect-video rounded-lg bg-merkad-bg-secondary flex items-center justify-center relative overflow-hidden shadow-inner border border-white/5">
                 {/* Hero Video Background */}
                 <video
-                  src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Merkadagency%20video.mp4?alt=media&token=8f751477-b305-4e69-a9ae-a5129a670750"
+                  src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Video%20portfolio%2FMerkadagency%20video.mp4?alt=media&token=28ae205e-641b-4092-86ac-e4c5dbea3739"
                   autoPlay
                   loop
                   muted
