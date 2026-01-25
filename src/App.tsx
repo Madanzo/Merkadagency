@@ -41,60 +41,67 @@ import EcommerceGuide from "./pages/resources/EcommerceGuide";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* Services */}
-          <Route path="/services" element={<ServicesHub />} />
-          <Route path="/services/ai-lead-capture" element={<AILeadCapture />} />
-          <Route path="/services/crm-automation" element={<CRMAutomation />} />
-          <Route path="/services/seo-content" element={<SEOContent />} />
-          <Route path="/services/paid-advertising" element={<PaidAdvertising />} />
-          {/* Industries */}
-          <Route path="/industries" element={<IndustriesHub />} />
-          <Route path="/industries/medspas" element={<MedspasPage />} />
-          <Route path="/industries/cannabis" element={<CannabisPage />} />
-          <Route path="/industries/construction" element={<ConstructionPage />} />
-          <Route path="/industries/ecommerce" element={<EcommercePage />} />
-          {/* Case Studies */}
-          <Route path="/results" element={<ResultsPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-          <Route path="/case-studies" element={<CaseStudiesHub />} />
-          <Route path="/case-studies/kravings" element={<KravingsCaseStudy />} />
-          <Route path="/case-studies/teonanacatl" element={<TeonanacatlCaseStudy />} />
-          <Route path="/case-studies/gridnguard" element={<GridNGuardCaseStudy />} />
-          {/* Resources */}
-          <Route path="/resources/free-audit" element={<FreeAudit />} />
-          <Route path="/resources/roi-calculator" element={<ROICalculator />} />
-          <Route path="/resources/medspa-automation-checklist" element={<MedspaChecklist />} />
-          <Route path="/resources/cannabis-marketing-playbook" element={<CannabisPlaybook />} />
-          <Route path="/resources/contractor-lead-gen-guide" element={<ContractorGuide />} />
-          <Route path="/resources/ecommerce-automation-blueprint" element={<EcommerceGuide />} />
-          {/* About */}
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/about/method" element={<MethodPage />} />
-          {/* Other */}
-          <Route path="/book" element={<BookPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          {/* Legal */}
-          <Route path="/legal/privacy" element={<PrivacyPage />} />
-          <Route path="/legal/terms" element={<TermsPage />} />
-          {/* Admin */}
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
-          {/* Catch-all */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  useScrollAnimation();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            {/* Services */}
+            <Route path="/services" element={<ServicesHub />} />
+            <Route path="/services/ai-lead-capture" element={<AILeadCapture />} />
+            <Route path="/services/crm-automation" element={<CRMAutomation />} />
+            <Route path="/services/seo-content" element={<SEOContent />} />
+            <Route path="/services/paid-advertising" element={<PaidAdvertising />} />
+            {/* Industries */}
+            <Route path="/industries" element={<IndustriesHub />} />
+            <Route path="/industries/medspas" element={<MedspasPage />} />
+            <Route path="/industries/cannabis" element={<CannabisPage />} />
+            <Route path="/industries/construction" element={<ConstructionPage />} />
+            <Route path="/industries/ecommerce" element={<EcommercePage />} />
+            {/* Case Studies */}
+            <Route path="/results" element={<ResultsPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+
+            <Route path="/case-studies" element={<CaseStudiesHub />} />
+            <Route path="/case-studies/kravings" element={<KravingsCaseStudy />} />
+            <Route path="/case-studies/teonanacatl" element={<TeonanacatlCaseStudy />} />
+            <Route path="/case-studies/gridnguard" element={<GridNGuardCaseStudy />} />
+            {/* Resources */}
+            <Route path="/resources/free-audit" element={<FreeAudit />} />
+            <Route path="/resources/roi-calculator" element={<ROICalculator />} />
+            <Route path="/resources/medspa-automation-checklist" element={<MedspaChecklist />} />
+            <Route path="/resources/cannabis-marketing-playbook" element={<CannabisPlaybook />} />
+            <Route path="/resources/contractor-lead-gen-guide" element={<ContractorGuide />} />
+            <Route path="/resources/ecommerce-automation-blueprint" element={<EcommerceGuide />} />
+            {/* About */}
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/about/method" element={<MethodPage />} />
+            {/* Other */}
+            <Route path="/book" element={<BookPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            {/* Legal */}
+            <Route path="/legal/privacy" element={<PrivacyPage />} />
+            <Route path="/legal/terms" element={<TermsPage />} />
+            {/* Admin */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+            {/* Catch-all */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+
+};
 
 export default App;
