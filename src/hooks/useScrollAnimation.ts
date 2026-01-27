@@ -52,10 +52,25 @@ export function useScrollAnimation() {
             subtree: true
         });
 
+        // Clean up
         return () => {
             observer.disconnect();
             mutationObserver.disconnect();
             window.removeEventListener('scroll', handleScroll);
         };
+    }, []);
+
+    // Safety fallback: Ensure everything is visible after 2 seconds
+    // This prevents the "blank site" issue if the observer fails or script stalls
+    useEffect(() => {
+        const safetyTimeout = setTimeout(() => {
+            const remaining = document.querySelectorAll('.animate-on-scroll:not(.visible)');
+            if (remaining.length > 0) {
+                console.warn(`Recovered ${remaining.length} elements that failed to animate.`);
+                remaining.forEach(el => el.classList.add('visible'));
+            }
+        }, 2000);
+
+        return () => clearTimeout(safetyTimeout);
     }, []);
 }
