@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { Analytics } from '@/lib/analytics';
 import { ArrowRight } from 'lucide-react';
 
 interface TrackedCTAProps {
@@ -13,7 +12,8 @@ interface TrackedCTAProps {
 }
 
 /**
- * TrackedCTA - A CTA button that automatically tracks clicks
+ * TrackedCTA - A CTA button component
+ * Note: Tracking is handled by Google Analytics via gtag
  */
 export function TrackedCTA({
     to,
@@ -23,9 +23,6 @@ export function TrackedCTA({
     className = '',
     showArrow = true,
 }: TrackedCTAProps) {
-    const handleClick = () => {
-        Analytics.ctaClick(buttonName);
-    };
 
     const baseStyles = 'inline-flex items-center gap-2 px-8 py-4 font-semibold rounded-xl transition-all duration-300';
     const variantStyles = {
@@ -36,7 +33,6 @@ export function TrackedCTA({
     return (
         <Link
             to={to}
-            onClick={handleClick}
             className={`${baseStyles} ${variantStyles[variant]} ${className}`}
         >
             {children}
