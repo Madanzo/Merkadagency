@@ -1,0 +1,27 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow write-only access to pageviews and events (for analytics)
+    // No one can read these except through Firebase Console/Admin SDK
+    match /pageviews/{document=**} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null && request.auth.token.admin == true;
+    }
+
+    match /events/{document=**} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null && request.auth.token.admin == true;
+    }
+
+    // Admin routes require authentication
+    match /admin/{document=**} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Default deny all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
