@@ -29,6 +29,10 @@ export const auth = getAuth(app);
 // Initialize Storage
 export const storage = getStorage(app);
 
+// Initialize Functions
+import { getFunctions } from "firebase/functions";
+export const functions = getFunctions(app);
+
 // Initialize Analytics (only in browser environment)
 export const initAnalytics = async () => {
   if (await isSupported()) {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { collection, getDocs, deleteDoc, doc, updateDoc, addDoc, Timestamp } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { db, functions } from '@/lib/firebase'; // Ensure functions is exported from firebase lib
+import { httpsCallable } from 'firebase/functions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -122,6 +123,21 @@ export function EmailSubscribersTab() {
         }
     };
 
+    const handleStartSequence = async (email: string, sequenceName: string) => {
+        if (!confirm(`Are you sure you want to start the ${sequenceName} sequence for this subscriber?`)) return;
+
+        try {
+            const startSubscriberSequence = httpsCallable(functions, 'startSubscriberSequence');
+            await startSubscriberSequence({ email, sequenceName });
+            alert('Sequence started successfully!');
+            // Refresh subscribers to show any changes
+            loadSubscribers();
+        } catch (error: any) {
+            console.error('Error starting sequence:', error);
+            alert(`Failed to start sequence: ${error.message}`);
+        }
+    };
+
     const filteredSubscribers = subscribers.filter(s =>
         s.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         s.name?.toLowerCase().includes(searchTerm.toLowerCase())
@@ -224,6 +240,21 @@ export function EmailSubscribersTab() {
                                                 <Tag className="w-4 h-4 mr-2" />
                                                 Add Tag
                                             </DropdownMenuItem>
+
+                                            {/* Start Sequence Options */}
+                                            <DropdownMenuItem onClick={() => handleStartSequence(subscriber.email, 'post-booking')}>
+                                                <RefreshCw className="w-4 h-4 mr-2" />
+                                                Start Post-Booking
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem onClick={() => handleStartSequence(subscriber.email, 'reengagement')}>
+                                                <RefreshCw className="w-4 h-4 mr-2" />
+                                                Start Re-Engagement
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem onClick={() => handleStartSequence(subscriber.email, 'onboarding')}>
+                                                <RefreshCw className="w-4 h-4 mr-2" />
+                                                Start Onboarding
+                                            </DropdownMenuItem>
+
                                             <DropdownMenuItem
                                                 onClick={() => handleDelete(subscriber.id)}
                                                 className="text-red-500"

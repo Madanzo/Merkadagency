@@ -134,6 +134,24 @@ export const onLeadCreated = functions.firestore
             sentAt: admin.firestore.FieldValue.serverTimestamp(),
         });
 
+        // Ensure lead is in subscribers collection
+        const subscriberRef = db.collection('subscribers').doc(email);
+        const subscriberDoc = await subscriberRef.get();
+
+        if (!subscriberDoc.exists) {
+            await subscriberRef.set({
+                email,
+                name: name || '',
+                source: 'booking',
+                tags: ['lead', 'booked'],
+                createdAt: admin.firestore.FieldValue.serverTimestamp(),
+                sequences: {},
+            });
+        }
+
+        // Start Post-Booking Drip Sequence
+        await startSequence(email, 'post-booking');
+
         return result;
     });
 
@@ -173,4 +191,48 @@ export const sendManualEmail = functions.https.onCall(async (data: { to: string;
     });
 
     return result;
+});
+
+/**
+ * HTTP Callable: Manually start a drip sequence (for admin use)
+ */
+export const startSubscriberSequence = functions.https.onCall(async (data: { email: string; sequenceName: string }, context: functions.https.CallableContext) => {
+    // Verify the caller is authenticated
+    if (!context.auth) {
+        throw new functions.https.HttpsError(
+            'unauthenticated',
+            'Must be authenticated to manage sequences'
+        );
+    }
+
+    const { email, sequenceName } = data;
+
+    if (!email || !sequenceName) {
+        throw new functions.https.HttpsError(
+            'invalid-argument',
+            'Missing required fields: email, sequenceName'
+        );
+    }
+
+    // Ensure subscriber exists
+    const subscriberRef = db.collection('subscribers').doc(email);
+    const subscriberDoc = await subscriberRef.get();
+
+    if (!subscriberDoc.exists) {
+        throw new functions.https.HttpsError(
+            'not-found',
+            'Subscriber not found. Please add them as a subscriber first.'
+        );
+    }
+
+    try {
+        await startSequence(email, sequenceName);
+        return { success: true, message: `Started ${sequenceName} sequence for ${email}` };
+    } catch (error: any) {
+        console.error('Error starting sequence:', error);
+        throw new functions.https.HttpsError(
+            'internal',
+            error.message || 'Failed to start sequence'
+        );
+    }
 });

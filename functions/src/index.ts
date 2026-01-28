@@ -9,6 +9,7 @@ export {
     onSubscriberCreated,
     onLeadCreated,
     sendManualEmail,
+    startSubscriberSequence,
 } from './email/triggers';
 
 // Re-export drip sequence processor
