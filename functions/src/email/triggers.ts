@@ -1,6 +1,7 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { sendContactThankYou, sendWelcomeEmail, sendBookingConfirmation } from './resend';
+import { startSequence } from './sequences';
 
 // Initialize Firebase Admin if not already initialized
 if (!admin.apps.length) {
@@ -48,8 +49,10 @@ export const onContactFormSubmit = functions.firestore
                 source: 'contact_form',
                 tags: ['contact'],
                 createdAt: admin.firestore.FieldValue.serverTimestamp(),
-                sequences: [],
+                sequences: {},
             });
+            // Start welcome drip sequence
+            await startSequence(email, 'welcome');
         }
 
         return result;
@@ -87,6 +90,9 @@ export const onSubscriberCreated = functions.firestore
             error: result.error || null,
             sentAt: admin.firestore.FieldValue.serverTimestamp(),
         });
+
+        // Start welcome drip sequence for newsletter subscribers
+        await startSequence(context.params.docId, 'welcome');
 
         return result;
     });

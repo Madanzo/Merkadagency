@@ -10,3 +10,6 @@ export {
     onLeadCreated,
     sendManualEmail,
 } from './email/triggers';
+
+// Re-export drip sequence processor
+export { processDripSequences } from './email/sequences';
