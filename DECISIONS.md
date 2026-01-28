@@ -93,3 +93,26 @@ useEffect(() => {
 - **Decision**: Use Vitest (native Vite integration).
 - **Rationale**: Zero-config with Vite, same API as Jest, faster execution.
 - **Consequences**: Excellent DX, but team may need to learn Vitest-specific features.
+
+---
+
+## 009. Deployment & Caching Strategy
+- **Status**: Accepted
+- **Date**: 2026-01-28
+- **Context**: Users were experiencing caching issues where old versions of the site persisted after deployment, causing "invalid API key" errors (due to old hashed JS files).
+- **Decision**: Implement a multi-layer strict caching strategy.
+- **Implementation**:
+  1. **Vite File Hashing**: Standard behavior; ensures new builds have unique filenames.
+  2. **Firebase Hosting Config**:
+     - `Cache-Control: no-cache, no-store, must-revalidate` for `index.html`.
+     - `CDN-Cache-Control: no-store` to prevent intermediate CDNs from caching HTML.
+     - Long-term caching (1 year) for static assets (JS/CSS/Images) since they are hashed.
+  3. **Cloudflare Page Rules**:
+     - Rule: `merkadagency.com/*` set to **Cache Level: Bypass**.
+     - Ensures Cloudflare acts as DNS/Security layer but does not cache content.
+  4. **Service Worker Cleanup**:
+     - Included script in `main.tsx` that aggressively unregisters any existing service workers on load.
+     - Prevents "zombie" service workers from serving stale content.
+- **Consequences**:
+  - **Pros**: Immediate updates for users; zero risk of stale code errors.
+  - **Cons**: Slightly higher server load on Firebase (since HTML isn't cached), but negligible for SPA.
