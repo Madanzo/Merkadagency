@@ -208,7 +208,7 @@ export default function MedspasPage() {
     );
 }
 
-function ServiceCard({ icon: Icon, title, description }: { icon: any, title: string, description: string }) {
+function ServiceCard({ icon: Icon, title, description }: { icon: React.ElementType, title: string, description: string }) {
     return (
         <div className="p-6 rounded-2xl bg-merkad-bg-tertiary border border-white/5 hover:border-pink-500/30 transition-all duration-300">
             <div className="w-12 h-12 rounded-lg bg-pink-500/10 flex items-center justify-center mb-4">

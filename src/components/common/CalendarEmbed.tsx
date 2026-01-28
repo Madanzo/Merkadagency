@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef } from 'react';
 
 interface CalendarEmbedProps {
@@ -25,11 +26,11 @@ export function CalendarEmbed({ calLink, className = '' }: CalendarEmbedProps) {
 
     useEffect(() => {
         (function (C: any, A: string, L: string) {
-            let p = function (a: any, ar: any) { a.q.push(ar); };
-            let d = C.document;
-            C.Cal = C.Cal || function () {
-                let cal = C.Cal;
-                let ar = arguments;
+            const p = function (a: any, ar: any) { a.q.push(ar); };
+            const d = C.document;
+            C.Cal = C.Cal || function (...args: any[]) {
+                const cal = C.Cal;
+                const ar = args;
                 if (!cal.loaded) {
                     cal.ns = {};
                     cal.q = cal.q || [];
@@ -37,7 +38,7 @@ export function CalendarEmbed({ calLink, className = '' }: CalendarEmbedProps) {
                     cal.loaded = true;
                 }
                 if (ar[0] === L) {
-                    const api = function () { p(api, arguments); };
+                    const api = function (...args: any[]) { p(api, args); };
                     const namespace = ar[1];
                     api.q = api.q || [];
                     if (typeof namespace === "string") {

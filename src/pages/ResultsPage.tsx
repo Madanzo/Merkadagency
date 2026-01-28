@@ -2,44 +2,51 @@ import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/common/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Users, DollarSign, BarChart3, Star, Clock, CheckCircle2 } from 'lucide-react';
-import { IndustryTag } from '@/components/common/IndustryTag';
+import { IndustryTag, type IndustryType } from '@/components/common/IndustryTag';
 
 // Reusing case study data logic
-const featuredWins = [
-    {
-        client: 'Kravings',
-        industry: 'Cannabis',
-        industryType: 'cannabis',
-        stats: [
-            { label: 'Revenue', value: '+196%' },
-            { label: 'Orders', value: '+2.4k' }
-        ],
-        image: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FScreenshot%202025-08-21%20153207.png?alt=media&token=87afa2fd-ca5f-4683-ad24-fecb592cca89',
-        href: '/case-studies/kravings'
-    },
-    {
-        client: 'Teonanacatl',
-        industry: 'Wellness',
-        industryType: null, // Fallback for now until Wellness page exists
-        stats: [
-            { label: 'Visibility', value: '+300%' },
-            { label: 'Bookings', value: 'Live' }
-        ],
-        image: 'https://storage.googleapis.com/msgsndr/B3r5jIhXrxu7hUG7cLQF/media/68d17bdd83739a3e136f28ff.png',
-        href: '/case-studies/teonanacatl'
-    },
-    {
-        client: 'Grid & Guard',
-        industry: 'E-Commerce',
-        industryType: 'ecommerce',
-        stats: [
-            { label: 'Revenue', value: '+150%' },
-            { label: 'ROAS', value: '4.2x' }
-        ],
-        image: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Grid%20n%20Guard%2FGridnGuard%20Website.png?alt=media&token=e50c438d-1d9b-4d4e-9c30-afc4e7322f83',
-        href: '/case-studies/gridnguard'
-    }
-];
+const featuredWins: {
+    client: string;
+    industry: string;
+    industryType: IndustryType | null;
+    stats: { label: string; value: string }[];
+    image: string;
+    href: string;
+}[] = [
+        {
+            client: 'Kravings',
+            industry: 'Cannabis',
+            industryType: 'cannabis',
+            stats: [
+                { label: 'Revenue', value: '+196%' },
+                { label: 'Orders', value: '+2.4k' }
+            ],
+            image: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FScreenshot%202025-08-21%20153207.png?alt=media&token=87afa2fd-ca5f-4683-ad24-fecb592cca89',
+            href: '/case-studies/kravings'
+        },
+        {
+            client: 'Teonanacatl',
+            industry: 'Wellness',
+            industryType: null, // Fallback for now until Wellness page exists
+            stats: [
+                { label: 'Visibility', value: '+300%' },
+                { label: 'Bookings', value: 'Live' }
+            ],
+            image: 'https://storage.googleapis.com/msgsndr/B3r5jIhXrxu7hUG7cLQF/media/68d17bdd83739a3e136f28ff.png',
+            href: '/case-studies/teonanacatl'
+        },
+        {
+            client: 'Grid & Guard',
+            industry: 'E-Commerce',
+            industryType: 'ecommerce',
+            stats: [
+                { label: 'Revenue', value: '+150%' },
+                { label: 'ROAS', value: '4.2x' }
+            ],
+            image: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Grid%20n%20Guard%2FGridnGuard%20Website.png?alt=media&token=e50c438d-1d9b-4d4e-9c30-afc4e7322f83',
+            href: '/case-studies/gridnguard'
+        }
+    ];
 
 const impactStats = [
     { label: 'Total Revenue Generated', value: '$2M+', icon: DollarSign, color: 'text-green-400' },
@@ -140,7 +147,7 @@ export default function ResultsPage() {
                                     <div className="flex items-center justify-between mb-4">
                                         <div className="text-2xl font-display font-bold text-white">{study.client}</div>
                                         {study.industryType ? (
-                                            <IndustryTag type={study.industryType as any} />
+                                            <IndustryTag type={study.industryType} />
                                         ) : (
                                             <span className="px-3 py-1 rounded-full bg-merkad-bg-elevated text-xs font-medium text-merkad-text-muted">
                                                 {study.industry}

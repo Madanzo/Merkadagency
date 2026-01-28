@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';
-import { getLeads, getLeadStats, Lead, updateLead } from '@/lib/firestore';
+import { getLeads, getLeadStats, Lead, updateLead, deleteLead } from '@/lib/firestore';
 import { StatCard } from '@/components/common/StatCard';
 import { StatusBadge } from '@/components/common/StatusBadge';
 import { Button } from '@/components/ui/button';
@@ -39,17 +40,17 @@ const statusColumns: { status: LeadStatus; label: string; color: string }[] = [
 ];
 
 // Helper to safely format dates from any source (Timestamp, Date, string, null)
-const formatDate = (dateValue: any, formatString: string = 'MMM d, yyyy') => {
+const formatDate = (dateValue: Timestamp | Date | string | number | null | undefined, formatString: string = 'MMM d, yyyy') => {
     if (!dateValue) return 'N/A';
 
     try {
         // Handle Firestore Timestamp
-        if (dateValue instanceof Timestamp || typeof dateValue.toDate === 'function') {
-            return format(dateValue.toDate(), formatString);
+        if (dateValue instanceof Timestamp || (typeof dateValue === 'object' && 'toDate' in dateValue && typeof (dateValue as { toDate: () => Date }).toDate === 'function')) {
+            return format((dateValue as Timestamp).toDate(), formatString);
         }
 
         // Handle JS Date or string/number
-        const dateObj = new Date(dateValue);
+        const dateObj = new Date(dateValue as unknown as string | number | Date);
         // Check if valid date
         if (isNaN(dateObj.getTime())) return 'Invalid Date';
 
@@ -98,6 +99,20 @@ export default function AdminDashboard() {
         await loadData();
     };
 
+    const handleDeleteLead = async (leadId: string) => {
+        if (window.confirm('Are you sure you want to delete this lead? This action cannot be undone.')) {
+            const toastId = toast.loading('Deleting lead...');
+            try {
+                await deleteLead(leadId);
+                await loadData();
+                toast.success('Lead deleted successfully', { id: toastId });
+            } catch (error) {
+                console.error('Error deleting lead:', error);
+                toast.error('Failed to delete lead. Please check your permissions.', { id: toastId });
+            }
+        }
+    };
+
     const filteredLeads = leads.filter((lead) =>
         (lead.name || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
         (lead.email || '').toLowerCase().includes(searchTerm.toLowerCase())
@@ -111,10 +126,10 @@ export default function AdminDashboard() {
         const dateValue = lead.createdAt;
         let createdDate: Date;
 
-        if (dateValue && typeof (dateValue as any).toDate === 'function') {
-            createdDate = (dateValue as unknown as Timestamp).toDate();
+        if (dateValue && typeof dateValue === 'object' && 'toDate' in dateValue) {
+            createdDate = (dateValue as Timestamp).toDate();
         } else {
-            createdDate = new Date(dateValue as any);
+            createdDate = new Date(dateValue as unknown as string | number | Date);
         }
 
         if (isNaN(createdDate.getTime())) return false;
@@ -251,9 +266,18 @@ export default function AdminDashboard() {
                                                                 ))}
                                                                 <DropdownMenuItem
                                                                     onClick={() => handleStatusChange(lead.id, 'closed-lost')}
-                                                                    className="text-red-500"
+                                                                    className="text-orange-500"
                                                                 >
                                                                     Mark as Lost
+                                                                </DropdownMenuItem>
+                                                                <DropdownMenuItem
+                                                                    onSelect={(e) => {
+                                                                        e.preventDefault();
+                                                                        handleDeleteLead(lead.id);
+                                                                    }}
+                                                                    className="text-red-500 font-medium cursor-pointer"
+                                                                >
+                                                                    Delete Lead
                                                                 </DropdownMenuItem>
                                                             </DropdownMenuContent>
                                                         </DropdownMenu>
@@ -333,9 +357,18 @@ export default function AdminDashboard() {
                                                             ))}
                                                             <DropdownMenuItem
                                                                 onClick={() => handleStatusChange(lead.id, 'closed-lost')}
-                                                                className="text-red-500"
+                                                                className="text-orange-500"
                                                             >
                                                                 Mark as Lost
+                                                            </DropdownMenuItem>
+                                                            <DropdownMenuItem
+                                                                onSelect={(e) => {
+                                                                    e.preventDefault();
+                                                                    handleDeleteLead(lead.id);
+                                                                }}
+                                                                className="text-red-500 font-medium cursor-pointer"
+                                                            >
+                                                                Delete Lead
                                                             </DropdownMenuItem>
                                                         </DropdownMenuContent>
                                                     </DropdownMenu>

@@ -5,25 +5,25 @@ import { TrendingUp, Users, Boxes, DollarSign } from 'lucide-react';
 const stats = [
   {
     icon: TrendingUp,
-    value: '196%',
+    value: '197%',
     label: 'Revenue Growth',
     color: 'text-merkad-green'
   },
   {
     icon: Users,
-    value: '50+',
+    value: '53+',
     label: 'Automations Deployed',
     color: 'text-cyan-400'
   },
   {
     icon: Boxes,
-    value: '3',
+    value: '4',
     label: 'Industries Specialized',
     color: 'text-pink-400'
   },
   {
     icon: DollarSign,
-    value: '$2M+',
+    value: '$2.2M+',
     label: 'Revenue Generated',
     color: 'text-amber-400'
   }

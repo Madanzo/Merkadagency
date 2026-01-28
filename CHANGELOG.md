@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 - Fixed 7 npm vulnerabilities via `npm audit fix`
+- Added daily Cloud Function backup for Firestore
+- Implemented Delete Lead functionality with confirmation safeguards
 
 ---
 

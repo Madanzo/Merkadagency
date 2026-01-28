@@ -8,8 +8,8 @@ import { HelmetProvider } from 'react-helmet-async';
 // Force unregister any legacy service workers
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then(function (registrations) {
-        for (let registration of registrations) {
-            console.log('Unregistering legacy service worker:', registration);
+        for (const registration of registrations) {
+
             registration.unregister();
         }
     });

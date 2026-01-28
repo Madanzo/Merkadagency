@@ -47,7 +47,7 @@ npm test
 | Frontend | React 18, TypeScript |
 | Build Tool | Vite 5 |
 | Styling | Tailwind CSS, shadcn/ui |
-| Backend | Firebase (Hosting, Firestore, Auth) |
+| Backend | Firebase (Hosting, Firestore, Auth, Functions) |
 | State | TanStack Query (React Query) |
 | Icons | Lucide React |
 | Scheduling | Cal.com Widget |

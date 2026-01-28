@@ -31,10 +31,10 @@ interface Subscriber {
     createdAt: Timestamp | Date;
 }
 
-const formatDate = (dateValue: any) => {
+const formatDate = (dateValue: Timestamp | Date | string | number | null | undefined) => {
     if (!dateValue) return 'N/A';
     try {
-        if (typeof dateValue.toDate === 'function') {
+        if (dateValue instanceof Timestamp) {
             return format(dateValue.toDate(), 'MMM d, yyyy');
         }
         return format(new Date(dateValue), 'MMM d, yyyy');
@@ -132,9 +132,10 @@ export function EmailSubscribersTab() {
             alert('Sequence started successfully!');
             // Refresh subscribers to show any changes
             loadSubscribers();
-        } catch (error: any) {
+        } catch (error) {
             console.error('Error starting sequence:', error);
-            alert(`Failed to start sequence: ${error.message}`);
+            const message = error instanceof Error ? error.message : 'Unknown error';
+            alert(`Failed to start sequence: ${message}`);
         }
     };
 

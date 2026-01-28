@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Gem, Flower, Hammer, ShoppingCart } from 'lucide-react';
 
-type IndustryType = 'medspa' | 'cannabis' | 'construction' | 'ecommerce' | 'wellness';
+export type IndustryType = 'medspa' | 'cannabis' | 'construction' | 'ecommerce' | 'wellness';
 
 const config = {
     medspa: {

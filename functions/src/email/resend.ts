@@ -1,8 +1,16 @@
 import { Resend } from 'resend';
 import * as functions from 'firebase-functions';
 
-// Initialize Resend with API key from Firebase config
-const resend = new Resend(functions.config().resend?.key || process.env.RESEND_API_KEY);
+// Lazy initialize Resend to avoid module-level build errors
+let resendClient: Resend | null = null;
+
+function getResendClient() {
+    if (!resendClient) {
+        const apiKey = functions.config().resend?.key || process.env.RESEND_API_KEY || 'missing-key';
+        resendClient = new Resend(apiKey);
+    }
+    return resendClient;
+}
 
 // Default sender configuration
 const DEFAULT_FROM = 'Camilo @ MerkadAgency <camilo.reyna@merkadagency.com>';
@@ -20,6 +28,7 @@ interface SendEmailOptions {
  */
 export async function sendEmail(options: SendEmailOptions): Promise<{ success: boolean; id?: string; error?: string }> {
     try {
+        const resend = getResendClient();
         const { data, error } = await resend.emails.send({
             from: options.from || DEFAULT_FROM,
             to: Array.isArray(options.to) ? options.to : [options.to],

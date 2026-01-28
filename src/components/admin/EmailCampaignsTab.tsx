@@ -16,10 +16,10 @@ interface EmailLog {
     sentAt: Timestamp | Date;
 }
 
-const formatDate = (dateValue: any) => {
+const formatDate = (dateValue: Timestamp | Date | string | number | null | undefined) => {
     if (!dateValue) return 'N/A';
     try {
-        if (typeof dateValue.toDate === 'function') {
+        if (dateValue instanceof Timestamp) {
             return format(dateValue.toDate(), 'MMM d, yyyy h:mm a');
         }
         return format(new Date(dateValue), 'MMM d, yyyy h:mm a');

@@ -4,9 +4,9 @@
 
 - [x] Complete Project Audit and Cleanup
 - [x] Set up documentation layer (README, ARCHITECTURE, etc.)
-- [ ] Fix npm vulnerabilities (`npm audit fix`)
-- [ ] Verify mobile responsiveness on all pages
-- [ ] Set up automated testing (Vitest)
+- [x] Fix npm vulnerabilities (`npm audit fix`)
+- [x] Verify mobile responsiveness on all pages
+- [x] Set up automated testing (Vitest)
 
 ## 🟡 Features
 
@@ -19,6 +19,7 @@
   - [x] Email template editor
   - [x] Campaign logs & analytics
   - [x] Sequence visualization (Time-warps)
+  - [x] Manual Sequence Triggers (Admin UI)
 - [x] Add triggers for:
   - [x] Contact form submission
   - [x] Newsletter signup
@@ -49,7 +50,7 @@
 - [x] Remove `bun.lockb` legacy file
 - [x] Fix Caching Issues (Cloudflare/Firebase headers)
 - [x] Fix Service Worker conflicts
-- [ ] Fix TypeScript `any` types in:
+- [x] Fix TypeScript `any` types in:
   - `ResultsPage.tsx`
   - `AdminDashboard.tsx`
   - `CaseStudiesHub.tsx`
@@ -61,8 +62,8 @@
 
 - [x] Set up Firebase Hosting
 - [x] Configure Firestore Security Rules
-- [ ] Set up secondary git remote mirror (GitLab)
-- [ ] Configure Firebase daily backups
+- [x] Configure Firebase daily backups (Cloud Function)
+- [x] Implement 'Delete Lead' in Admin Dashboard
 - [x] Add CI/CD pipeline (GitHub Actions)
 - [ ] Set up staging environment
 

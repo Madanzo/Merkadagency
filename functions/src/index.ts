@@ -1,16 +1,9 @@
-/**
- * Firebase Cloud Functions for MerkadAgency
- * Email Automation System
- */
+import { initializeApp } from 'firebase-admin/app';
 
-// Re-export all email triggers
-export {
-    onContactFormSubmit,
-    onSubscriberCreated,
-    onLeadCreated,
-    sendManualEmail,
-    startSubscriberSequence,
-} from './email/triggers';
+initializeApp();
 
-// Re-export drip sequence processor
-export { processDripSequences } from './email/sequences';
+// Export Email Functions
+export * from './email';
+
+// Export Admin Functions
+export * from './admin/backup';

@@ -1,43 +1,53 @@
 import { Layout } from '@/components/layout/Layout';
-import { IndustryTag } from '@/components/common/IndustryTag';
+import { IndustryTag, type IndustryType } from '@/components/common/IndustryTag';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Eye } from 'lucide-react';
 
-const caseStudies = [
-  {
-    client: 'Kravings Club',
-    industry: 'Cannabis Delivery',
-    industryType: 'cannabis',
-    metric: '196%',
-    metricLabel: 'Revenue Growth',
-    description: 'From $2,358/mo to $6,988/mo in just 4 months with automated lead capture and follow-up systems.',
-    href: '/case-studies/kravings',
-    services: ['Website', 'SMS', 'SEO', 'CRM'],
-    image: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FScreenshot%202025-08-21%20153207.png?alt=media&token=87afa2fd-ca5f-4683-ad24-fecb592cca89',
-  },
-  {
-    client: 'Grid & Guard',
-    industry: 'E-commerce',
-    industryType: 'ecommerce',
-    metric: '+150%',
-    metricLabel: 'Revenue Growth',
-    description: 'Abandoned cart recovery and retention automation scaling revenue by 150%.',
-    href: '/case-studies/gridnguard',
-    services: ['Email Marketing', 'CRM'],
-    image: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Grid%20n%20Guard%2FGridnGuard%20Website.png?alt=media&token=e50c438d-1d9b-4d4e-9c30-afc4e7322f83',
-  },
-  {
-    client: 'Teonanacatl',
-    industry: 'Wellness & Retreats',
-    industryType: 'wellness',
-    metric: '3x',
-    metricLabel: 'Google Visibility',
-    description: 'Custom website, CRM integration, and SEO optimization transformed their digital presence from zero.',
-    href: '/case-studies/teonanacatl',
-    services: ['Website', 'CRM', 'SEO'],
-    image: 'https://storage.googleapis.com/msgsndr/B3r5jIhXrxu7hUG7cLQF/media/68d17bdd83739a3e136f28ff.png',
-  },
-];
+const caseStudies: {
+  client: string;
+  industry: string;
+  industryType: IndustryType;
+  metric: string;
+  metricLabel: string;
+  description: string;
+  href: string;
+  services: string[];
+  image: string;
+}[] = [
+    {
+      client: 'Kravings Club',
+      industry: 'Cannabis Delivery',
+      industryType: 'cannabis',
+      metric: '196%',
+      metricLabel: 'Revenue Growth',
+      description: 'From $2,358/mo to $6,988/mo in just 4 months with automated lead capture and follow-up systems.',
+      href: '/case-studies/kravings',
+      services: ['Website', 'SMS', 'SEO', 'CRM'],
+      image: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Kravings%20Club%20Case%20Studie%2FScreenshot%202025-08-21%20153207.png?alt=media&token=87afa2fd-ca5f-4683-ad24-fecb592cca89',
+    },
+    {
+      client: 'Grid & Guard',
+      industry: 'E-commerce',
+      industryType: 'ecommerce',
+      metric: '+150%',
+      metricLabel: 'Revenue Growth',
+      description: 'Abandoned cart recovery and retention automation scaling revenue by 150%.',
+      href: '/case-studies/gridnguard',
+      services: ['Email Marketing', 'CRM'],
+      image: 'https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Grid%20n%20Guard%2FGridnGuard%20Website.png?alt=media&token=e50c438d-1d9b-4d4e-9c30-afc4e7322f83',
+    },
+    {
+      client: 'Teonanacatl',
+      industry: 'Wellness & Retreats',
+      industryType: 'wellness',
+      metric: '3x',
+      metricLabel: 'Google Visibility',
+      description: 'Custom website, CRM integration, and SEO optimization transformed their digital presence from zero.',
+      href: '/case-studies/teonanacatl',
+      services: ['Website', 'CRM', 'SEO'],
+      image: 'https://storage.googleapis.com/msgsndr/B3r5jIhXrxu7hUG7cLQF/media/68d17bdd83739a3e136f28ff.png',
+    },
+  ];
 
 const aggregateMetrics = [
   { value: '196%', label: 'Average Revenue Growth' },
@@ -98,7 +108,7 @@ export default function CaseStudiesHub() {
                   {/* Industry Tag */}
                   <div className="flex items-center justify-between mb-6">
                     {study.industryType ? (
-                      <IndustryTag type={study.industryType as any} />
+                      <IndustryTag type={study.industryType} />
                     ) : (
                       <span className="px-3 py-1 rounded-full bg-merkad-bg-elevated text-xs font-medium text-merkad-text-muted">
                         {study.industry}

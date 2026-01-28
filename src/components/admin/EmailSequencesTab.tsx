@@ -164,19 +164,48 @@ const SEQUENCES: Sequence[] = [
                 day: 0,
                 subject: 'Your Strategy Call is Confirmed! 🎉',
                 description: 'Confirmation email with what to expect',
-                htmlPreview: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;"><h1 style="color: #7c3aed;">You're All Set, {name}!</h1><p>I'm excited to connect with you! Your strategy call has been confirmed.</p><p><strong>What to expect:</strong></p><ul><li>30-minute focused conversation</li><li>Analysis of your current marketing/automation gaps</li><li>Custom recommendations for your business</li><li>No pressure, just value</li></ul></div>`,
+                htmlPreview: `
+                    <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+                        <h1 style="color: #7c3aed;">You're All Set, {name}!</h1>
+                        <p style="font-size: 16px; line-height: 1.6;">I'm excited to connect with you! Your strategy call has been confirmed.</p>
+                        <p style="font-size: 16px; line-height: 1.6;"><strong>What to expect:</strong></p>
+                        <ul style="font-size: 16px; line-height: 1.8;">
+                            <li>30-minute focused conversation</li>
+                            <li>Analysis of your current marketing/automation gaps</li>
+                            <li>Custom recommendations for your business</li>
+                            <li>No pressure, just value</li>
+                        </ul>
+                    </div>
+                `,
             },
             {
                 day: 1,
                 subject: 'Quick Prep for Our Call Tomorrow 📋',
                 description: 'Prep tips to maximize the call value',
-                htmlPreview: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;"><h1 style="color: #7c3aed;">Hey {name},</h1><p>Looking forward to our call! To make the most of our time, here are a few things to think about:</p><ul><li>📊 What's your #1 marketing challenge right now?</li><li>🎯 What would success look like in 90 days?</li><li>💡 Are there specific automations you've been curious about?</li></ul></div>`,
+                htmlPreview: `
+                    <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+                        <h1 style="color: #7c3aed;">Hey {name},</h1>
+                        <p style="font-size: 16px; line-height: 1.6;">Looking forward to our call! To make the most of our time, here are a few things to think about:</p>
+                        <ul style="font-size: 16px; line-height: 1.8;">
+                            <li>📊 What's your #1 marketing challenge right now?</li>
+                            <li>🎯 What would success look like in 90 days?</li>
+                            <li>💡 Are there specific automations you've been curious about?</li>
+                        </ul>
+                    </div>
+                `,
             },
             {
                 day: 3,
                 subject: "Missed Our Call? Let's Reschedule 🗓️",
                 description: 'Reschedule reminder for no-shows',
-                htmlPreview: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;"><h1 style="color: #7c3aed;">Hey {name},</h1><p>I noticed we weren't able to connect. No worries - things happen!</p><p>If you're still interested in exploring how automation can help your business, I'd love to reschedule.</p><a href="https://merkadagency.com/book" style="display: inline-block; background: #7c3aed; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600;">Pick a New Time</a></div>`,
+                htmlPreview: `
+                    <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+                        <h1 style="color: #7c3aed;">Hey {name},</h1>
+                        <p style="font-size: 16px; line-height: 1.6;">I noticed we weren't able to connect. No worries - things happen!</p>
+                        <p style="font-size: 16px; line-height: 1.6;">If you're still interested in exploring how automation can help your business, I'd love to reschedule.</p>
+                        <a href="https://merkadagency.com/book" style="display: inline-block; background: #7c3aed; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 16px;">Pick a New Time</a>
+                    </div>
+                `,
             },
         ],
     },
@@ -189,19 +218,39 @@ const SEQUENCES: Sequence[] = [
                 day: 0,
                 subject: 'Still Thinking About It? 🤔',
                 description: 'Check in with cold leads',
-                htmlPreview: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;"><h1 style="color: #7c3aed;">Hey {name},</h1><p>I noticed you haven't booked a call yet, and I completely understand - you're probably busy running your business!</p><p>But I wanted to reach out because the businesses that get the best results are the ones that take action <em>before</em> they're overwhelmed.</p></div>`,
+                htmlPreview: `
+                    <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+                        <h1 style="color: #7c3aed;">Hey {name},</h1>
+                        <p style="font-size: 16px; line-height: 1.6;">I noticed you haven't booked a call yet, and I completely understand - you're probably busy running your business!</p>
+                        <p style="font-size: 16px; line-height: 1.6;">But I wanted to reach out because the businesses that get the best results are the ones that take action <em>before</em> they're overwhelmed.</p>
+                    </div>
+                `,
             },
             {
                 day: 3,
                 subject: 'New Case Study: 47% Revenue Increase 📈',
                 description: 'Share fresh social proof',
-                htmlPreview: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;"><h1 style="color: #7c3aed;">Fresh Results, {name}</h1><p>I just published a new case study that I thought you might find interesting.</p><p><strong>The highlight:</strong> A local service business went from struggling with follow-ups to seeing a 47% revenue increase in just 90 days.</p><a href="https://merkadagency.com/case-studies" style="display: inline-block; background: #7c3aed; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600;">Read the Case Study</a></div>`,
+                htmlPreview: `
+                    <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+                        <h1 style="color: #7c3aed;">Fresh Results, {name}</h1>
+                        <p style="font-size: 16px; line-height: 1.6;">I just published a new case study that I thought you might find interesting.</p>
+                        <p style="font-size: 16px; line-height: 1.6;"><strong>The highlight:</strong> A local service business went from struggling with follow-ups to seeing a 47% revenue increase in just 90 days.</p>
+                        <a href="https://merkadagency.com/case-studies" style="display: inline-block; background: #7c3aed; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 16px;">Read the Case Study</a>
+                    </div>
+                `,
             },
             {
                 day: 7,
                 subject: 'Last Call: Ready When You Are',
                 description: 'Final touch - no pressure',
-                htmlPreview: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;"><h1 style="color: #7c3aed;">{name}, One Last Thing</h1><p>This will be my last email for now - I don't want to fill up your inbox!</p><p>But I wanted you to know: whenever you're ready to explore automation for your business, I'm here.</p><a href="https://merkadagency.com/book" style="display: inline-block; background: linear-gradient(135deg, #7c3aed, #a855f7); color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600;">Book a Strategy Call</a></div>`,
+                htmlPreview: `
+                    <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+                        <h1 style="color: #7c3aed;">{name}, One Last Thing</h1>
+                        <p style="font-size: 16px; line-height: 1.6;">This will be my last email for now - I don't want to fill up your inbox!</p>
+                        <p style="font-size: 16px; line-height: 1.6;">But I wanted you to know: whenever you're ready to explore automation for your business, I'm here.</p>
+                        <a href="https://merkadagency.com/book" style="display: inline-block; background: linear-gradient(135deg, #7c3aed, #a855f7); color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 16px;">Book a Strategy Call</a>
+                    </div>
+                `,
             },
         ],
     },
@@ -214,19 +263,53 @@ const SEQUENCES: Sequence[] = [
                 day: 0,
                 subject: 'Welcome to the MerkadAgency Family! 🎊',
                 description: 'Official welcome and next steps',
-                htmlPreview: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;"><h1 style="color: #7c3aed;">Welcome Aboard, {name}!</h1><p>I'm thrilled to officially welcome you as a MerkadAgency client!</p><p><strong>Here's what happens next:</strong></p><ul><li>📅 You'll receive a kickoff meeting invite within 24 hours</li><li>📋 We'll send over our onboarding questionnaire</li><li>🔐 You'll get access to our client portal</li></ul></div>`,
+                htmlPreview: `
+                    <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+                        <h1 style="color: #7c3aed;">Welcome Aboard, {name}!</h1>
+                        <p style="font-size: 16px; line-height: 1.6;">I'm thrilled to officially welcome you as a MerkadAgency client!</p>
+                        <p style="font-size: 16px; line-height: 1.6;"><strong>Here's what happens next:</strong></p>
+                        <ul style="font-size: 16px; line-height: 1.8;">
+                            <li>📅 You'll receive a kickoff meeting invite within 24 hours</li>
+                            <li>📋 We'll send over our onboarding questionnaire</li>
+                            <li>🔐 You'll get access to our client portal</li>
+                        </ul>
+                    </div>
+                `,
             },
             {
                 day: 3,
                 subject: 'Setting Expectations for Success 📊',
                 description: 'Timeline and process overview',
-                htmlPreview: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;"><h1 style="color: #7c3aed;">Hey {name},</h1><p>Now that we've kicked things off, I wanted to share what you can expect over the coming weeks:</p><ul><li><strong>Week 1-2:</strong> Discovery & strategy finalization</li><li><strong>Week 3-4:</strong> Build & initial implementation</li><li><strong>Week 5-6:</strong> Testing & optimization</li><li><strong>Week 7+:</strong> Launch & ongoing optimization</li></ul></div>`,
+                htmlPreview: `
+                    <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+                        <h1 style="color: #7c3aed;">Hey {name},</h1>
+                        <p style="font-size: 16px; line-height: 1.6;">Now that we've kicked things off, I wanted to share what you can expect over the coming weeks:</p>
+                        <ul style="font-size: 16px; line-height: 1.8;">
+                            <li><strong>Week 1-2:</strong> Discovery & strategy finalization</li>
+                            <li><strong>Week 3-4:</strong> Build & initial implementation</li>
+                            <li><strong>Week 5-6:</strong> Testing & optimization</li>
+                            <li><strong>Week 7+:</strong> Launch & ongoing optimization</li>
+                        </ul>
+                    </div>
+                `,
             },
             {
                 day: 7,
                 subject: 'Quick Check-In ✅',
                 description: 'First week check-in',
-                htmlPreview: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;"><h1 style="color: #7c3aed;">Hey {name},</h1><p>Just wanted to check in after your first week as a client!</p><p>A few quick questions:</p><ul><li>Are you getting all the communication you need from our team?</li><li>Is there anything unclear about the process?</li><li>Any questions or concerns I can address?</li></ul><p>Your success is our success, so never hesitate to reach out.</p></div>`,
+                htmlPreview: `
+                    <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+                        <h1 style="color: #7c3aed;">Hey {name},</h1>
+                        <p style="font-size: 16px; line-height: 1.6;">Just wanted to check in after your first week as a client!</p>
+                        <p style="font-size: 16px; line-height: 1.6;">A few quick questions:</p>
+                        <ul style="font-size: 16px; line-height: 1.8;">
+                            <li>Are you getting all the communication you need from our team?</li>
+                            <li>Is there anything unclear about the process?</li>
+                            <li>Any questions or concerns I can address?</li>
+                        </ul>
+                        <p style="font-size: 16px; line-height: 1.6; margin-top: 16px;">Your success is our success, so never hesitate to reach out.</p>
+                    </div>
+                `,
             },
         ],
     },

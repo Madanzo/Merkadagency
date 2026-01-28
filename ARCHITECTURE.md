@@ -20,6 +20,7 @@ flowchart LR
         Hosting[Firebase Hosting]
         Auth[Firebase Auth]
         Firestore[(Firestore DB)]
+        Functions[Cloud Functions]
     end
     
     subgraph External["Third-Party"]
@@ -31,7 +32,11 @@ flowchart LR
     RQ <--> Firestore
     UI --> Auth
     UI --> CalCom
+    UI --> Auth
+    UI --> CalCom
     Hosting --> Client
+    Functions -- Daily Backup --> Firestore
+    Functions -- Export --> GCS[Google Cloud Storage]
 ```
 
 ---
