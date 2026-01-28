@@ -21,7 +21,10 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { LogOut, Search, MoreVertical, User, RefreshCw, Users, Calendar, TrendingUp } from 'lucide-react';
+import { LogOut, Search, MoreVertical, User, RefreshCw, Users, Calendar, TrendingUp, Mail, FileText, Send } from 'lucide-react';
+import { EmailSubscribersTab } from '@/components/admin/EmailSubscribersTab';
+import { EmailTemplatesTab } from '@/components/admin/EmailTemplatesTab';
+import { EmailCampaignsTab } from '@/components/admin/EmailCampaignsTab';
 import { format } from 'date-fns';
 import { Timestamp } from 'firebase/firestore';
 
@@ -189,6 +192,18 @@ export default function AdminDashboard() {
                         <TabsTrigger value="activity" className="gap-2">
                             <TrendingUp className="w-4 h-4" />
                             Activity
+                        </TabsTrigger>
+                        <TabsTrigger value="subscribers" className="gap-2">
+                            <Mail className="w-4 h-4" />
+                            Subscribers
+                        </TabsTrigger>
+                        <TabsTrigger value="templates" className="gap-2">
+                            <FileText className="w-4 h-4" />
+                            Templates
+                        </TabsTrigger>
+                        <TabsTrigger value="campaigns" className="gap-2">
+                            <Send className="w-4 h-4" />
+                            Campaigns
                         </TabsTrigger>
                     </TabsList>
 
@@ -371,6 +386,21 @@ export default function AdminDashboard() {
                                 </div>
                             </CardContent>
                         </Card>
+                    </TabsContent>
+
+                    {/* Subscribers Tab */}
+                    <TabsContent value="subscribers">
+                        <EmailSubscribersTab />
+                    </TabsContent>
+
+                    {/* Templates Tab */}
+                    <TabsContent value="templates">
+                        <EmailTemplatesTab />
+                    </TabsContent>
+
+                    {/* Campaigns Tab */}
+                    <TabsContent value="campaigns">
+                        <EmailCampaignsTab />
                     </TabsContent>
                 </Tabs>
             </main>
