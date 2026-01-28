@@ -21,10 +21,11 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { LogOut, Search, MoreVertical, User, RefreshCw, Users, Calendar, TrendingUp, Mail, FileText, Send } from 'lucide-react';
+import { LogOut, Search, MoreVertical, User, RefreshCw, Users, Calendar, TrendingUp, Mail, FileText, Send, Workflow } from 'lucide-react';
 import { EmailSubscribersTab } from '@/components/admin/EmailSubscribersTab';
 import { EmailTemplatesTab } from '@/components/admin/EmailTemplatesTab';
 import { EmailCampaignsTab } from '@/components/admin/EmailCampaignsTab';
+import { EmailSequencesTab } from '@/components/admin/EmailSequencesTab';
 import { format } from 'date-fns';
 import { Timestamp } from 'firebase/firestore';
 
@@ -204,6 +205,10 @@ export default function AdminDashboard() {
                         <TabsTrigger value="campaigns" className="gap-2">
                             <Send className="w-4 h-4" />
                             Campaigns
+                        </TabsTrigger>
+                        <TabsTrigger value="sequences" className="gap-2">
+                            <Workflow className="w-4 h-4" />
+                            Sequences
                         </TabsTrigger>
                     </TabsList>
 
@@ -401,6 +406,11 @@ export default function AdminDashboard() {
                     {/* Campaigns Tab */}
                     <TabsContent value="campaigns">
                         <EmailCampaignsTab />
+                    </TabsContent>
+
+                    {/* Sequences Tab */}
+                    <TabsContent value="sequences">
+                        <EmailSequencesTab />
                     </TabsContent>
                 </Tabs>
             </main>

@@ -244,12 +244,16 @@ export function EmailTemplatesTab() {
                 {previewTemplate && (
                     <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
                         <div className="bg-white rounded-xl max-w-2xl w-full max-h-[80vh] overflow-auto">
-                            <div className="p-4 border-b flex items-center justify-between bg-gray-100">
+                            <div className="p-4 border-b flex items-center justify-between bg-purple-600">
                                 <div>
-                                    <p className="text-sm text-gray-500">Subject:</p>
-                                    <p className="font-medium">{previewTemplate.subject}</p>
+                                    <p className="text-sm text-purple-200">Subject:</p>
+                                    <p className="font-medium text-white">{previewTemplate.subject}</p>
                                 </div>
-                                <Button variant="ghost" onClick={() => setPreviewTemplate(null)}>
+                                <Button
+                                    variant="outline"
+                                    onClick={() => setPreviewTemplate(null)}
+                                    className="bg-white text-purple-600 hover:bg-purple-100 border-white"
+                                >
                                     Close
                                 </Button>
                             </div>
