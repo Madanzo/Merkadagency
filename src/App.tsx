@@ -39,6 +39,9 @@ import ConstructionPage from "./pages/industries/ConstructionPage";
 import EcommercePage from "./pages/industries/EcommercePage";
 import EcommerceGuide from "./pages/resources/EcommerceGuide";
 
+// Signing
+import ContractSigningPage from "./pages/sign/ContractSigningPage";
+
 const queryClient = new QueryClient();
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -94,6 +97,8 @@ const App = () => {
             {/* Admin */}
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+            {/* Public Contract Signing (no auth) */}
+            <Route path="/sign/:contractId" element={<ContractSigningPage />} />
             {/* Catch-all */}
             <Route path="*" element={<NotFound />} />
           </Routes>

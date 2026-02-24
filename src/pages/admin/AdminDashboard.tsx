@@ -5,7 +5,6 @@ import { getLeads, getLeadStats, Lead, updateLead, deleteLead } from '@/lib/fire
 import { StatCard } from '@/components/common/StatCard';
 import { StatusBadge } from '@/components/common/StatusBadge';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
     Table,
     TableBody,
@@ -22,13 +21,26 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { LogOut, Search, MoreVertical, User, RefreshCw, Users, Calendar, TrendingUp, Mail, FileText, Send, Workflow } from 'lucide-react';
-import { EmailSubscribersTab } from '@/components/admin/EmailSubscribersTab';
-import { EmailTemplatesTab } from '@/components/admin/EmailTemplatesTab';
-import { EmailCampaignsTab } from '@/components/admin/EmailCampaignsTab';
-import { EmailSequencesTab } from '@/components/admin/EmailSequencesTab';
+import { LogOut, Search, MoreVertical, User, RefreshCw, Users, Calendar, TrendingUp, Mail, FileText, Send, Workflow, Bot, Building2, ScrollText } from 'lucide-react';
+import { AdminLayout } from '@/components/admin/AdminLayout';
+import { PeopleTab } from '@/components/admin/PeopleTab';
+import { SettingsTab } from '@/components/admin/SettingsTab';
+import { InboxTab } from '@/components/admin/InboxTab';
+import { convertLeadToClient } from '@/lib/peopleService';
+import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
 import { Timestamp } from 'firebase/firestore';
+
+// PHASE 1 ARCHIVED — Old imports moved to Settings tab:
+// import { EmailSubscribersTab } from '@/components/admin/EmailSubscribersTab';
+// import { EmailTemplatesTab } from '@/components/admin/EmailTemplatesTab';
+// import { EmailCampaignsTab } from '@/components/admin/EmailCampaignsTab';
+// import { EmailSequencesTab } from '@/components/admin/EmailSequencesTab';
+// import { AdminAI } from './ai/AdminAI';
+// import { PricingCalculator } from '@/components/admin/pricing/PricingCalculator';
+// import ServiceLibrary from './ServiceLibrary';
+// import { ClientsTab } from '@/components/admin/ClientsTab';
+// import { createClient, getClientByLeadId } from '@/lib/clients';
 
 type LeadStatus = Lead['status'];
 
@@ -144,309 +156,196 @@ export default function AdminDashboard() {
     const wonLeads = stats['closed-won'];
     const conversionRate = totalLeads > 0 ? ((wonLeads / totalLeads) * 100).toFixed(1) : '0';
 
+    const [activeTab, setActiveTab] = useState('dashboard');
+
+    // PHASE 1 — Lightweight convert handler for Pipeline kanban cards
+    const handleConvertToClient = async (lead: Lead) => {
+        try {
+            await convertLeadToClient(lead);
+            toast.success(`"${lead.name}" converted to client! Open People tab to manage.`);
+            loadData();
+        } catch (err) {
+            console.error('Convert to client error:', err);
+            toast.error('Failed to convert lead to client');
+        }
+    };
+
     return (
-        <div className="min-h-screen bg-merkad-bg-primary">
-            {/* Header */}
-            <header className="sticky top-0 z-50 bg-merkad-bg-secondary border-b border-merkad-border">
-                <div className="container-custom py-4 flex items-center justify-between">
-                    <h1 className="text-xl font-display font-bold text-white">Admin Dashboard</h1>
-                    <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-2 text-sm text-merkad-text-muted">
-                            <User className="w-4 h-4" />
-                            <span>{user?.email}</span>
-                        </div>
-                        <Button onClick={signOut} variant="outline" size="sm" className="gap-2">
-                            <LogOut className="w-4 h-4" />
-                            Logout
-                        </Button>
+        <AdminLayout currentTab={activeTab} onTabChange={setActiveTab}>
+            {/* Header Content - Dynamic based on tab */}
+            <div className="mb-8">
+                <h1 className="text-3xl font-display font-bold text-white mb-2 capitalize">
+                    {activeTab.replace('-', ' ')}
+                </h1>
+                <p className="text-merkad-text-muted">
+                    Welcome back, {user?.email}
+                </p>
+            </div>
+
+            {/* Dashboard Overview */}
+            {activeTab === 'dashboard' && (
+                <div className="space-y-8 animate-on-scroll visible">
+                    {/* Stats Row */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <StatCard
+                            label="Total Leads"
+                            value={totalLeads}
+                            trend={totalLeads > 0 ? 'up' : undefined}
+                            trendValue={totalLeads > 0 ? `${stats['new']} new` : undefined}
+                        />
+                        <StatCard
+                            label="This Month"
+                            value={thisMonthLeads}
+                            trend="up"
+                            trendValue={`${thisMonthLeads} leads`}
+                        />
+                        <StatCard
+                            label="Conversion Rate"
+                            value={`${conversionRate}%`}
+                            trend={Number(conversionRate) > 0 ? 'up' : undefined}
+                            trendValue={wonLeads > 0 ? `${wonLeads} won` : undefined}
+                        />
                     </div>
-                </div>
-            </header>
 
-            <main className="container-custom py-8">
-                {/* Stats Row */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <StatCard
-                        label="Total Leads"
-                        value={totalLeads}
-                        trend={totalLeads > 0 ? 'up' : undefined}
-                        trendValue={totalLeads > 0 ? `${stats['new']} new` : undefined}
-                    />
-                    <StatCard
-                        label="This Month"
-                        value={thisMonthLeads}
-                        trend="up"
-                        trendValue={`${thisMonthLeads} leads`}
-                    />
-                    <StatCard
-                        label="Conversion Rate"
-                        value={`${conversionRate}%`}
-                        trend={Number(conversionRate) > 0 ? 'up' : undefined}
-                        trendValue={wonLeads > 0 ? `${wonLeads} won` : undefined}
-                    />
-                </div>
-
-                {/* Refresh Button */}
-                <div className="flex justify-end mb-4">
-                    <Button onClick={loadData} variant="outline" size="sm" className="gap-2" disabled={loading}>
-                        <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-                        Refresh
-                    </Button>
-                </div>
-
-                {/* Tabs */}
-                <Tabs defaultValue="pipeline" className="w-full">
-                    <TabsList className="bg-merkad-bg-secondary border border-merkad-border mb-6">
-                        <TabsTrigger value="pipeline" className="gap-2">
-                            <Users className="w-4 h-4" />
-                            Pipeline
-                        </TabsTrigger>
-                        <TabsTrigger value="all-leads" className="gap-2">
-                            <Calendar className="w-4 h-4" />
-                            All Leads
-                        </TabsTrigger>
-                        <TabsTrigger value="activity" className="gap-2">
-                            <TrendingUp className="w-4 h-4" />
-                            Activity
-                        </TabsTrigger>
-                        <TabsTrigger value="subscribers" className="gap-2">
-                            <Mail className="w-4 h-4" />
-                            Subscribers
-                        </TabsTrigger>
-                        <TabsTrigger value="templates" className="gap-2">
-                            <FileText className="w-4 h-4" />
-                            Templates
-                        </TabsTrigger>
-                        <TabsTrigger value="campaigns" className="gap-2">
-                            <Send className="w-4 h-4" />
-                            Campaigns
-                        </TabsTrigger>
-                        <TabsTrigger value="sequences" className="gap-2">
-                            <Workflow className="w-4 h-4" />
-                            Sequences
-                        </TabsTrigger>
-                    </TabsList>
-
-                    {/* Pipeline Tab - Kanban Style */}
-                    <TabsContent value="pipeline">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                            {statusColumns.map(({ status, label, color }) => (
-                                <div key={status} className={`bg-merkad-bg-secondary rounded-xl border-t-4 ${color} p-4`}>
-                                    <div className="flex items-center justify-between mb-4">
-                                        <h3 className="font-semibold text-white">{label}</h3>
-                                        <span className="text-sm text-merkad-text-muted bg-merkad-bg-tertiary px-2 py-1 rounded">
-                                            {getLeadsByStatus(status).length}
-                                        </span>
-                                    </div>
-                                    <div className="space-y-3 max-h-[500px] overflow-y-auto">
-                                        {getLeadsByStatus(status).map((lead) => (
-                                            <Card key={lead.id} className="bg-merkad-bg-tertiary border-merkad-border">
-                                                <CardContent className="p-3">
-                                                    <p className="font-medium text-white text-sm">{lead.name || 'Unnamed Lead'}</p>
-                                                    <p className="text-xs text-merkad-text-muted truncate">{lead.email || 'No Email'}</p>
-                                                    <div className="flex items-center justify-between mt-2">
-                                                        <span className="text-xs text-merkad-text-muted capitalize">
-                                                            {lead.source}
-                                                        </span>
-                                                        <DropdownMenu>
-                                                            <DropdownMenuTrigger asChild>
-                                                                <Button variant="ghost" size="sm" className="h-6 w-6 p-0">
-                                                                    <MoreVertical className="w-4 h-4" />
-                                                                </Button>
-                                                            </DropdownMenuTrigger>
-                                                            <DropdownMenuContent align="end">
-                                                                {statusColumns.map((col) => (
-                                                                    <DropdownMenuItem
-                                                                        key={col.status}
-                                                                        onClick={() => handleStatusChange(lead.id, col.status)}
-                                                                        disabled={col.status === status}
-                                                                    >
-                                                                        Move to {col.label}
-                                                                    </DropdownMenuItem>
-                                                                ))}
-                                                                <DropdownMenuItem
-                                                                    onClick={() => handleStatusChange(lead.id, 'closed-lost')}
-                                                                    className="text-orange-500"
-                                                                >
-                                                                    Mark as Lost
-                                                                </DropdownMenuItem>
-                                                                <DropdownMenuItem
-                                                                    onSelect={(e) => {
-                                                                        e.preventDefault();
-                                                                        handleDeleteLead(lead.id);
-                                                                    }}
-                                                                    className="text-red-500 font-medium cursor-pointer"
-                                                                >
-                                                                    Delete Lead
-                                                                </DropdownMenuItem>
-                                                            </DropdownMenuContent>
-                                                        </DropdownMenu>
-                                                    </div>
-                                                </CardContent>
-                                            </Card>
-                                        ))}
-                                        {getLeadsByStatus(status).length === 0 && (
-                                            <p className="text-sm text-merkad-text-muted text-center py-4">No leads</p>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </TabsContent>
-
-                    {/* All Leads Tab - Table */}
-                    <TabsContent value="all-leads">
-                        <Card className="bg-merkad-bg-secondary border-merkad-border">
-                            <CardHeader>
-                                <div className="flex items-center justify-between">
-                                    <CardTitle className="text-white">All Leads</CardTitle>
-                                    <div className="relative w-64">
-                                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-merkad-text-muted" />
-                                        <Input
-                                            placeholder="Search leads..."
-                                            value={searchTerm}
-                                            onChange={(e) => setSearchTerm(e.target.value)}
-                                            className="pl-10 bg-merkad-bg-tertiary border-merkad-border"
-                                        />
-                                    </div>
-                                </div>
-                            </CardHeader>
-                            <CardContent>
-                                <Table>
-                                    <TableHeader>
-                                        <TableRow>
-                                            <TableHead>Name</TableHead>
-                                            <TableHead>Email</TableHead>
-                                            <TableHead>Source</TableHead>
-                                            <TableHead>Status</TableHead>
-                                            <TableHead>Created</TableHead>
-                                            <TableHead>Actions</TableHead>
-                                        </TableRow>
-                                    </TableHeader>
-                                    <TableBody>
-                                        {filteredLeads.map((lead) => (
-                                            <TableRow key={lead.id}>
-                                                <TableCell className="font-medium text-white">{lead.name || 'Unnamed'}</TableCell>
-                                                <TableCell className="text-merkad-text-muted">{lead.email || '-'}</TableCell>
-                                                <TableCell>
-                                                    <span className="text-xs bg-merkad-bg-tertiary px-2 py-1 rounded capitalize">
-                                                        {lead.source}
-                                                    </span>
-                                                </TableCell>
-                                                <TableCell>
-                                                    <StatusBadge status={lead.status} />
-                                                </TableCell>
-                                                <TableCell className="text-merkad-text-muted">
-                                                    {formatDate(lead.createdAt)}
-                                                </TableCell>
-                                                <TableCell>
-                                                    <DropdownMenu>
-                                                        <DropdownMenuTrigger asChild>
-                                                            <Button variant="ghost" size="sm">
-                                                                <MoreVertical className="w-4 h-4" />
-                                                            </Button>
-                                                        </DropdownMenuTrigger>
-                                                        <DropdownMenuContent align="end">
-                                                            {statusColumns.map((col) => (
-                                                                <DropdownMenuItem
-                                                                    key={col.status}
-                                                                    onClick={() => handleStatusChange(lead.id, col.status)}
-                                                                >
-                                                                    Move to {col.label}
-                                                                </DropdownMenuItem>
-                                                            ))}
-                                                            <DropdownMenuItem
-                                                                onClick={() => handleStatusChange(lead.id, 'closed-lost')}
-                                                                className="text-orange-500"
-                                                            >
-                                                                Mark as Lost
-                                                            </DropdownMenuItem>
-                                                            <DropdownMenuItem
-                                                                onSelect={(e) => {
-                                                                    e.preventDefault();
-                                                                    handleDeleteLead(lead.id);
-                                                                }}
-                                                                className="text-red-500 font-medium cursor-pointer"
-                                                            >
-                                                                Delete Lead
-                                                            </DropdownMenuItem>
-                                                        </DropdownMenuContent>
-                                                    </DropdownMenu>
-                                                </TableCell>
-                                            </TableRow>
-                                        ))}
-                                        {filteredLeads.length === 0 && (
-                                            <TableRow>
-                                                <TableCell colSpan={6} className="text-center text-merkad-text-muted py-8">
-                                                    {searchTerm ? 'No leads match your search' : 'No leads yet'}
-                                                </TableCell>
-                                            </TableRow>
-                                        )}
-                                    </TableBody>
-                                </Table>
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-
-                    {/* Activity Tab */}
-                    <TabsContent value="activity">
-                        <Card className="bg-merkad-bg-secondary border-merkad-border">
-                            <CardHeader>
-                                <CardTitle className="text-white">Recent Activity</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="space-y-4">
-                                    {leads.slice(0, 10).map((lead) => (
-                                        <div
-                                            key={lead.id}
-                                            className="flex items-center gap-4 p-3 bg-merkad-bg-tertiary rounded-lg"
-                                        >
-                                            <div className="w-10 h-10 rounded-full bg-merkad-purple/20 flex items-center justify-center">
-                                                <User className="w-5 h-5 text-merkad-purple" />
-                                            </div>
-                                            <div className="flex-1">
-                                                <p className="text-white text-sm">
-                                                    <span className="font-medium">{lead.name || 'Unnamed Lead'}</span>
-                                                    {' '}was added as a new lead
-                                                </p>
-                                                <p className="text-xs text-merkad-text-muted">
-                                                    via {lead.source} • {formatDate(lead.createdAt, 'MMM d, yyyy h:mm a')}
-                                                </p>
-                                            </div>
-                                            <StatusBadge status={lead.status} />
+                    {/* Recent Activity */}
+                    <Card className="bg-merkad-bg-secondary border-merkad-border">
+                        <CardHeader>
+                            <CardTitle className="text-white">Recent Activity</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                {leads.slice(0, 5).map((lead) => (
+                                    <div key={lead.id} className="flex items-center gap-4 p-3 bg-merkad-bg-tertiary rounded-lg border border-white/5">
+                                        <div className="w-10 h-10 rounded-full bg-merkad-purple/20 flex items-center justify-center">
+                                            <User className="w-5 h-5 text-merkad-purple" />
                                         </div>
-                                    ))}
-                                    {leads.length === 0 && (
-                                        <p className="text-center text-merkad-text-muted py-8">
-                                            No activity yet
-                                        </p>
-                                    )}
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
+                                        <div className="flex-1">
+                                            <p className="text-white text-sm">
+                                                <span className="font-medium">{lead.name || 'Unnamed Lead'}</span>
+                                                {' '}was added as a new lead
+                                            </p>
+                                            <p className="text-xs text-merkad-text-muted">
+                                                {formatDate(lead.createdAt, 'MMM d, h:mm a')}
+                                            </p>
+                                        </div>
+                                        <StatusBadge status={lead.status} />
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            )}
 
-                    {/* Subscribers Tab */}
-                    <TabsContent value="subscribers">
-                        <EmailSubscribersTab />
-                    </TabsContent>
+            {/* Pipeline Tab */}
+            {activeTab === 'pipeline' && (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-on-scroll visible">
+                    {statusColumns.map(({ status, label, color }) => (
+                        <div key={status} className={`bg-merkad-bg-secondary rounded-xl border-t-4 ${color} p-4 h-fit`}>
+                            <div className="flex items-center justify-between mb-4">
+                                <h3 className="font-semibold text-white">{label}</h3>
+                                <span className="text-sm text-merkad-text-muted bg-merkad-bg-tertiary px-2 py-1 rounded">
+                                    {getLeadsByStatus(status).length}
+                                </span>
+                            </div>
+                            <div className="space-y-3 max-h-[600px] overflow-y-auto pr-1 custom-scrollbar">
+                                {getLeadsByStatus(status).map((lead) => (
+                                    <Card key={lead.id} className="bg-merkad-bg-tertiary border-merkad-border hover:border-merkad-purple/50 transition-colors cursor-pointer group">
+                                        <CardContent className="p-3">
+                                            <div className="flex justify-between items-start">
+                                                <div>
+                                                    <p className="font-medium text-white text-sm group-hover:text-merkad-purple transition-colors">{lead.name || 'Unnamed Lead'}</p>
+                                                    <p className="text-xs text-merkad-text-muted truncate">{lead.email || 'No Email'}</p>
+                                                </div>
+                                                <DropdownMenu>
+                                                    <DropdownMenuTrigger asChild>
+                                                        <Button variant="ghost" size="sm" className="h-6 w-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                            <MoreVertical className="w-4 h-4" />
+                                                        </Button>
+                                                    </DropdownMenuTrigger>
+                                                    <DropdownMenuContent align="end">
+                                                        {statusColumns.map((col) => (
+                                                            <DropdownMenuItem
+                                                                key={col.status}
+                                                                onClick={() => handleStatusChange(lead.id, col.status)}
+                                                                disabled={col.status === status}
+                                                            >
+                                                                Move to {col.label}
+                                                            </DropdownMenuItem>
+                                                        ))}
+                                                        <DropdownMenuItem
+                                                            onClick={() => handleStatusChange(lead.id, 'closed-lost')}
+                                                            className="text-orange-500"
+                                                        >
+                                                            Mark as Lost
+                                                        </DropdownMenuItem>
+                                                        <DropdownMenuItem
+                                                            onSelect={(e) => {
+                                                                e.preventDefault();
+                                                                handleDeleteLead(lead.id);
+                                                            }}
+                                                            className="text-red-500 font-medium cursor-pointer"
+                                                        >
+                                                            Delete Lead
+                                                        </DropdownMenuItem>
+                                                        <DropdownMenuItem
+                                                            onClick={() => handleConvertToClient(lead)}
+                                                            className="text-green-400 font-medium cursor-pointer"
+                                                        >
+                                                            <Building2 className="w-4 h-4 mr-2" />
+                                                            Convert & Create Contract
+                                                        </DropdownMenuItem>
+                                                    </DropdownMenuContent>
+                                                </DropdownMenu>
+                                            </div>
+                                            <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/5">
+                                                <span className="text-[10px] text-merkad-text-muted uppercase tracking-wider">
+                                                    {lead.source}
+                                                </span>
+                                                <span className="text-[10px] text-merkad-text-muted">
+                                                    {formatDate(lead.createdAt, 'MMM d')}
+                                                </span>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                                {getLeadsByStatus(status).length === 0 && (
+                                    <div className="text-sm text-merkad-text-muted text-center py-8 border border-dashed border-white/10 rounded-lg">
+                                        No leads
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
 
-                    {/* Templates Tab */}
-                    <TabsContent value="templates">
-                        <EmailTemplatesTab />
-                    </TabsContent>
+            {/* People Tab (NEW Phase 1) */}
+            {activeTab === 'people' && (
+                <div className="animate-on-scroll visible">
+                    <PeopleTab />
+                </div>
+            )}
 
-                    {/* Campaigns Tab */}
-                    <TabsContent value="campaigns">
-                        <EmailCampaignsTab />
-                    </TabsContent>
+            {/* Settings Tab (NEW Phase 1 — absorbs AI Agents, Pricing, Services, Marketing) */}
+            {activeTab === 'settings' && (
+                <div className="animate-on-scroll visible">
+                    <SettingsTab />
+                </div>
+            )}
 
-                    {/* Sequences Tab */}
-                    <TabsContent value="sequences">
-                        <EmailSequencesTab />
-                    </TabsContent>
-                </Tabs>
-            </main>
-        </div>
+            {/* Inbox Tab (Phase 2 — AI command center) */}
+            {activeTab === 'inbox' && (
+                <div className="animate-on-scroll visible">
+                    <InboxTab />
+                </div>
+            )}
+
+            {/* PHASE 1 ARCHIVED — Old tabs (all-leads, ai-agents, pricing, services, clients, marketing, activity) 
+               are now accessible via People tab and Settings tab. Code removed, not commented, 
+               because JSX comments still parse expressions. See git history for original code. */}
+
+
+        </AdminLayout>
     );
 }

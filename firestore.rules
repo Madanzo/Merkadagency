@@ -29,7 +29,93 @@ service cloud.firestore {
       allow read: if request.auth != null;
       allow write: if false; // Only functions can write
     }
+
+    // ============ AI AGENT SYSTEM RULES ============
+
+    // Knowledge Base - admin only
+    match /knowledge_docs/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // AI Agents Config - admin only
+    match /ai_agents/{agentId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Conversations - admin read/write, public create/read (for web chat in future, restricted for now)
+    match /conversations/{conversationId} {
+      allow read, write: if request.auth != null;
+      
+      match /messages/{messageId} {
+        allow read, write: if request.auth != null;
+      }
+    }
+
+    // Approval Queue - admin only
+    match /approval_queue/{itemId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // ============ CRM CLIENT SYSTEM RULES ============
+
+    // Contract counters - authenticated users only
+    match /counters/{counterId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Client profiles - authenticated users only
+    match /clients/{clientId} {
+      allow read, write: if request.auth != null;
+
+      // Quotes subcollection
+      match /quotes/{quoteId} {
+        allow read, write: if request.auth != null;
+      }
+
+      // Contracts subcollection (allow public read/update for signing if token exists)
+      match /contracts/{contractId} {
+        allow read, update: if request.auth != null || resource.data.publicToken != null;
+        allow create, delete: if request.auth != null;
+      }
+
+      // Timeline events subcollection (Phase 1)
+      match /timeline/{eventId} {
+        allow read, write: if request.auth != null;
+      }
+
+      // Notes subcollection (Phase 1)
+      match /notes/{noteId} {
+        allow read, write: if request.auth != null;
+      }
+    }
     
+    // ============ PHASE 2: AI AGENT RULES ============
+
+    // Knowledge Base documents - admin only
+    match /knowledgeBase/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Inbox (AI drafts + notifications) - admin only
+    match /inbox/{itemId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Email sequences - admin only
+    match /sequences/{sequenceId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // ============ PHASE 3: DELIVERY LOGS ============
+
+    match /smsLog/{logId} {
+      allow read, write: if request.auth != null;
+    }
+
+    match /emailLog/{logId} {
+      allow read, write: if request.auth != null;
+    }
+
     // Default deny
     match /{document=**} {
       allow read, write: if false;

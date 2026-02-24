@@ -5,17 +5,19 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run generate-sitemap",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
+    "generate-sitemap": "node scripts/generate-sitemap.cjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "deploy": "vite build && firebase deploy --only hosting",
-    "deploy:clean": "rm -rf dist node_modules/.vite && vite build && firebase deploy --only hosting"
+    "deploy": "npm run build && firebase deploy --only hosting",
+    "deploy:clean": "rm -rf dist node_modules/.vite && npm run build && firebase deploy --only hosting"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
+    "@microsoft/clarity": "^1.0.2",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
     "@radix-ui/react-aspect-ratio": "^1.1.7",
@@ -50,7 +52,9 @@
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
     "firebase": "12.7.0",
+    "html2canvas": "^1.4.1",
     "input-otp": "^1.4.2",
+    "jspdf": "^4.1.0",
     "lucide-react": "^0.462.0",
     "next-themes": "^0.3.0",
     "react": "18.3.1",
