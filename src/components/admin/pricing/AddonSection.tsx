@@ -58,6 +58,72 @@ function AddonCheckbox({ id, label, price, checked, onChange, suffix = '' }: Add
     );
 }
 
+interface AddonQuantityProps {
+    id: string;
+    label: string;
+    price: number;
+    count: number;
+    onChange: (count: number) => void;
+    suffix?: string;
+}
+
+function AddonQuantity({ id, label, price, count, onChange, suffix = '' }: AddonQuantityProps) {
+    const isChecked = count > 0;
+
+    return (
+        <div className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-merkad-bg-elevated transition-colors">
+            <div className="flex items-center gap-3">
+                <Checkbox
+                    id={id}
+                    checked={isChecked}
+                    onCheckedChange={(checked) => onChange(checked ? 1 : 0)}
+                    className="border-merkad-border data-[state=checked]:bg-merkad-purple data-[state=checked]:border-merkad-purple"
+                />
+                <Label
+                    htmlFor={id}
+                    className="text-sm text-merkad-text-secondary cursor-pointer hover:text-white transition-colors"
+                >
+                    {label}
+                </Label>
+
+                {isChecked && (
+                    <div className="flex items-center ml-2 border border-merkad-border rounded bg-merkad-bg-tertiary">
+                        <button
+                            type="button"
+                            className="px-2 py-0.5 text-merkad-text-muted hover:text-white"
+                            onClick={() => onChange(Math.max(0, count - 1))}
+                        >
+                            -
+                        </button>
+                        <span className="text-xs px-2 min-w-[20px] text-center text-white">{count}</span>
+                        <button
+                            type="button"
+                            className="px-2 py-0.5 text-merkad-text-muted hover:text-white"
+                            onClick={() => onChange(count + 1)}
+                        >
+                            +
+                        </button>
+                    </div>
+                )}
+            </div>
+            {isChecked && count > 1 ? (
+                <div className="flex flex-col items-end">
+                    <span className="text-sm font-medium text-merkad-purple-light">
+                        +{formatCurrency(price * count)}{suffix}
+                    </span>
+                    <span className="text-[10px] text-merkad-text-muted">
+                        {count} x {formatCurrency(price)}
+                    </span>
+                </div>
+            ) : (
+                <span className={`text-sm font-medium ${isChecked ? 'text-merkad-purple-light' : 'text-merkad-text-muted'}`}>
+                    +{formatCurrency(price)}{suffix}
+                </span>
+            )}
+        </div>
+    );
+}
+
 interface AddonGroupProps {
     title: string;
     icon: React.ReactNode;
@@ -316,14 +382,14 @@ export function AddonSection({ addons, onChange }: AddonSectionProps) {
 
                 {/* Integrations & Migration */}
                 <AddonGroup title="Integrations & Migration" icon={<Plug className="w-5 h-5 text-merkad-purple" />}>
-                    <AddonCheckbox
+                    <AddonQuantity
                         id="customIntegration"
                         label={ADDONS.customIntegration.label}
                         price={ADDONS.customIntegration.price}
-                        checked={addons.customIntegration}
-                        onChange={(checked) => onChange('customIntegration', checked)}
+                        count={addons.customIntegration || 0}
+                        onChange={(count) => onChange('customIntegration', count)}
                     />
-                    {addons.customIntegration && (
+                    {addons.customIntegration > 0 && (
                         <div className="ml-8 mb-2">
                             <input
                                 type="text"

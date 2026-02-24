@@ -24,6 +24,8 @@ import {
     PlusCircle,
     UserCheck,
     AlertTriangle,
+    Calculator,
+    X,
     CheckCircle,
     Edit2,
     RefreshCw,
@@ -47,6 +49,7 @@ import { getClientContracts, type Contract, type ContractStatus } from '@/lib/co
 import { getClient, deleteClient } from '@/lib/clients';
 import { generateContractPDF } from '@/lib/pricing/generateContract';
 import { ContractDrawer } from './ContractDrawer';
+import { PricingCalculator } from '@/components/admin/pricing/PricingCalculator';
 import type { ClientProfile } from '@/lib/clients';
 
 // ============ HELPERS ============
@@ -125,6 +128,7 @@ export function PersonProfile({ person, onBack, onRefresh }: PersonProfileProps)
     const [newNote, setNewNote] = useState('');
     const [addingNote, setAddingNote] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [quoteDrawerOpen, setQuoteDrawerOpen] = useState(false);
     const [previewContract, setPreviewContract] = useState<Contract | undefined>(undefined);
     const [converting, setConverting] = useState(false);
     const [summaryLoading, setSummaryLoading] = useState(false);
@@ -291,6 +295,40 @@ export function PersonProfile({ person, onBack, onRefresh }: PersonProfileProps)
                 />
             )}
 
+            {/* Quote Drawer / Modal */}
+            {quoteDrawerOpen && (
+                <>
+                    <div className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-sm" onClick={() => setQuoteDrawerOpen(false)} />
+                    <div className="fixed inset-4 md:inset-10 lg:inset-x-20 xl:inset-x-32 bg-merkad-bg z-[70] rounded-xl shadow-2xl flex flex-col border border-merkad-border overflow-hidden animate-in zoom-in-95 duration-200">
+                        <div className="flex items-center justify-between p-4 border-b border-merkad-border shrink-0 bg-merkad-bg-secondary">
+                            <div>
+                                <h2 className="text-xl font-bold text-white">Create Quote</h2>
+                                <p className="text-xs text-merkad-text-muted mt-0.5">Pre-filled with {person.name}'s details</p>
+                            </div>
+                            <Button variant="ghost" size="icon" onClick={() => setQuoteDrawerOpen(false)} className="text-merkad-text-muted hover:text-white">
+                                <X className="w-5 h-5" />
+                            </Button>
+                        </div>
+                        <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-merkad-bg">
+                            <PricingCalculator
+                                initialClient={{
+                                    id: clientProfile?.id || person.id,
+                                    name: person.name,
+                                    email: person.email || '',
+                                    phone: person.phone || '',
+                                    business: person.business || '',
+                                    website: person.website || ''
+                                }}
+                                onClose={() => {
+                                    setQuoteDrawerOpen(false);
+                                    loadData();
+                                }}
+                            />
+                        </div>
+                    </div>
+                </>
+            )}
+
             {/* ===== HEADER ===== */}
             <Card className="bg-merkad-bg-secondary border-merkad-border">
                 <CardContent className="pt-6">
@@ -326,6 +364,9 @@ export function PersonProfile({ person, onBack, onRefresh }: PersonProfileProps)
                             )}
                             {!isLeadOnly && (
                                 <>
+                                    <Button size="sm" onClick={() => setQuoteDrawerOpen(true)} variant="outline" className="border-merkad-border text-white hover:bg-merkad-bg-tertiary">
+                                        <Calculator className="w-4 h-4 mr-1" /> New Quote
+                                    </Button>
                                     <Button size="sm" onClick={() => { setPreviewContract(undefined); setDrawerOpen(true); }}
                                         className="bg-merkad-purple hover:bg-merkad-purple-light text-white">
                                         <ScrollText className="w-4 h-4 mr-1" /> New Contract

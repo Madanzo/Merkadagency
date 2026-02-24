@@ -345,11 +345,11 @@ function calculateQuote(state: CalculatorState): QuoteSummary {
     }
 
     // ===== INTEGRATIONS & MIGRATION =====
-    if (state.addons.customIntegration) {
+    if (state.addons.customIntegration > 0) {
         addons.push({
             key: 'customIntegration',
-            label: ADDONS.customIntegration.label,
-            price: ADDONS.customIntegration.price,
+            label: ADDONS.customIntegration.label + (state.addons.customIntegration > 1 ? ` (x${state.addons.customIntegration})` : ''),
+            price: ADDONS.customIntegration.price * state.addons.customIntegration,
             description: state.addons.customIntegrationDesc || undefined,
         });
     }
@@ -738,8 +738,31 @@ function calculateQuote(state: CalculatorState): QuoteSummary {
     };
 }
 
-export function PricingCalculator() {
-    const [state, dispatch] = useReducer(calculatorReducer, initialCalculatorState);
+export interface PricingCalculatorProps {
+    initialClient?: {
+        id?: string;
+        name: string;
+        business?: string;
+        email: string;
+        phone?: string;
+        website?: string;
+    };
+    onClose?: () => void;
+}
+
+export function PricingCalculator({ initialClient, onClose }: PricingCalculatorProps = {}) {
+    // Initialize with client data if provided
+    const [state, dispatch] = useReducer(calculatorReducer, {
+        ...initialCalculatorState,
+        projectInfo: {
+            ...initialCalculatorState.projectInfo,
+            contactName: initialClient?.name || '',
+            name: initialClient?.business || '',
+            contactEmail: initialClient?.email || '',
+            contactPhone: initialClient?.phone || '',
+            businessWebsite: initialClient?.website || '',
+        }
+    });
     const [isSaving, setIsSaving] = useState(false);
 
     const quote = useMemo(() => calculateQuote(state), [state]);
@@ -792,10 +815,10 @@ export function PricingCalculator() {
                 return;
             }
 
-            // Search for existing client by email or create new
-            let clientId: string | null = null;
+            // Use initialClient ID if provided, otherwise search/create
+            let clientId: string | null = initialClient?.id || null;
 
-            if (info.contactEmail) {
+            if (!clientId && info.contactEmail) {
                 const existing = await searchClients(info.contactEmail);
                 if (existing.length > 0) {
                     clientId = existing[0].id;
@@ -818,9 +841,10 @@ export function PricingCalculator() {
             // Save the quote
             const quoteId = await saveQuote(clientId, quote, info, 'draft');
 
-            toast.success(`Quote saved! Go to Clients tab to view.`, {
+            toast.success(`Quote saved successfully!`, {
                 duration: 5000,
             });
+            if (onClose) onClose();
         } catch (error) {
             console.error('Save quote error:', error);
             toast.error('Failed to save quote. Make sure you are logged in.');

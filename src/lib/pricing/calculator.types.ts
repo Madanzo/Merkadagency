@@ -56,7 +56,7 @@ export interface AddonState {
     leadMagnetFunnel: boolean;
 
     // Integrations & Migration
-    customIntegration: boolean;
+    customIntegration: number;
     customIntegrationDesc: string;
     complexWorkflow: boolean;
     customApi: boolean;
@@ -267,7 +267,7 @@ export const initialAddonState: AddonState = {
     leadMagnetFunnel: false,
 
     // Integrations & Migration
-    customIntegration: false,
+    customIntegration: 0,
     customIntegrationDesc: '',
     complexWorkflow: false,
     customApi: false,
