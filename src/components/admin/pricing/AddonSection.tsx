@@ -509,10 +509,23 @@ export function AddonSection({ addons, onChange }: AddonSectionProps) {
                     <AddonCheckbox
                         id="domainPayment"
                         label={ADDONS.domainPayment.label}
-                        price={ADDONS.domainPayment.price}
-                        checked={addons.domainPayment}
-                        onChange={(checked) => onChange('domainPayment', checked)}
+                        price={addons.domainPayment || 0}
+                        checked={addons.domainPayment > 0}
+                        onChange={(checked) => onChange('domainPayment', checked ? 20 : 0)}
                     />
+                    {addons.domainPayment > 0 && (
+                        <div className="ml-8 mb-2 flex items-center gap-2">
+                            <span className="text-sm text-merkad-text-muted">$</span>
+                            <input
+                                type="number"
+                                min="0"
+                                placeholder="Enter price"
+                                value={addons.domainPayment}
+                                onChange={(e) => onChange('domainPayment', parseFloat(e.target.value) || 0)}
+                                className="w-[120px] px-3 py-1.5 text-sm rounded-md bg-merkad-bg-tertiary border border-merkad-border text-white placeholder:text-merkad-text-muted focus:border-merkad-purple focus:outline-none"
+                            />
+                        </div>
+                    )}
                     <AddonCheckbox
                         id="legalPages"
                         label={ADDONS.legalPages.label}
