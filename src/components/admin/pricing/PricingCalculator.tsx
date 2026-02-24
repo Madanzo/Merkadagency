@@ -755,18 +755,102 @@ export interface PricingCalculatorProps {
     onClose?: () => void;
 }
 
+function reconstructLegacyState(
+    initialQuote: SavedQuote,
+    initialClient: PricingCalculatorProps['initialClient']
+): CalculatorState {
+    const state: CalculatorState = JSON.parse(JSON.stringify(initialCalculatorState));
+
+    // 1. Merge project info
+    state.projectInfo = {
+        ...state.projectInfo,
+        contactName: initialClient?.name || initialQuote.projectInfo?.contactName || '',
+        name: initialClient?.business || initialQuote.projectInfo?.name || '',
+        contactEmail: initialClient?.email || initialQuote.projectInfo?.contactEmail || '',
+        contactPhone: initialClient?.phone || initialQuote.projectInfo?.contactPhone || '',
+        businessWebsite: initialClient?.website || initialQuote.projectInfo?.businessWebsite || '',
+        ...initialQuote.projectInfo,
+    };
+
+    // 2. Map Base Package
+    const baseLabel = initialQuote.quote.basePackage?.label || '';
+    if (baseLabel.includes('Creative')) state.basePackage = 'none';
+    else if (baseLabel.includes('Foundation')) state.basePackage = 'foundation';
+    else if (baseLabel.includes('Growth')) state.basePackage = 'growth';
+    else if (baseLabel.includes('Automation')) state.basePackage = 'automation';
+    else if (baseLabel.includes('AI Stack')) state.basePackage = 'ai-stack';
+
+    // 3. Map Addons using keys
+    const selectAddons = ['ecommerce', 'uiux', 'seo', 'content', 'socialMedia', 'videoProduction', 'adCreative', 'blogWriting'];
+
+    (initialQuote.quote.addons || []).forEach(addon => {
+        const key = addon.key;
+        if (!key) return;
+
+        if (selectAddons.includes(key)) {
+            const options = ADDONS[key as keyof typeof ADDONS] as Record<string, any>;
+            for (const [optKey, optVal] of Object.entries(options)) {
+                if (optVal.label === addon.label || optVal.price === addon.price) {
+                    (state.addons as any)[key] = optKey;
+                    break;
+                }
+            }
+        } else if (key === 'domainPayment') {
+            state.addons.domainPayment = addon.price || 20;
+        } else if (key === 'customApi') {
+            state.addons.customApi = true;
+        } else if (key === 'customIntegration') {
+            state.addons.customIntegration = true;
+            state.addons.customIntegrationDesc = addon.description || '';
+        } else {
+            (state.addons as any)[key] = true;
+        }
+    });
+
+    // 4. Custom Discount
+    if (initialQuote.quote.discount?.value > 0) {
+        state.discount = {
+            value: initialQuote.quote.discount.value,
+            type: initialQuote.quote.discount.type || 'fixed'
+        };
+    }
+
+    return state;
+}
+
 export function PricingCalculator({ initialClient, initialQuote, onClose }: PricingCalculatorProps = {}) {
     // Initialize with client data or existing quote state if provided
-    const [state, dispatch] = useReducer(calculatorReducer, initialQuote?.calculatorState || {
-        ...initialCalculatorState,
-        projectInfo: {
-            ...initialCalculatorState.projectInfo,
-            contactName: initialClient?.name || '',
-            name: initialClient?.business || '',
-            contactEmail: initialClient?.email || '',
-            contactPhone: initialClient?.phone || '',
-            businessWebsite: initialClient?.website || '',
+    const [state, dispatch] = useReducer(calculatorReducer, undefined, () => {
+        if (!initialQuote) {
+            return {
+                ...initialCalculatorState,
+                projectInfo: {
+                    ...initialCalculatorState.projectInfo,
+                    contactName: initialClient?.name || '',
+                    name: initialClient?.business || '',
+                    contactEmail: initialClient?.email || '',
+                    contactPhone: initialClient?.phone || '',
+                    businessWebsite: initialClient?.website || '',
+                }
+            };
         }
+
+        if (initialQuote.calculatorState) {
+            // Migration: Ensure new fields like domainPayment exist and are correct type
+            const st = { ...initialQuote.calculatorState };
+
+            // Fix domainPayment if it was saved as boolean previously
+            if (typeof st.addons?.domainPayment === 'boolean') {
+                st.addons = {
+                    ...st.addons,
+                    domainPayment: st.addons.domainPayment ? 20 : 0
+                };
+            }
+            return st;
+        }
+
+        // Reconstruct from legacy quote (NO calculatorState saved at all)
+        return reconstructLegacyState(initialQuote, initialClient);
     });
     const [isSaving, setIsSaving] = useState(false);
 
