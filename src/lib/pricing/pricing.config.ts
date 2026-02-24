@@ -106,6 +106,7 @@ export const ADDONS = {
     securityHardening: { price: 400, label: 'Security Hardening' },
     accessibility: { price: 600, label: 'Accessibility Compliance' },
     domainSetup: { price: 200, label: 'Domain & Email Setup' },
+    domainPayment: { price: 20, label: 'Domain Registration (1 Year)' },
     legalPages: { price: 300, label: 'Legal Pages (Privacy/Terms)' },
 
     // Training & Support

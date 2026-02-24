@@ -10,7 +10,7 @@ import {
     orderBy,
 } from "firebase/firestore";
 import { db } from "./firebase";
-import type { QuoteSummary, ProjectInfo } from "./pricing/calculator.types";
+import type { QuoteSummary, ProjectInfo, CalculatorState } from "./pricing/calculator.types";
 
 // ============ QUOTE TYPES ============
 
@@ -23,6 +23,7 @@ export interface SavedQuote {
     quote: QuoteSummary;
     projectInfo: ProjectInfo;
     status: QuoteStatus;
+    calculatorState?: CalculatorState;
     sentAt?: Timestamp;
     createdAt: Timestamp;
     updatedAt: Timestamp;
@@ -53,7 +54,8 @@ export async function saveQuote(
     clientId: string,
     quote: QuoteSummary,
     projectInfo: ProjectInfo,
-    status: QuoteStatus = 'draft'
+    status: QuoteStatus = 'draft',
+    calculatorState?: CalculatorState
 ): Promise<string> {
     const ref = collection(db, `clients/${clientId}/quotes`);
     const now = Timestamp.now();
@@ -64,6 +66,7 @@ export async function saveQuote(
         quote,
         projectInfo,
         status,
+        calculatorState,
         createdAt: now,
         updatedAt: now,
     });
@@ -116,4 +119,23 @@ export async function updateQuoteStatus(
     }
 
     await updateDoc(docRef, updates);
+}
+
+/**
+ * Update an existing quote with new data
+ */
+export async function updateQuote(
+    clientId: string,
+    quoteId: string,
+    quote: QuoteSummary,
+    projectInfo: ProjectInfo,
+    calculatorState?: CalculatorState
+): Promise<void> {
+    const docRef = doc(db, `clients/${clientId}/quotes`, quoteId);
+    await updateDoc(docRef, {
+        quote,
+        projectInfo,
+        calculatorState,
+        updatedAt: Timestamp.now(),
+    });
 }

@@ -247,6 +247,54 @@ export async function duplicateContract(
     return docRef.id;
 }
 
+// ============ EXTENSIONS ============
+
+/**
+ * Update the pricing scope and project details of a draft contract.
+ */
+export async function updateContractScope(
+    clientId: string,
+    contractId: string,
+    quote: QuoteSummary,
+    projectInfo: ProjectInfo
+): Promise<void> {
+    const docRef = doc(db, `clients/${clientId}/contracts`, contractId);
+
+    // Map quote data into contract format
+    const services = [
+        { label: quote.basePackage.label, price: quote.basePackage.price, description: quote.basePackage.description },
+        ...quote.addons.map((a) => ({ label: a.label, price: a.price, description: a.description })),
+    ];
+
+    const monthlyServices = quote.monthly.map((m) => ({
+        label: m.label,
+        price: m.price,
+        description: m.description,
+    }));
+
+    // Payment terms label
+    let paymentTerms = '50% deposit, 50% upon completion';
+    switch (projectInfo.paymentTerms) {
+        case '50-50': paymentTerms = '50% deposit to commence work, 50% upon completion'; break;
+        case '100-upfront': paymentTerms = '100% payment upfront before work commences'; break;
+        case '30-60-10': paymentTerms = '30% deposit, 60% at midpoint delivery, 10% upon final completion'; break;
+        case 'net-30': paymentTerms = 'Net 30 — full payment due within 30 days of invoice'; break;
+        case 'custom': paymentTerms = 'Custom payment terms as agreed upon'; break;
+    }
+
+    await updateDoc(docRef, {
+        services,
+        monthlyServices,
+        oneTimeTotal: quote.oneTimeTotal,
+        monthlyTotal: quote.monthlyTotal,
+        finalOneTimeTotal: quote.finalOneTimeTotal,
+        finalMonthlyTotal: quote.finalMonthlyTotal,
+        paymentTerms,
+        projectInfo,
+        updatedAt: Timestamp.now(),
+    });
+}
+
 // ============ PHASE 3: PUBLIC SIGNING ============
 
 /**

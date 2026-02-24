@@ -129,6 +129,7 @@ export function PersonProfile({ person, onBack, onRefresh }: PersonProfileProps)
     const [addingNote, setAddingNote] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [quoteDrawerOpen, setQuoteDrawerOpen] = useState(false);
+    const [selectedQuoteForEdit, setSelectedQuoteForEdit] = useState<SavedQuote | undefined>(undefined);
     const [previewContract, setPreviewContract] = useState<Contract | undefined>(undefined);
     const [converting, setConverting] = useState(false);
     const [summaryLoading, setSummaryLoading] = useState(false);
@@ -298,14 +299,16 @@ export function PersonProfile({ person, onBack, onRefresh }: PersonProfileProps)
             {/* Quote Drawer / Modal */}
             {quoteDrawerOpen && (
                 <>
-                    <div className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-sm" onClick={() => setQuoteDrawerOpen(false)} />
+                    <div className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-sm" onClick={() => { setQuoteDrawerOpen(false); setSelectedQuoteForEdit(undefined); }} />
                     <div className="fixed inset-4 md:inset-10 lg:inset-x-20 xl:inset-x-32 bg-merkad-bg z-[70] rounded-xl shadow-2xl flex flex-col border border-merkad-border overflow-hidden animate-in zoom-in-95 duration-200">
                         <div className="flex items-center justify-between p-4 border-b border-merkad-border shrink-0 bg-merkad-bg-secondary">
                             <div>
-                                <h2 className="text-xl font-bold text-white">Create Quote</h2>
+                                <h2 className="text-xl font-bold text-white">
+                                    {selectedQuoteForEdit ? `Edit Quote ${selectedQuoteForEdit.quoteNumber}` : 'Create Quote'}
+                                </h2>
                                 <p className="text-xs text-merkad-text-muted mt-0.5">Pre-filled with {person.name}'s details</p>
                             </div>
-                            <Button variant="ghost" size="icon" onClick={() => setQuoteDrawerOpen(false)} className="text-merkad-text-muted hover:text-white">
+                            <Button variant="ghost" size="icon" onClick={() => { setQuoteDrawerOpen(false); setSelectedQuoteForEdit(undefined); }} className="text-merkad-text-muted hover:text-white">
                                 <X className="w-5 h-5" />
                             </Button>
                         </div>
@@ -319,8 +322,10 @@ export function PersonProfile({ person, onBack, onRefresh }: PersonProfileProps)
                                     business: person.business || '',
                                     website: person.website || ''
                                 }}
+                                initialQuote={selectedQuoteForEdit}
                                 onClose={() => {
                                     setQuoteDrawerOpen(false);
+                                    setSelectedQuoteForEdit(undefined);
                                     loadData();
                                 }}
                             />
@@ -482,7 +487,16 @@ export function PersonProfile({ person, onBack, onRefresh }: PersonProfileProps)
                                                     </span>
                                                 </div>
                                             </div>
-                                            <Badge className={quoteStatusColors[q.status] || quoteStatusColors.draft}>{q.status}</Badge>
+                                            <div className="flex items-center gap-2">
+                                                <Badge className={quoteStatusColors[q.status] || quoteStatusColors.draft}>{q.status}</Badge>
+                                                <Button size="sm" variant="ghost" className="text-xs text-merkad-text-muted hover:text-white h-7"
+                                                    onClick={() => {
+                                                        setSelectedQuoteForEdit(q);
+                                                        setQuoteDrawerOpen(true);
+                                                    }}>
+                                                    <Edit2 className="w-3 h-3 mr-1" /> Edit
+                                                </Button>
+                                            </div>
                                         </div>
                                     ))}
                                 </>

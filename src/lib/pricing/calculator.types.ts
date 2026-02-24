@@ -76,6 +76,7 @@ export interface AddonState {
     securityHardening: boolean;
     accessibility: boolean;
     domainSetup: boolean;
+    domainPayment: boolean;
     legalPages: boolean;
 
     // Training & Support
@@ -287,6 +288,7 @@ export const initialAddonState: AddonState = {
     securityHardening: false,
     accessibility: false,
     domainSetup: false,
+    domainPayment: false,
     legalPages: false,
 
     // Training & Support

@@ -507,6 +507,13 @@ export function AddonSection({ addons, onChange }: AddonSectionProps) {
                         onChange={(checked) => onChange('domainSetup', checked)}
                     />
                     <AddonCheckbox
+                        id="domainPayment"
+                        label={ADDONS.domainPayment.label}
+                        price={ADDONS.domainPayment.price}
+                        checked={addons.domainPayment}
+                        onChange={(checked) => onChange('domainPayment', checked)}
+                    />
+                    <AddonCheckbox
                         id="legalPages"
                         label={ADDONS.legalPages.label}
                         price={ADDONS.legalPages.price}

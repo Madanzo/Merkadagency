@@ -18,7 +18,8 @@ import {
 import { PRESETS } from '@/lib/pricing/presets.config';
 import { generateScopePDF, generateClipboardText } from '@/lib/pricing/generateScope';
 import { createClient, searchClients } from '@/lib/clients';
-import { saveQuote } from '@/lib/quotes';
+import { saveQuote, updateQuote, type SavedQuote } from '@/lib/quotes';
+import { getClientContracts, updateContractScope } from '@/lib/contracts';
 import { BasePackageSelector } from './BasePackageSelector';
 import { AddonSection } from './AddonSection';
 import { SummaryPanel } from './SummaryPanel';
@@ -399,6 +400,9 @@ function calculateQuote(state: CalculatorState): QuoteSummary {
     if (state.addons.domainSetup) {
         addons.push({ key: 'domainSetup', label: ADDONS.domainSetup.label, price: ADDONS.domainSetup.price });
     }
+    if (state.addons.domainPayment) {
+        addons.push({ key: 'domainPayment', label: ADDONS.domainPayment.label, price: ADDONS.domainPayment.price });
+    }
     if (state.addons.legalPages) {
         addons.push({ key: 'legalPages', label: ADDONS.legalPages.label, price: ADDONS.legalPages.price });
     }
@@ -747,12 +751,13 @@ export interface PricingCalculatorProps {
         phone?: string;
         website?: string;
     };
+    initialQuote?: SavedQuote;
     onClose?: () => void;
 }
 
-export function PricingCalculator({ initialClient, onClose }: PricingCalculatorProps = {}) {
-    // Initialize with client data if provided
-    const [state, dispatch] = useReducer(calculatorReducer, {
+export function PricingCalculator({ initialClient, initialQuote, onClose }: PricingCalculatorProps = {}) {
+    // Initialize with client data or existing quote state if provided
+    const [state, dispatch] = useReducer(calculatorReducer, initialQuote?.calculatorState || {
         ...initialCalculatorState,
         projectInfo: {
             ...initialCalculatorState.projectInfo,
@@ -838,12 +843,23 @@ export function PricingCalculator({ initialClient, onClose }: PricingCalculatorP
                 });
             }
 
-            // Save the quote
-            const quoteId = await saveQuote(clientId, quote, info, 'draft');
+            // Save or Update the quote
+            if (initialQuote && clientId === initialQuote.clientId) {
+                await updateQuote(clientId, initialQuote.id, quote, info, state);
 
-            toast.success(`Quote saved successfully!`, {
-                duration: 5000,
-            });
+                // Sync to any Draft Contracts that were generated from this quote
+                const contracts = await getClientContracts(clientId);
+                const draftContracts = contracts.filter(c => c.quoteId === initialQuote.id && c.status === 'draft');
+                for (const contract of draftContracts) {
+                    await updateContractScope(clientId, contract.id, quote, info);
+                }
+
+                toast.success('Quote & linked draft contracts updated successfully!', { duration: 5000 });
+            } else {
+                await saveQuote(clientId, quote, info, 'draft', state);
+                toast.success('Quote saved successfully!', { duration: 5000 });
+            }
+
             if (onClose) onClose();
         } catch (error) {
             console.error('Save quote error:', error);
