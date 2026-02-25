@@ -392,22 +392,39 @@ export function AddonSection({ addons, onChange }: AddonSectionProps) {
                     {addons.customIntegration > 0 && (
                         <div className="ml-8 mb-2 space-y-2">
                             {Array.from({ length: addons.customIntegration }).map((_, i) => (
-                                <input
-                                    key={i}
-                                    type="text"
-                                    placeholder={`Integration ${i + 1} name (e.g., Shopify + QuickBooks sync)`}
-                                    value={(addons.customIntegrationDesc as string[])?.[i] || ''}
-                                    onChange={(e) => {
-                                        const descs = Array.isArray(addons.customIntegrationDesc)
-                                            ? [...addons.customIntegrationDesc]
-                                            : [];
-                                        // Ensure array is long enough
-                                        while (descs.length <= i) descs.push('');
-                                        descs[i] = e.target.value;
-                                        onChange('customIntegrationDesc', descs);
-                                    }}
-                                    className="w-full px-3 py-1.5 text-sm rounded-md bg-merkad-bg-tertiary border border-merkad-border text-white placeholder:text-merkad-text-muted focus:border-merkad-purple focus:outline-none"
-                                />
+                                <div key={i} className="flex items-center gap-2">
+                                    <div className="relative shrink-0 w-24">
+                                        <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-sm text-merkad-text-muted">$</span>
+                                        <input
+                                            type="number"
+                                            min={0}
+                                            value={(addons.customIntegrationPrices as number[])?.[i] ?? 500}
+                                            onChange={(e) => {
+                                                const prices = Array.isArray(addons.customIntegrationPrices)
+                                                    ? [...addons.customIntegrationPrices]
+                                                    : [];
+                                                while (prices.length <= i) prices.push(500);
+                                                prices[i] = Number(e.target.value) || 0;
+                                                onChange('customIntegrationPrices', prices);
+                                            }}
+                                            className="w-full pl-6 pr-2 py-1.5 text-sm rounded-md bg-merkad-bg-tertiary border border-merkad-border text-white focus:border-merkad-purple focus:outline-none"
+                                        />
+                                    </div>
+                                    <input
+                                        type="text"
+                                        placeholder={`Integration ${i + 1} name (e.g., Shopify + QuickBooks sync)`}
+                                        value={(addons.customIntegrationDesc as string[])?.[i] || ''}
+                                        onChange={(e) => {
+                                            const descs = Array.isArray(addons.customIntegrationDesc)
+                                                ? [...addons.customIntegrationDesc]
+                                                : [];
+                                            while (descs.length <= i) descs.push('');
+                                            descs[i] = e.target.value;
+                                            onChange('customIntegrationDesc', descs);
+                                        }}
+                                        className="flex-1 px-3 py-1.5 text-sm rounded-md bg-merkad-bg-tertiary border border-merkad-border text-white placeholder:text-merkad-text-muted focus:border-merkad-purple focus:outline-none"
+                                    />
+                                </div>
                             ))}
                         </div>
                     )}

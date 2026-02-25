@@ -350,10 +350,16 @@ function calculateQuote(state: CalculatorState): QuoteSummary {
         const descs = Array.isArray(state.addons.customIntegrationDesc)
             ? state.addons.customIntegrationDesc.filter(Boolean)
             : [];
+        const prices = Array.isArray(state.addons.customIntegrationPrices)
+            ? state.addons.customIntegrationPrices
+            : [];
+        // Sum custom prices, defaulting to 500 for any integration without a price set
+        const totalPrice = Array.from({ length: state.addons.customIntegration })
+            .reduce<number>((sum, _, i) => sum + (prices[i] ?? 500), 0);
         addons.push({
             key: 'customIntegration',
             label: ADDONS.customIntegration.label + (state.addons.customIntegration > 1 ? ` (x${state.addons.customIntegration})` : ''),
-            price: ADDONS.customIntegration.price * state.addons.customIntegration,
+            price: totalPrice,
             description: descs.length > 0 ? descs.join(', ') : '',
         });
     }
@@ -404,7 +410,7 @@ function calculateQuote(state: CalculatorState): QuoteSummary {
         addons.push({ key: 'domainSetup', label: ADDONS.domainSetup.label, price: ADDONS.domainSetup.price });
     }
     if (state.addons.domainPayment) {
-        addons.push({ key: 'domainPayment', label: ADDONS.domainPayment.label, price: ADDONS.domainPayment.price });
+        addons.push({ key: 'domainPayment', label: ADDONS.domainPayment.label, price: state.addons.domainPayment });
     }
     if (state.addons.legalPages) {
         addons.push({ key: 'legalPages', label: ADDONS.legalPages.label, price: ADDONS.legalPages.price });

@@ -58,6 +58,7 @@ export interface AddonState {
     // Integrations & Migration
     customIntegration: number;
     customIntegrationDesc: string[];
+    customIntegrationPrices: number[];
     complexWorkflow: boolean;
     customApi: boolean;
     crmMigration: boolean;
@@ -270,6 +271,7 @@ export const initialAddonState: AddonState = {
     // Integrations & Migration
     customIntegration: 0,
     customIntegrationDesc: [],
+    customIntegrationPrices: [],
     complexWorkflow: false,
     customApi: false,
     crmMigration: false,

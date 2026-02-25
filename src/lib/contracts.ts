@@ -15,6 +15,29 @@ import { db } from "./firebase";
 import { updateLead } from "./firestore";
 import type { QuoteSummary, ProjectInfo } from "./pricing/calculator.types";
 
+/**
+ * Recursively remove all undefined values from an object.
+ * Firestore crashes if any field is explicitly set to undefined.
+ */
+function removeUndefined(obj: Record<string, any>): Record<string, any> {
+    const cleaned: Record<string, any> = {};
+    for (const [key, value] of Object.entries(obj)) {
+        if (value === undefined) continue;
+        if (value !== null && typeof value === 'object' && !Array.isArray(value) && !(value instanceof Timestamp)) {
+            cleaned[key] = removeUndefined(value);
+        } else if (Array.isArray(value)) {
+            cleaned[key] = value.map(item =>
+                item !== null && typeof item === 'object' && !(item instanceof Timestamp)
+                    ? removeUndefined(item)
+                    : item
+            );
+        } else {
+            cleaned[key] = value;
+        }
+    }
+    return cleaned;
+}
+
 // ============ CONTRACT TYPES ============
 
 export type ContractStatus = 'draft' | 'sent' | 'signed' | 'declined' | 'cancelled';
@@ -151,7 +174,7 @@ export async function createContract(
         contractData.leadId = leadId;
     }
 
-    const docRef = await addDoc(ref, contractData);
+    const docRef = await addDoc(ref, removeUndefined(contractData));
     return docRef.id;
 }
 
@@ -285,7 +308,7 @@ export async function updateContractScope(
         case 'custom': paymentTerms = 'Custom payment terms as agreed upon'; break;
     }
 
-    await updateDoc(docRef, {
+    await updateDoc(docRef, removeUndefined({
         services,
         monthlyServices,
         oneTimeTotal: quote.oneTimeTotal,
@@ -295,7 +318,7 @@ export async function updateContractScope(
         paymentTerms,
         projectInfo,
         updatedAt: Timestamp.now(),
-    });
+    }));
 }
 
 // ============ PHASE 3: PUBLIC SIGNING ============

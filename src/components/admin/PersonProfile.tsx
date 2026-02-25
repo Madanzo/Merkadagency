@@ -300,7 +300,7 @@ export function PersonProfile({ person, onBack, onRefresh }: PersonProfileProps)
             {quoteDrawerOpen && (
                 <>
                     <div className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-sm" onClick={() => { setQuoteDrawerOpen(false); setSelectedQuoteForEdit(undefined); }} />
-                    <div className="fixed inset-4 md:inset-10 lg:inset-x-20 xl:inset-x-32 bg-merkad-bg z-[70] rounded-xl shadow-2xl flex flex-col border border-merkad-border overflow-hidden animate-in zoom-in-95 duration-200">
+                    <div className="fixed inset-2 md:inset-4 lg:inset-x-8 xl:inset-x-12 bg-merkad-bg z-[70] rounded-xl shadow-2xl flex flex-col border border-merkad-border overflow-hidden animate-in zoom-in-95 duration-200">
                         <div className="flex items-center justify-between p-4 border-b border-merkad-border shrink-0 bg-merkad-bg-secondary">
                             <div>
                                 <h2 className="text-xl font-bold text-white">
