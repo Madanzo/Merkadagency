@@ -347,11 +347,14 @@ function calculateQuote(state: CalculatorState): QuoteSummary {
 
     // ===== INTEGRATIONS & MIGRATION =====
     if (state.addons.customIntegration > 0) {
+        const descs = Array.isArray(state.addons.customIntegrationDesc)
+            ? state.addons.customIntegrationDesc.filter(Boolean)
+            : [];
         addons.push({
             key: 'customIntegration',
             label: ADDONS.customIntegration.label + (state.addons.customIntegration > 1 ? ` (x${state.addons.customIntegration})` : ''),
             price: ADDONS.customIntegration.price * state.addons.customIntegration,
-            description: state.addons.customIntegrationDesc || undefined,
+            description: descs.length > 0 ? descs.join(', ') : '',
         });
     }
     if (state.addons.complexWorkflow) {
@@ -800,8 +803,8 @@ function reconstructLegacyState(
         } else if (key === 'customApi') {
             state.addons.customApi = true;
         } else if (key === 'customIntegration') {
-            state.addons.customIntegration = true;
-            state.addons.customIntegrationDesc = addon.description || '';
+            state.addons.customIntegration = 1;
+            state.addons.customIntegrationDesc = addon.description ? [addon.description] : [];
         } else {
             (state.addons as any)[key] = true;
         }

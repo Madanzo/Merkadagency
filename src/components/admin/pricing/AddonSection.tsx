@@ -390,14 +390,25 @@ export function AddonSection({ addons, onChange }: AddonSectionProps) {
                         onChange={(count) => onChange('customIntegration', count)}
                     />
                     {addons.customIntegration > 0 && (
-                        <div className="ml-8 mb-2">
-                            <input
-                                type="text"
-                                placeholder="Describe the integration (e.g., Shopify + QuickBooks sync)"
-                                value={addons.customIntegrationDesc || ''}
-                                onChange={(e) => onChange('customIntegrationDesc', e.target.value)}
-                                className="w-full px-3 py-1.5 text-sm rounded-md bg-merkad-bg-tertiary border border-merkad-border text-white placeholder:text-merkad-text-muted focus:border-merkad-purple focus:outline-none"
-                            />
+                        <div className="ml-8 mb-2 space-y-2">
+                            {Array.from({ length: addons.customIntegration }).map((_, i) => (
+                                <input
+                                    key={i}
+                                    type="text"
+                                    placeholder={`Integration ${i + 1} name (e.g., Shopify + QuickBooks sync)`}
+                                    value={(addons.customIntegrationDesc as string[])?.[i] || ''}
+                                    onChange={(e) => {
+                                        const descs = Array.isArray(addons.customIntegrationDesc)
+                                            ? [...addons.customIntegrationDesc]
+                                            : [];
+                                        // Ensure array is long enough
+                                        while (descs.length <= i) descs.push('');
+                                        descs[i] = e.target.value;
+                                        onChange('customIntegrationDesc', descs);
+                                    }}
+                                    className="w-full px-3 py-1.5 text-sm rounded-md bg-merkad-bg-tertiary border border-merkad-border text-white placeholder:text-merkad-text-muted focus:border-merkad-purple focus:outline-none"
+                                />
+                            ))}
                         </div>
                     )}
                     <AddonCheckbox

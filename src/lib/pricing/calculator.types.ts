@@ -57,7 +57,7 @@ export interface AddonState {
 
     // Integrations & Migration
     customIntegration: number;
-    customIntegrationDesc: string;
+    customIntegrationDesc: string[];
     complexWorkflow: boolean;
     customApi: boolean;
     crmMigration: boolean;
@@ -269,7 +269,7 @@ export const initialAddonState: AddonState = {
 
     // Integrations & Migration
     customIntegration: 0,
-    customIntegrationDesc: '',
+    customIntegrationDesc: [],
     complexWorkflow: false,
     customApi: false,
     crmMigration: false,
