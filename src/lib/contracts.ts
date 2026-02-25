@@ -133,7 +133,6 @@ export async function createContract(
     const contractData: Omit<Contract, 'id'> = {
         clientId,
         quoteId,
-        leadId: leadId || undefined,
         contractNumber,
         services,
         monthlyServices,
@@ -147,6 +146,10 @@ export async function createContract(
         createdAt: now,
         updatedAt: now,
     };
+
+    if (leadId) {
+        contractData.leadId = leadId;
+    }
 
     const docRef = await addDoc(ref, contractData);
     return docRef.id;
