@@ -110,14 +110,14 @@ export async function createContract(
 
     // Map quote data into contract format
     const services = [
-        { label: quote.basePackage.label, price: quote.basePackage.price, description: quote.basePackage.description },
-        ...quote.addons.map((a) => ({ label: a.label, price: a.price, description: a.description })),
+        { label: quote.basePackage.label, price: quote.basePackage.price, description: quote.basePackage.description || '' },
+        ...quote.addons.map((a) => ({ label: a.label, price: a.price, description: a.description || '' })),
     ];
 
     const monthlyServices = quote.monthly.map((m) => ({
         label: m.label,
         price: m.price,
-        description: m.description,
+        description: m.description || '',
     }));
 
     // Payment terms label
@@ -265,14 +265,14 @@ export async function updateContractScope(
 
     // Map quote data into contract format
     const services = [
-        { label: quote.basePackage.label, price: quote.basePackage.price, description: quote.basePackage.description },
-        ...quote.addons.map((a) => ({ label: a.label, price: a.price, description: a.description })),
+        { label: quote.basePackage.label, price: quote.basePackage.price, description: quote.basePackage.description || '' },
+        ...quote.addons.map((a) => ({ label: a.label, price: a.price, description: a.description || '' })),
     ];
 
     const monthlyServices = quote.monthly.map((m) => ({
         label: m.label,
         price: m.price,
-        description: m.description,
+        description: m.description || '',
     }));
 
     // Payment terms label
