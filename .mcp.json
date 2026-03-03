@@ -1,0 +1,16 @@
+{
+    "mcpServers": {
+        "merkadagency-contracts": {
+            "command": "node",
+            "args": [
+                "/Users/camiloreyna/Antigravity Projects/Merkadagaency 2/Merkadagency 2/server/merkadagency-contracts-mcp.js"
+            ]
+        },
+        "merkadagency-crm": {
+            "command": "node",
+            "args": [
+                "/Users/camiloreyna/Antigravity Projects/Merkadagaency 2/Merkadagency 2/server/merkadagency-crm-mcp.js"
+            ]
+        }
+    }
+}

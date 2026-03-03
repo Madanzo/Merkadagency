@@ -21,6 +21,7 @@ export * from './webhooks/inboundSMS';
 export * from './agents/salesAgent';
 export * from './agents/marketingAgent';
 export * from './agents/aiSummary';
+export * from './agents/claudeAssistant';
 
 // ==========================================
 // Phase 3: Delivery Engine (Email, SMS, PDF)

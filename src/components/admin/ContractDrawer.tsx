@@ -64,6 +64,7 @@ export function ContractDrawer({
 }: ContractDrawerProps) {
     const [quotes, setQuotes] = useState<SavedQuote[]>([]);
     const [selectedQuoteId, setSelectedQuoteId] = useState<string>('');
+    const [jurisdiction, setJurisdiction] = useState<'usa' | 'mexico'>('usa');
     const [loading, setLoading] = useState(false);
     const [creating, setCreating] = useState(false);
     const [showPreview, setShowPreview] = useState(!!existingContract);
@@ -118,7 +119,8 @@ export function ContractDrawer({
                 selectedQuote.id,
                 selectedQuote.quote,
                 selectedQuote.projectInfo,
-                leadId
+                leadId,
+                jurisdiction
             );
 
             // Build a temporary contract object for preview
@@ -135,14 +137,27 @@ export function ContractDrawer({
                 monthlyServices: selectedQuote.quote.monthly.map((m) => ({ label: m.label, price: m.price })),
                 oneTimeTotal: selectedQuote.quote.oneTimeTotal,
                 monthlyTotal: selectedQuote.quote.monthlyTotal,
+                discount: selectedQuote.quote.discount?.amount > 0 ? selectedQuote.quote.discount : undefined,
+                monthlyDiscount: selectedQuote.quote.monthlyDiscount?.amount > 0 ? selectedQuote.quote.monthlyDiscount : undefined,
                 finalOneTimeTotal: selectedQuote.quote.finalOneTimeTotal,
                 finalMonthlyTotal: selectedQuote.quote.finalMonthlyTotal,
                 paymentTerms: selectedQuote.projectInfo.paymentTerms || '50-50',
                 projectInfo: selectedQuote.projectInfo,
                 status: 'draft',
+                jurisdiction,
                 createdAt: {} as any,
                 updatedAt: {} as any,
             };
+
+            // Fetch legal clauses for immediate preview
+            try {
+                const { buildLegalClauses } = await import('@/lib/seedLegalDocs');
+                const allLabels = [
+                    ...(tempContract.services || []).map(s => s.label),
+                    ...(tempContract.monthlyServices || []).map(s => s.label),
+                ];
+                tempContract.legalClauses = await buildLegalClauses(allLabels, jurisdiction);
+            } catch { /* non-critical */ }
 
             setCurrentContract(tempContract);
             setPreviewHTML(generateContractHTML(tempContract, client));
@@ -307,6 +322,20 @@ export function ContractDrawer({
                                     </div>
                                 </div>
                             )}
+
+                            {/* Jurisdiction Selector */}
+                            <div>
+                                <label className="text-sm font-medium text-white block mb-2">Jurisdiction / Governing Law</label>
+                                <Select value={jurisdiction} onValueChange={(v) => setJurisdiction(v as 'usa' | 'mexico')}>
+                                    <SelectTrigger className="bg-merkad-bg-tertiary border-merkad-border text-white">
+                                        <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="usa">🇺🇸 United States (Texas)</SelectItem>
+                                        <SelectItem value="mexico">🇲🇽 Mexico</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
 
                             <Button
                                 onClick={handleCreateContract}

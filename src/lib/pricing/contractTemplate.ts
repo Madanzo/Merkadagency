@@ -5,6 +5,59 @@ const formatCurrency = (amount: number): string =>
     new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(amount);
 
 /**
+ * Render a legal clause section title — styled differently for warnings.
+ */
+function legalSectionTitle(title: string, isWarning = false): string {
+    const color = isWarning ? '#ef4444' : '#5A27FF';
+    const icon = isWarning ? '⚠️ ' : '';
+    return `<div class="section-title" style="font-size: 13px; font-weight: 600; color: ${color}; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">${icon}${title}</div>`;
+}
+
+/**
+ * Convert plain text with newlines into styled HTML paragraphs.
+ */
+function textToHTML(text: string): string {
+    return text
+        .split('\n')
+        .filter(line => line.trim())
+        .map(line => `<p style="margin: 0 0 6px;">${line.trim()}</p>`)
+        .join('\n');
+}
+
+/**
+ * Build styled HTML for all legal sections stored in contract.legalClauses.
+ * Order: Service-Specific → Payment → Refund ⚠️ → Disclaimer ⚠️ → IP → NDA → Revisions → Termination → Law
+ */
+function buildLegalSectionsHTML(clauses: Record<string, string>): string {
+    const orderedSections = [
+        { key: 'Service-Specific Terms', title: 'Scope of Services', warning: false },
+        { key: 'Payment Terms & Late Fee Policy', title: 'Payment Terms & Late Fees', warning: false },
+        { key: 'No Refund Policy', title: 'Refund Policy', warning: true },
+        { key: 'Results Disclaimer', title: 'Results Disclaimer', warning: true },
+        { key: 'Intellectual Property & Ownership', title: 'Intellectual Property & Ownership', warning: false },
+        { key: 'NDA & Confidentiality', title: 'Confidentiality & Non-Disclosure', warning: false },
+        { key: 'Revision & Scope Policy', title: 'Revision & Scope Policy', warning: false },
+        { key: 'Termination Policy', title: 'Termination', warning: false },
+        { key: 'Governing Law', title: 'Governing Law', warning: false },
+    ];
+
+    return orderedSections
+        .filter(s => clauses[s.key])
+        .map(s => {
+            const borderColor = s.warning ? '#ef444433' : '#2a2d3a';
+            const bgColor = s.warning ? '#1a1520' : 'transparent';
+            return `
+    <div style="padding: 20px 32px; border-bottom: 1px solid #2a2d3a; background: ${bgColor};">
+        ${legalSectionTitle(s.title, s.warning)}
+        <div style="color: #aaa; font-size: 12px; line-height: 1.8; border-left: 3px solid ${s.warning ? '#ef4444' : '#5A27FF'}44; padding-left: 16px;">
+            ${textToHTML(clauses[s.key])}
+        </div>
+    </div>`;
+        })
+        .join('');
+}
+
+/**
  * Generate styled HTML for contract preview.
  * Uses a dark theme for screen and includes a print-friendly white version.
  */
@@ -109,7 +162,17 @@ export function generateContractHTML(
             </thead>
             <tbody>${serviceRows}</tbody>
         </table>
-        <div class="total-bar" style="margin-top: 12px; padding: 12px 16px; background: #5A27FF; border-radius: 8px; display: flex; justify-content: space-between; color: #fff; font-weight: 600;">
+        ${contract.discount && contract.discount.amount > 0 ? `
+        <div style="margin-top: 8px; padding: 10px 16px; background: #1e2235; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: #aaa; font-size: 13px;">Subtotal</span>
+            <span style="color: #aaa; font-size: 13px;">${formatCurrency(contract.oneTimeTotal)}</span>
+        </div>
+        <div style="margin-top: 4px; padding: 10px 16px; background: #1a2e1a; border: 1px solid #22c55e33; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: #22c55e; font-size: 13px; font-weight: 500;">💰 Discount ${contract.discount.type === 'percentage' ? `(${contract.discount.value}%)` : ''}</span>
+            <span style="color: #22c55e; font-size: 13px; font-weight: 600;">-${formatCurrency(contract.discount.amount)}</span>
+        </div>
+        ` : ''}
+        <div class="total-bar" style="margin-top: 8px; padding: 12px 16px; background: #5A27FF; border-radius: 8px; display: flex; justify-content: space-between; color: #fff; font-weight: 600;">
             <span>ONE-TIME TOTAL</span>
             <span>${formatCurrency(contract.finalOneTimeTotal)}</span>
         </div>
@@ -130,7 +193,17 @@ export function generateContractHTML(
             </thead>
             <tbody>${monthlyRows}</tbody>
         </table>
-        <div class="total-bar" style="margin-top: 12px; padding: 12px 16px; background: #22c55e; border-radius: 8px; display: flex; justify-content: space-between; color: #fff; font-weight: 600;">
+        ${contract.monthlyDiscount && contract.monthlyDiscount.amount > 0 ? `
+        <div style="margin-top: 8px; padding: 10px 16px; background: #1e2235; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: #aaa; font-size: 13px;">Subtotal</span>
+            <span style="color: #aaa; font-size: 13px;">${formatCurrency(contract.monthlyTotal)}/mo</span>
+        </div>
+        <div style="margin-top: 4px; padding: 10px 16px; background: #1a2e1a; border: 1px solid #22c55e33; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: #22c55e; font-size: 13px; font-weight: 500;">💰 Monthly Discount ${contract.monthlyDiscount.type === 'percentage' ? `(${contract.monthlyDiscount.value}%)` : ''}</span>
+            <span style="color: #22c55e; font-size: 13px; font-weight: 600;">-${formatCurrency(contract.monthlyDiscount.amount)}/mo</span>
+        </div>
+        ` : ''}
+        <div class="total-bar" style="margin-top: 8px; padding: 12px 16px; background: #22c55e; border-radius: 8px; display: flex; justify-content: space-between; color: #fff; font-weight: 600;">
             <span>MONTHLY TOTAL</span>
             <span>${formatCurrency(contract.finalMonthlyTotal)}/mo</span>
         </div>
@@ -139,7 +212,11 @@ export function generateContractHTML(
 
     <div style="border-top: 1px solid #2a2d3a; margin: 0 32px;"></div>
 
-    <!-- TERMS -->
+    <!-- LEGAL SECTIONS -->
+    ${contract.legalClauses && Object.keys(contract.legalClauses).length > 0 && !contract.legalClauses._fallback ? `
+    ${buildLegalSectionsHTML(contract.legalClauses)}
+    ` : `
+    <!-- FALLBACK TERMS (no legal docs seeded yet) -->
     <div style="padding: 24px 32px;">
         <div class="section-title" style="font-size: 13px; font-weight: 600; color: #5A27FF; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Terms & Conditions</div>
         <div style="color: #aaa; font-size: 13px; line-height: 1.8;">
@@ -153,6 +230,7 @@ export function generateContractHTML(
             <p style="margin: 0;">8. This agreement is governed by the laws of the State of Texas.</p>
         </div>
     </div>
+    `}
 
     <div style="border-top: 1px solid #2a2d3a; margin: 0 32px;"></div>
 

@@ -39,3 +39,10 @@ firebase-debug.log
 
 # Functions
 functions/node_modules/
+
+# MCP Server
+server/node_modules/
+server/serviceAccountKey.json
+
+# Firebase service account keys
+merkadagency-dd2aa-firebase-adminsdk-*.json

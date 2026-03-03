@@ -14,6 +14,7 @@ import {
 import { db } from "./firebase";
 import { updateLead } from "./firestore";
 import type { QuoteSummary, ProjectInfo } from "./pricing/calculator.types";
+import { buildLegalClauses } from "./seedLegalDocs";
 
 /**
  * Recursively remove all undefined values from an object.
@@ -59,6 +60,8 @@ export interface Contract {
     monthlyServices: Array<{ label: string; price: number; description?: string }>;
     oneTimeTotal: number;
     monthlyTotal: number;
+    discount?: { type: 'percentage' | 'fixed'; value: number; amount: number };
+    monthlyDiscount?: { type: 'percentage' | 'fixed'; value: number; amount: number };
     finalOneTimeTotal: number;
     finalMonthlyTotal: number;
     paymentTerms: string;
@@ -74,6 +77,9 @@ export interface Contract {
     publicUrl?: string;
     tokenExpiry?: Timestamp;
     pdfUrl?: string;
+    // Phase 4 — Legal Clauses
+    legalClauses?: Record<string, string>;
+    jurisdiction?: 'usa' | 'mexico';
 }
 
 export type CreateContractData = Omit<Contract, "id" | "createdAt" | "updatedAt">;
@@ -125,7 +131,8 @@ export async function createContract(
     quoteId: string,
     quote: QuoteSummary,
     projectInfo: ProjectInfo,
-    leadId?: string
+    leadId?: string,
+    jurisdiction: 'usa' | 'mexico' = 'usa'
 ): Promise<string> {
     const ref = collection(db, `clients/${clientId}/contracts`);
     const now = Timestamp.now();
@@ -168,10 +175,31 @@ export async function createContract(
         status: 'draft',
         createdAt: now,
         updatedAt: now,
+        jurisdiction,
     };
+
+    // Add discounts only if they have a value
+    if (quote.discount?.amount > 0) {
+        contractData.discount = quote.discount;
+    }
+    if (quote.monthlyDiscount?.amount > 0) {
+        contractData.monthlyDiscount = quote.monthlyDiscount;
+    }
 
     if (leadId) {
         contractData.leadId = leadId;
+    }
+
+    // Pull legal clauses from Knowledge Base
+    try {
+        const allServiceLabels = [
+            ...services.map(s => s.label),
+            ...monthlyServices.map(s => s.label),
+        ];
+        const legalClauses = await buildLegalClauses(allServiceLabels, jurisdiction);
+        contractData.legalClauses = legalClauses;
+    } catch (err) {
+        console.warn('Failed to fetch legal clauses (non-critical):', err);
     }
 
     const docRef = await addDoc(ref, removeUndefined(contractData));

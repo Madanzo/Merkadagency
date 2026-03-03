@@ -23,6 +23,10 @@ interface ContractData {
     clientId: string;
     services: Array<{ label: string; price: number; description?: string }>;
     monthlyServices: Array<{ label: string; price: number; description?: string }>;
+    oneTimeTotal: number;
+    monthlyTotal: number;
+    discount?: { type: 'percentage' | 'fixed'; value: number; amount: number };
+    monthlyDiscount?: { type: 'percentage' | 'fixed'; value: number; amount: number };
     finalOneTimeTotal: number;
     finalMonthlyTotal: number;
     paymentTerms: string;
@@ -32,6 +36,8 @@ interface ContractData {
     tokenExpiry: Timestamp;
     signedAt?: Timestamp;
     signatureData?: any;
+    legalClauses?: Record<string, string>;
+    jurisdiction?: 'usa' | 'mexico';
 }
 
 const formatCurrency = (amount: number): string =>
@@ -52,6 +58,7 @@ export default function ContractSigningPage() {
     const [signed, setSigned] = useState(false);
     const [scrolledToBottom, setScrolledToBottom] = useState(false);
     const [signatureEmpty, setSignatureEmpty] = useState(true);
+    const [agreedToTerms, setAgreedToTerms] = useState(false);
 
     const contractBodyRef = useRef<HTMLDivElement>(null);
     const signatureCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -164,6 +171,7 @@ export default function ContractSigningPage() {
                     ipAddress,
                     userAgent: navigator.userAgent,
                     signedAt: new Date().toISOString(),
+                    refundPolicyAcknowledged: true,
                 },
                 updatedAt: Timestamp.now(),
             });
@@ -344,18 +352,52 @@ export default function ContractSigningPage() {
                             </div>
                         )}
 
-                        {/* Terms */}
-                        <div className="mb-6 bg-gray-50 rounded-lg p-4">
-                            <h2 className="text-lg font-semibold text-gray-900 mb-2">Terms & Conditions</h2>
-                            <div className="text-xs text-gray-500 space-y-2">
-                                <p>1. <strong>Scope:</strong> Services are limited to those described above. Additional services require a separate agreement.</p>
-                                <p>2. <strong>Payment:</strong> Invoices are due per the payment terms above. Late payments incur a 1.5% monthly fee.</p>
-                                <p>3. <strong>Cancellation:</strong> Either party may cancel with 30 days written notice. Work completed prior to cancellation is billable.</p>
-                                <p>4. <strong>Confidentiality:</strong> Both parties agree to keep all project details confidential.</p>
-                                <p>5. <strong>Intellectual Property:</strong> Upon full payment, all deliverables become the client's property.</p>
-                                <p>6. <strong>Liability:</strong> MerkadAgency's liability is limited to the total contract value.</p>
+                        {/* Terms — Dynamic Legal Sections */}
+                        {contract.legalClauses && Object.keys(contract.legalClauses).length > 0 && !contract.legalClauses._fallback ? (
+                            <div className="mb-6 space-y-4">
+                                {[
+                                    { key: 'Service-Specific Terms', title: 'Scope of Services', warn: false },
+                                    { key: 'Payment Terms & Late Fee Policy', title: 'Payment Terms & Late Fees', warn: false },
+                                    { key: 'No Refund Policy', title: 'Refund Policy', warn: true },
+                                    { key: 'Results Disclaimer', title: 'Results Disclaimer', warn: true },
+                                    { key: 'Intellectual Property & Ownership', title: 'Intellectual Property & Ownership', warn: false },
+                                    { key: 'NDA & Confidentiality', title: 'Confidentiality & Non-Disclosure', warn: false },
+                                    { key: 'Revision & Scope Policy', title: 'Revision & Scope Policy', warn: false },
+                                    { key: 'Termination Policy', title: 'Termination', warn: false },
+                                    { key: 'Governing Law', title: 'Governing Law', warn: false },
+                                ]
+                                    .filter(s => contract.legalClauses![s.key])
+                                    .map((s, i) => (
+                                        <div
+                                            key={i}
+                                            className={`rounded-lg p-4 ${s.warn
+                                                    ? 'bg-red-50 border border-red-200'
+                                                    : 'bg-gray-50'
+                                                }`}
+                                        >
+                                            <h3 className={`text-sm font-semibold mb-2 ${s.warn ? 'text-red-700' : 'text-gray-900'
+                                                }`}>
+                                                {s.warn ? '⚠️ ' : ''}{s.title}
+                                            </h3>
+                                            <div className="text-xs text-gray-600 space-y-1 whitespace-pre-line leading-relaxed">
+                                                {contract.legalClauses![s.key]}
+                                            </div>
+                                        </div>
+                                    ))}
                             </div>
-                        </div>
+                        ) : (
+                            <div className="mb-6 bg-gray-50 rounded-lg p-4">
+                                <h2 className="text-lg font-semibold text-gray-900 mb-2">Terms & Conditions</h2>
+                                <div className="text-xs text-gray-500 space-y-2">
+                                    <p>1. <strong>Scope:</strong> Services are limited to those described above. Additional services require a separate agreement.</p>
+                                    <p>2. <strong>Payment:</strong> Invoices are due per the payment terms above. Late payments incur a 1.5% monthly fee.</p>
+                                    <p>3. <strong>Cancellation:</strong> Either party may cancel with 30 days written notice. Work completed prior to cancellation is billable.</p>
+                                    <p>4. <strong>Confidentiality:</strong> Both parties agree to keep all project details confidential.</p>
+                                    <p>5. <strong>Intellectual Property:</strong> Upon full payment, all deliverables become the client&apos;s property.</p>
+                                    <p>6. <strong>Liability:</strong> MerkadAgency&apos;s liability is limited to the total contract value.</p>
+                                </div>
+                            </div>
+                        )}
 
                         {/* Scroll indicator */}
                         {!scrolledToBottom && (
@@ -383,6 +425,21 @@ export default function ContractSigningPage() {
 
                             {scrolledToBottom && (
                                 <>
+                                    {/* Acknowledgment Checkbox */}
+                                    <div className="mb-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                                        <label className="flex items-start gap-3 cursor-pointer">
+                                            <input
+                                                type="checkbox"
+                                                checked={agreedToTerms}
+                                                onChange={(e) => setAgreedToTerms(e.target.checked)}
+                                                className="mt-0.5 w-4 h-4 accent-violet-600 rounded"
+                                            />
+                                            <span className="text-sm text-gray-700">
+                                                I have read and agree to the <strong>No Refund Policy</strong> and <strong>Results Disclaimer</strong> in this contract.
+                                            </span>
+                                        </label>
+                                    </div>
+
                                     <SignaturePad
                                         height={150}
                                         onSignatureChange={(isEmpty) => setSignatureEmpty(isEmpty)}
@@ -395,7 +452,7 @@ export default function ContractSigningPage() {
                                         </div>
                                         <Button
                                             onClick={handleSign}
-                                            disabled={signing || signatureEmpty}
+                                            disabled={signing || signatureEmpty || !agreedToTerms}
                                             className="bg-violet-600 hover:bg-violet-700 text-white px-8"
                                         >
                                             {signing ? (

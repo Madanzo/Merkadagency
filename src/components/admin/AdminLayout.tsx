@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { AdminSidebar } from './AdminSidebar';
+import ClaudeAssistant from './ClaudeAssistant';
 
 interface AdminLayoutProps {
     children: ReactNode;
@@ -24,10 +25,13 @@ export function AdminLayout({ children, currentTab, onTabChange }: AdminLayoutPr
 
             {/* Main Content */}
             <main className="relative z-10 flex-1 h-screen overflow-y-auto overflow-x-hidden">
-                <div className="container-custom py-8 max-w-7xl mx-auto">
+                <div className="container-custom py-8 pb-20 max-w-7xl mx-auto">
                     {children}
                 </div>
             </main>
+
+            {/* Claude Assistant — appears on every admin page */}
+            <ClaudeAssistant />
         </div>
     );
 }
