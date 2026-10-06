@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface CalendarEmbedProps {
     calLink: string;
@@ -22,9 +22,10 @@ declare global {
  */
 export function CalendarEmbed({ calLink, className = '' }: CalendarEmbedProps) {
     const calRef = useRef<HTMLDivElement>(null);
-    const scriptLoaded = useRef(false);
+    const [activated, setActivated] = useState(false);
 
     useEffect(() => {
+        if (!activated) return;
         (function (C: any, A: string, L: string) {
             const p = function (a: any, ar: any) { a.q.push(ar); };
             const d = C.document;
@@ -52,7 +53,7 @@ export function CalendarEmbed({ calLink, className = '' }: CalendarEmbedProps) {
             };
         })(window, "https://app.cal.com/embed/embed.js", "init");
 
-        window.Cal!("init", "merkadagency", { origin: "https://app.cal.com" });
+        window.Cal!("init", { origin: "https://app.cal.com" });
 
         window.Cal!("inline", {
             elementOrSelector: calRef.current!,
@@ -71,13 +72,14 @@ export function CalendarEmbed({ calLink, className = '' }: CalendarEmbedProps) {
             hideEventTypeDetails: false,
         });
 
-    }, [calLink]);
+    }, [calLink, activated]);
 
+    if (!activated) return <div className="p-8 text-center"><p>Open the external scheduling calendar to view available times. A booking is confirmed by the calendar provider.</p><button className="public-button" type="button" onClick={()=>setActivated(true)}>Load scheduling calendar</button><p className="mt-4"><a href={`https://cal.com/${calLink}`} target="_blank" rel="noopener noreferrer">Open calendar in a new tab ↗</a></p></div>;
     return (
-        <div
+        <div role="region" aria-label="Scheduling calendar"><div
             ref={calRef}
             className={`min-h-[600px] w-full rounded-xl overflow-hidden bg-merkad-bg-secondary ${className}`}
             data-cal-link={calLink}
-        />
+        /><p className="p-4 text-center"><a href={`https://cal.com/${calLink}`} target="_blank" rel="noopener noreferrer">If the calendar does not load, open it in a new tab ↗</a></p></div>
     );
 }

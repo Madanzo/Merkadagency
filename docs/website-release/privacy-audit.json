@@ -1,0 +1,93 @@
+{
+  "path": "/legal/privacy",
+  "paint": [
+    {
+      "name": "first-paint",
+      "ms": 216
+    },
+    {
+      "name": "first-contentful-paint",
+      "ms": 236
+    }
+  ],
+  "navigation": [
+    {
+      "domContentLoaded": 178.5,
+      "load": 180.10000002384186
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://fonts.googleapis.com/css2",
+      "bytes": 1462,
+      "decoded": 25772,
+      "duration": 130.69999992847443
+    },
+    {
+      "url": "http://localhost:8092/assets/index-DfCGV8YB.js",
+      "bytes": 300,
+      "decoded": 345720,
+      "duration": 17.399999976158142
+    },
+    {
+      "url": "http://localhost:8092/assets/index-ColxG9HR.css",
+      "bytes": 300,
+      "decoded": 109407,
+      "duration": 14.100000023841858
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+      "bytes": 0,
+      "decoded": 48432,
+      "duration": 0
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+      "bytes": 0,
+      "decoded": 31340,
+      "duration": 0
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxm2BL9G78HEY.woff2",
+      "bytes": 0,
+      "decoded": 34560,
+      "duration": 0
+    },
+    {
+      "url": "http://localhost:8092/assets/PrivacyPage-RAs7iOnW.js",
+      "bytes": 1362,
+      "decoded": 2424,
+      "duration": 25.5
+    },
+    {
+      "url": "http://localhost:8092/assets/Layout-DglvyvxP.js",
+      "bytes": 300,
+      "decoded": 14142,
+      "duration": 14.900000095367432
+    },
+    {
+      "url": "http://localhost:8092/assets/chevron-down-Bvv0EPfG.js",
+      "bytes": 300,
+      "decoded": 296,
+      "duration": 22.300000071525574
+    },
+    {
+      "url": "http://localhost:8092/assets/Layout-DQJl9OIB.css",
+      "bytes": 300,
+      "decoded": 6055,
+      "duration": 45.60000002384186
+    },
+    {
+      "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+      "bytes": 0,
+      "decoded": 0,
+      "duration": 301.40000009536743
+    }
+  ],
+  "scripts": [
+    "http://localhost:8092/assets/index-DfCGV8YB.js"
+  ],
+  "violations": [],
+  "incomplete": [],
+  "passes": 24
+}

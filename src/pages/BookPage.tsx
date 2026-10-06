@@ -16,28 +16,28 @@ export default function BookPage() {
               Book Your Discovery Call
             </h1>
             <p className="text-merkad-text-secondary mt-6 text-lg">
-              30 minutes to explore how the MerkadFlow System™ can transform your business. No pressure, just clarity.
+              Talk through your website, CRM and the work your team needs help with. Available meeting lengths are shown in the calendar.
             </p>
 
             {/* What to Expect */}
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
               <div className="bg-merkad-bg-tertiary rounded-xl p-6 border border-white/5">
                 <Clock className="w-8 h-8 text-merkad-purple-light mb-4" />
-                <h3 className="text-lg font-semibold text-white">30 Minutes</h3>
+                <h2 className="text-lg font-semibold text-white">Your goals</h2>
                 <p className="text-merkad-text-secondary text-sm mt-2">
                   A focused conversation about your goals
                 </p>
               </div>
               <div className="bg-merkad-bg-tertiary rounded-xl p-6 border border-white/5">
                 <Calendar className="w-8 h-8 text-merkad-purple-light mb-4" />
-                <h3 className="text-lg font-semibold text-white">Custom Plan</h3>
+                <h2 className="text-lg font-semibold text-white">Possible next steps</h2>
                 <p className="text-merkad-text-secondary text-sm mt-2">
-                  We'll outline a strategy tailored to you
+                  Discuss a useful place to start
                 </p>
               </div>
               <div className="bg-merkad-bg-tertiary rounded-xl p-6 border border-white/5">
                 <Shield className="w-8 h-8 text-merkad-purple-light mb-4" />
-                <h3 className="text-lg font-semibold text-white">No Pressure</h3>
+                <h2 className="text-lg font-semibold text-white">No Pressure</h2>
                 <p className="text-merkad-text-secondary text-sm mt-2">
                   Just honest advice, even if we're not a fit
                 </p>
@@ -57,13 +57,13 @@ export default function BookPage() {
             {/* Alternative CTA */}
             <div className="mt-12">
               <p className="text-merkad-text-secondary mb-4">
-                Prefer to start with a free audit instead?
+                Prefer to describe your needs first?
               </p>
               <Link
                 to="/resources/free-audit"
                 className="inline-flex items-center gap-2 text-merkad-purple-light hover:text-white transition-colors font-medium btn-arrow"
               >
-                Get Your Free Automation Audit
+                Discuss a website and workflow review
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>

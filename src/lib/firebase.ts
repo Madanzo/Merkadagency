@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics, isSupported } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
@@ -33,13 +32,8 @@ export const storage = getStorage(app);
 import { getFunctions } from "firebase/functions";
 export const functions = getFunctions(app);
 
-// Initialize Analytics (only in browser environment)
-export const initAnalytics = async () => {
-  if (await isSupported()) {
-    return getAnalytics(app);
-  }
-  return null;
-};
+// Legacy initializer deliberately inert: optional measurement uses analyticsGate only.
+export const initAnalytics = async () => null;
 
 // Export a flag to check if Firebase is initialized
 export const isFirebaseInitialized = () => !!app;

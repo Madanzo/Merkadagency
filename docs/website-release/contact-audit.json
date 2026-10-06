@@ -1,0 +1,129 @@
+{
+  "path": "/contact",
+  "paint": [
+    {
+      "name": "first-paint",
+      "ms": 232
+    },
+    {
+      "name": "first-contentful-paint",
+      "ms": 264
+    }
+  ],
+  "navigation": [
+    {
+      "domContentLoaded": 190.90000009536743,
+      "load": 191.70000004768372
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://fonts.googleapis.com/css2",
+      "bytes": 1462,
+      "decoded": 25772,
+      "duration": 119.60000002384186
+    },
+    {
+      "url": "http://localhost:8092/assets/index-ColxG9HR.css",
+      "bytes": 18471,
+      "decoded": 109407,
+      "duration": 74.10000002384186
+    },
+    {
+      "url": "http://localhost:8092/assets/index-DfCGV8YB.js",
+      "bytes": 112650,
+      "decoded": 345720,
+      "duration": 117.79999995231628
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+      "bytes": 0,
+      "decoded": 48432,
+      "duration": 0
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+      "bytes": 0,
+      "decoded": 31340,
+      "duration": 0
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxm2BL9G78HEY.woff2",
+      "bytes": 0,
+      "decoded": 34560,
+      "duration": 0
+    },
+    {
+      "url": "http://localhost:8092/assets/ContactPage-D3Fy6gqU.js",
+      "bytes": 5363,
+      "decoded": 14871,
+      "duration": 28.700000047683716
+    },
+    {
+      "url": "http://localhost:8092/assets/Layout-DglvyvxP.js",
+      "bytes": 4874,
+      "decoded": 14142,
+      "duration": 29.300000071525574
+    },
+    {
+      "url": "http://localhost:8092/assets/chevron-down-Bvv0EPfG.js",
+      "bytes": 596,
+      "decoded": 296,
+      "duration": 18.700000047683716
+    },
+    {
+      "url": "http://localhost:8092/assets/Layout-DQJl9OIB.css",
+      "bytes": 2231,
+      "decoded": 6055,
+      "duration": 64.29999995231628
+    },
+    {
+      "url": "http://localhost:8092/assets/mail-hIJoseWP.js",
+      "bytes": 981,
+      "decoded": 681,
+      "duration": 18.5
+    },
+    {
+      "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+      "bytes": 0,
+      "decoded": 0,
+      "duration": 312
+    }
+  ],
+  "scripts": [
+    "http://localhost:8092/assets/index-DfCGV8YB.js"
+  ],
+  "violations": [],
+  "incomplete": [
+    {
+      "id": "color-contrast",
+      "nodes": [
+        {
+          "target": [
+            ".mb-6"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "target": [
+            "p[role=\"status\"]"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "target": [
+            ".mt-5 > p"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "target": [
+            ".public-button"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        }
+      ]
+    }
+  ],
+  "passes": 24
+}
