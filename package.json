@@ -5,19 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run generate-sitemap",
+    "build": "node scripts/build-website.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "generate-sitemap": "node scripts/generate-sitemap.cjs",
     "test": "vitest run && npm run test:intake",
     "test:watch": "vitest",
-    "deploy": "npm run build && firebase deploy --only hosting",
-    "deploy:clean": "rm -rf dist node_modules/.vite && npm run build && firebase deploy --only hosting",
     "test:intake": "node --test server/intake/*.test.mjs",
     "test:intake:integration": "vitest run --config vitest.intake.config.ts",
-    "build:review": "VITE_CONTACT_INTAKE_ENABLED=false VITE_ANALYTICS_ENABLED=false npm run build",
-    "lint:website": "eslint src/pages/public src/pages/concepts src/components/layout src/components/brand src/pages/ContactPage.tsx src/pages/BookPage.tsx src/pages/Index.tsx src/pages/NotFound.tsx src/pages/legal src/pages/blog/BlogPage.tsx src/pages/resources/CannabisPlaybook.tsx src/pages/resources/ContractorGuide.tsx src/pages/resources/EcommerceGuide.tsx src/pages/resources/MedspaChecklist.tsx src/pages/resources/ROICalculator.tsx src/components/common/ContactVerification.tsx src/components/common/CalendarEmbed.tsx src/components/common/NewsletterSignup.tsx src/components/common/SEO.tsx src/components/templates/LeadMagnetTemplate.tsx src/lib/analyticsGate.ts src/lib/optionalAnalytics.ts src/lib/contactIntake.ts src/lib/inquiryAttribution.ts src/lib/journeyEvents.ts src/lib/firebase.ts src/__tests__ server/intake vite.config.ts vitest.intake.config.ts scripts/generate-sitemap.cjs"
+    "build:review": "npm run build",
+    "lint:website": "eslint src/pages/public src/pages/concepts src/components/layout src/components/brand src/pages/ContactPage.tsx src/pages/BookPage.tsx src/pages/Index.tsx src/pages/NotFound.tsx src/pages/legal src/pages/blog/BlogPage.tsx src/pages/resources/CannabisPlaybook.tsx src/pages/resources/ContractorGuide.tsx src/pages/resources/EcommerceGuide.tsx src/pages/resources/MedspaChecklist.tsx src/pages/resources/ROICalculator.tsx src/components/common/ContactVerification.tsx src/components/common/CalendarEmbed.tsx src/components/common/NewsletterSignup.tsx src/components/common/SEO.tsx src/components/templates/LeadMagnetTemplate.tsx src/lib/analyticsGate.ts src/lib/optionalAnalytics.ts src/lib/contactIntake.ts src/lib/inquiryAttribution.ts src/lib/journeyEvents.ts src/lib/firebase.ts src/__tests__ server/intake vite.config.ts vitest.intake.config.ts scripts/generate-sitemap.cjs",
+    "verify:website": "node scripts/verify-website.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

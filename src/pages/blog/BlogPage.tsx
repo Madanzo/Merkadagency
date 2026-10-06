@@ -4,7 +4,6 @@ import { Layout } from '@/components/layout/Layout';
 const posts=[
  {slug:'ai-lead-response-revolution',title:'AI assistance for customer inquiries',category:'AI & Automation',related:'/services/ai-lead-capture'},
  {slug:'five-minute-rule',title:'Planning a useful first response',category:'Lead Generation',related:'/services/ai-lead-capture'},
- {slug:'kravings-case-study',title:'Kravings project evidence',category:'Case Studies',related:'/case-studies/kravings'},
  {slug:'crm-automation-101',title:'Connecting inquiries to your CRM',category:'AI & Automation',related:'/services/crm-automation'},
  {slug:'medspa-seo-guide',title:'Website planning for medical spas',category:'Lead Generation',related:'/industries/medspas'},
  {slug:'merkadflow-system-explained',title:'How we plan connected systems',category:'AI & Automation',related:'/about/method'},

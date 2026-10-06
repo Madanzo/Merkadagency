@@ -16,7 +16,7 @@ export function RouteMetadata() {
     });
     return () => cancelAnimationFrame(frame);
   }, [pathname, hash]);
-  const title = routeTitles[pathname] ?? (pathname.startsWith('/review/') ? 'Design review' : pathname.startsWith('/admin') ? 'Admin' : pathname.startsWith('/sign/') ? 'Contract signing' : pathname.startsWith('/blog/') ? 'Article under review' : 'Page not found');
+  const title = routeTitles[pathname] ?? (pathname.startsWith('/review/') ? 'Design review' : pathname.startsWith('/admin') ? 'Admin' : pathname.startsWith('/sign/') ? 'Contract signing' : pathname.startsWith('/case-studies/') ? 'Case studies under review' : pathname.startsWith('/blog/') ? 'Article under review' : 'Page not found');
   const description = routeDescription(pathname);
   const privateRoute = /^\/(admin|sign|review)(\/|$)/.test(pathname);
   return <Helmet>

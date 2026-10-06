@@ -1,3 +1,5 @@
+> **Current candidate:** See [release addendum](RELEASE.md) and [approval sheet](APPROVAL.md). They supersede deployment, proof and performance statements below.
+
 # Website-only release review — 2026-10-06
 
 This candidate preserves the approved design and public implementation from local `ce8e9d99bdccf9547a4059dd3b151be21438ff3b`. Intake and analytics are disabled. It is a review candidate, not a production release or activation approval.

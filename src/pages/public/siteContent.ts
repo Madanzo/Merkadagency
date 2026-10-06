@@ -14,4 +14,3 @@ export const detailPages: Record<string, {title:string;intro:string;status:strin
 };
 export const serviceLinks:[string,string][]=[['AI lead capture & assistance','/services/ai-lead-capture'],['CRM integration','/services/crm-automation'],['SEO & content','/services/seo-content'],['Paid advertising','/services/paid-advertising']];
 export const industryLinks:[string,string][]=[['Medical spas','/industries/medspas'],['Cannabis','/industries/cannabis'],['Construction','/industries/construction'],['E-commerce','/industries/ecommerce']];
-export const caseLinks:[string,string][]=[['Kravings case study','/case-studies/kravings'],['Teonanacatl case study','/case-studies/teonanacatl'],['Grid N Guard case study','/case-studies/gridnguard']];

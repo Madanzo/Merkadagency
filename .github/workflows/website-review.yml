@@ -2,7 +2,7 @@ name: Website review checks
 on:
   pull_request:
   push:
-    branches: [codex/website-release-review]
+    branches: [main, codex/website-release-review]
 permissions:
   contents: read
 jobs:

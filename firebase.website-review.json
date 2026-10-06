@@ -91,6 +91,10 @@
           }
         ]
       }
+    ],
+    "site": "merkadagency-dd2aa",
+    "predeploy": [
+      "npm run verify:website"
     ]
   }
 }

@@ -48,7 +48,7 @@ const App = () => {
             <Route path="/" element={<Index/>}/>
             {Object.keys(detailPages).map(path=><Route key={path} path={path} element={<PublicDetail/>}/>)}
             {['/services','/industries'].map(path=><Route key={path} path={path} element={<PublicHub/>}/>)}
-            {['/results','/portfolio','/case-studies','/case-studies/kravings','/case-studies/teonanacatl','/case-studies/gridnguard'].map(path=><Route key={path} path={path} element={<EvidencePage/>}/>)}
+            {['/results','/portfolio','/case-studies','/case-studies/*'].map(path=><Route key={path} path={path} element={<EvidencePage/>}/>)}
             <Route path="/contact" element={<ContactPage/>}/>
             <Route path="/resources/free-audit" element={<ContactPage requestType="audit"/>}/>
             <Route path="/resources/roi-calculator" element={<ROICalculator/>}/>
