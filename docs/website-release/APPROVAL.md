@@ -18,30 +18,30 @@ Camilo’s proposed offer:
 
 Do not publish this offer until the following terms are approved and the CRM capability is confirmed. Current public copy promises no immediate CRM access.
 
-Recommendations for owner review, **not adopted terms**:
+Confirmed by Camilo:
 
-1. **Start:** start the twelve months when the website is active and usable CRM access has actually been provisioned and confirmed to the customer, whichever occurs later. Do not consume the free year while access is unavailable. Define “website remains active with us,” including hosting, billing, suspension and cancellation treatment.
-2. **Included access:** specify an explicit plan and feature list, seats, limits, support, onboarding and any third-party/usage charges in the website agreement. Include only deployed, verified capabilities. Do not imply bespoke integrations, AI, messaging or payments are included unless separately confirmed. No feature list or price is invented here.
-3. **After the year:** recommend no automatic paid renewal. Present a separately approved continuation offer before expiry; continuation requires affirmative agreement. Define expiry access, export, retention/deletion and notification timing before publishing. No future price or deadline is assumed.
+1. The free year starts only when BOTH the website is active with MerkadAgency and usable CRM access has been provisioned and confirmed. The year must not run while CRM access is unavailable, including later unavailability; the tracking and extension process still requires operational verification.
+2. Eligibility requires the website to remain active with MerkadAgency.
+3. No automatic paid renewal. Paid continuation requires the customer’s affirmative agreement.
 
-Suggested qualification to accompany the final offer once terms are approved:
+Remaining concrete proposal, **not approved or advertised terms**:
 
-> CRM access begins only after activation is confirmed. Included access, eligibility and what happens after the first year are defined in your project agreement.
+| Item | Recommendation | Evidence/decision still required |
+|---|---|---|
+| Included features | Offer a narrowly defined customer record and inquiry workspace only after customer access, permitted record operations and isolation are demonstrated. Exclude custom integrations, AI, outbound messaging, payments and revenue attribution from the initial inclusion. | Existing website intake tests are not evidence of a customer-ready CRM plan. CRM owner must identify the exact deployed, customer-accessible functions before any list is promised. |
+| Seats | Propose one named customer user initially; additional seats by separately agreed scope. No shared logins. | A proposed commercial boundary, not a claim of supported licensing or provisioned access. CRM owner must verify customer role, invitation, revocation and isolation before adopting it. |
+| Usage limits | Do not say “unlimited.” Attach a written schedule of verified record/storage/attachment/API limits to the project agreement; no metered or third-party charges without affirmative agreement. | No tested numeric customer-plan capacity is currently established in this website evidence. Numeric limits must come from verified CRM capacity and owner approval, not an invented quota. |
+| Active website service | Define as the customer’s website published and maintained under an ongoing MerkadAgency website-service agreement, not cancelled or terminated. A MerkadAgency-caused outage should not by itself remove eligibility. | Owner must approve billing/grace/suspension treatment and what services the agreement includes. Do not silently equate a temporary outage with cancellation. |
+| Free-year accounting | Record the confirmed start and periods without usable CRM access; extend the end date by unavailable time. | CRM/operations owner must verify how outages are recorded and extensions applied; automated subscription-clock support is not established. |
+| Expiry and export | Send an expiry notice and offer an export before access ends. If no paid continuation is agreed, end CRM access without charging. Recommend an owner-assisted export of the customer’s permitted records if a verified self-service export does not exist. | Validate a tenant-safe export, included fields/formats and who performs it. Approve notice/export-request windows and retention/deletion timing before promotion publication; no deadlines or automatic deletion capability are invented. |
 
-This qualification does not resolve the missing terms and is not a substitute for confirming activation.
+The promotion remains withheld from public offer copy. Confirm readiness and approve the remaining plan/eligibility/expiry details before publishing. The confirmed start/renewal decisions do not activate CRM.
 
-## Calendar presentation — owner action still needed before publication
+## Contact and scheduling — confirmed
 
-Selected destination: https://cal.com/camilo-reyna-brqluz/canvas-advertising-strategy-meeting
+Use `camiloreyna@merkadagency.com` as the current contact path. The mismatched calendar, its warning and all scheduler links/widgets are removed from the public experience. Existing `/book` inbound links now show an email-only contact page. No calendar account was modified and no booking was made.
 
-Read-only visible check on 8 October: title **“Canvas Advertising Strategy Meeting”**, host **Camilo Reyna**, **1h**, **Cal Video**. No descriptive paragraph was visible. The page displayed no availability in October/November at the time observed; this is not a permanent availability claim. No booking or calendar-account change was made.
-
-This creates brand confusion. The website now uses the selected link and explicitly warns that it is currently labeled Canvas Advertising. Recommended calendar wording for Camilo to approve and apply through the calendar owner:
-
-- Title: **“MerkadAgency website project conversation”**.
-- Description: **“Discuss your website goals, page needs and project scope with Camilo Reyna. MerkadAgency currently offers website development. This meeting does not confirm a project, price or CRM activation.”**
-
-Before publication, either align the calendar presentation, explicitly approve the disclosed shared-calendar presentation, or omit scheduling and use the approved email fallback. Do not modify the calendar account without authorization.
+Scheduling can return only after MerkadAgency branding and actual availability are verified. Previous calendar observations and screenshots are historical evidence, not current public content or approval to restore it.
 
 ## Testing decisions still open
 

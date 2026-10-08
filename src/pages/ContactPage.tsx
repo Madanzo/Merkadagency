@@ -97,19 +97,10 @@ export function ContactPage({ requestType = 'contact' }: { requestType?: 'contac
                 Tell us what is getting lost between your website, inquiries and tools. We will use your request to discuss fit and scope. Do not include passwords, customer records or sensitive business data.
               </p>
 
-              {/* Primary CTA */}
               <div className="mt-10 p-6 bg-merkad-bg-tertiary rounded-xl border border-merkad-purple/20">
-                <h2 className="text-lg font-semibold text-white">Ready to book a call?</h2>
-                <p className="text-merkad-text-secondary text-sm mt-2">
-                  View the external calendar to check available appointments. Booking is confirmed by the calendar provider.
-                </p>
-                <Link
-                  to="/book"
-                  className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-gradient-purple text-white font-semibold rounded-lg shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 transition-all duration-300 btn-arrow"
-                >
-                  Book Discovery Call
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
+                <h2 className="text-lg font-semibold text-white">Discuss your website</h2>
+                <p className="text-merkad-text-secondary text-sm mt-2">Email Camilo Reyna about your website project. Your email app will open; you choose whether to send.</p>
+                <a href="mailto:camiloreyna@merkadagency.com" className="public-button mt-4">Email Camilo Reyna <ArrowRight className="w-5 h-5" aria-hidden="true" /></a>
               </div>
 
               <aside className="mt-8 text-sm text-merkad-text-secondary" aria-label="Other services">

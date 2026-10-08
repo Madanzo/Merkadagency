@@ -1,3 +1,5 @@
+> **Latest owner decision:** Email-only contact; calendar removed. CRM start/eligibility/no-auto-renewal terms confirmed; plan scope and readiness remain pending. See [approval sheet](APPROVAL.md) and [current checks](email-only/RESULTS.md). Prior scheduling proposals below are historical.
+
 > **8 October update:** Camilo Reyna now owns privacy requests, monitoring and rollback decisions. Website development is the only current offer. See APPROVAL.md for the unpublished CRM promotion and remaining calendar/testing decisions. Earlier proposed-owner statements below are superseded; rollback and exact-main-SHA limitations still apply.
 
 # Website-only release candidate — 6 October 2026

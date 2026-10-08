@@ -1,3 +1,5 @@
+> **Latest owner decision:** Email-only contact; calendar removed. CRM start/eligibility/no-auto-renewal terms confirmed; plan scope and readiness remain pending. See [approval sheet](APPROVAL.md) and [current checks](email-only/RESULTS.md). Prior scheduling proposals below are historical.
+
 > **8 October owner update:** [Current decisions and promotion draft](APPROVAL.md); [phone review](PHONE-REVIEW.md). Earlier availability and proposed-owner wording below is historical.
 
 > **Current candidate:** See [release addendum](RELEASE.md) and [approval sheet](APPROVAL.md). They supersede deployment, proof and performance statements below.
