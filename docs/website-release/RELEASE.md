@@ -1,3 +1,5 @@
+> **8 October update:** Camilo Reyna now owns privacy requests, monitoring and rollback decisions. Website development is the only current offer. See APPROVAL.md for the unpublished CRM promotion and remaining calendar/testing decisions. Earlier proposed-owner statements below are superseded; rollback and exact-main-SHA limitations still apply.
+
 # Website-only release candidate — 6 October 2026
 
 This addendum supersedes the older README's automatic deployment description, named proof review-state assumption and unthrottled performance scope. No deployment, merge or activation has been performed. CAM-265/266 remain In Review.

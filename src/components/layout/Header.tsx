@@ -9,10 +9,7 @@ const navigation = [
     name: 'Services',
     href: '/services',
     children: [
-      { name: 'AI Lead Capture', href: '/services/ai-lead-capture' },
-      { name: 'CRM integration', href: '/services/crm-automation' },
-      { name: 'SEO & Content', href: '/services/seo-content' },
-      { name: 'Paid Advertising', href: '/services/paid-advertising' },
+      { name: 'Website development', href: '/services/website-development' },
     ],
   },
   {

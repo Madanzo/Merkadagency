@@ -1,8 +1,8 @@
 {
   "/": "Your business. Connected by design.",
-  "/services": "Websites, CRM integration & AI assistance",
-  "/services/ai-lead-capture": "AI lead capture & assistance",
-  "/services/crm-automation": "CRM integration",
+  "/services": "Website development",
+  "/services/ai-lead-capture": "Current website services",
+  "/services/crm-automation": "CRM service availability",
   "/services/seo-content": "SEO & content",
   "/services/paid-advertising": "Paid advertising",
   "/industries": "Industries",
@@ -25,5 +25,6 @@
   "/contact": "Request a systems review",
   "/blog": "Ideas and articles",
   "/legal/privacy": "Privacy policy",
-  "/legal/terms": "Terms of service"
+  "/legal/terms": "Terms of service",
+  "/services/website-development": "Website development"
 }

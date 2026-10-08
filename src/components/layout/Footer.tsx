@@ -4,10 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const footerLinks = {
   services: [
-    { name: 'AI Lead Capture', href: '/services/ai-lead-capture' },
-    { name: 'CRM integration', href: '/services/crm-automation' },
-    { name: 'SEO & Content', href: '/services/seo-content' },
-    { name: 'Paid Advertising', href: '/services/paid-advertising' },
+    { name: 'Website development', href: '/services/website-development' },
   ],
   industries: [
     { name: 'Medical Spas', href: '/industries/medspas' },
@@ -93,7 +90,7 @@ export function Footer() {
               />
             </Link>
             <p className="mt-4 text-merkad-text-secondary max-w-sm">
-              Websites, lead operations and CRM integration with human-reviewed AI assistance.
+              Website design and development around your customers and your business.
             </p>
             <div className="mt-6 flex gap-4">
               {footerLinks.social.map((social) => (

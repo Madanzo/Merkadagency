@@ -16,7 +16,7 @@ export default function BookPage() {
               Book Your Discovery Call
             </h1>
             <p className="text-merkad-text-secondary mt-6 text-lg">
-              Talk through your website, CRM and the work your team needs help with. Available meeting lengths are shown in the calendar.
+              Talk through your website project with Camilo Reyna. The selected external calendar currently displays “Canvas Advertising Strategy Meeting.”
             </p>
 
             {/* What to Expect */}
@@ -44,11 +44,12 @@ export default function BookPage() {
               </div>
             </div>
 
+            <p className="public-review-note mt-8">This is Camilo’s selected calendar, currently labeled Canvas Advertising. Opening it does not submit a MerkadAgency inquiry or confirm a booking. You can also email camiloreyna@merkadagency.com about your website.</p>
             {/* Calendar Embed */}
             <div className="mt-12 card-gradient-border">
               <div className="card-gradient-border-inner p-2">
                 <CalendarEmbed
-                  calLink="camilo-reyna-ny2tuw/merkadagency"
+                  calLink="camilo-reyna-brqluz/canvas-advertising-strategy-meeting"
                   className="min-h-[500px]"
                 />
               </div>

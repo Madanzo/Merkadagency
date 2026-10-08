@@ -15,8 +15,8 @@ describe('launch indexing and navigation safety', () => {
       expect(isIndexableRoute(path)).toBe(false);
       expect(sitemap).not.toContain(`<loc>https://merkadagency.com${path}</loc>`);
     }
-    expect(isIndexableRoute('/services/crm-automation/')).toBe(true);
-    expect(sitemap).toContain('<loc>https://merkadagency.com/services/crm-automation</loc>');
+    expect(isIndexableRoute('/services/website-development/')).toBe(true);
+    expect(sitemap).toContain('<loc>https://merkadagency.com/services/website-development</loc>');
   });
   it('handles malformed encoded anchors without throwing and preserves valid anchors', () => {
     expect(fragmentTarget('#%E0%A4%A')).toBe('%E0%A4%A');

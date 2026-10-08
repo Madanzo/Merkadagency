@@ -1,3 +1,5 @@
+> **8 October owner update:** [Current decisions and promotion draft](APPROVAL.md); [phone review](PHONE-REVIEW.md). Earlier availability and proposed-owner wording below is historical.
+
 > **Current candidate:** See [release addendum](RELEASE.md) and [approval sheet](APPROVAL.md). They supersede deployment, proof and performance statements below.
 
 # Website-only release review — 2026-10-06
