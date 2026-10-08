@@ -1,30 +1,4 @@
-import { Layout } from "@/components/layout/Layout";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { SocialProofBar } from "@/components/sections/SocialProofBar";
-import { IndustriesSection } from "@/components/sections/IndustriesSection";
-import { ProblemSection } from "@/components/sections/ProblemSection";
-import { SolutionSection } from "@/components/sections/SolutionSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
-import { ProcessSection } from "@/components/sections/ProcessSection";
-import { FAQSection } from "@/components/sections/FAQSection";
-import { CTASection } from "@/components/sections/CTASection";
-
-const Index = () => {
-  return (
-    <Layout>
-      <HeroSection />
-      <SocialProofBar />
-      <IndustriesSection />
-      <ProblemSection />
-      <SolutionSection />
-      <ServicesSection />
-      <CaseStudiesSection />
-      <ProcessSection />
-      <FAQSection />
-      <CTASection />
-    </Layout>
-  );
-};
-
-export default Index;
+import { SystemsReviewLink } from '@/components/brand/SystemsReviewLink';
+import { Layout } from '@/components/layout/Layout';
+import { ApprovedHomeContent } from './concepts/ApprovedHomeContent';
+export default function Index(){return <Layout className="art-concept art-precision art-customer"><ApprovedHomeContent/><section className="container-custom public-home-continuation"><p className="public-caption">Website development · Planning & design</p><h2>Fewer loose ends.</h2><p>Make it clear where each inquiry goes, who follows up and what needs attention.</p><aside className="public-review-note"><strong>Looking ahead</strong><p>Our current offer is website development. CRM access is being prepared for a possible website promotion; its terms and activation are not yet confirmed. No immediate access is promised.</p></aside><h2>Start small. Make it useful.</h2><div className="public-detail-sections">{[['Talk it through','Show us your tools and where the process gets frustrating.'],['Make a plan','Agree what we’ll build, who owns it and how we’ll know it works.'],['Build and test','Check the forms, permissions and what happens when something goes wrong.'],['Make it yours','Get clear instructions, responsibilities and an agreed support plan.']].map(([title,text])=><section key={title}><h3>{title}</h3><p>{text}</p></section>)}</div><h2>What’s slowing your team down?</h2><p>Tell us about your website, your tools and the work that keeps getting in the way. We’ll talk through whether a systems review is a good fit.</p><SystemsReviewLink/></section></Layout>}
