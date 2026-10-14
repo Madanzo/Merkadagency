@@ -1,0 +1,349 @@
+{
+  "baselineSha": "7e5e01a6d9c3b6a5df04c6d0e50767ddbddea696",
+  "source": "baseline plus reviewed reflow and responsive artwork fixes; final commit recorded in acceptance report",
+  "method": "fresh browser context per route; cache cleared before navigation in a fresh context; normal within-page preload reuse enabled; 390x844 touch/mobile DPR1; 4x CPU; 150ms latency; 200000 bytes/sec down; 93750 bytes/sec up; all origin requests shaped; local Vite static preview, not Firebase/field CWV",
+  "results": [
+    {
+      "route": "/",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.7827.55 Safari/537.36",
+      "lcp": 3108,
+      "cls": 0.015795130252922996,
+      "element": "IMG.system-artwork",
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 832
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 3108
+        }
+      ],
+      "resources": [
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "transfer": 1462,
+          "decoded": 25772,
+          "duration": 330.7999999523163
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "transfer": 120536,
+          "decoded": 372751,
+          "duration": 1522.8999998569489
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "transfer": 27817,
+          "decoded": 155198,
+          "duration": 584
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/folded-glass-artwork-480-CPuK1WK8.webp",
+          "transfer": 174922,
+          "decoded": 174622,
+          "duration": 1787.1000001430511
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "transfer": 0,
+          "decoded": 0,
+          "duration": 2212.4000000953674
+        }
+      ],
+      "art": [
+        {
+          "priority": "high",
+          "complete": true,
+          "natural": 290
+        }
+      ],
+      "failedImages": []
+    },
+    {
+      "route": "/contact",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.7827.55 Safari/537.36",
+      "lcp": 1676,
+      "cls": 0.0005069722931097338,
+      "element": "P.text-merkad-text-secondary mt-6 text-lg",
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 668
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 1408
+        }
+      ],
+      "resources": [
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "transfer": 1462,
+          "decoded": 25772,
+          "duration": 263
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "transfer": 120536,
+          "decoded": 372751,
+          "duration": 915.3000001907349
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "transfer": 27817,
+          "decoded": 155198,
+          "duration": 448.09999990463257
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "transfer": 5290,
+          "decoded": 14658,
+          "duration": 187.5
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "transfer": 981,
+          "decoded": 681,
+          "duration": 164
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "transfer": 0,
+          "decoded": 0,
+          "duration": 2066.800000190735
+        }
+      ],
+      "art": [],
+      "failedImages": []
+    },
+    {
+      "route": "/",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.7827.55 Safari/537.36",
+      "lcp": 2384,
+      "cls": 0.015795130252922996,
+      "element": "IMG.system-artwork",
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 868
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 2384
+        }
+      ],
+      "resources": [
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "transfer": 1462,
+          "decoded": 25772,
+          "duration": 288.7000000476837
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "transfer": 120536,
+          "decoded": 372751,
+          "duration": 1509.9000000953674
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "transfer": 27817,
+          "decoded": 155198,
+          "duration": 571.8999998569489
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/folded-glass-artwork-480-CPuK1WK8.webp",
+          "transfer": 174922,
+          "decoded": 174622,
+          "duration": 1771.5
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "transfer": 0,
+          "decoded": 0,
+          "duration": 2216.0999999046326
+        }
+      ],
+      "art": [
+        {
+          "priority": "high",
+          "complete": true,
+          "natural": 290
+        }
+      ],
+      "failedImages": []
+    },
+    {
+      "route": "/contact",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.7827.55 Safari/537.36",
+      "lcp": 1856,
+      "cls": 0.0005069722931097338,
+      "element": "P.text-merkad-text-secondary mt-6 text-lg",
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 672
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 1496
+        }
+      ],
+      "resources": [
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "transfer": 1462,
+          "decoded": 25772,
+          "duration": 285.90000009536743
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "transfer": 120536,
+          "decoded": 372751,
+          "duration": 916.7000000476837
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "transfer": 27817,
+          "decoded": 155198,
+          "duration": 446.7000000476837
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "transfer": 5290,
+          "decoded": 14658,
+          "duration": 195.29999995231628
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "transfer": 981,
+          "decoded": 681,
+          "duration": 167.89999985694885
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "transfer": 0,
+          "decoded": 0,
+          "duration": 2068.300000190735
+        }
+      ],
+      "art": [],
+      "failedImages": []
+    },
+    {
+      "route": "/",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.7827.55 Safari/537.36",
+      "lcp": 2516,
+      "cls": 0.015795130252922996,
+      "element": "IMG.system-artwork",
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 808
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 2516
+        }
+      ],
+      "resources": [
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "transfer": 1462,
+          "decoded": 25772,
+          "duration": 324.7000000476837
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "transfer": 120536,
+          "decoded": 372751,
+          "duration": 1525.4000000953674
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "transfer": 27817,
+          "decoded": 155198,
+          "duration": 584.7999999523163
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/folded-glass-artwork-480-CPuK1WK8.webp",
+          "transfer": 174922,
+          "decoded": 174622,
+          "duration": 1791.5
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "transfer": 0,
+          "decoded": 0,
+          "duration": 2208.800000190735
+        }
+      ],
+      "art": [
+        {
+          "priority": "high",
+          "complete": true,
+          "natural": 290
+        }
+      ],
+      "failedImages": []
+    },
+    {
+      "route": "/contact",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.7827.55 Safari/537.36",
+      "lcp": 1672,
+      "cls": 0.0005069722931097338,
+      "element": "P.text-merkad-text-secondary mt-6 text-lg",
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 664
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 1380
+        }
+      ],
+      "resources": [
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "transfer": 1462,
+          "decoded": 25772,
+          "duration": 274.90000009536743
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "transfer": 120536,
+          "decoded": 372751,
+          "duration": 916.4000000953674
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "transfer": 27817,
+          "decoded": 155198,
+          "duration": 442.7000000476837
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "transfer": 5290,
+          "decoded": 14658,
+          "duration": 193.10000014305115
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "transfer": 981,
+          "decoded": 681,
+          "duration": 162.59999990463257
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "transfer": 0,
+          "decoded": 0,
+          "duration": 2050.199999809265
+        }
+      ],
+      "art": [],
+      "failedImages": []
+    }
+  ]
+}

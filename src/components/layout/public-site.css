@@ -7,3 +7,6 @@
 .public-directory .service-graphic{width:100%;height:auto}.public-filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.public-filters button{padding:10px 16px;min-height:44px;border:1px solid #494051;border-radius:6px;color:#d5c8e1}.public-filters button[aria-pressed=true]{background:#292033;border-color:#b48adf}
 
 .mobile-navigation a { min-height: 44px; display: flex; align-items: center; }
+
+/* Long contact addresses must reflow when visitors enlarge text. */
+.public-site a[href^="mailto:"], .public-site footer :is(a,h2) { overflow-wrap: anywhere; }

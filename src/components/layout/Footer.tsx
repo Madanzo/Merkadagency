@@ -92,7 +92,7 @@ export function Footer() {
             <p className="mt-4 text-merkad-text-secondary max-w-sm">
               Website design and development around your customers and your business.
             </p>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-6 flex flex-wrap gap-4">
               {footerLinks.social.map((social) => (
                 <a
                   key={social.name}

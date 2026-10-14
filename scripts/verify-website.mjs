@@ -2,6 +2,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 const walk = dir => readdirSync(dir).flatMap(name => { const path = `${dir}/${name}`; return statSync(path).isDirectory() ? walk(path) : [path]; });
 const files = walk('dist');
+if (readFileSync('dist/index.html', 'utf8').includes('/src/')) throw new Error('Unresolved source path in release HTML');
 const marker = JSON.parse(readFileSync('dist/website-release.json', 'utf8'));
 if (marker.intake !== false || marker.analytics !== false) throw new Error('Activation gates must be OFF');
 const forbidden = /https?:\/\/(?:app\.)?cal\.com|canvas-advertising-strategy-meeting|turnstile\/v0|contact-intake\/config|googletagmanager|clarity\.ms|google-analytics\.com|Kravings|Teonanacatl|Grid N Guard/i;

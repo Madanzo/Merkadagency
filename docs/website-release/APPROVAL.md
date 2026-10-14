@@ -43,9 +43,11 @@ Use `camiloreyna@merkadagency.com` as the current contact path. The mismatched c
 
 Scheduling can return only after MerkadAgency branding and actual availability are verified. Previous calendar observations and screenshots are historical evidence, not current public content or approval to restore it.
 
-## Testing decisions still open
+## Current informational release acceptance
 
-Acknowledging this checklist does not accept all gaps. Record actual results by device/browser or explicitly accept each remaining limitation: Firefox; WebKit; physical iOS Safari/Android Chrome including touch and rotation; VoiceOver/NVDA/JAWS; actual OS reduced-motion preference; full CPU/network-throttled mobile coverage; browser text-only zoom. Follow PHONE-REVIEW.md. Earlier isolated and browser evidence remains evidence for its tested scope only.
+See [14 October acceptance and coverage](ACCEPTANCE-2026-10-14.md). Chromium/Firefox coverage, real browser reduced-motion emulation, enlarged-text reflow and cold CPU/network measurements are now recorded. Physical iOS/Android checks, screen readers, actual OS preference, native text-only zoom and WebKit/Safari remain specifically unverified. Acknowledgment does not accept these limitations.
+
+The unapproved one-user/restricted-package proposals and future CRM promotion do not block informational publication without the promotion. Only remaining owner review/coverage decisions and publication approval gate this release. The existing confirmed responsibilities stand.
 
 ## Unchanged release gates
 

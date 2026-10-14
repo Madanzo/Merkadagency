@@ -1,6 +1,9 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Pause, Play } from 'lucide-react';
 import sculpture from './assets/folded-glass-artwork.webp';
+import sculpture480 from './assets/folded-glass-artwork-480.webp';
+import sculpture640 from './assets/folded-glass-artwork-640.webp';
+import sculpture960 from './assets/folded-glass-artwork-960.webp';
 import './conceptual-system.css';
 
 const labels = ['Website', 'CRM', 'AI assistance', 'Human review'];
@@ -81,7 +84,7 @@ export function ConceptualSystem() {
   return <figure className="conceptual-system" aria-label="Conceptual system from website to CRM, AI assistance and human review">
     <figcaption>Conceptual system</figcaption>
     <div ref={composition} className="system-composition" data-step={step} data-selected={current} data-playing={playing} data-time={Math.round(time)} data-reduced={reduced}>
-      <img className="system-artwork" src={sculpture} {...{ fetchpriority: "high" }} decoding="async" alt="" width="1254" height="1254" />
+      <img className="system-artwork" src={sculpture} srcSet={`${sculpture480} 480w, ${sculpture640} 640w, ${sculpture960} 960w, ${sculpture} 1254w`} sizes="(max-width: 800px) calc(83vw - 33.2px), (max-width: 1100px) 42vw, 540px" {...{ fetchpriority: "high" }} decoding="async" alt="" width="1254" height="1254" />
       <div className="coordinate-grid" aria-hidden="true" />
       <svg className="system-connections" viewBox={`0 0 ${geometry.width} ${geometry.height}`} aria-hidden="true">
         {geometry.paths.map((path,index)=><g key={path}>

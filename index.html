@@ -23,6 +23,12 @@
 
   <!-- Optional measurement is blocked until approval/configuration and explicit consent. -->
 
+  <!-- Discover the existing hero artwork before the application module. -->
+  <link id="home-artwork-preload" rel="preload" media="not all" as="image" href="/src/pages/concepts/assets/folded-glass-artwork-480.webp"
+    imagesrcset="/src/pages/concepts/assets/folded-glass-artwork-480.webp 480w, /src/pages/concepts/assets/folded-glass-artwork-640.webp 640w, /src/pages/concepts/assets/folded-glass-artwork-960.webp 960w, /src/pages/concepts/assets/folded-glass-artwork.webp 1254w"
+    imagesizes="(max-width: 800px) calc(83vw - 33.2px), (max-width: 1100px) 42vw, 540px" fetchpriority="high">
+  <script>if (location.pathname === "/") document.getElementById("home-artwork-preload").media = "all";</script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

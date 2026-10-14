@@ -1,3 +1,5 @@
+> **Current acceptance:** [14 October report, coverage matrix, phone checklist and refreshed rollback](ACCEPTANCE-2026-10-14.md). This supersedes earlier untested-browser and proposed-owner notes.
+
 > **Latest owner decision:** Email-only contact; calendar removed. CRM start/eligibility/no-auto-renewal terms confirmed; plan scope and readiness remain pending. See [approval sheet](APPROVAL.md) and [current checks](email-only/RESULTS.md). Prior scheduling proposals below are historical.
 
 > **8 October owner update:** [Current decisions and promotion draft](APPROVAL.md); [phone review](PHONE-REVIEW.md). Earlier availability and proposed-owner wording below is historical.

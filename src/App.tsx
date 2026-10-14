@@ -8,7 +8,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { RouteMetadata } from './components/layout/RouteMetadata';
 const ProtectedRoute = lazy(() => import('./components/admin/ProtectedRoute').then(m=>({default:m.ProtectedRoute})));
 import { detailPages } from './pages/public/siteContent';
-const Index = lazy(() => import('./pages/Index'));
+// Render the primary landing page without a second JavaScript discovery round trip.
+import Index from './pages/Index';
 const ArtConcepts = import.meta.env.DEV ? lazy(() => import('./pages/concepts/ArtConcepts')) : null;
 const PublicDetail = lazy(() => import('./pages/public/PublicPages').then(m=>({default:m.PublicDetail})));
 const PublicHub = lazy(() => import('./pages/public/PublicPages').then(m=>({default:m.PublicHub})));
