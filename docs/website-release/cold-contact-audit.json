@@ -1,0 +1,128 @@
+{
+  "path": "/contact",
+  "paint": [
+    {
+      "name": "first-paint",
+      "ms": 612
+    },
+    {
+      "name": "first-contentful-paint",
+      "ms": 1216
+    }
+  ],
+  "navigation": [
+    {
+      "domContentLoaded": 1166.0999999046326,
+      "load": 1166.7999999523163
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://fonts.googleapis.com/css2",
+      "bytes": 0,
+      "decoded": 25772,
+      "duration": 90.89999997615814
+    },
+    {
+      "url": "http://localhost:8094/assets/index-ColxG9HR.css",
+      "bytes": 18282,
+      "decoded": 109407,
+      "duration": 358.8000000715256
+    },
+    {
+      "url": "http://localhost:8094/assets/index-DF-bRIUU.js",
+      "bytes": 112204,
+      "decoded": 345214,
+      "duration": 935.3000000715256
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+      "bytes": 0,
+      "decoded": 48432,
+      "duration": 0
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+      "bytes": 0,
+      "decoded": 31340,
+      "duration": 0
+    },
+    {
+      "url": "http://localhost:8094/assets/ContactPage-C9BUG983.js",
+      "bytes": 5379,
+      "decoded": 14871,
+      "duration": 184.70000004768372
+    },
+    {
+      "url": "http://localhost:8094/assets/Layout-CvygCk0O.js",
+      "bytes": 4842,
+      "decoded": 14142,
+      "duration": 239.5
+    },
+    {
+      "url": "http://localhost:8094/assets/Layout-DQJl9OIB.css",
+      "bytes": 2232,
+      "decoded": 6055,
+      "duration": 220.29999995231628
+    },
+    {
+      "url": "http://localhost:8094/assets/chevron-down-DvCTlunl.js",
+      "bytes": 546,
+      "decoded": 296,
+      "duration": 275.89999997615814
+    },
+    {
+      "url": "http://localhost:8094/assets/mail-DD3wZaoH.js",
+      "bytes": 660,
+      "decoded": 676,
+      "duration": 294.10000002384186
+    },
+    {
+      "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+      "bytes": 0,
+      "decoded": 0,
+      "duration": 179
+    }
+  ],
+  "scripts": [
+    "http://localhost:8094/assets/index-DF-bRIUU.js"
+  ],
+  "observed": {
+    "lcp": 1532,
+    "cls": 0.008422991397318119
+  },
+  "violations": [],
+  "incomplete": [
+    {
+      "id": "color-contrast",
+      "nodes": [
+        {
+          "target": [
+            ".mb-6"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "target": [
+            "p[role=\"status\"]"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "target": [
+            ".mt-5 > p"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "target": [
+            ".public-button"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        }
+      ]
+    }
+  ],
+  "passes": 24,
+  "method": "390x844 iframe; fresh localhost:8094 origin; no-store; gzip; shared first-party 200000 bytes/sec and 150ms per request; no CPU throttle; external fonts/logo not shaped and may be cached; single lab run, not field CWV"
+}

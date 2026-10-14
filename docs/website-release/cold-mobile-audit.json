@@ -1,0 +1,134 @@
+{
+  "path": "/",
+  "paint": [
+    {
+      "name": "first-paint",
+      "ms": 520
+    },
+    {
+      "name": "first-contentful-paint",
+      "ms": 1152
+    }
+  ],
+  "navigation": [
+    {
+      "domContentLoaded": 1091.3000000715256,
+      "load": 1091.7000000476837
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://fonts.googleapis.com/css2",
+      "bytes": 0,
+      "decoded": 25772,
+      "duration": 55.10000002384186
+    },
+    {
+      "url": "http://localhost:8094/assets/index-ColxG9HR.css",
+      "bytes": 18282,
+      "decoded": 109407,
+      "duration": 283.5
+    },
+    {
+      "url": "http://localhost:8094/assets/index-DF-bRIUU.js",
+      "bytes": 112204,
+      "decoded": 345214,
+      "duration": 879.5
+    },
+    {
+      "url": "http://localhost:8094/assets/Index-Crp-eyuz.js",
+      "bytes": 5101,
+      "decoded": 13202,
+      "duration": 164.39999997615814
+    },
+    {
+      "url": "http://localhost:8094/assets/SystemsReviewLink-DicpkI_s.js",
+      "bytes": 522,
+      "decoded": 257,
+      "duration": 159.20000004768372
+    },
+    {
+      "url": "http://localhost:8094/assets/Layout-DQJl9OIB.css",
+      "bytes": 2232,
+      "decoded": 6055,
+      "duration": 192.39999997615814
+    },
+    {
+      "url": "http://localhost:8094/assets/Layout-CvygCk0O.js",
+      "bytes": 4842,
+      "decoded": 14142,
+      "duration": 203.29999995231628
+    },
+    {
+      "url": "http://localhost:8094/assets/chevron-down-DvCTlunl.js",
+      "bytes": 546,
+      "decoded": 296,
+      "duration": 230.5
+    },
+    {
+      "url": "http://localhost:8094/assets/message-square-BoKd4Cov.js",
+      "bytes": 570,
+      "decoded": 342,
+      "duration": 228.5
+    },
+    {
+      "url": "http://localhost:8094/assets/ServiceGraphic-DIUMw6PJ.js",
+      "bytes": 898,
+      "decoded": 1551,
+      "duration": 370.90000009536743
+    },
+    {
+      "url": "http://localhost:8094/assets/Index-DWlbC1-v.css",
+      "bytes": 8601,
+      "decoded": 39687,
+      "duration": 365.7000000476837
+    },
+    {
+      "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+      "bytes": 0,
+      "decoded": 0,
+      "duration": 334.59999990463257
+    }
+  ],
+  "scripts": [
+    "http://localhost:8094/assets/index-DF-bRIUU.js"
+  ],
+  "observed": {
+    "lcp": 1572,
+    "cls": 0.008422991397318119
+  },
+  "violations": [],
+  "incomplete": [
+    {
+      "id": "color-contrast",
+      "nodes": [
+        {
+          "target": [
+            ".system-label-0"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "target": [
+            ".system-label-1"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "target": [
+            ".system-label-2"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "target": [
+            ".system-label-3"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        }
+      ]
+    }
+  ],
+  "passes": 27,
+  "method": "390x844 iframe; fresh localhost:8094 origin; no-store; gzip; shared first-party 200000 bytes/sec and 150ms per request; no CPU throttle; external fonts/logo not shaped and may be cached; single lab run, not field CWV"
+}

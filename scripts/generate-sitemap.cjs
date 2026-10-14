@@ -3,38 +3,11 @@ const path = require('path');
 
 const DOMAIN = 'https://merkadagency.com';
 
-const routes = [
-    '/',
-    '/services',
-    '/services/ai-lead-capture',
-    '/services/crm-automation',
-    '/services/seo-content',
-    '/services/paid-advertising',
-    '/industries',
-    '/industries/medspas',
-    '/industries/cannabis',
-    '/industries/construction',
-    '/industries/ecommerce',
-    '/results',
-    '/portfolio',
-    '/case-studies',
-    '/case-studies/kravings',
-    '/case-studies/teonanacatl',
-    '/case-studies/gridnguard',
-    '/resources/free-audit',
-    '/resources/roi-calculator',
-    '/resources/medspa-automation-checklist',
-    '/resources/cannabis-marketing-playbook',
-    '/resources/contractor-lead-gen-guide',
-    '/resources/ecommerce-automation-blueprint',
-    '/about',
-    '/about/method',
-    '/book',
-    '/contact',
-    '/blog',
-    '/legal/privacy',
-    '/legal/terms'
-];
+// Keep the route inventory shared with browser metadata. Review-only content
+// remains reachable, but is not advertised to search engines before approval.
+const titles = require('../src/pages/public/route-titles.json');
+const reviewOnlyRoutes = require('../src/pages/public/review-only-routes.json');
+const routes = Object.keys(titles).filter(route => !reviewOnlyRoutes.includes(route));
 
 const generateSitemap = () => {
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

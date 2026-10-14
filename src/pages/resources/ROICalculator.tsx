@@ -15,7 +15,7 @@ export function ROICalculator() {
   const currentClosedDeals = Math.round(inputs.monthlyLeads * (inputs.closeRate / 100));
   const currentRevenue = currentClosedDeals * inputs.avgTransaction;
 
-  // With MerkadFlow improvements (based on real data)
+  // Illustrative assumptions only; not measured agency outcomes.
   // Logic: Faster current response time (lower number) = Higher multiplier (Better)
   // Starts at ~1.6x (60% boost) for 1hr and decays to ~1.2x (20% boost) for 24hr
   const improvementMultiplier = 1.6 - (inputs.responseTime * 0.016);
@@ -39,13 +39,14 @@ export function ROICalculator() {
                 ROI Calculator
               </span>
               <h1 className="text-4xl lg:text-5xl font-display font-bold text-white mt-4">
-                Calculate Your Growth Potential
+                Explore a revenue scenario
               </h1>
               <p className="text-merkad-text-secondary mt-6 text-lg max-w-2xl mx-auto">
-                See how much revenue you could add by improving lead response and conversion with the MerkadFlow System™.
+                Adjust the inputs to explore a hypothetical scenario. This is not a forecast or a measured MerkadAgency result.
               </p>
             </div>
 
+            <p className="public-review-note">Model assumptions: 15% more leads; the close-rate multiplier is 1.6 minus 0.016 × response hours, capped at an 80% close rate. These assumptions are illustrative and have not been validated for your business. Costs are excluded, so this is not a return-on-investment calculation.</p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Input Form */}
               <div className="card-gradient-border">
@@ -62,6 +63,7 @@ export function ROICalculator() {
                         type="range"
                         min="10"
                         max="500"
+                        aria-label="Monthly leads"
                         value={inputs.monthlyLeads}
                         onChange={(e) => setInputs({ ...inputs, monthlyLeads: Number(e.target.value) })}
                         className="w-full accent-merkad-purple"
@@ -82,6 +84,7 @@ export function ROICalculator() {
                         type="range"
                         min="5"
                         max="50"
+                        aria-label="Close rate percent"
                         value={inputs.closeRate}
                         onChange={(e) => setInputs({ ...inputs, closeRate: Number(e.target.value) })}
                         className="w-full accent-merkad-purple"
@@ -103,6 +106,7 @@ export function ROICalculator() {
                         min="100"
                         max="5000"
                         step="100"
+                        aria-label="Average transaction value"
                         value={inputs.avgTransaction}
                         onChange={(e) => setInputs({ ...inputs, avgTransaction: Number(e.target.value) })}
                         className="w-full accent-merkad-purple"
@@ -123,6 +127,7 @@ export function ROICalculator() {
                         type="range"
                         min="1"
                         max="24"
+                        aria-label="Current response time in hours"
                         value={inputs.responseTime}
                         onChange={(e) => setInputs({ ...inputs, responseTime: Number(e.target.value) })}
                         className="w-full accent-merkad-purple"
@@ -155,7 +160,7 @@ export function ROICalculator() {
                   <div className="stats-card">
                     <div className="stats-card-inner">
                       <h4 className="text-sm font-mono text-merkad-text-muted uppercase tracking-wider mb-4">
-                        Projected With MerkadFlow
+                        Illustrative scenario
                       </h4>
                       <div className="text-4xl font-mono font-bold text-merkad-green text-glow">
                         ${projectedRevenue.toLocaleString()}
@@ -170,7 +175,7 @@ export function ROICalculator() {
                   <div className="bg-merkad-bg-tertiary rounded-xl p-6 border border-merkad-purple/30">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <div className="text-sm text-merkad-text-muted mb-1">Monthly Increase</div>
+                        <div className="text-sm text-merkad-text-muted mb-1">Scenario difference</div>
                         <div className="text-2xl font-mono font-bold text-merkad-green">
                           +${revenueIncrease.toLocaleString()}
                         </div>
@@ -187,7 +192,7 @@ export function ROICalculator() {
                   {/* CTA */}
                   <div className="text-center pt-4">
                     <p className="text-merkad-text-secondary mb-4">
-                      Ready to unlock this growth?
+                      Want to discuss the assumptions for your business?
                     </p>
                     <Link
                       to="/book"

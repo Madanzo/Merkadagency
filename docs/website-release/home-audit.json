@@ -1,0 +1,157 @@
+{
+  "path": "/",
+  "paint": [
+    {
+      "name": "first-paint",
+      "ms": 196
+    },
+    {
+      "name": "first-contentful-paint",
+      "ms": 196
+    }
+  ],
+  "navigation": [
+    {
+      "domContentLoaded": 144,
+      "load": 145.20000004768372
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://fonts.googleapis.com/css2",
+      "bytes": 1462,
+      "decoded": 25772,
+      "duration": 102.70000004768372
+    },
+    {
+      "url": "http://localhost:8092/assets/index-ColxG9HR.css",
+      "bytes": 300,
+      "decoded": 109407,
+      "duration": 14.699999928474426
+    },
+    {
+      "url": "http://localhost:8092/assets/index-DfCGV8YB.js",
+      "bytes": 300,
+      "decoded": 345720,
+      "duration": 20.199999928474426
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+      "bytes": 0,
+      "decoded": 48432,
+      "duration": 0
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+      "bytes": 0,
+      "decoded": 31340,
+      "duration": 0
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxm2BL9G78HEY.woff2",
+      "bytes": 0,
+      "decoded": 34560,
+      "duration": 0
+    },
+    {
+      "url": "http://localhost:8092/assets/Index-C-jskbVu.js",
+      "bytes": 300,
+      "decoded": 13202,
+      "duration": 25.300000071525574
+    },
+    {
+      "url": "http://localhost:8092/assets/SystemsReviewLink-QLPOL2Fo.js",
+      "bytes": 300,
+      "decoded": 257,
+      "duration": 27.5
+    },
+    {
+      "url": "http://localhost:8092/assets/Layout-DglvyvxP.js",
+      "bytes": 300,
+      "decoded": 14142,
+      "duration": 29.100000023841858
+    },
+    {
+      "url": "http://localhost:8092/assets/chevron-down-Bvv0EPfG.js",
+      "bytes": 300,
+      "decoded": 296,
+      "duration": 30.5
+    },
+    {
+      "url": "http://localhost:8092/assets/Layout-DQJl9OIB.css",
+      "bytes": 300,
+      "decoded": 6055,
+      "duration": 12.299999952316284
+    },
+    {
+      "url": "http://localhost:8092/assets/message-square-6keoYETo.js",
+      "bytes": 300,
+      "decoded": 347,
+      "duration": 16.700000047683716
+    },
+    {
+      "url": "http://localhost:8092/assets/ServiceGraphic-5GIl0NCb.js",
+      "bytes": 300,
+      "decoded": 1551,
+      "duration": 22.700000047683716
+    },
+    {
+      "url": "http://localhost:8092/assets/Index-DWlbC1-v.css",
+      "bytes": 300,
+      "decoded": 39687,
+      "duration": 13.600000023841858
+    },
+    {
+      "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+      "bytes": 0,
+      "decoded": 0,
+      "duration": 287.6999999284744
+    },
+    {
+      "url": "http://localhost:8092/assets/folded-glass-artwork-Cu351Su9.webp",
+      "bytes": 300,
+      "decoded": 1104702,
+      "duration": 12
+    }
+  ],
+  "scripts": [
+    "http://localhost:8092/assets/index-DfCGV8YB.js"
+  ],
+  "observed": {
+    "lcp": 364,
+    "cls": 0.004166666666666667
+  },
+  "violations": [],
+  "incomplete": [
+    {
+      "id": "color-contrast",
+      "nodes": [
+        {
+          "target": [
+            ".system-label-0"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "target": [
+            ".system-label-1"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "target": [
+            ".system-label-2"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "target": [
+            ".system-label-3"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        }
+      ]
+    }
+  ],
+  "passes": 27
+}

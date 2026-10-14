@@ -1,114 +1,16 @@
 import { Layout } from '@/components/layout/Layout';
 
+/** Factual website notice. Contract, retention and jurisdiction decisions still require owner review. */
 export function PrivacyPage() {
-  return (
-    <Layout>
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-display font-bold text-white">
-              Privacy Policy
-            </h1>
-            <p className="text-merkad-text-muted mt-4">
-              Last updated: January 1, 2025
-            </p>
-
-            <div className="mt-12 prose prose-invert max-w-none">
-              <div className="space-y-8 text-merkad-text-secondary">
-                <section>
-                  <h2 className="text-2xl font-display font-bold text-white mb-4">1. Information We Collect</h2>
-                  <p>
-                    We collect information you provide directly to us, such as when you fill out a form, 
-                    request a consultation, or communicate with us. This may include:
-                  </p>
-                  <ul className="list-disc list-inside mt-3 space-y-2">
-                    <li>Name and contact information</li>
-                    <li>Business name and website</li>
-                    <li>Information about your business needs and challenges</li>
-                    <li>Any other information you choose to provide</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-display font-bold text-white mb-4">2. How We Use Your Information</h2>
-                  <p>
-                    We use the information we collect to:
-                  </p>
-                  <ul className="list-disc list-inside mt-3 space-y-2">
-                    <li>Provide, maintain, and improve our services</li>
-                    <li>Process and complete transactions</li>
-                    <li>Send you technical notices and support messages</li>
-                    <li>Respond to your comments, questions, and requests</li>
-                    <li>Communicate with you about products, services, and events</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-display font-bold text-white mb-4">3. Information Sharing</h2>
-                  <p>
-                    We do not sell, trade, or otherwise transfer your personally identifiable information 
-                    to outside parties. This does not include trusted third parties who assist us in 
-                    operating our website, conducting our business, or servicing you, so long as those 
-                    parties agree to keep this information confidential.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-display font-bold text-white mb-4">4. Data Security</h2>
-                  <p>
-                    We implement a variety of security measures to maintain the safety of your personal 
-                    information. Your personal information is contained behind secured networks and is 
-                    only accessible by a limited number of persons who have special access rights to 
-                    such systems.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-display font-bold text-white mb-4">5. Cookies</h2>
-                  <p>
-                    We use cookies to understand and save your preferences for future visits and compile 
-                    aggregate data about site traffic and site interaction so that we can offer better 
-                    site experiences and tools in the future.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-display font-bold text-white mb-4">6. Third-Party Links</h2>
-                  <p>
-                    Occasionally, at our discretion, we may include or offer third-party products or 
-                    services on our website. These third-party sites have separate and independent 
-                    privacy policies. We therefore have no responsibility or liability for the content 
-                    and activities of these linked sites.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-display font-bold text-white mb-4">7. Your Rights</h2>
-                  <p>
-                    You have the right to:
-                  </p>
-                  <ul className="list-disc list-inside mt-3 space-y-2">
-                    <li>Access the personal information we hold about you</li>
-                    <li>Request correction of inaccurate information</li>
-                    <li>Request deletion of your information</li>
-                    <li>Opt out of marketing communications</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-display font-bold text-white mb-4">8. Contact Us</h2>
-                  <p>
-                    If you have any questions about this Privacy Policy, please contact us at:
-                  </p>
-                  <p className="mt-3">
-                    <strong className="text-white">Email:</strong> privacy@merkadagency.com
-                  </p>
-                </section>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </Layout>
-  );
+  return <Layout><section className="public-editorial container-custom"><div className="max-w-3xl">
+    <h1>Website privacy</h1>
+    <p className="public-lead">This notice describes the public website and its inquiry options.</p>
+    <div className="public-detail-sections">
+      <section><h2>Contacting us</h2><p>Online inquiry forms are currently disabled. The email link opens your email app; you choose whether to send a message. Email delivery and handling occur outside this website. Please do not send passwords, medical details or customer records in an initial inquiry.</p></section>
+      <section><h2>Optional measurement</h2><p>This release does not activate Google Analytics, Firebase Analytics or Microsoft Clarity. Inquiry buttons and illustrative diagrams do not send analytics events to those providers.</p></section>
+      <section><h2>Website delivery and links</h2><p>The website uses Google Firebase hosting and image delivery, and Google Fonts. Those providers receive requests needed to deliver their resources. Canvas Advertising and Phantom Wraps &amp; Coatings are separate destinations with their own handling of information. Selecting an email or external link does not submit an inquiry through this website.</p></section>
+      <section><h2>Earlier pending inquiries</h2><p>If this browser tab has an earlier pending inquiry, its exact attempted details and retry reference may remain in session storage. Disabling intake does not cancel an inquiry already received. Browser session restoration can retain this data. Do not create a new inquiry to retry an uncertain result; contact us to check its status.</p></section>
+      <section><h2>Questions</h2><p>Camilo Reyna handles privacy requests received at <a className="underline" href="mailto:camiloreyna@merkadagency.com">camiloreyna@merkadagency.com</a>. No fixed retention period or response deadline is represented by this notice.</p></section>
+    </div>
+  </div></section></Layout>;
 }

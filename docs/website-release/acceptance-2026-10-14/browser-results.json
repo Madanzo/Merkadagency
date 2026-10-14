@@ -1,0 +1,1781 @@
+{
+  "baselineSha": "7e5e01a6d9c3b6a5df04c6d0e50767ddbddea696",
+  "source": "baseline plus reviewed reflow and artwork fixes; final commit recorded in acceptance report",
+  "engines": [
+    {
+      "name": "chromium",
+      "checks": [
+        {
+          "name": "/ automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/ route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/services/website-development automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/services/website-development route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/services/website-development does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "/contact automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/contact route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/contact does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "/contact email only",
+          "pass": true
+        },
+        {
+          "name": "/book automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/book route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/book does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "/book email only",
+          "pass": true
+        },
+        {
+          "name": "/portfolio automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/portfolio route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/portfolio does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "/legal/privacy automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/legal/privacy route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/legal/privacy does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "/legal/terms automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/legal/terms route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/legal/terms does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "keyboard skip focus",
+          "pass": true
+        },
+        {
+          "name": "desktop service menu keyboard destination",
+          "pass": true
+        },
+        {
+          "name": "menu expanded 320",
+          "pass": true
+        },
+        {
+          "name": "menu escape/focus 320",
+          "pass": true
+        },
+        {
+          "name": "contact reflow 320",
+          "pass": true
+        },
+        {
+          "name": "menu expanded 390",
+          "pass": true
+        },
+        {
+          "name": "menu escape/focus 390",
+          "pass": true
+        },
+        {
+          "name": "contact reflow 390",
+          "pass": true
+        },
+        {
+          "name": "menu expanded 844",
+          "pass": true
+        },
+        {
+          "name": "menu escape/focus 844",
+          "pass": true
+        },
+        {
+          "name": "contact reflow 844",
+          "pass": true
+        },
+        {
+          "name": "reduced motion in browser",
+          "pass": true
+        },
+        {
+          "name": "reduced motion retains explanations",
+          "pass": true
+        },
+        {
+          "name": "200% root-font reflow at 390px",
+          "pass": true
+        },
+        {
+          "name": "legacy book deep refresh",
+          "pass": true
+        },
+        {
+          "name": "no analytics/intake/calendar traffic",
+          "pass": true
+        },
+        {
+          "name": "no mutations/messages",
+          "pass": true
+        },
+        {
+          "name": "no page exceptions",
+          "pass": true
+        },
+        {
+          "name": "no failed HTTP resources",
+          "pass": true
+        }
+      ],
+      "pages": [
+        {
+          "route": "/",
+          "title": "Your business. Connected by design. | MerkadAgency",
+          "h1": "Your business.Connected bydesign.",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [
+            "http://127.0.0.1:8095/assets/folded-glass-artwork-640-DzJ6kOZz.webp"
+          ],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": [
+                {
+                  "target": [
+                    ".system-label-0"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+                },
+                {
+                  "target": [
+                    ".system-label-1"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+                },
+                {
+                  "target": [
+                    ".system-label-2"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+                },
+                {
+                  "target": [
+                    ".system-label-3"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/services/website-development",
+          "title": "Website development | MerkadAgency",
+          "h1": "A website built around your business.",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": [
+                {
+                  "target": [
+                    ".public-diagram > .public-caption"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/contact",
+          "title": "Request a systems review | MerkadAgency",
+          "h1": "Request a systems review",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": [
+                {
+                  "target": [
+                    ".mb-6"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+                },
+                {
+                  "target": [
+                    "p[role=\"status\"]"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+                },
+                {
+                  "target": [
+                    ".mt-5 > p"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+                },
+                {
+                  "target": [
+                    ".mt-5 > .public-button"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/book",
+          "title": "Plan a conversation | MerkadAgency",
+          "h1": "Discuss your website with Camilo.",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/portfolio",
+          "title": "Portfolio under review | MerkadAgency",
+          "h1": "Project portfolio",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/legal/privacy",
+          "title": "Privacy policy | MerkadAgency",
+          "h1": "Website privacy",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": [
+                {
+                  "target": [
+                    "h1"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/legal/terms",
+          "title": "Terms of service | MerkadAgency",
+          "h1": "Service information",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": [
+                {
+                  "target": [
+                    "h1"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "version": "149.0.7827.55",
+      "textResize": {
+        "width": 390,
+        "scrollWidth": 390,
+        "bad": []
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:8095/",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/folded-glass-artwork-640-DzJ6kOZz.webp",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/PublicPages-CZ3m219R.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/book",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/BookPage-D9ApLa33.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/portfolio",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/PublicPages-CZ3m219R.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/legal/privacy",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/PrivacyPage-C584a6fB.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/legal/terms",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/TermsPage-DGfi3jdN.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/folded-glass-artwork-640-DzJ6kOZz.webp",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/folded-glass-artwork-480-CPuK1WK8.webp",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/folded-glass-artwork-640-DzJ6kOZz.webp",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/book",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/book",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/BookPage-D9ApLa33.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/BookPage-D9ApLa33.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        }
+      ],
+      "errors": [],
+      "failedResponses": []
+    },
+    {
+      "name": "firefox",
+      "checks": [
+        {
+          "name": "/ automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/ route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/services/website-development automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/services/website-development route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/services/website-development does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "/contact automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/contact route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/contact does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "/contact email only",
+          "pass": true
+        },
+        {
+          "name": "/book automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/book route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/book does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "/book email only",
+          "pass": true
+        },
+        {
+          "name": "/portfolio automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/portfolio route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/portfolio does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "/legal/privacy automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/legal/privacy route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/legal/privacy does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "/legal/terms automated a11y",
+          "pass": true
+        },
+        {
+          "name": "/legal/terms route/reflow",
+          "pass": true
+        },
+        {
+          "name": "/legal/terms does not preload homepage artwork",
+          "pass": true
+        },
+        {
+          "name": "keyboard skip focus",
+          "pass": true
+        },
+        {
+          "name": "desktop service menu keyboard destination",
+          "pass": true
+        },
+        {
+          "name": "menu expanded 320",
+          "pass": true
+        },
+        {
+          "name": "menu escape/focus 320",
+          "pass": true
+        },
+        {
+          "name": "contact reflow 320",
+          "pass": true
+        },
+        {
+          "name": "menu expanded 390",
+          "pass": true
+        },
+        {
+          "name": "menu escape/focus 390",
+          "pass": true
+        },
+        {
+          "name": "contact reflow 390",
+          "pass": true
+        },
+        {
+          "name": "menu expanded 844",
+          "pass": true
+        },
+        {
+          "name": "menu escape/focus 844",
+          "pass": true
+        },
+        {
+          "name": "contact reflow 844",
+          "pass": true
+        },
+        {
+          "name": "reduced motion in browser",
+          "pass": true
+        },
+        {
+          "name": "reduced motion retains explanations",
+          "pass": true
+        },
+        {
+          "name": "200% root-font reflow at 390px",
+          "pass": true
+        },
+        {
+          "name": "legacy book deep refresh",
+          "pass": true
+        },
+        {
+          "name": "no analytics/intake/calendar traffic",
+          "pass": true
+        },
+        {
+          "name": "no mutations/messages",
+          "pass": true
+        },
+        {
+          "name": "no page exceptions",
+          "pass": true
+        },
+        {
+          "name": "no failed HTTP resources",
+          "pass": true
+        }
+      ],
+      "pages": [
+        {
+          "route": "/",
+          "title": "Your business. Connected by design. | MerkadAgency",
+          "h1": "Your business.Connected bydesign.",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [
+            "http://127.0.0.1:8095/assets/folded-glass-artwork-640-DzJ6kOZz.webp"
+          ],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": [
+                {
+                  "target": [
+                    ".system-label-0"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+                },
+                {
+                  "target": [
+                    ".system-label-1"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+                },
+                {
+                  "target": [
+                    ".system-label-2"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+                },
+                {
+                  "target": [
+                    ".system-label-3"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/services/website-development",
+          "title": "Website development | MerkadAgency",
+          "h1": "A website built around your business.",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": [
+                {
+                  "target": [
+                    ".public-diagram > .public-caption"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/contact",
+          "title": "Request a systems review | MerkadAgency",
+          "h1": "Request a systems review",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": [
+                {
+                  "target": [
+                    ".mb-6"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+                },
+                {
+                  "target": [
+                    "p[role=\"status\"]"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+                },
+                {
+                  "target": [
+                    ".mt-5 > p"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+                },
+                {
+                  "target": [
+                    ".mt-5 > .public-button"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/book",
+          "title": "Plan a conversation | MerkadAgency",
+          "h1": "Discuss your website with Camilo.",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/portfolio",
+          "title": "Portfolio under review | MerkadAgency",
+          "h1": "Project portfolio",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/legal/privacy",
+          "title": "Privacy policy | MerkadAgency",
+          "h1": "Website privacy",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": [
+                {
+                  "target": [
+                    "h1"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/legal/terms",
+          "title": "Terms of service | MerkadAgency",
+          "h1": "Service information",
+          "overflow": false,
+          "fields": 0,
+          "calendars": 0,
+          "artworkRequests": [],
+          "brokenImages": [],
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": [
+                {
+                  "target": [
+                    "h1"
+                  ],
+                  "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "version": "151.0",
+      "textResize": {
+        "width": 390,
+        "scrollWidth": 390,
+        "bad": []
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:8095/",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/folded-glass-artwork-640-DzJ6kOZz.webp",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/PublicPages-CZ3m219R.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/book",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/BookPage-D9ApLa33.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/portfolio",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/PublicPages-CZ3m219R.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/legal/privacy",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/PrivacyPage-C584a6fB.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/legal/terms",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/TermsPage-DGfi3jdN.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/folded-glass-artwork-640-DzJ6kOZz.webp",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/folded-glass-artwork-480-CPuK1WK8.webp",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/folded-glass-artwork-480-CPuK1WK8.webp",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/book",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/BookPage-D9ApLa33.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/book",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/BookPage-D9ApLa33.js",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-BLaUPAVV.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/index-DFY_i4EQ.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/ContactPage--z7L4n_Y.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/assets/mail-BynbLU5A.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8095/favicon.png",
+          "method": "GET"
+        },
+        {
+          "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+          "method": "GET"
+        }
+      ],
+      "errors": [],
+      "failedResponses": []
+    }
+  ],
+  "failures": []
+}

@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { routeTitles, routeDescription, normalizePath } from '@/pages/public/routeMeta';
 
 interface SEOProps {
     title: string;
@@ -8,6 +9,9 @@ interface SEOProps {
 }
 
 export function SEO({ title, description, canonical, image }: SEOProps) {
+    const pathname = normalizePath(window.location.pathname);
+    title = routeTitles[pathname] ?? title;
+    description = routeTitles[pathname] ? routeDescription(pathname) : description;
     const siteTitle = 'MerkadAgency';
     const fullTitle = `${title} | ${siteTitle}`;
 
@@ -19,7 +23,7 @@ export function SEO({ title, description, canonical, image }: SEOProps) {
         : defaultImage;
 
     // Default canonical to current URL if not provided
-    const url = canonical || window.location.href;
+    const url = canonical || `${siteUrl}${pathname}`;
 
     return (
         <Helmet>

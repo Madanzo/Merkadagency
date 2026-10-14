@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -9,10 +9,7 @@ const navigation = [
     name: 'Services',
     href: '/services',
     children: [
-      { name: 'AI Lead Capture', href: '/services/ai-lead-capture' },
-      { name: 'CRM Automation', href: '/services/crm-automation' },
-      { name: 'SEO & Content', href: '/services/seo-content' },
-      { name: 'Paid Advertising', href: '/services/paid-advertising' },
+      { name: 'Website development', href: '/services/website-development' },
     ],
   },
   {
@@ -43,6 +40,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,15 +65,17 @@ export function Header() {
           : 'bg-transparent'
       )}
     >
-      <nav className="container-custom">
+      <nav className="container-custom" aria-label="Main navigation" onKeyDown={event=>{if(event.key==='Escape' && isMobileMenuOpen){setIsMobileMenuOpen(false);setOpenDropdown(null);menuButton.current?.focus();}}}>
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img
               src="https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png?alt=media&token=eccf7036-fa7a-4694-a97a-9f81a7fb624e"
               alt="MerkadAgency"
+              width="40" height="60"
               className="h-12 w-auto"
             />
+            <span className="hero-brand-name hidden" aria-hidden="true">MerkadAgency</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -86,9 +86,13 @@ export function Header() {
                 className="relative"
                 onMouseEnter={() => item.children && setOpenDropdown(item.name)}
                 onMouseLeave={() => setOpenDropdown(null)}
+                onFocus={() => item.children && setOpenDropdown(item.name)}
+                onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setOpenDropdown(null); }}
+                onKeyDown={(event) => { if (event.key === 'Escape') { event.stopPropagation(); event.currentTarget.querySelector('a')?.focus(); setOpenDropdown(null); } }}
               >
                 <Link
                   to={item.href}
+                  aria-expanded={item.children ? openDropdown === item.name : undefined}
                   className={cn(
                     'flex items-center gap-1 text-sm font-medium transition-colors',
                     location.pathname === item.href
@@ -125,18 +129,22 @@ export function Header() {
               to="/resources/free-audit"
               className="text-sm font-medium text-merkad-text-secondary hover:text-white transition-colors"
             >
-              Free Audit
+              Audit request
             </Link>
             <Link
-              to="/book"
+              to="/contact"
               className="px-6 py-2.5 bg-gradient-purple text-white text-sm font-semibold rounded-lg shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 transition-all duration-300"
             >
-              Book a Call
+              Request a systems review
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
+            ref={menuButton}
+            aria-controls="mobile-navigation"
+            aria-label={isMobileMenuOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 text-white"
           >
@@ -146,7 +154,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-merkad-bg-primary/95 backdrop-blur-xl border-b border-white/5">
+          <div id="mobile-navigation" className="mobile-navigation lg:hidden absolute top-full left-0 right-0 bg-merkad-bg-primary/95 backdrop-blur-xl border-b border-white/5" style={{maxHeight:"calc(100dvh - 80px)",overflowY:"auto",overscrollBehavior:"contain"}}>
             <div className="container-custom py-6 space-y-4">
               {navigation.map((item) => (
                 <div key={item.name}>
@@ -181,13 +189,13 @@ export function Header() {
                   to="/resources/free-audit"
                   className="text-center py-3 border border-white/20 rounded-lg text-white font-medium hover:bg-white/5 transition-colors"
                 >
-                  Free Audit
+                  Audit request
                 </Link>
                 <Link
-                  to="/book"
+                  to="/contact"
                   className="text-center py-3 bg-gradient-purple rounded-lg text-white font-semibold"
                 >
-                  Book a Call
+                  Request a systems review
                 </Link>
               </div>
             </div>

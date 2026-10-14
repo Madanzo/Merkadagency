@@ -1,0 +1,117 @@
+{
+  "path": "/services/crm-automation",
+  "paint": [
+    {
+      "name": "first-paint",
+      "ms": 152
+    },
+    {
+      "name": "first-contentful-paint",
+      "ms": 168
+    }
+  ],
+  "navigation": [
+    {
+      "domContentLoaded": 118.69999992847443,
+      "load": 122.29999995231628
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://fonts.googleapis.com/css2",
+      "bytes": 1462,
+      "decoded": 25772,
+      "duration": 82.10000002384186
+    },
+    {
+      "url": "http://localhost:8092/assets/index-ColxG9HR.css",
+      "bytes": 300,
+      "decoded": 109407,
+      "duration": 15.199999928474426
+    },
+    {
+      "url": "http://localhost:8092/assets/index-DfCGV8YB.js",
+      "bytes": 300,
+      "decoded": 345720,
+      "duration": 22.09999990463257
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+      "bytes": 0,
+      "decoded": 48432,
+      "duration": 0
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+      "bytes": 0,
+      "decoded": 31340,
+      "duration": 0
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxm2BL9G78HEY.woff2",
+      "bytes": 0,
+      "decoded": 34560,
+      "duration": 0
+    },
+    {
+      "url": "http://localhost:8092/assets/PublicPages-Dsh_1O4V.js",
+      "bytes": 1655,
+      "decoded": 3803,
+      "duration": 33.60000002384186
+    },
+    {
+      "url": "http://localhost:8092/assets/SystemsReviewLink-QLPOL2Fo.js",
+      "bytes": 300,
+      "decoded": 257,
+      "duration": 31.300000071525574
+    },
+    {
+      "url": "http://localhost:8092/assets/Layout-DglvyvxP.js",
+      "bytes": 300,
+      "decoded": 14142,
+      "duration": 17.5
+    },
+    {
+      "url": "http://localhost:8092/assets/Layout-DQJl9OIB.css",
+      "bytes": 300,
+      "decoded": 6055,
+      "duration": 19.800000071525574
+    },
+    {
+      "url": "http://localhost:8092/assets/chevron-down-Bvv0EPfG.js",
+      "bytes": 300,
+      "decoded": 296,
+      "duration": 21.800000071525574
+    },
+    {
+      "url": "http://localhost:8092/assets/ServiceGraphic-5GIl0NCb.js",
+      "bytes": 300,
+      "decoded": 1551,
+      "duration": 32.60000002384186
+    },
+    {
+      "url": "https://firebasestorage.googleapis.com/v0/b/merkadagency-dd2aa.firebasestorage.app/o/Elegant_Merkadagency_logo%201.png",
+      "bytes": 0,
+      "decoded": 0,
+      "duration": 266
+    }
+  ],
+  "scripts": [
+    "http://localhost:8092/assets/index-DfCGV8YB.js"
+  ],
+  "violations": [],
+  "incomplete": [
+    {
+      "id": "color-contrast",
+      "nodes": [
+        {
+          "target": [
+            ".public-diagram > .public-caption"
+          ],
+          "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        }
+      ]
+    }
+  ],
+  "passes": 24
+}

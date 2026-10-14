@@ -64,7 +64,7 @@ export function NewsletterSignup({ variant = 'inline', className = '' }: Newslet
                 {status === 'success' ? (
                     <div className="flex items-center gap-2 text-green-400 py-4">
                         <CheckCircle className="w-5 h-5" />
-                        <span>You're in! Check your inbox.</span>
+                        <span>Your subscription has been saved.</span>
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit} className="space-y-3">
@@ -109,7 +109,7 @@ export function NewsletterSignup({ variant = 'inline', className = '' }: Newslet
             {status === 'success' ? (
                 <div className="flex items-center gap-2 text-green-400">
                     <CheckCircle className="w-5 h-5" />
-                    <span>You're subscribed! Check your inbox.</span>
+                    <span>Your subscription has been saved.</span>
                 </div>
             ) : (
                 <form onSubmit={handleSubmit} className="flex gap-2 flex-wrap sm:flex-nowrap">
