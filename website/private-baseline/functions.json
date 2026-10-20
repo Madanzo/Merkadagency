@@ -1,0 +1,447 @@
+{
+  "sha256": "d54443722c1a8e3eeb7877ffd9503d84a86b4b2767c7b7183ed9ceec51913a9a",
+  "firebaseConfigurationHash": "4675dc9c08d09a792f57be37c9746426263bc9452be586437e785e2b2b04d2d5",
+  "functions": {
+    "signing": {
+      "code": "function Lme(){var T,I,O,E,R;const{contractId:t}=tG(),[e]=TG(),n=e.get(\"token\"),[r,s]=k.useState(null),[a,o]=k.useState(\"\"),[l,c]=k.useState(!0),[u,d]=k.useState(null),[f,g]=k.useState(!1),[h,N]=k.useState(!1),[y,b]=k.useState(!1),[v,w]=k.useState(!0),[S,j]=k.useState(!1),F=k.useRef(null);k.useRef(null),k.useEffect(()=>{async function M(){if(!t||!n){d(\"Invalid contract link. Please check the URL.\"),c(!1);return}try{const re=atob(n).split(\":\");if(re.length<2||re[0]!==t){d(\"Invalid or expired link.\"),c(!1);return}const ae=re[1];o(ae);const he=Tn(Je,`clients/${ae}/contracts`,t),Y=await gm(he);if(!Y.exists()){d(\"Contract not found.\"),c(!1);return}const K=Y.data();if(K.publicToken!==n){d(\"Invalid access token.\"),c(!1);return}if(K.tokenExpiry){const me=K.tokenExpiry.toDate?K.tokenExpiry.toDate():new Date(K.tokenExpiry);if(new Date>me){d(\"This contract link has expired. Please contact MerkadAgency for a new link.\"),c(!1);return}}K.status===\"signed\"&&N(!0),s(K)}catch(q){console.error(\"Error loading contract:\",q),d(\"Failed to load contract. Please try again.\")}finally{c(!1)}}M()},[t,n]);const W=k.useCallback(()=>{const M=F.current;if(!M)return;M.scrollHeight-M.scrollTop-M.clientHeight<50&&b(!0)},[]),P=async()=>{if(!t||!a||!r||v)return;const M=document.querySelector(\"canvas\"),q=M?M.__signaturePad:null;if(!(!q||q.isEmpty())){g(!0);try{const re=q.toBase64();let ae=\"unknown\";try{ae=(await(await fetch(\"https://api.ipify.org?format=json\")).json()).ip}catch{}const he=Tn(Je,`clients/${a}/contracts`,t);await Ns(he,{status:\"signed\",signedAt:Et.now(),signatureData:{clientSignature:re,ipAddress:ae,userAgent:navigator.userAgent,signedAt:new Date().toISOString(),refundPolicyAcknowledged:!0},updatedAt:Et.now()}),N(!0);try{const Y=O1();await Zg(Y,\"onContractSigned\")({clientId:a,contractId:t})}catch(Y){console.warn(\"Backend trigger failed (non-critical):\",Y)}}catch(re){console.error(\"Signing error:\",re),d(\"Failed to sign contract. Please try again.\")}finally{g(!1)}}};return l?i.jsx(\"div\",{className:\"min-h-screen bg-gray-50 flex items-center justify-center\",children:i.jsx(vo,{className:\"w-8 h-8 animate-spin text-violet-600\"})}):u?i.jsx(\"div\",{className:\"min-h-screen bg-gray-50 flex items-center justify-center p-4\",children:i.jsx(sn,{className:\"max-w-md w-full\",children:i.jsxs(on,{className:\"pt-8 text-center\",children:[i.jsx(Fd,{className:\"w-12 h-12 text-orange-500 mx-auto mb-4\"}),i.jsx(\"h2\",{className:\"text-xl font-bold text-gray-900 mb-2\",children:\"Unable to Load Contract\"}),i.jsx(\"p\",{className:\"text-gray-600\",children:u})]})})}):h?i.jsx(\"div\",{className:\"min-h-screen bg-gray-50 flex items-center justify-center p-4\",children:i.jsx(sn,{className:\"max-w-md w-full\",children:i.jsxs(on,{className:\"pt-8 text-center\",children:[i.jsx(\"div\",{className:\"w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4\",children:i.jsx(Od,{className:\"w-8 h-8 text-green-600\"})}),i.jsx(\"h2\",{className:\"text-2xl font-bold text-gray-900 mb-2\",children:\"Contract Signed! 🎉\"}),i.jsxs(\"p\",{className:\"text-gray-600 mb-4\",children:[\"Thank you for signing contract \",i.jsx(\"strong\",{children:r==null?void 0:r.contractNumber}),\". A copy has been sent to your email.\"]}),i.jsx(\"p\",{className:\"text-sm text-gray-500\",children:\"The MerkadAgency team will be in touch shortly to kick off your project.\"})]})})}):r?i.jsxs(\"div\",{className:\"min-h-screen bg-gray-50\",children:[i.jsx(\"div\",{className:\"bg-white border-b border-gray-200 sticky top-0 z-10\",children:i.jsxs(\"div\",{className:\"max-w-3xl mx-auto px-4 py-3 flex items-center justify-between\",children:[i.jsxs(\"div\",{className:\"flex items-center gap-2\",children:[i.jsx(Zp,{className:\"w-5 h-5 text-violet-600\"}),i.jsx(\"span\",{className:\"font-semibold text-gray-900\",children:\"MerkadAgency\"})]}),i.jsx(ai,{className:\"bg-blue-100 text-blue-700\",children:r.contractNumber})]})}),i.jsxs(\"div\",{className:\"max-w-3xl mx-auto px-4 py-8\",children:[i.jsx(\"div\",{ref:F,onScroll:W,className:\"bg-white rounded-lg shadow-sm border border-gray-200 overflow-y-auto\",style:{maxHeight:\"60vh\"},children:i.jsxs(\"div\",{className:\"p-8\",children:[i.jsxs(\"div\",{className:\"text-center border-b border-gray-200 pb-6 mb-6\",children:[i.jsx(\"h1\",{className:\"text-2xl font-bold text-gray-900\",children:\"Service Agreement\"}),i.jsxs(\"p\",{className:\"text-gray-500 mt-1\",children:[\"Contract \",r.contractNumber]})]}),i.jsxs(\"div\",{className:\"mb-6\",children:[i.jsx(\"h2\",{className:\"text-lg font-semibold text-gray-900 mb-3\",children:\"Parties\"}),i.jsxs(\"div\",{className:\"grid grid-cols-2 gap-4 text-sm\",children:[i.jsxs(\"div\",{children:[i.jsx(\"p\",{className:\"font-medium text-gray-700\",children:\"Service Provider\"}),i.jsx(\"p\",{className:\"text-gray-600\",children:\"MerkadAgency LLC\"})]}),i.jsxs(\"div\",{children:[i.jsx(\"p\",{className:\"font-medium text-gray-700\",children:\"Client\"}),i.jsxs(\"p\",{className:\"text-gray-600\",children:[((T=r.projectInfo)==null?void 0:T.clientName)||\"Client\",((I=r.projectInfo)==null?void 0:I.clientBusiness)&&`, ${r.projectInfo.clientBusiness}`]})]})]})]}),i.jsxs(\"div\",{className:\"mb-6\",children:[i.jsx(\"h2\",{className:\"text-lg font-semibold text-gray-900 mb-3\",children:\"Services\"}),i.jsxs(\"table\",{className:\"w-full text-sm\",children:[i.jsx(\"thead\",{children:i.jsxs(\"tr\",{className:\"border-b border-gray-200\",children:[i.jsx(\"th\",{className:\"text-left py-2 text-gray-700\",children:\"Service\"}),i.jsx(\"th\",{className:\"text-right py-2 text-gray-700\",children:\"Amount\"})]})}),i.jsxs(\"tbody\",{children:[(O=r.services)==null?void 0:O.map((M,q)=>i.jsxs(\"tr\",{className:\"border-b border-gray-100\",children:[i.jsx(\"td\",{className:\"py-2 text-gray-600\",children:M.label}),i.jsx(\"td\",{className:\"py-2 text-right text-gray-900\",children:v0(M.price)})]},q)),(E=r.monthlyServices)==null?void 0:E.map((M,q)=>i.jsxs(\"tr\",{className:\"border-b border-gray-100\",children:[i.jsxs(\"td\",{className:\"py-2 text-gray-600\",children:[M.label,\" \",i.jsx(\"span\",{className:\"text-xs text-gray-400\",children:\"(monthly)\"})]}),i.jsxs(\"td\",{className:\"py-2 text-right text-gray-900\",children:[v0(M.price),\"/mo\"]})]},`m-${q}`))]}),i.jsxs(\"tfoot\",{children:[i.jsxs(\"tr\",{className:\"font-semibold\",children:[i.jsx(\"td\",{className:\"py-3 text-gray-900\",children:\"One-Time Total\"}),i.jsx(\"td\",{className:\"py-3 text-right text-gray-900\",children:v0(r.finalOneTimeTotal)})]}),r.finalMonthlyTotal>0&&i.jsxs(\"tr\",{className:\"font-semibold\",children:[i.jsx(\"td\",{className:\"py-2 text-gray-900\",children:\"Monthly Total\"}),i.jsxs(\"td\",{className:\"py-2 text-right text-gray-900\",children:[v0(r.finalMonthlyTotal),\"/mo\"]})]})]})]})]}),i.jsxs(\"div\",{className:\"mb-6\",children:[i.jsx(\"h2\",{className:\"text-lg font-semibold text-gray-900 mb-2\",children:\"Payment Terms\"}),i.jsx(\"p\",{className:\"text-sm text-gray-600\",children:r.paymentTerms})]}),((R=r.projectInfo)==null?void 0:R.startDate)&&i.jsxs(\"div\",{className:\"mb-6\",children:[i.jsx(\"h2\",{className:\"text-lg font-semibold text-gray-900 mb-2\",children:\"Project Timeline\"}),i.jsxs(\"div\",{className:\"grid grid-cols-2 gap-4 text-sm\",children:[i.jsxs(\"div\",{children:[i.jsx(\"p\",{className:\"font-medium text-gray-700\",children:\"Start Date\"}),i.jsx(\"p\",{className:\"text-gray-600\",children:r.projectInfo.startDate})]}),i.jsxs(\"div\",{children:[i.jsx(\"p\",{className:\"font-medium text-gray-700\",children:\"Duration\"}),i.jsx(\"p\",{className:\"text-gray-600\",children:r.projectInfo.duration||\"As agreed\"})]})]})]}),r.legalClauses&&Object.keys(r.legalClauses).length>0&&!r.legalClauses._fallback?i.jsx(\"div\",{className:\"mb-6 space-y-4\",children:[{key:\"Service-Specific Terms\",title:\"Scope of Services\",warn:!1},{key:\"Payment Terms & Late Fee Policy\",title:\"Payment Terms & Late Fees\",warn:!1},{key:\"No Refund Policy\",title:\"Refund Policy\",warn:!0},{key:\"Results Disclaimer\",title:\"Results Disclaimer\",warn:!0},{key:\"Intellectual Property & Ownership\",title:\"Intellectual Property & Ownership\",warn:!1},{key:\"NDA & Confidentiality\",title:\"Confidentiality & Non-Disclosure\",warn:!1},{key:\"Revision & Scope Policy\",title:\"Revision & Scope Policy\",warn:!1},{key:\"Termination Policy\",title:\"Termination\",warn:!1},{key:\"Governing Law\",title:\"Governing Law\",warn:!1}].filter(M=>r.legalClauses[M.key]).map((M,q)=>i.jsxs(\"div\",{className:`rounded-lg p-4 ${M.warn?\"bg-red-50 border border-red-200\":\"bg-gray-50\"}`,children:[i.jsxs(\"h3\",{className:`text-sm font-semibold mb-2 ${M.warn?\"text-red-700\":\"text-gray-900\"}`,children:[M.warn?\"⚠️ \":\"\",M.title]}),i.jsx(\"div\",{className:\"text-xs text-gray-600 space-y-1 whitespace-pre-line leading-relaxed\",children:r.legalClauses[M.key]})]},q))}):i.jsxs(\"div\",{className:\"mb-6 bg-gray-50 rounded-lg p-4\",children:[i.jsx(\"h2\",{className:\"text-lg font-semibold text-gray-900 mb-2\",children:\"Terms & Conditions\"}),i.jsxs(\"div\",{className:\"text-xs text-gray-500 space-y-2\",children:[i.jsxs(\"p\",{children:[\"1. \",i.jsx(\"strong\",{children:\"Scope:\"}),\" Services are limited to those described above. Additional services require a separate agreement.\"]}),i.jsxs(\"p\",{children:[\"2. \",i.jsx(\"strong\",{children:\"Payment:\"}),\" Invoices are due per the payment terms above. Late payments incur a 1.5% monthly fee.\"]}),i.jsxs(\"p\",{children:[\"3. \",i.jsx(\"strong\",{children:\"Cancellation:\"}),\" Either party may cancel with 30 days written notice. Work completed prior to cancellation is billable.\"]}),i.jsxs(\"p\",{children:[\"4. \",i.jsx(\"strong\",{children:\"Confidentiality:\"}),\" Both parties agree to keep all project details confidential.\"]}),i.jsxs(\"p\",{children:[\"5. \",i.jsx(\"strong\",{children:\"Intellectual Property:\"}),\" Upon full payment, all deliverables become the client's property.\"]}),i.jsxs(\"p\",{children:[\"6. \",i.jsx(\"strong\",{children:\"Liability:\"}),\" MerkadAgency's liability is limited to the total contract value.\"]})]})]}),!y&&i.jsx(\"div\",{className:\"text-center py-4 text-sm text-violet-600 animate-bounce\",children:\"↓ Scroll down to review all terms before signing\"})]})}),i.jsx(\"div\",{className:\"mt-8\",children:i.jsx(sn,{className:`border-2 ${y?\"border-violet-300 bg-white\":\"border-gray-200 bg-gray-100 opacity-75\"}`,children:i.jsxs(on,{className:\"pt-6\",children:[i.jsxs(\"h3\",{className:\"text-lg font-semibold text-gray-900 mb-1 flex items-center gap-2\",children:[i.jsx(la,{className:\"w-5 h-5 text-violet-600\"}),\"Digital Signature\"]}),i.jsx(\"p\",{className:\"text-sm text-gray-500 mb-4\",children:y?\"Draw your signature below to sign this contract.\":\"Please scroll through and review the full contract before signing.\"}),y&&i.jsxs(i.Fragment,{children:[i.jsx(\"div\",{className:\"mb-4 p-4 bg-amber-50 border border-amber-200 rounded-lg\",children:i.jsxs(\"label\",{className:\"flex items-start gap-3 cursor-pointer\",children:[i.jsx(\"input\",{type:\"checkbox\",checked:S,onChange:M=>j(M.target.checked),className:\"mt-0.5 w-4 h-4 accent-violet-600 rounded\"}),i.jsxs(\"span\",{className:\"text-sm text-gray-700\",children:[\"I have read and agree to the \",i.jsx(\"strong\",{children:\"No Refund Policy\"}),\" and \",i.jsx(\"strong\",{children:\"Results Disclaimer\"}),\" in this contract.\"]})]})}),i.jsx(Rme,{height:150,onSignatureChange:M=>w(M)}),i.jsxs(\"div\",{className:\"flex items-center justify-between mt-4\",children:[i.jsxs(\"div\",{className:\"flex items-center gap-2 text-xs text-gray-500\",children:[i.jsx(Wv,{className:\"w-3 h-3\"}),i.jsx(\"span\",{children:\"Secured & legally binding\"})]}),i.jsx(qe,{onClick:P,disabled:f||v||!S,className:\"bg-violet-600 hover:bg-violet-700 text-white px-8\",children:f?i.jsxs(i.Fragment,{children:[i.jsx(vo,{className:\"w-4 h-4 animate-spin mr-2\"}),\" Signing...\"]}):\"Sign Contract\"})]})]})]})})}),i.jsx(\"div\",{className:\"text-center py-8 text-xs text-gray-400\",children:i.jsxs(\"p\",{children:[\"© \",new Date().getFullYear(),\" MerkadAgency LLC · All rights reserved\"]})})]})]}):null}",
+      "fingerprint": "9a6ccdf65b6e74e4f62fcb488cf8e930e39f0d484547e9a28ac437ec0775f349",
+      "dependencies": [
+        "tG",
+        "TG",
+        "k",
+        "Tn",
+        "Je",
+        "gm",
+        "Ns",
+        "Et",
+        "O1",
+        "Zg",
+        "i",
+        "vo",
+        "sn",
+        "on",
+        "Fd",
+        "Od",
+        "Zp",
+        "ai",
+        "v0",
+        "la",
+        "Rme",
+        "Wv",
+        "qe"
+      ],
+      "dependencyFingerprints": [
+        {
+          "name": "tG",
+          "hash": "4ae115e5b83bf0ca15d64d0c129488bce60e16284a228ceae56985c6ee905301"
+        },
+        {
+          "name": "TG",
+          "hash": "216a17dd08b8085bded131096bda33960676c2079aa452fc530e2d5810cc86d9"
+        },
+        {
+          "name": "k",
+          "hash": "26f6087f3adc71a97bbb8ad78adce897c30a5e2f9fcfc15cadb8cd0136334822"
+        },
+        {
+          "name": "Tn",
+          "hash": "ccfeb0141559f62e858fa16444db07635e4efe87b2bc349b6f9278cb1555d48e"
+        },
+        {
+          "name": "Je",
+          "hash": "47c851c48cd7ff2d83b406e8521cd3288cb4dfcf03a3868c3000ae215b1302f3"
+        },
+        {
+          "name": "gm",
+          "hash": "77d701e1037f80ea6a6d2680063351b595f90e289e58b741cd617e291590856c"
+        },
+        {
+          "name": "Ns",
+          "hash": "713ba84e63f1cf6fadb76e379b3c57710eaba7c6bdaf57d6b2aec7990a656a61"
+        },
+        {
+          "name": "Et",
+          "hash": null
+        },
+        {
+          "name": "O1",
+          "hash": "511306eb8ef9e1b940184b340ecacc264fa0c4bd430759454e793591d23ecf80"
+        },
+        {
+          "name": "Zg",
+          "hash": "96d7538a55056b5c2089e9326c584981df21b5b0286e037648a010029e3618fb"
+        },
+        {
+          "name": "i",
+          "hash": "26f6087f3adc71a97bbb8ad78adce897c30a5e2f9fcfc15cadb8cd0136334822"
+        },
+        {
+          "name": "vo",
+          "hash": "f814403a7b2fd24124bf948bde0d87f7d350bca22a32111ee13683edc1f700f4"
+        },
+        {
+          "name": "sn",
+          "hash": "22f5623121aa0c23c138c978290fcb7850ace9a47a529c9150967e2706408120"
+        },
+        {
+          "name": "on",
+          "hash": "6367c2630c7adcd9708851f89d68e07bc272b4b649c5e4d8c3d0775beb5748d9"
+        },
+        {
+          "name": "Fd",
+          "hash": "9d2518e5cebb44a1db373c73ee98c157af51c7cc8a204aa13be09742e0a89af8"
+        },
+        {
+          "name": "Od",
+          "hash": "767ea3ce6b8231c7d32029c6a68c214ab8e38b3c9fa0de5cd067ae0c1275a4ca"
+        },
+        {
+          "name": "Zp",
+          "hash": "34442c9f7e1f23b6bc78d3e3fe0bfa59873148b68a7fe664c97e834365a39724"
+        },
+        {
+          "name": "ai",
+          "hash": "b5402454c1bd17e0f7f17626f63e29e43009084856b55b8754d98e05980046b2"
+        },
+        {
+          "name": "v0",
+          "hash": "e2d326528a6781b30c5414e275c5f816f49656e075d3a0f2e46c503eee62ae45"
+        },
+        {
+          "name": "la",
+          "hash": "a922dea0c136744adc241cf181d2a74576551f8809e83a04143c4e0682c984b2"
+        },
+        {
+          "name": "Rme",
+          "hash": "0cd5b25780bc20ee6aeb4bf053a99a25dc21a25ed7709c02b45a7799e89ac7de"
+        },
+        {
+          "name": "Wv",
+          "hash": "585632cdb9e0d88ffc6f9c530d574cf3d57ff3524ecf8dc2ef5fcab689444336"
+        },
+        {
+          "name": "qe",
+          "hash": "c1b973412d4f76a0adb7773437ed09ba0aa5a657825a27279f69f68464544050"
+        }
+      ]
+    },
+    "authHook": {
+      "code": "function $1(){const[t,e]=k.useState(null),[n,r]=k.useState(!0);k.useEffect(()=>{const o=Zie(l=>{e(l),r(!1)});return()=>o()},[]);const s=async()=>{try{await Xie()}catch(o){throw console.error(\"Sign in failed:\",o),o}},a=async()=>{try{await Jie()}catch(o){throw console.error(\"Sign out failed:\",o),o}};return{user:t,loading:n,isAllowed:Qie(t==null?void 0:t.email),signIn:s,signOut:a}}",
+      "fingerprint": "7c36418ab3a0fd0c1f662e26e3b157e1d1902e521d47d450d428b78bb557ea9b",
+      "dependencies": [
+        "k",
+        "Zie",
+        "Xie",
+        "Jie",
+        "Qie"
+      ],
+      "dependencyFingerprints": [
+        {
+          "name": "k",
+          "hash": "26f6087f3adc71a97bbb8ad78adce897c30a5e2f9fcfc15cadb8cd0136334822"
+        },
+        {
+          "name": "Zie",
+          "hash": "dd6ce899d892b150dde992ed827d00bc910a20f9e0b8fb656db5a6937c2b2896"
+        },
+        {
+          "name": "Xie",
+          "hash": "f94d452da372d5fd1897e15d828d1840c1f0ccc756485f47bbf19eceb91126d4"
+        },
+        {
+          "name": "Jie",
+          "hash": "cde7b6706274e9ff1a57d9618cfe3e8ddc32117e9b45b0e6fa0efde4e658fe3c"
+        },
+        {
+          "name": "Qie",
+          "hash": "2f1a3584a156f025684b214ba12116b5821f19f0005428e2f6d0b81849ace2a6"
+        }
+      ]
+    },
+    "protectedRoute": {
+      "code": "function ome({children:t}){const{user:e,loading:n,isAllowed:r,signOut:s}=$1();return n?i.jsx(\"div\",{className:\"min-h-screen bg-merkad-bg-primary flex items-center justify-center\",children:i.jsx(vo,{className:\"w-8 h-8 animate-spin text-merkad-purple\"})}):e?r?i.jsx(i.Fragment,{children:t}):i.jsx(\"div\",{className:\"min-h-screen bg-merkad-bg-primary flex items-center justify-center\",children:i.jsxs(\"div\",{className:\"text-center p-8 max-w-md\",children:[i.jsx(\"div\",{className:\"w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mx-auto mb-4\",children:i.jsx(\"span\",{className:\"text-3xl\",children:\"🚫\"})}),i.jsx(\"h1\",{className:\"text-2xl font-display font-bold text-white mb-2\",children:\"Access Denied\"}),i.jsxs(\"p\",{className:\"text-merkad-text-muted mb-6\",children:[\"Your email (\",e.email,\") is not authorized to access the admin dashboard.\"]}),i.jsx(\"button\",{onClick:s,className:\"px-6 py-2 bg-merkad-bg-tertiary text-white rounded-lg hover:bg-merkad-bg-elevated transition-colors\",children:\"Sign Out\"})]})}):i.jsx(gG,{to:\"/admin/login\",replace:!0})}",
+      "fingerprint": "e65292606d592bead9750dd8e8a15e21aec652e3af440e82d02fc5be23864278",
+      "dependencies": [
+        "$1",
+        "i",
+        "vo",
+        "gG"
+      ],
+      "dependencyFingerprints": [
+        {
+          "name": "$1",
+          "hash": "7c36418ab3a0fd0c1f662e26e3b157e1d1902e521d47d450d428b78bb557ea9b"
+        },
+        {
+          "name": "i",
+          "hash": "26f6087f3adc71a97bbb8ad78adce897c30a5e2f9fcfc15cadb8cd0136334822"
+        },
+        {
+          "name": "vo",
+          "hash": "f814403a7b2fd24124bf948bde0d87f7d350bca22a32111ee13683edc1f700f4"
+        },
+        {
+          "name": "gG",
+          "hash": "1fe2b7da47c63a93e7e36d7f6958513029b12c0f9a6fc2b123315d631d854422"
+        }
+      ]
+    },
+    "login": {
+      "code": "function eae(){const{user:t,loading:e,isAllowed:n,signIn:r}=$1(),s=Dg();return k.useEffect(()=>{t&&n&&s(\"/admin\",{replace:!0})},[t,n,s]),i.jsx(Vn,{children:i.jsx(\"section\",{className:\"pt-32 pb-20 lg:pt-40 lg:pb-24 min-h-screen flex items-center justify-center\",children:i.jsx(\"div\",{className:\"container-custom max-w-md\",children:i.jsxs(sn,{className:\"bg-merkad-bg-secondary border-merkad-border\",children:[i.jsxs(Vs,{className:\"text-center\",children:[i.jsx(\"div\",{className:\"w-16 h-16 rounded-full bg-merkad-purple/20 flex items-center justify-center mx-auto mb-4\",children:i.jsx(\"span\",{className:\"text-3xl\",children:\"🔐\"})}),i.jsx(ii,{className:\"text-2xl font-display text-white\",children:\"Admin Login\"}),i.jsx(Q_,{children:\"Sign in with your Google account to access the dashboard\"})]}),i.jsx(on,{className:\"space-y-4\",children:e?i.jsx(\"div\",{className:\"flex justify-center py-4\",children:i.jsx(vo,{className:\"w-8 h-8 animate-spin text-merkad-purple\"})}):t&&!n?i.jsxs(\"div\",{className:\"text-center\",children:[i.jsxs(\"p\",{className:\"text-yellow-500 mb-4\",children:[\"Your account (\",t.email,\") is not authorized.\"]}),i.jsx(qe,{onClick:r,variant:\"outline\",className:\"gap-2\",children:\"Try Different Account\"})]}):i.jsxs(qe,{onClick:r,className:\"w-full gap-2 bg-gradient-purple hover:opacity-90\",size:\"lg\",children:[i.jsx(O$,{className:\"w-5 h-5\"}),\"Sign in with Google\"]})})]})})})})}",
+      "fingerprint": "4b8ad6888d3fde4f31b59d5ab7dd48d58d5d18f618708ee193f099871df1ab02",
+      "dependencies": [
+        "$1",
+        "Dg",
+        "k",
+        "i",
+        "Vn",
+        "sn",
+        "Vs",
+        "ii",
+        "Q_",
+        "on",
+        "vo",
+        "qe",
+        "O$"
+      ],
+      "dependencyFingerprints": [
+        {
+          "name": "$1",
+          "hash": "7c36418ab3a0fd0c1f662e26e3b157e1d1902e521d47d450d428b78bb557ea9b"
+        },
+        {
+          "name": "Dg",
+          "hash": "e05f6cc9168665b183ac4c3ba22dae45ed76ea6077bbdcb5e958669ea4c16220"
+        },
+        {
+          "name": "k",
+          "hash": "26f6087f3adc71a97bbb8ad78adce897c30a5e2f9fcfc15cadb8cd0136334822"
+        },
+        {
+          "name": "i",
+          "hash": "26f6087f3adc71a97bbb8ad78adce897c30a5e2f9fcfc15cadb8cd0136334822"
+        },
+        {
+          "name": "Vn",
+          "hash": "7c6aec456e7ea658a17d16dabfd2aea5fb71fcbeb614ef76c5772bd23df983c1"
+        },
+        {
+          "name": "sn",
+          "hash": "22f5623121aa0c23c138c978290fcb7850ace9a47a529c9150967e2706408120"
+        },
+        {
+          "name": "Vs",
+          "hash": "51cfef5ea6b6f654fd20a7e955c38ed81f000c67e276379d3d3cbb137ff6a74b"
+        },
+        {
+          "name": "ii",
+          "hash": "c347d6167b3e86be351e40432c06d62ca6b88bf343aa90e8db9a1923af718f68"
+        },
+        {
+          "name": "Q_",
+          "hash": "23f67e0e53721803a4c091c22ef2b4c5a33e789c9a8e1cc5b35b5aa352f3e0c5"
+        },
+        {
+          "name": "on",
+          "hash": "6367c2630c7adcd9708851f89d68e07bc272b4b649c5e4d8c3d0775beb5748d9"
+        },
+        {
+          "name": "vo",
+          "hash": "f814403a7b2fd24124bf948bde0d87f7d350bca22a32111ee13683edc1f700f4"
+        },
+        {
+          "name": "qe",
+          "hash": "c1b973412d4f76a0adb7773437ed09ba0aa5a657825a27279f69f68464544050"
+        },
+        {
+          "name": "O$",
+          "hash": "846550fc01a769b3bff091c34b1b826e20f9fc0da872dbec32a2ad0653caaf2b"
+        }
+      ]
+    },
+    "signaturePad": {
+      "code": "function Rme({width:t=500,height:e=200,onSignatureChange:n}){const r=k.useRef(null),[s,a]=k.useState(!1),[o,l]=k.useState(!1),c=k.useRef(null),u=k.useCallback(b=>{const v=r.current,w=v.getBoundingClientRect(),S=v.width/w.width,j=v.height/w.height;if(\"touches\"in b){const F=b.touches[0];return{x:(F.clientX-w.left)*S,y:(F.clientY-w.top)*j}}return{x:(b.clientX-w.left)*S,y:(b.clientY-w.top)*j}},[]),d=k.useCallback(b=>{var S;b.preventDefault();const v=u(b);c.current=v,a(!0);const w=(S=r.current)==null?void 0:S.getContext(\"2d\");w&&(w.beginPath(),w.moveTo(v.x,v.y))},[u]),f=k.useCallback(b=>{var S;if(!s)return;b.preventDefault();const v=u(b),w=(S=r.current)==null?void 0:S.getContext(\"2d\");!w||!c.current||(w.strokeStyle=\"#1a1a2e\",w.lineWidth=2.5,w.lineCap=\"round\",w.lineJoin=\"round\",w.beginPath(),w.moveTo(c.current.x,c.current.y),w.lineTo(v.x,v.y),w.stroke(),c.current=v,o||(l(!0),n==null||n(!1)))},[s,u,o,n]),g=k.useCallback(()=>{a(!1),c.current=null},[]);k.useEffect(()=>{const b=r.current;if(!b)return;const v=P=>d(P),w=P=>f(P),S=()=>g(),j=P=>d(P),F=P=>f(P),W=()=>g();return b.addEventListener(\"mousedown\",v),b.addEventListener(\"mousemove\",w),b.addEventListener(\"mouseup\",S),b.addEventListener(\"mouseleave\",S),b.addEventListener(\"touchstart\",j,{passive:!1}),b.addEventListener(\"touchmove\",F,{passive:!1}),b.addEventListener(\"touchend\",W),()=>{b.removeEventListener(\"mousedown\",v),b.removeEventListener(\"mousemove\",w),b.removeEventListener(\"mouseup\",S),b.removeEventListener(\"mouseleave\",S),b.removeEventListener(\"touchstart\",j),b.removeEventListener(\"touchmove\",F),b.removeEventListener(\"touchend\",W)}},[d,f,g]);const h=k.useCallback(()=>{const b=r.current;if(!b)return;const v=b.getContext(\"2d\");v&&v.clearRect(0,0,b.width,b.height),l(!1),n==null||n(!0)},[n]),N=k.useCallback(()=>{var b;return((b=r.current)==null?void 0:b.toDataURL(\"image/png\"))||\"\"},[]),y=k.useCallback(()=>!o,[o]);return k.useEffect(()=>{const b=r.current;b&&(b.__signaturePad={toBase64:N,clear:h,isEmpty:y})},[N,h,y]),i.jsxs(\"div\",{className:\"space-y-3\",children:[i.jsxs(\"div\",{className:\"relative border-2 border-dashed border-gray-300 rounded-lg overflow-hidden bg-white\",children:[i.jsx(\"canvas\",{ref:r,width:t,height:e,style:{width:\"100%\",height:`${e}px`,touchAction:\"none\",cursor:\"crosshair\"}}),!o&&i.jsx(\"div\",{className:\"absolute inset-0 flex items-center justify-center pointer-events-none\",children:i.jsx(\"p\",{className:\"text-gray-400 text-sm\",children:\"Sign here — draw your signature\"})})]}),i.jsxs(\"div\",{className:\"flex items-center justify-between\",children:[i.jsx(\"p\",{className:\"text-xs text-gray-500\",children:o?\"✓ Signature captured\":\"Draw your signature above\"}),i.jsx(\"button\",{type:\"button\",onClick:h,className:\"text-xs text-gray-500 hover:text-gray-700 underline\",children:\"Clear signature\"})]})]})}",
+      "fingerprint": "0cd5b25780bc20ee6aeb4bf053a99a25dc21a25ed7709c02b45a7799e89ac7de",
+      "dependencies": [
+        "k",
+        "i"
+      ],
+      "dependencyFingerprints": [
+        {
+          "name": "k",
+          "hash": "26f6087f3adc71a97bbb8ad78adce897c30a5e2f9fcfc15cadb8cd0136334822"
+        },
+        {
+          "name": "i",
+          "hash": "26f6087f3adc71a97bbb8ad78adce897c30a5e2f9fcfc15cadb8cd0136334822"
+        }
+      ]
+    },
+    "dashboard": {
+      "code": "function ame(){const{user:t}=$1(),[e,n]=k.useState([]),[r,s]=k.useState({new:0,contacted:0,qualified:0,\"closed-won\":0,\"closed-lost\":0}),[a,o]=k.useState(!0),[l,c]=k.useState(\"\"),u=async()=>{o(!0);try{const[j,F]=await Promise.all([B1(),rD()]);n(j||[]),s(F||{new:0,contacted:0,qualified:0,\"closed-won\":0,\"closed-lost\":0})}catch(j){console.error(\"Error loading data:\",j)}finally{o(!1)}};k.useEffect(()=>{u()},[]);const d=async(j,F)=>{await pg(j,{status:F}),await u()},f=async j=>{if(window.confirm(\"Are you sure you want to delete this lead? This action cannot be undone.\")){const F=Xe.loading(\"Deleting lead...\");try{await nD(j),await u(),Xe.success(\"Lead deleted successfully\",{id:F})}catch(W){console.error(\"Error deleting lead:\",W),Xe.error(\"Failed to delete lead. Please check your permissions.\",{id:F})}}};e.filter(j=>(j.name||\"\").toLowerCase().includes(l.toLowerCase())||(j.email||\"\").toLowerCase().includes(l.toLowerCase()));const g=j=>e.filter(F=>F.status===j),h=e.filter(j=>{const F=j.createdAt;let W;if(F&&typeof F==\"object\"&&\"toDate\"in F?W=F.toDate():W=new Date(F),isNaN(W.getTime()))return!1;const P=new Date;return W.getMonth()===P.getMonth()&&W.getFullYear()===P.getFullYear()}).length,N=e.length,y=r[\"closed-won\"],b=N>0?(y/N*100).toFixed(1):\"0\",[v,w]=k.useState(\"dashboard\"),S=async j=>{try{await NO(j),Xe.success(`\"${j.name}\" converted to client! Open People tab to manage.`),u()}catch(F){console.error(\"Convert to client error:\",F),Xe.error(\"Failed to convert lead to client\")}};return i.jsxs(Goe,{currentTab:v,onTabChange:w,children:[i.jsxs(\"div\",{className:\"mb-8\",children:[i.jsx(\"h1\",{className:\"text-3xl font-display font-bold text-white mb-2 capitalize\",children:v.replace(\"-\",\" \")}),i.jsxs(\"p\",{className:\"text-merkad-text-muted\",children:[\"Welcome back, \",t==null?void 0:t.email]})]}),v===\"dashboard\"&&i.jsxs(\"div\",{className:\"space-y-8 animate-on-scroll visible\",children:[i.jsxs(\"div\",{className:\"grid grid-cols-1 md:grid-cols-3 gap-6\",children:[i.jsx(R2,{label:\"Total Leads\",value:N,trend:N>0?\"up\":void 0,trendValue:N>0?`${r.new} new`:void 0}),i.jsx(R2,{label:\"This Month\",value:h,trend:\"up\",trendValue:`${h} leads`}),i.jsx(R2,{label:\"Conversion Rate\",value:`${b}%`,trend:Number(b)>0?\"up\":void 0,trendValue:y>0?`${y} won`:void 0})]}),i.jsxs(sn,{className:\"bg-merkad-bg-secondary border-merkad-border\",children:[i.jsx(Vs,{children:i.jsx(ii,{className:\"text-white\",children:\"Recent Activity\"})}),i.jsx(on,{children:i.jsx(\"div\",{className:\"space-y-4\",children:e.slice(0,5).map(j=>i.jsxs(\"div\",{className:\"flex items-center gap-4 p-3 bg-merkad-bg-tertiary rounded-lg border border-white/5\",children:[i.jsx(\"div\",{className:\"w-10 h-10 rounded-full bg-merkad-purple/20 flex items-center justify-center\",children:i.jsx(aP,{className:\"w-5 h-5 text-merkad-purple\"})}),i.jsxs(\"div\",{className:\"flex-1\",children:[i.jsxs(\"p\",{className:\"text-white text-sm\",children:[i.jsx(\"span\",{className:\"font-medium\",children:j.name||\"Unnamed Lead\"}),\" \",\"was added as a new lead\"]}),i.jsx(\"p\",{className:\"text-xs text-merkad-text-muted\",children:GE(j.createdAt,\"MMM d, h:mm a\")})]}),i.jsx(rae,{status:j.status})]},j.id))})})]})]}),v===\"pipeline\"&&i.jsx(\"div\",{className:\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-on-scroll visible\",children:HE.map(({status:j,label:F,color:W})=>i.jsxs(\"div\",{className:`bg-merkad-bg-secondary rounded-xl border-t-4 ${W} p-4 h-fit`,children:[i.jsxs(\"div\",{className:\"flex items-center justify-between mb-4\",children:[i.jsx(\"h3\",{className:\"font-semibold text-white\",children:F}),i.jsx(\"span\",{className:\"text-sm text-merkad-text-muted bg-merkad-bg-tertiary px-2 py-1 rounded\",children:g(j).length})]}),i.jsxs(\"div\",{className:\"space-y-3 max-h-[600px] overflow-y-auto pr-1 custom-scrollbar\",children:[g(j).map(P=>i.jsx(sn,{className:\"bg-merkad-bg-tertiary border-merkad-border hover:border-merkad-purple/50 transition-colors cursor-pointer group\",children:i.jsxs(on,{className:\"p-3\",children:[i.jsxs(\"div\",{className:\"flex justify-between items-start\",children:[i.jsxs(\"div\",{children:[i.jsx(\"p\",{className:\"font-medium text-white text-sm group-hover:text-merkad-purple transition-colors\",children:P.name||\"Unnamed Lead\"}),i.jsx(\"p\",{className:\"text-xs text-merkad-text-muted truncate\",children:P.email||\"No Email\"})]}),i.jsxs(gO,{children:[i.jsx(xO,{asChild:!0,children:i.jsx(qe,{variant:\"ghost\",size:\"sm\",className:\"h-6 w-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity\",children:i.jsx(K6,{className:\"w-4 h-4\"})})}),i.jsxs(s4,{align:\"end\",children:[HE.map(T=>i.jsxs(Zo,{onClick:()=>d(P.id,T.status),disabled:T.status===j,children:[\"Move to \",T.label]},T.status)),i.jsx(Zo,{onClick:()=>d(P.id,\"closed-lost\"),className:\"text-orange-500\",children:\"Mark as Lost\"}),i.jsx(Zo,{onSelect:T=>{T.preventDefault(),f(P.id)},className:\"text-red-500 font-medium cursor-pointer\",children:\"Delete Lead\"}),i.jsxs(Zo,{onClick:()=>S(P),className:\"text-green-400 font-medium cursor-pointer\",children:[i.jsx(N$,{className:\"w-4 h-4 mr-2\"}),\"Convert & Create Contract\"]})]})]})]}),i.jsxs(\"div\",{className:\"flex items-center justify-between mt-3 pt-3 border-t border-white/5\",children:[i.jsx(\"span\",{className:\"text-[10px] text-merkad-text-muted uppercase tracking-wider\",children:P.source}),i.jsx(\"span\",{className:\"text-[10px] text-merkad-text-muted\",children:GE(P.createdAt,\"MMM d\")})]})]})},P.id)),g(j).length===0&&i.jsx(\"div\",{className:\"text-sm text-merkad-text-muted text-center py-8 border border-dashed border-white/10 rounded-lg\",children:\"No leads\"})]})]},j))}),v===\"people\"&&i.jsx(\"div\",{className:\"animate-on-scroll visible\",children:i.jsx(phe,{})}),v===\"settings\"&&i.jsx(\"div\",{className:\"animate-on-scroll visible\",children:i.jsx(Zfe,{})}),v===\"inbox\"&&i.jsx(\"div\",{className:\"animate-on-scroll visible\",children:i.jsx(ime,{})})]})}",
+      "fingerprint": "d941d94014dee67fc4d256176f8902e18505cdb998cc5e0851842f8eaec1826f",
+      "dependencies": [
+        "$1",
+        "k",
+        "B1",
+        "rD",
+        "pg",
+        "Xe",
+        "nD",
+        "NO",
+        "i",
+        "Goe",
+        "R2",
+        "sn",
+        "Vs",
+        "ii",
+        "on",
+        "aP",
+        "GE",
+        "rae",
+        "HE",
+        "gO",
+        "xO",
+        "qe",
+        "K6",
+        "s4",
+        "Zo",
+        "N$",
+        "phe",
+        "Zfe",
+        "ime"
+      ],
+      "dependencyFingerprints": [
+        {
+          "name": "$1",
+          "hash": "7c36418ab3a0fd0c1f662e26e3b157e1d1902e521d47d450d428b78bb557ea9b"
+        },
+        {
+          "name": "k",
+          "hash": "26f6087f3adc71a97bbb8ad78adce897c30a5e2f9fcfc15cadb8cd0136334822"
+        },
+        {
+          "name": "B1",
+          "hash": "91ada4dc7a22974098237dd04b481de8674459e70c70b8500adb286d237b7d8f"
+        },
+        {
+          "name": "rD",
+          "hash": "cede879813757ff66af05071cbd41fc9b71d6c7565319b19daa622e6438c388c"
+        },
+        {
+          "name": "pg",
+          "hash": "1edfebfaaa5ca74ef5bf873f8785c016bdd20a6eb3112253f20e45e9ccea1423"
+        },
+        {
+          "name": "Xe",
+          "hash": "e466c39e39ffd728e5080f202e49f6e224bd7ee3abfc74007833d9bda642d37d"
+        },
+        {
+          "name": "nD",
+          "hash": "e7c80ce09ab13f9e3d47c101f6ebff9e39880ca485ebc38058dd0e3e368ed94b"
+        },
+        {
+          "name": "NO",
+          "hash": "d62ce352c50371efca13b7806d04cc5131b075b3daac14ae868caf7f456dda78"
+        },
+        {
+          "name": "i",
+          "hash": "26f6087f3adc71a97bbb8ad78adce897c30a5e2f9fcfc15cadb8cd0136334822"
+        },
+        {
+          "name": "Goe",
+          "hash": "dc1d87d5e7f524b5625a08a6b53addeb943f8ce19a471e0df6612f502118e680"
+        },
+        {
+          "name": "R2",
+          "hash": "99f7216e6282c882003e0dbd5e324e866f50d034e5ffbe7270b0275e18d32f68"
+        },
+        {
+          "name": "sn",
+          "hash": "22f5623121aa0c23c138c978290fcb7850ace9a47a529c9150967e2706408120"
+        },
+        {
+          "name": "Vs",
+          "hash": "51cfef5ea6b6f654fd20a7e955c38ed81f000c67e276379d3d3cbb137ff6a74b"
+        },
+        {
+          "name": "ii",
+          "hash": "c347d6167b3e86be351e40432c06d62ca6b88bf343aa90e8db9a1923af718f68"
+        },
+        {
+          "name": "on",
+          "hash": "6367c2630c7adcd9708851f89d68e07bc272b4b649c5e4d8c3d0775beb5748d9"
+        },
+        {
+          "name": "aP",
+          "hash": "f5c80af4410ce451c979ec61dd497595790588b1abbe34b0f65910a6bf5732fa"
+        },
+        {
+          "name": "GE",
+          "hash": "bc838800d77c47c42c306e680e7d165b7a4eb5ce88d7f3e7a32449121c0b896f"
+        },
+        {
+          "name": "rae",
+          "hash": "ff01cd60d6ac38097860a301053b3eca912e718049fd32eb0c2c653671087e8c"
+        },
+        {
+          "name": "HE",
+          "hash": "8178791abf1f1cabf79ce1a85f8bda6a4b10a6b0bdf4666724fd57c534884064"
+        },
+        {
+          "name": "gO",
+          "hash": "d2f0c7b703e4555c3e1c5479e8df89157ff958c8b79ca788d99f0b3caec539b4"
+        },
+        {
+          "name": "xO",
+          "hash": "d2f0c7b703e4555c3e1c5479e8df89157ff958c8b79ca788d99f0b3caec539b4"
+        },
+        {
+          "name": "qe",
+          "hash": "c1b973412d4f76a0adb7773437ed09ba0aa5a657825a27279f69f68464544050"
+        },
+        {
+          "name": "K6",
+          "hash": "1fc2ffc6306c6d44cc1c7dcae0cc1691daac9d06b36f5be89b2c112cee2ebe0b"
+        },
+        {
+          "name": "s4",
+          "hash": "5bea364ced0c8afc2e4129ad3c8735df1bf40b3c134d86c0689caeee25de5dc9"
+        },
+        {
+          "name": "Zo",
+          "hash": "2ce3b3da843f8305e9c99247033b1202fdb1c6a1cb6aff95c6a8d56955bf5ac5"
+        },
+        {
+          "name": "N$",
+          "hash": "bac81d7b98cea72ad57abe09d0a4a696765c7d1328cd846948e94262f8520470"
+        },
+        {
+          "name": "phe",
+          "hash": "1989c9185551aa5cc90d90deda0d1b98700b5a4a3de99c3aa4ff09b9c3a9a4bf"
+        },
+        {
+          "name": "Zfe",
+          "hash": "0f13a7ba6358a48f46d60a22ee5e19d751745bcd717ae2addda65a6014d00f2e"
+        },
+        {
+          "name": "ime",
+          "hash": "e3042b08b356738e8f3143c5c6b554792727125a9106ba8556873763cc5764c0"
+        }
+      ]
+    },
+    "emailAllowed": {
+      "code": "function Qie(t){return t?mC.length===0?!0:mC.includes(t.toLowerCase()):!1}",
+      "fingerprint": "2f1a3584a156f025684b214ba12116b5821f19f0005428e2f6d0b81849ace2a6",
+      "dependencies": [
+        "mC"
+      ],
+      "dependencyFingerprints": [
+        {
+          "name": "mC",
+          "hash": "2e8007d6dc6bf1ab9917dc329304a032e1fe4c5020c19604b5bb48112886fbe9"
+        }
+      ]
+    }
+  }
+}

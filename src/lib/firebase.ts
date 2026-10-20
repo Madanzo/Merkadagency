@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics, isSupported } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
@@ -35,6 +34,8 @@ export const functions = getFunctions(app);
 
 // Initialize Analytics (only in browser environment)
 export const initAnalytics = async () => {
+  if (import.meta.env.VITE_ANALYTICS_ENABLED !== "true") return null;
+  const { getAnalytics, isSupported } = await import("firebase/analytics");
   if (await isSupported()) {
     return getAnalytics(app);
   }

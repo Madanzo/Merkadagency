@@ -1,0 +1,317 @@
+{
+  "baselineVersion": "5a85de4fce7c621b",
+  "rows": [
+    {
+      "path": "/",
+      "result": "200 static HTML",
+      "reason": "Approved informational replacement"
+    },
+    {
+      "path": "/services",
+      "result": "301 → /services/website-development",
+      "reason": "One commercial service URL"
+    },
+    {
+      "path": "/services/ai-lead-capture",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/services/crm-automation",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/services/seo-content",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/services/paid-advertising",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/industries",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/industries/medspas",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/industries/cannabis",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/industries/construction",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/industries/ecommerce",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/results",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/portfolio",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/case-studies",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/case-studies/kravings",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/case-studies/teonanacatl",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/case-studies/gridnguard",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/resources/free-audit",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/resources/roi-calculator",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/resources/medspa-automation-checklist",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/resources/cannabis-marketing-playbook",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/resources/contractor-lead-gen-guide",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/resources/ecommerce-automation-blueprint",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/about",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/about/method",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/book",
+      "result": "302 → /contact",
+      "reason": "Email-only contact; scheduling withheld"
+    },
+    {
+      "path": "/contact",
+      "result": "200 static HTML",
+      "reason": "Approved informational replacement"
+    },
+    {
+      "path": "/blog",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/legal/privacy",
+      "result": "200 static HTML",
+      "reason": "Approved informational replacement"
+    },
+    {
+      "path": "/legal/terms",
+      "result": "200 static HTML",
+      "reason": "Approved informational replacement"
+    },
+    {
+      "path": "/admin/login",
+      "result": "200 private shell",
+      "reason": "Retained route, auth/signing behavior isolated and verified"
+    },
+    {
+      "path": "/admin",
+      "result": "200 private shell",
+      "reason": "Retained route, auth/signing behavior isolated and verified"
+    },
+    {
+      "path": "/sign/:contractId",
+      "result": "200 private shell",
+      "reason": "Retained route, auth/signing behavior isolated and verified"
+    },
+    {
+      "path": "*",
+      "result": "404 safe noindex",
+      "reason": "All other application URLs, except Hosting reserved and private rewrite patterns"
+    },
+    {
+      "path": "/__/firebase/init.js",
+      "result": "Platform-managed reserved endpoint",
+      "reason": "Not a new static artifact file; not loaded by informational pages"
+    },
+    {
+      "path": "/__/firebase/init.json",
+      "result": "Platform-managed reserved endpoint",
+      "reason": "Not a new static artifact file; not loaded by informational pages"
+    },
+    {
+      "path": "/assets/html2canvas.esm-QH1iLAAe.js",
+      "result": "200 identical live bytes",
+      "reason": "Fingerprint enforced by build"
+    },
+    {
+      "path": "/assets/index-DxLjU7W-.css",
+      "result": "200 identical live bytes",
+      "reason": "Fingerprint enforced by build"
+    },
+    {
+      "path": "/assets/index-oYkhmNmm.js",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/assets/index.es-BLzAEPB-.js",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/assets/purify.es-B9ZVCkUG.js",
+      "result": "200 identical live bytes",
+      "reason": "Fingerprint enforced by build"
+    },
+    {
+      "path": "/favicon.png",
+      "result": "200 identical live bytes",
+      "reason": "Fingerprint enforced by build"
+    },
+    {
+      "path": "/index.html",
+      "result": "301 → /",
+      "reason": "Hosting cleanUrls canonical root"
+    },
+    {
+      "path": "/medspa-checklist.html",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/resources/cannabis-marketing-playbook.html",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/resources/contractor-lead-gen-guide.html",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/resources/ecommerce-automation-blueprint.html",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/resources/medspa-automation-checklist.html",
+      "result": "404 safe noindex",
+      "reason": "Retired unsupported content or incompatible legacy asset"
+    },
+    {
+      "path": "/robots.txt",
+      "result": "200 replaced",
+      "reason": "Six informational destinations; private exclusions"
+    },
+    {
+      "path": "/sitemap.xml",
+      "result": "200 replaced",
+      "reason": "Six informational destinations; private exclusions"
+    },
+    {
+      "path": "/services/website-development",
+      "result": "200 static HTML",
+      "reason": "New distinct service or educational intent"
+    },
+    {
+      "path": "/resources/website-brief",
+      "result": "200 static HTML",
+      "reason": "New distinct service or educational intent"
+    }
+  ],
+  "additional": [
+    {
+      "path": "/admin/** and /sign/** outside the three named routes",
+      "result": "200 noindex private fallback",
+      "reason": "Existing private rewrite scopes; React renders only a return-to-website link for unmatched paths"
+    },
+    {
+      "path": "/private-app.html",
+      "result": "301 → /private-app",
+      "reason": "cleanUrls alias; noindex shell, fallback link outside named private routes"
+    },
+    {
+      "path": "/private-app",
+      "result": "200 noindex shell",
+      "reason": "Private named routes only; no public marketing"
+    },
+    {
+      "path": "/website-release.json",
+      "result": "200 release metadata",
+      "reason": "Source/OFF/config hashes, no secret values"
+    },
+    {
+      "path": "/private-boundary.json",
+      "result": "200 boundary metadata",
+      "reason": "Non-sensitive fingerprints only"
+    },
+    {
+      "path": "/site.css",
+      "result": "200 informational stylesheet",
+      "reason": "Self-hosted"
+    },
+    {
+      "path": "/{six retained pages}.html",
+      "result": "301 → extensionless canonical",
+      "reason": "Hosting cleanUrls; /index.html → /"
+    },
+    {
+      "path": "/{retained static public URL}/",
+      "result": "301 → URL without trailing slash",
+      "reason": "Hosting trailingSlash:false; private rewrites retain slash/query URLs"
+    },
+    {
+      "path": "/assets/{new-private-primary,new-private-PDF}.js",
+      "result": "200 source-pinned generated files",
+      "reason": "Old primary cannot be preserved with OFF/proof requirements; old PDF imports it"
+    },
+    {
+      "path": "/__/auth/* and other Hosting reserved URLs",
+      "result": "Platform-managed",
+      "reason": "Not overridden; existing Firebase Auth hosting behavior retained"
+    }
+  ]
+}
