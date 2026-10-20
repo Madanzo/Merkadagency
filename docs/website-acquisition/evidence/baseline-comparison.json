@@ -1,0 +1,23 @@
+{
+  "baseline": "b1286a0f471b24b2f51c1f7ec8298d67ae68976d",
+  "implementation": "ae676d69865a148ec59c5081d415b955edcde908",
+  "files": 19,
+  "changed": [
+    "services/website-development.html",
+    "website-release.json"
+  ],
+  "changedFileHashes": {
+    "services/website-development.html": {
+      "baseline": "b25239af04f836d6549b97c04a6e8723c164d281f8e68d1312ca2d830bf6cf9f",
+      "candidate": "0a348b6b109b354839b83cd6461fccc0066656bd1e7924bdc4e6fa6b7ba71bc9"
+    },
+    "website-release.json": {
+      "baseline": "3748b8cdbfc9b59e571b6d54b072b23391771dd8bebf71120c70de047b67fb8b",
+      "candidate": "ea8a4e0882d464e8fe9820748da30360dcfa6fbc7c82516f98896ae2b0281fcb"
+    }
+  },
+  "privateBytesUnchanged": true,
+  "otherFivePublicPagesByteIdentical": true,
+  "cssAndMetadataUnchanged": true,
+  "urlConfigAndWorkflowsUnchanged": true
+}

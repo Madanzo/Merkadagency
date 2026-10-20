@@ -1,0 +1,296 @@
+{
+  "checkedAt": "2026-10-20T21:32:54.428Z",
+  "base": "http://127.0.0.1:8098",
+  "route": "/services/website-development",
+  "engines": [
+    {
+      "name": "chromium",
+      "version": "149.0.7827.55",
+      "checks": [
+        {
+          "width": 320,
+          "status": 200,
+          "overflow": false,
+          "allFiveDraftUrlsVerified": true,
+          "mobileActionUnchanged": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "width": 390,
+          "status": 200,
+          "overflow": false,
+          "allFiveDraftUrlsVerified": true,
+          "mobileActionUnchanged": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "width": 844,
+          "status": 200,
+          "overflow": false,
+          "allFiveDraftUrlsVerified": true,
+          "mobileActionUnchanged": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "width": 1280,
+          "status": 200,
+          "overflow": false,
+          "allFiveDraftUrlsVerified": true,
+          "mobileActionUnchanged": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "check": "keyboard reaches both new actions with visible unobscured focus",
+          "stops": 25,
+          "pass": true
+        },
+        {
+          "check": "200% root-text surrogate preserves layout and focus for new actions",
+          "pass": true
+        },
+        {
+          "check": "existing disclosure and conceptual-proof label preserved",
+          "pass": true
+        },
+        {
+          "check": "print retains scope checklist and hides mobile action",
+          "pass": true
+        },
+        {
+          "check": "project-specific anchors and scope initial HTML available without JS",
+          "pass": true
+        },
+        {
+          "check": "unchanged contact fallback remains email-only",
+          "pass": true
+        }
+      ],
+      "requests": [
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/contact",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        }
+      ],
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "name": "firefox",
+      "version": "151.0",
+      "checks": [
+        {
+          "width": 320,
+          "status": 200,
+          "overflow": false,
+          "allFiveDraftUrlsVerified": true,
+          "mobileActionUnchanged": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "width": 390,
+          "status": 200,
+          "overflow": false,
+          "allFiveDraftUrlsVerified": true,
+          "mobileActionUnchanged": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "width": 844,
+          "status": 200,
+          "overflow": false,
+          "allFiveDraftUrlsVerified": true,
+          "mobileActionUnchanged": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "width": 1280,
+          "status": 200,
+          "overflow": false,
+          "allFiveDraftUrlsVerified": true,
+          "mobileActionUnchanged": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "check": "keyboard reaches both new actions with visible unobscured focus",
+          "stops": 26,
+          "pass": true
+        },
+        {
+          "check": "200% root-text surrogate preserves layout and focus for new actions",
+          "pass": true
+        },
+        {
+          "check": "existing disclosure and conceptual-proof label preserved",
+          "pass": true
+        },
+        {
+          "check": "print retains scope checklist and hides mobile action",
+          "pass": true
+        },
+        {
+          "check": "project-specific anchors and scope initial HTML available without JS",
+          "pass": true
+        },
+        {
+          "check": "unchanged contact fallback remains email-only",
+          "pass": true
+        }
+      ],
+      "requests": [
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/contact",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        }
+      ],
+      "forbidden": [],
+      "errors": []
+    }
+  ],
+  "limitations": [
+    "Physical device, Safari/WebKit, screen reader, native text zoom, actual OS-motion preference and real mail-app handoff not tested for this candidate. Browser emulation and parsed URLs do not close those gaps."
+  ]
+}
