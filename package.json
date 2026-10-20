@@ -13,7 +13,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "build:seo": "node scripts/seo/build.mjs && node scripts/seo/verify.mjs && node scripts/seo/verify.mjs dist-rollback",
-    "build:seo:preview": "node scripts/seo/build.mjs --preview && node scripts/seo/verify.mjs dist-site-preview && node scripts/seo/verify.mjs dist-rollback",
+    "build:seo:preview": "node scripts/seo/build.mjs --preview && node scripts/seo/verify.mjs dist-site-preview",
     "verify:seo": "node scripts/seo/verify.mjs"
   },
   "dependencies": {

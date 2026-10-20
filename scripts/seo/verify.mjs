@@ -11,6 +11,7 @@ assert.equal(config.hosting.public,'dist-site');
 assert(!config.hosting.source && !config.hosting.frameworksBackend);
 assert.deepEqual(config.hosting.rewrites,[{source:'/admin{,/**}',destination:'/private-app.html'},{source:'/sign/**',destination:'/private-app.html'}]);
 const manifest=JSON.parse(await readFile(`${dir}/website-release.json`,'utf8'));
+assert.equal(manifest.preview,dir==='dist-site-preview','Preview artifacts cannot be selected for live publication or fallback');
 assert.equal(manifest.source,execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim());
 assert.equal(manifest.intake,false);assert.equal(manifest.analytics,false);assert.match(manifest.source,/^[a-f0-9]{40}$/);
 const titleSet=new Set(),descriptionSet=new Set();

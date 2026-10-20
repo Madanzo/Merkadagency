@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile, readdir } from 'node:fs/promises';
+import { readFile, readdir, mkdtemp, cp, writeFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pages } from '../../website/content.mjs';
 const get = async (file,dir='dist-site') => readFile(`${dir}/${file}`,'utf8');
@@ -23,4 +25,15 @@ test('Review branch pushes cannot publish; main checks are independent of releas
  const release=await readFile('.github/workflows/firebase-deploy.yml','utf8');
  assert(release.includes('workflow_dispatch:'));assert(!/^  (push|pull_request):/m.test(release));assert(release.includes('--config firebase.seo.json'));assert(release.includes('origin/main'));
  const review=await readFile('.github/workflows/seo-review.yml','utf8');assert(review.includes('branches: [main, codex/seo-informational-oct20]'));assert(!review.includes('deploy --'));
+});
+
+test('Publication verification rejects a preview artifact',async()=>{
+ const temp=await mkdtemp(join(tmpdir(),'merkad-preview-rejection-'));
+ try {
+  await cp('dist-site',temp,{recursive:true});
+  const manifest=JSON.parse(await readFile(join(temp,'website-release.json'),'utf8'));
+  manifest.preview=true;
+  await writeFile(join(temp,'website-release.json'),JSON.stringify(manifest));
+  assert.throws(()=>execFileSync('node',['scripts/seo/verify.mjs',temp],{stdio:'pipe'}),error=>error.stderr.toString().includes('Preview artifacts cannot be selected'));
+ } finally { await rm(temp,{recursive:true,force:true}); }
 });
