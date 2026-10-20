@@ -1,0 +1,34 @@
+name: Informational website checks
+on:
+  pull_request:
+  push:
+    branches: [main, codex/seo-informational-oct20]
+permissions:
+  contents: read
+jobs:
+  static-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npx tsc -p tsconfig.app.json --noEmit
+      - run: npx eslint website/private.tsx
+      - run: npm run build:seo
+        env:
+          VITE_CONTACT_INTAKE_ENABLED: 'true'
+          VITE_ANALYTICS_ENABLED: 'true'
+      - run: node --test scripts/seo/acceptance.test.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: informational-website-${{ github.sha }}
+          path: |
+            dist-site
+            dist-rollback
+            dist-site.sha256
+            dist-rollback.sha256
+          retention-days: 30

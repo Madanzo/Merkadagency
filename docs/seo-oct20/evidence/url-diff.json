@@ -1,0 +1,130 @@
+[
+  {
+    "url": "/",
+    "candidate": "200 static rewritten"
+  },
+  {
+    "url": "/services",
+    "candidate": "301 /services/website-development"
+  },
+  {
+    "url": "/services/ai-lead-capture",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/services/crm-automation",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/services/seo-content",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/services/paid-advertising",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/industries",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/industries/medspas",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/industries/cannabis",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/industries/construction",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/industries/ecommerce",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/results",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/portfolio",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/case-studies",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/case-studies/kravings",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/case-studies/teonanacatl",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/case-studies/gridnguard",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/resources/free-audit",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/resources/roi-calculator",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/resources/medspa-automation-checklist",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/resources/cannabis-marketing-playbook",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/resources/contractor-lead-gen-guide",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/resources/ecommerce-automation-blueprint",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/about",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/about/method",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/book",
+    "candidate": "302 /contact"
+  },
+  {
+    "url": "/contact",
+    "candidate": "200 static rewritten"
+  },
+  {
+    "url": "/blog",
+    "candidate": "404 safe noindex; no relevant same-service replacement"
+  },
+  {
+    "url": "/legal/privacy",
+    "candidate": "200 static rewritten"
+  },
+  {
+    "url": "/legal/terms",
+    "candidate": "200 static rewritten"
+  },
+  {
+    "url": "/services/website-development",
+    "candidate": "new static 200"
+  },
+  {
+    "url": "/resources/website-brief",
+    "candidate": "new static 200"
+  }
+]

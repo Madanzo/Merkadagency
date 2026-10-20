@@ -46,3 +46,12 @@ server/serviceAccountKey.json
 
 # Firebase service account keys
 merkadagency-dd2aa-firebase-adminsdk-*.json
+
+# Isolated static informational publication artifacts
+dist-site/
+dist-site-preview/
+dist-private/
+dist-rollback/
+dist-site.sha256
+dist-site-preview.sha256
+dist-rollback.sha256

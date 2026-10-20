@@ -51,34 +51,12 @@ const SEQUENCES: Sequence[] = [
             },
             {
                 day: 3,
-                subject: 'How We Helped Kravings Cannabis 3X Their Bookings 📈',
-                description: 'Case study email showing real results',
+                subject: 'Website project information',
+                description: 'Draft placeholder: customer proof is withheld pending approval',
                 htmlPreview: `
-                    <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
-                        <h1 style="color: #7c3aed;">Real Results, {name}</h1>
-                        <p style="color: #333; font-size: 16px; line-height: 1.6;">
-                            Want to see what's possible with the right automation?
-                        </p>
-                        <p style="color: #333; font-size: 16px; line-height: 1.6;">
-                            <strong>Kravings Cannabis</strong> came to us struggling with lead follow-up. 
-                            Their team was overwhelmed, and potential customers were slipping through the cracks.
-                        </p>
-                        <p style="color: #333; font-size: 16px; line-height: 1.6;">
-                            After implementing our MerkadFlow System™:
-                        </p>
-                        <ul style="color: #333; font-size: 16px; line-height: 1.8;">
-                            <li>📈 <strong>3x more bookings</strong> in 60 days</li>
-                            <li>⏰ <strong>80% faster</strong> lead response time</li>
-                            <li>💰 <strong>$47K+ additional revenue</strong> in Q1</li>
-                        </ul>
-                        <a href="https://merkadagency.com/case-studies/kravings" 
-                           style="display: inline-block; background: #7c3aed; color: white; padding: 14px 28px; 
-                                  border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 16px;">
-                            Read the Full Case Study
-                        </a>
-                        <p style="color: #888; font-size: 14px; margin-top: 32px;">
-                            Camilo @ MerkadAgency
-                        </p>
+                    <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+                        <h1>Customer proof is not published</h1>
+                        <p>This draft contains no approved customer story. Obtain evidence and permission before adding customer material.</p>
                     </div>
                 `,
             },

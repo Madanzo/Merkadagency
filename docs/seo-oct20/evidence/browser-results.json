@@ -1,0 +1,1179 @@
+{
+  "base": "http://127.0.0.1:8096",
+  "date": "2026-10-20T18:09:17.610Z",
+  "engines": [
+    {
+      "name": "chromium",
+      "version": "149.0.7827.55",
+      "checks": [
+        {
+          "route": "/",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/services/website-development",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/contact",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/privacy",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/terms",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/services/website-development",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/contact",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/privacy",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/terms",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/services/website-development",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/contact",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/privacy",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/terms",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/services/website-development",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/contact",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/privacy",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/terms",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "check": "keyboard skip to main",
+          "pass": true
+        },
+        {
+          "check": "native disclosure keyboard toggle",
+          "pass": true
+        },
+        {
+          "check": "200% root text size surrogate all routes",
+          "pass": true
+        },
+        {
+          "check": "guide print styles preserve readable content",
+          "pass": true
+        },
+        {
+          "check": "email-only contact, no unusable form or false success",
+          "pass": true
+        },
+        {
+          "check": "no analytics, intake, external or mutation requests; no HTTP/page failures",
+          "pass": true,
+          "requests": 70
+        },
+        {
+          "check": "all six pages readable with JavaScript disabled",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "firefox",
+      "version": "151.0",
+      "checks": [
+        {
+          "route": "/",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/services/website-development",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/contact",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/privacy",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/terms",
+          "width": 320,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/services/website-development",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/contact",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/privacy",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/terms",
+          "width": 390,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/services/website-development",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/contact",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/privacy",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/terms",
+          "width": 844,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/services/website-development",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/contact",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/privacy",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "route": "/legal/terms",
+          "width": 1280,
+          "status": 200,
+          "axeViolations": 0,
+          "axeIncomplete": [],
+          "overflow": false
+        },
+        {
+          "check": "keyboard skip to main",
+          "pass": true
+        },
+        {
+          "check": "native disclosure keyboard toggle",
+          "pass": true
+        },
+        {
+          "check": "200% root text size surrogate all routes",
+          "pass": true
+        },
+        {
+          "check": "guide print styles preserve readable content",
+          "pass": true
+        },
+        {
+          "check": "email-only contact, no unusable form or false success",
+          "pass": true
+        },
+        {
+          "check": "no analytics, intake, external or mutation requests; no HTTP/page failures",
+          "pass": true,
+          "requests": 70
+        },
+        {
+          "check": "all six pages readable with JavaScript disabled",
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "WebKit unavailable: browserType.launch: Executable doesn't exist at /Users/camiloreyna/Library/Caches/ms-playwright/webkit-2311/pw_run.sh"
+  ],
+  "network": [
+    {
+      "name": "chromium",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:8096/",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/privacy",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/terms",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/privacy",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/terms",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/privacy",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/terms",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/privacy",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/terms",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/privacy",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/terms",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        }
+      ],
+      "failures": [],
+      "errors": []
+    },
+    {
+      "name": "firefox",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:8096/",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/privacy",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/terms",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/privacy",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/terms",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/privacy",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/terms",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/privacy",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/terms",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/privacy",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/legal/terms",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/contact",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/services/website-development",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8096/resources/website-brief",
+          "method": "GET",
+          "type": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8096/site.css",
+          "method": "GET",
+          "type": "stylesheet"
+        }
+      ],
+      "failures": [],
+      "errors": []
+    }
+  ]
+}

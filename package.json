@@ -12,8 +12,9 @@
     "generate-sitemap": "node scripts/generate-sitemap.cjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "deploy": "npm run build && firebase deploy --only hosting",
-    "deploy:clean": "rm -rf dist node_modules/.vite && npm run build && firebase deploy --only hosting"
+    "build:seo": "node scripts/seo/build.mjs && node scripts/seo/verify.mjs && node scripts/seo/verify.mjs dist-rollback",
+    "build:seo:preview": "node scripts/seo/build.mjs --preview && node scripts/seo/verify.mjs dist-site-preview && node scripts/seo/verify.mjs dist-rollback",
+    "verify:seo": "node scripts/seo/verify.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

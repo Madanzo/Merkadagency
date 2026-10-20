@@ -1,0 +1,74 @@
+[
+  {
+    "path": "/services",
+    "status": 301,
+    "location": "/services/website-development",
+    "robots": null,
+    "bytes": 44,
+    "sha256": "003ad1e6a5398d0ba1526207fed1f424357b4afe99e66b16f3e11ee6eb2555f7"
+  },
+  {
+    "path": "/book",
+    "status": 302,
+    "location": "/contact",
+    "robots": null,
+    "bytes": 23,
+    "sha256": "b52b9a53b9109cf60df8d45d9028be64c8d24bb7964966c9c85bdb6127c355c4"
+  },
+  {
+    "path": "/services/website-development/",
+    "status": 301,
+    "location": "/services/website-development",
+    "robots": "noindex,nofollow",
+    "bytes": 44,
+    "sha256": "003ad1e6a5398d0ba1526207fed1f424357b4afe99e66b16f3e11ee6eb2555f7"
+  },
+  {
+    "path": "/resources/website-brief.html",
+    "status": 301,
+    "location": "/resources/website-brief",
+    "robots": "noindex,nofollow",
+    "bytes": 39,
+    "sha256": "47a3433ccb9b78876aef61e27ea8d14fea6d469cd79f8153dc309833502bd116"
+  },
+  {
+    "path": "/case-studies/kravings",
+    "status": 404,
+    "location": null,
+    "robots": "noindex,nofollow",
+    "bytes": 1786,
+    "sha256": "6750c5aede1e53d055988bd6149a6e110251a33fd0bfb878478f5407b0f6be6a"
+  },
+  {
+    "path": "/industries/medspas",
+    "status": 404,
+    "location": null,
+    "robots": "noindex,nofollow",
+    "bytes": 1786,
+    "sha256": "6750c5aede1e53d055988bd6149a6e110251a33fd0bfb878478f5407b0f6be6a"
+  },
+  {
+    "path": "/api/contact-intake",
+    "status": 404,
+    "location": null,
+    "robots": "noindex,nofollow",
+    "bytes": 1786,
+    "sha256": "6750c5aede1e53d055988bd6149a6e110251a33fd0bfb878478f5407b0f6be6a"
+  },
+  {
+    "path": "/admin/login",
+    "status": 200,
+    "location": null,
+    "robots": "noindex,nofollow",
+    "bytes": 412,
+    "sha256": "5bc82625a2960e88f9b9d15bca6496b367335d3f97cff854c529ad5382acce5c"
+  },
+  {
+    "path": "/sign/seo-review-nonexistent",
+    "status": 200,
+    "location": null,
+    "robots": "noindex,nofollow",
+    "bytes": 412,
+    "sha256": "5bc82625a2960e88f9b9d15bca6496b367335d3f97cff854c529ad5382acce5c"
+  }
+]
