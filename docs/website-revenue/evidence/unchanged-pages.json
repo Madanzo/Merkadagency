@@ -1,0 +1,66 @@
+[
+  {
+    "engine": "chromium",
+    "route": "/",
+    "width": 320,
+    "overflow": false,
+    "mobileActionAbsent": true,
+    "skipLink": true
+  },
+  {
+    "engine": "chromium",
+    "route": "/resources/website-brief",
+    "width": 320,
+    "overflow": false,
+    "mobileActionAbsent": true,
+    "skipLink": true
+  },
+  {
+    "engine": "chromium",
+    "route": "/legal/privacy",
+    "width": 320,
+    "overflow": false,
+    "mobileActionAbsent": true,
+    "skipLink": true
+  },
+  {
+    "engine": "chromium",
+    "route": "/legal/terms",
+    "width": 320,
+    "overflow": false,
+    "mobileActionAbsent": true,
+    "skipLink": true
+  },
+  {
+    "engine": "firefox",
+    "route": "/",
+    "width": 320,
+    "overflow": false,
+    "mobileActionAbsent": true,
+    "skipLink": true
+  },
+  {
+    "engine": "firefox",
+    "route": "/resources/website-brief",
+    "width": 320,
+    "overflow": false,
+    "mobileActionAbsent": true,
+    "skipLink": true
+  },
+  {
+    "engine": "firefox",
+    "route": "/legal/privacy",
+    "width": 320,
+    "overflow": false,
+    "mobileActionAbsent": true,
+    "skipLink": true
+  },
+  {
+    "engine": "firefox",
+    "route": "/legal/terms",
+    "width": 320,
+    "overflow": false,
+    "mobileActionAbsent": true,
+    "skipLink": true
+  }
+]

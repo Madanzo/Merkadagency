@@ -1,0 +1,513 @@
+{
+  "date": "2026-10-20T20:33:27.015Z",
+  "base": "http://127.0.0.1:8097",
+  "engines": [
+    {
+      "name": "chromium",
+      "version": "149.0.7827.55",
+      "checks": [
+        {
+          "route": "/services/website-development",
+          "width": 320,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/contact",
+          "width": 320,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 390,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/contact",
+          "width": 390,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 844,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": false,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/contact",
+          "width": 844,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": false,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 1280,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": false,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/contact",
+          "width": 1280,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": false,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "check": "200% root-text surrogate, no overflow or obscured footer focus",
+          "route": "/services/website-development",
+          "pass": true
+        },
+        {
+          "check": "200% root-text surrogate, no overflow or obscured footer focus",
+          "route": "/contact",
+          "pass": true
+        },
+        {
+          "check": "keyboard skip, visible focus and no action overlap",
+          "route": "/services/website-development",
+          "focusStops": 21,
+          "pass": true
+        },
+        {
+          "check": "keyboard skip, visible focus and no action overlap",
+          "route": "/contact",
+          "focusStops": 14,
+          "pass": true
+        },
+        {
+          "check": "native disclosure keyboard and explicit concept label",
+          "pass": true
+        },
+        {
+          "check": "print hides mobile action and retains content",
+          "pass": true
+        },
+        {
+          "check": "both changed pages and email actions work without JS",
+          "pass": true
+        }
+      ],
+      "requests": [
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        }
+      ],
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "name": "firefox",
+      "version": "151.0",
+      "checks": [
+        {
+          "route": "/services/website-development",
+          "width": 320,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/contact",
+          "width": 320,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 390,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/contact",
+          "width": 390,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": true,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 844,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": false,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/contact",
+          "width": 844,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": false,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 1280,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": false,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/contact",
+          "width": 1280,
+          "overflow": false,
+          "emailDraftVerified": true,
+          "mobileActionVisible": false,
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "check": "200% root-text surrogate, no overflow or obscured footer focus",
+          "route": "/services/website-development",
+          "pass": true
+        },
+        {
+          "check": "200% root-text surrogate, no overflow or obscured footer focus",
+          "route": "/contact",
+          "pass": true
+        },
+        {
+          "check": "keyboard skip, visible focus and no action overlap",
+          "route": "/services/website-development",
+          "focusStops": 22,
+          "pass": true
+        },
+        {
+          "check": "keyboard skip, visible focus and no action overlap",
+          "route": "/contact",
+          "focusStops": 15,
+          "pass": true
+        },
+        {
+          "check": "native disclosure keyboard and explicit concept label",
+          "pass": true
+        },
+        {
+          "check": "print hides mobile action and retains content",
+          "pass": true
+        },
+        {
+          "check": "both changed pages and email actions work without JS",
+          "pass": true
+        }
+      ],
+      "requests": [
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/services/website-development",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/contact",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:8097/site.css",
+          "method": "GET"
+        }
+      ],
+      "forbidden": [],
+      "errors": []
+    }
+  ],
+  "limitations": [
+    "No physical phone, Safari/WebKit, screen reader, native text-only zoom, real OS motion setting or actual email-app launch. Prior release acceptance does not cover the new candidate."
+  ]
+}
