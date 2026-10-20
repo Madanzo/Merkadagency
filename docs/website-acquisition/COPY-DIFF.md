@@ -19,7 +19,7 @@ Baseline: published main `b1286a0f471b24b2f51c1f7ec8298d67ae68976d`. Draft only.
 +Discuss changes to an existing site's structure, content or contact journey around a defined problem. Identify useful pages and URLs to preserve before deciding what to change.
 +Start with your current URL, the main problem to solve and the content or pages you want to keep.
 +Discuss a redesign
-+These buttons open optional project-specific prompts in your email app. Edit or skip any prompt. Nothing is sent by this website; the plain email address is also available on our contact page.
++These links open optional project-specific prompts in your email app. Edit or skip any prompt. Nothing is sent by this website; the plain email address is also available on our contact page.
 +Scope and deliverables to agree
 +The items below guide the proposal discussion. Your written agreement sets the included work and who is responsible for it.
 +Pages and visitor actions. Agree a page list, navigation, the contact path and any existing URLs to keep or redirect.
