@@ -1,0 +1,246 @@
+{
+  "observedAt": "2026-10-20",
+  "project": "merkadagency-dd2aa",
+  "site": "merkadagency-dd2aa",
+  "release": "1789080868216000",
+  "version": "5a85de4fce7c621b",
+  "releaseTime": "2026-09-10T22:54:28.216Z",
+  "gitSource": "unestablished; captured live bytes are authoritative",
+  "privateRoutes": [
+    "/admin",
+    "/admin/login",
+    "/sign/:contractId"
+  ],
+  "liveRewrite": {
+    "source": "**",
+    "destination": "/index.html"
+  },
+  "files": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 2098,
+      "sha256": "30302ca010672fbb7d84630f344d979e116ab69df9e0fdd685ddf92be2d52390"
+    },
+    {
+      "path": "/admin",
+      "status": 200,
+      "bytes": 2098,
+      "sha256": "30302ca010672fbb7d84630f344d979e116ab69df9e0fdd685ddf92be2d52390"
+    },
+    {
+      "path": "/admin/login",
+      "status": 200,
+      "bytes": 2098,
+      "sha256": "30302ca010672fbb7d84630f344d979e116ab69df9e0fdd685ddf92be2d52390"
+    },
+    {
+      "path": "/sign/synthetic-boundary-review",
+      "status": 200,
+      "bytes": 2098,
+      "sha256": "30302ca010672fbb7d84630f344d979e116ab69df9e0fdd685ddf92be2d52390"
+    },
+    {
+      "path": "/assets/index-oYkhmNmm.js",
+      "status": 200,
+      "bytes": 1928181,
+      "sha256": "d54443722c1a8e3eeb7877ffd9503d84a86b4b2767c7b7183ed9ceec51913a9a"
+    },
+    {
+      "path": "/assets/index-DxLjU7W-.css",
+      "status": 200,
+      "bytes": 109695,
+      "sha256": "1507e06bfaf94c67ae84422a81bd98654b51dc31e285c0681ee647d9d4858154"
+    },
+    {
+      "path": "/assets/html2canvas.esm-QH1iLAAe.js",
+      "sha256": "061c08e50c0dc57b8d5e6531f0b8237a52a68b233260d49ab2f2c2906ad112c4",
+      "bytes": 202379,
+      "importsOldPrimary": false
+    },
+    {
+      "path": "/assets/index.es-BLzAEPB-.js",
+      "sha256": "432d9a7298b527b96e8ef4ef3ac30e08d48c723d5521d1f50a817f66aed9950d",
+      "bytes": 150559,
+      "importsOldPrimary": true
+    },
+    {
+      "path": "/assets/purify.es-B9ZVCkUG.js",
+      "sha256": "8f994fedccc1596fbf513fa2242f1c6e86b7a530310614dfe5b3b28d637df46e",
+      "bytes": 22636,
+      "importsOldPrimary": false
+    },
+    {
+      "path": "/favicon.png",
+      "sha256": "b8d1990cf96dafa0fac68696f7231d88221a97ea486b76f4cf2717b028b13197",
+      "bytes": 312167
+    }
+  ],
+  "liveRouterPaths": [
+    "/",
+    "/services",
+    "/services/ai-lead-capture",
+    "/services/crm-automation",
+    "/services/seo-content",
+    "/services/paid-advertising",
+    "/industries",
+    "/industries/medspas",
+    "/industries/cannabis",
+    "/industries/construction",
+    "/industries/ecommerce",
+    "/results",
+    "/portfolio",
+    "/case-studies",
+    "/case-studies/kravings",
+    "/case-studies/teonanacatl",
+    "/case-studies/gridnguard",
+    "/resources/free-audit",
+    "/resources/roi-calculator",
+    "/resources/medspa-automation-checklist",
+    "/resources/cannabis-marketing-playbook",
+    "/resources/contractor-lead-gen-guide",
+    "/resources/ecommerce-automation-blueprint",
+    "/about",
+    "/about/method",
+    "/book",
+    "/contact",
+    "/blog",
+    "/legal/privacy",
+    "/legal/terms",
+    "/admin/login",
+    "/admin",
+    "/sign/:contractId",
+    "*"
+  ],
+  "versionFiles": [
+    {
+      "path": "/__/firebase/init.js",
+      "versionHash": "97d69b14c26c7dd80beb1f5087b0bacbe5a0f43c3988628ae987d16d730c774e",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 502,
+      "httpSha256": "95b5fff647eed90c581eb98f9a7e80a4858e7149e23a8ce48d6ff587c7ed9c29"
+    },
+    {
+      "path": "/__/firebase/init.json",
+      "versionHash": "e96012315d4d559f3a5e0b2998ca39db2d594a30fc6262391e33e0f9970de95c",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 325,
+      "httpSha256": "043c389f0c8defefac8229ade705521fd1e10e2a0c9f458b3537d2cca8d9c11d"
+    },
+    {
+      "path": "/assets/html2canvas.esm-QH1iLAAe.js",
+      "versionHash": "ce0c6a605b38de9eb977cb1a599a19df34aec426df2f9bfd9ded2e2e6f115ba0",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 202379,
+      "httpSha256": "061c08e50c0dc57b8d5e6531f0b8237a52a68b233260d49ab2f2c2906ad112c4"
+    },
+    {
+      "path": "/assets/index-DxLjU7W-.css",
+      "versionHash": "d40517e63eed72807a4e1827e79a86f0f481cc757d4bba2515d1d06a244c4d15",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 109695,
+      "httpSha256": "1507e06bfaf94c67ae84422a81bd98654b51dc31e285c0681ee647d9d4858154"
+    },
+    {
+      "path": "/assets/index-oYkhmNmm.js",
+      "versionHash": "aff5051c1ef6f2b98665c1762ad66236cdc1274e8062fa7087c4bd07e9fc9d31",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 1928181,
+      "httpSha256": "d54443722c1a8e3eeb7877ffd9503d84a86b4b2767c7b7183ed9ceec51913a9a"
+    },
+    {
+      "path": "/assets/index.es-BLzAEPB-.js",
+      "versionHash": "755e1b577171cb83e1efa1dfb484a6e1a113bb274a5ca8995f1eb8cf20da2c1c",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 150559,
+      "httpSha256": "432d9a7298b527b96e8ef4ef3ac30e08d48c723d5521d1f50a817f66aed9950d"
+    },
+    {
+      "path": "/assets/purify.es-B9ZVCkUG.js",
+      "versionHash": "99aadc9950204d2952bda973f6d840f59a50b9e0dd5e1420dcfd1c4d1bc9016f",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 22636,
+      "httpSha256": "8f994fedccc1596fbf513fa2242f1c6e86b7a530310614dfe5b3b28d637df46e"
+    },
+    {
+      "path": "/favicon.png",
+      "versionHash": "0f5ede0ac337735f5425946fa3fe6ecc49cc398f18615d70ae729a1cddb15bab",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 312167,
+      "httpSha256": "b8d1990cf96dafa0fac68696f7231d88221a97ea486b76f4cf2717b028b13197"
+    },
+    {
+      "path": "/index.html",
+      "versionHash": "f033dca56c975a9cf7d80da5d81b7b3f259d745368a94031e4bb4596f83da021",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 2098,
+      "httpSha256": "30302ca010672fbb7d84630f344d979e116ab69df9e0fdd685ddf92be2d52390"
+    },
+    {
+      "path": "/medspa-checklist.html",
+      "versionHash": "f7b6c3eddd923f0f439912f00fa283c4faee44198895fcc47d44a2f0e9bf97c9",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 27907,
+      "httpSha256": "83abe07e79a3c481068c66328bc73af5281eeac7c3780657986831d87f4bb395"
+    },
+    {
+      "path": "/resources/cannabis-marketing-playbook.html",
+      "versionHash": "729594bdc814e612084db66fe9074c9e752163bcf5f4c595f1d32366bccd5c8d",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 38644,
+      "httpSha256": "2e76dd4c0f1e996815f10947146a89acbfc14f05daa0d9003bfc8c90aa3b3b76"
+    },
+    {
+      "path": "/resources/contractor-lead-gen-guide.html",
+      "versionHash": "8e1a831da63fe4b7f95528814f064922dc45041e2b546a46a6839a99599a0df4",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 36079,
+      "httpSha256": "ff2519a7fb4472d9ce4339ad8ea59ef7abbeada052e2c31446f1149a536ee62e"
+    },
+    {
+      "path": "/resources/ecommerce-automation-blueprint.html",
+      "versionHash": "f1a36c6a8381716fc2f478d887b79b419cac9f98e4dbec416abd53bdb6974dc1",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 35624,
+      "httpSha256": "22c404f0a762628f35a5bb094789f470921282cfb3fa8239aafc35f0ef3e85cf"
+    },
+    {
+      "path": "/resources/medspa-automation-checklist.html",
+      "versionHash": "54b8926b7805e0268c10b0dcf864891b37a10ec8d2b8651d5e9f06d07f34af2d",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 28062,
+      "httpSha256": "b476acfbbfa54946b7fb9fa9dff23ff8ffbf34a8ab2d120cbb7b69e19a99eb00"
+    },
+    {
+      "path": "/robots.txt",
+      "versionHash": "0bc8aaae6f226322cd069bb1d0796a9f6563f93b1f0f229d0440a5529ff50536",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 207,
+      "httpSha256": "5530ae1fed6c74ef372d386a4ad2e50a261c6bb43700aeaaa4cc7da199492002"
+    },
+    {
+      "path": "/sitemap.xml",
+      "versionHash": "736cf35ad4ff220658cfa0773bc834bbf8607eddd363ff41095d3985b06df2a3",
+      "status": "ACTIVE",
+      "httpStatus": 200,
+      "httpBytes": 4334,
+      "httpSha256": "4e16f28e3cd61ea9d8f038d02be1a0b6b0f15cd6af41579ee6778539f8d5daad"
+    }
+  ],
+  "hashNote": "Hosting versionHash is metadata from the version-file API; httpSha256 hashes delivered bytes. They are separate representations."
+}

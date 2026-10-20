@@ -25,7 +25,7 @@ export function AdminLayout({ children, currentTab, onTabChange }: AdminLayoutPr
 
             {/* Main Content */}
             <main className="relative z-10 flex-1 h-screen overflow-y-auto overflow-x-hidden">
-                <div className="container-custom py-8 pb-20 max-w-7xl mx-auto">
+                <div className="container-custom py-8 pb-24 max-w-7xl mx-auto">
                     {children}
                 </div>
             </main>

@@ -5,6 +5,7 @@ on:
     branches: [main, codex/seo-informational-oct20]
 permissions:
   contents: read
+  actions: read
 jobs:
   static-site:
     runs-on: ubuntu-latest
@@ -17,12 +18,14 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npx tsc -p tsconfig.app.json --noEmit
-      - run: npx eslint website/private.tsx
+      - run: npx tsc -p website/tsconfig.private.json --noEmit
+      - run: npx eslint website/private.tsx website/PrivateLayout.tsx
       - run: npm run build:seo
         env:
           VITE_CONTACT_INTAKE_ENABLED: 'true'
           VITE_ANALYTICS_ENABLED: 'true'
-      - run: node --test scripts/seo/acceptance.test.mjs
+      - run: node --test scripts/seo/acceptance.test.mjs scripts/seo/tests/*.test.mjs
+      - run: npm run test:private
       - uses: actions/upload-artifact@v4
         with:
           name: informational-website-${{ github.sha }}

@@ -12,7 +12,6 @@ import { ProtectedRoute } from '@/components/admin/ProtectedRoute';
 import AdminLogin from '@/pages/admin/AdminLogin';
 import AdminDashboard from '@/pages/admin/AdminDashboard';
 import ContractSigningPage from '@/pages/sign/ContractSigningPage';
-import '@/index.css';
 const queryClient = new QueryClient();
 createRoot(document.getElementById('root')!).render(
   <ErrorBoundary><HelmetProvider><QueryClientProvider client={queryClient}><TooltipProvider>

@@ -1,5 +1,7 @@
 # Informational patch acceptance — October 20
 
+Technical follow-up: see PRIVATE-BOUNDARY.md and RELEASE-GATES.md. The original source-parity hold below is historical: current live bytes were captured, safe assets preserved, seven retained function bodies/direct dependencies/configuration compared, and the bounded migration covered by 32 paired synthetic tests. Six release-gate fixtures were added. No actual merge/dispatch/publication or real private transaction is claimed.
+
 This evidence applies to `codex/seo-informational-oct20`, not PR #1's design or any deployed website. Exact head/artifact/hosted-run results are recorded in the issue and final handoff after pushing. Builds require a clean checkout, pin manifest source to git HEAD, reject GITHUB_SHA mismatch, forcibly disable intake/analytics and verify both normal and compatible fallback files.
 
 ## Completed local checks
@@ -15,7 +17,7 @@ This evidence applies to `codex/seo-informational-oct20`, not PR #1's design or 
 
 - WebKit runner is absent (`webkit-2311/pw_run.sh`); earlier installation attempts establish this macOS 13 environment is unsupported. **No Safari/WebKit pass claimed.** No physical iPhone/Android, actual touch/rotation, native zoom UI, OS reduced-motion setting, VoiceOver, TalkBack, NVDA or JAWS review. The public pages have no animated behavior to suppress; matrix contexts set prefers-reduced-motion=reduce, which is emulation only.
 - Browser automation and axe do not establish WCAG conformance. The short phone checklist must be completed or the specific remaining gaps explicitly accepted by Camilo; no blanket acceptance is inferred.
-- Private app static routing/build/type checks are covered, but authenticated admin and real signing/payment/backend operations were not exercised. No customer record or contract was submitted. Source parity with the old manually deployed private app is unverified, as described in RELEASE.md; fallback uses the same private bundle and cannot fix that regression risk.
+- Private app static routing/build/type checks are covered, but authenticated admin and real signing/payment/backend operations were not exercised. No customer record or contract was submitted. Whole-bundle/provider parity with the old manually deployed private app is not claimed; the bounded component migration is now independently checked as described in PRIVATE-BOUNDARY.md; fallback uses the same private bundle and cannot fix that regression risk.
 - Local Hosting emulator is not a production/CDN assertion. TLS, domain redirect, publication headers/routes and delivery must be reread after an authorized release. No public preview channel was deployed.
 - Final isolated cold-load samples: homepage LCP 468/468/532 ms (median 468); service 508/492/996 ms (median 508); guide 1236/788/1028 ms (median 1028). CLS was 0 in all nine samples. Fresh 390×844 DPR1 contexts, CPU 4×, 150 ms latency, 1.6 Mbps down / 750 Kbps up; cache cleared before each navigation and enabled within-page. These are laboratory results only (explicit CPU/network/cache conditions in `cold-performance.json`). No production field Core Web Vitals result is claimed. Search Console access is unavailable; there is no indexing, ranking, query, traffic, qualified-lead, revenue or AI-citation outcome.
 

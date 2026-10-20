@@ -23,7 +23,7 @@ test('Only retained URLs are emitted; obsolete proof and resources cannot be fet
 });
 test('Review branch pushes cannot publish; main checks are independent of release dispatch',async()=>{
  const release=await readFile('.github/workflows/firebase-deploy.yml','utf8');
- assert(release.includes('workflow_dispatch:'));assert(!/^  (push|pull_request):/m.test(release));assert(release.includes('--config firebase.seo.json'));assert(release.includes('origin/main'));
+ assert(release.includes('workflow_dispatch:'));assert(!/^  (push|pull_request):/m.test(release));assert(release.includes('node scripts/seo/publish.mjs'));assert(release.includes('origin/main'));
  const review=await readFile('.github/workflows/seo-review.yml','utf8');assert(review.includes('branches: [main, codex/seo-informational-oct20]'));assert(!review.includes('deploy --'));
 });
 

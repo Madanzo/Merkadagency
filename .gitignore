@@ -55,3 +55,6 @@ dist-rollback/
 dist-site.sha256
 dist-site-preview.sha256
 dist-rollback.sha256
+
+# Ephemeral workflow auth output; never copied into Hosting artifacts
+gha-creds-*.json

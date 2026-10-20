@@ -1,0 +1,23 @@
+# Automated release gates versus operator preconditions
+
+No merge, dispatch or deployment has occurred. Changes below are proposed workflow/code, exercised locally and by review CI, not a production execution claim.
+
+## Automated before publication
+
+The manual workflow runs only on main. A full requested SHA is checked out; HEAD and ancestry are checked; main is freshly fetched and its exact SHA saved. Candidate mode requires the requested SHA to equal that current main; compatible-fallback mode accepts a previously checked main ancestor but still records current main for a final unchanged-pointer check. All source/build/static/private synthetic checks repeat on the selected SHA. The artifact's source/tree/config hashes, OFF flags, preview/fallback mode and per-file hashes are verified; preview artifacts cannot be published. Fallback selection copies the already verified fallback and its original checksum list.
+
+The CLI is installed **before** the final gate, so package download is not inserted after the revision check. Existing workflow auth output is excluded from Git/artifacts; no new secret or IAM setting is provisioned. The final combined step is `node scripts/seo/publish.mjs`, not an unguarded Firebase shell command. That entry point requires Actions/workflow_dispatch/main and the expected repository/HEAD, clean source and correct manifest.
+
+Using the read-only Actions token it queries the independent `.github/workflows/seo-review.yml` run with **event push, branch main and head_sha equal to the actual approved SHA**. A PR-head or synthetic-merge run is insufficient. The latest matching run must be completed/successful; its unique static-site job and every required install/test/type/lint/build/static/private step must succeed on the validated attempt. Missing/skipped/failing/pending checks, partial listings, a changed attempt or a newer run fail closed. Run, job, attempt and SHA are captured in a non-sensitive evidence record.
+
+After those API reads, a fresh `git ls-remote origin refs/heads/main` must match the SHA saved at the start. This is the last remote check immediately before invoking the already installed Firebase CLI in the **same script/step**. Main advancement aborts before deployment. The command selects only static Hosting via `firebase.seo.json`, site/project merkadagency-dd2aa, no alias target and no framework/backend source. No Functions/Firestore/Storage scope exists in that config. It verifies existing bytes rather than rebuilding during predeploy.
+
+Six synthetic gate tests cover wrong SHA/branch/event/workflow, newer pending/failed runs, skipped/missing steps, job/attempt mismatches, partial listings/rerun races and main advancement with deployment never called. The successful test invokes only a local no-op callback. They do not invoke the actual publisher or a remote workflow.
+
+## Manual preconditions — not automated approval
+
+Camilo must approve the exact public wording, complete URL retirement/redirect plan and named coverage limitations (or complete those checks). He retains monitoring oversight/privacy requests/rollback decisions. CRM/promotion readiness is not a blocker for publishing without those features. The operator must record explicit publication or rollback authorization and the approved full final-main SHA/mode; entering an input named approved_sha is not proof of owner authorization. Current repository settings are not claimed to enforce a reviewer or branch-protection approval.
+
+After separately authorized merge, observe the independent exact-main CI run and retain artifact/checksum evidence. A main-push success **does not exist yet** for this unmerged branch; the code cannot manufacture one from PR checks. Dispatch only after approval. The main source must be held stable during the release window: Firebase publication and a GitHub ref comparison are not an atomic cross-service transaction. The final check rejects observed advancement before invocation, but cannot prevent a new commit after publication has begun. Release concurrency prevents competing release jobs, not all repository writes.
+
+Agent performs the authorized post-release read-only route/OFF/proof/asset/manifest/Hosting-release checks; Camilo decides rollback. Retain both source-pinned candidate/fallback artifacts and per-file hashes before release. CLI auth, production Hosting behavior, real private providers and eventual main-push enforcement are verified only at an authorized execution, not claimed by this preparation. No merge, workflow dispatch, production data submission, activation, indexing submission or customer message is authorized here.

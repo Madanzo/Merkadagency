@@ -13,7 +13,12 @@ assert.deepEqual(config.hosting.rewrites,[{source:'/admin{,/**}',destination:'/p
 const manifest=JSON.parse(await readFile(`${dir}/website-release.json`,'utf8'));
 assert.equal(manifest.preview,dir==='dist-site-preview','Preview artifacts cannot be selected for live publication or fallback');
 assert.equal(manifest.source,execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim());
+assert.equal(manifest.hostingConfigSha256,createHash('sha256').update(await readFile('firebase.seo.json')).digest('hex'));
+assert.equal(manifest.sourceTree,execFileSync('git',['rev-parse','HEAD^{tree}'],{encoding:'utf8'}).trim());
 assert.equal(manifest.intake,false);assert.equal(manifest.analytics,false);assert.match(manifest.source,/^[a-f0-9]{40}$/);
+const boundary=JSON.parse(await readFile(`${dir}/private-boundary.json`,'utf8'));
+for(const entry of boundary.preserved)assert.equal(createHash('sha256').update(await readFile(dir+entry.path)).digest('hex'),entry.sha256);
+assert.equal(createHash('sha256').update(await readFile(dir+boundary.privatePrimary.path)).digest('hex'),boundary.privatePrimary.sha256);
 const titleSet=new Set(),descriptionSet=new Set();
 for(const p of pages){
  const html=await readFile(`${dir}${p.path==='/'?'/index':p.path}.html`,'utf8');

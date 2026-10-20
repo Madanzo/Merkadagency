@@ -14,7 +14,8 @@
     "test:watch": "vitest",
     "build:seo": "node scripts/seo/build.mjs && node scripts/seo/verify.mjs && node scripts/seo/verify.mjs dist-rollback",
     "build:seo:preview": "node scripts/seo/build.mjs --preview && node scripts/seo/verify.mjs dist-site-preview",
-    "verify:seo": "node scripts/seo/verify.mjs"
+    "verify:seo": "node scripts/seo/verify.mjs",
+    "test:private": "vitest run --config website/tests/private.config.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -83,10 +84,12 @@
     "@types/react-dom": "^18.3.7",
     "@types/testing-library__jest-dom": "^5.14.9",
     "@vitejs/plugin-react-swc": "^3.11.0",
+    "acorn": "8.15.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-scope": "8.4.0",
     "globals": "^15.15.0",
     "jsdom": "^27.4.0",
     "postcss": "^8.5.6",

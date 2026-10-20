@@ -12,6 +12,7 @@ on:
         default: candidate
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: merkadagency-website-live
   cancel-in-progress: false
@@ -34,7 +35,9 @@ jobs:
           RELEASE_MODE: ${{ inputs.release_mode }}
         run: |
           test "$(git rev-parse HEAD)" = "$APPROVED_SHA"
+          git fetch --no-tags origin +refs/heads/main:refs/remotes/origin/main
           git merge-base --is-ancestor "$APPROVED_SHA" origin/main
+          echo "EXPECTED_MAIN_SHA=$(git rev-parse origin/main)" >> "$GITHUB_ENV"
           if [ "$RELEASE_MODE" = candidate ]; then test "$(git rev-parse origin/main)" = "$APPROVED_SHA"; fi
       - uses: actions/setup-node@v4
         with:
@@ -43,12 +46,14 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npx tsc -p tsconfig.app.json --noEmit
-      - run: npx eslint website/private.tsx
+      - run: npx tsc -p website/tsconfig.private.json --noEmit
+      - run: npx eslint website/private.tsx website/PrivateLayout.tsx
       - name: Build exact source with features forcibly disabled
         run: npm run build:seo
         env:
           GITHUB_SHA: ${{ inputs.approved_sha }}
-      - run: node --test scripts/seo/acceptance.test.mjs
+      - run: node --test scripts/seo/acceptance.test.mjs scripts/seo/tests/*.test.mjs
+      - run: npm run test:private
       - uses: actions/upload-artifact@v4
         with:
           name: approved-website-${{ inputs.approved_sha }}
@@ -63,9 +68,22 @@ jobs:
         run: |
           rm -rf dist-site
           cp -R dist-rollback dist-site
-          npm run verify:seo
+          cp dist-rollback.sha256 dist-site.sha256
+      - name: Prepare Hosting CLI before the final revision gate
+        run: npm install --prefix /tmp/merkad-hosting-cli --no-audit --no-fund firebase-tools@latest
       - uses: google-github-actions/auth@v2
         with:
           credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-      - name: Publish static Hosting files only
-        run: npx -y firebase-tools@latest deploy --only hosting --config firebase.seo.json --project merkadagency-dd2aa --non-interactive
+      - name: Verify independent main checks, refresh revision and publish static Hosting
+        run: node scripts/seo/publish.mjs
+        env:
+          APPROVED_SHA: ${{ inputs.approved_sha }}
+          RELEASE_MODE: ${{ inputs.release_mode }}
+          GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: publication-gate-${{ inputs.approved_sha }}
+          path: /tmp/merkad-publication-gate.json
+          if-no-files-found: ignore
+          retention-days: 90
