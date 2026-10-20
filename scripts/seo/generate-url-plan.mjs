@@ -26,7 +26,7 @@ const additional=[
  {path:'/private-boundary.json',result:'200 boundary metadata',reason:'Non-sensitive fingerprints only'},
  {path:'/site.css',result:'200 informational stylesheet',reason:'Self-hosted'},
  {path:'/{six retained pages}.html',result:'301 → extensionless canonical',reason:'Hosting cleanUrls; /index.html → /'},
- {path:'/{retained URL}/',result:'301 → URL without trailing slash',reason:'Hosting trailingSlash:false'},
+ {path:'/{retained static public URL}/',result:'301 → URL without trailing slash',reason:'Hosting trailingSlash:false; private rewrites retain slash/query URLs'},
  {path:'/assets/{new-private-primary,new-private-PDF}.js',result:'200 source-pinned generated files',reason:'Old primary cannot be preserved with OFF/proof requirements; old PDF imports it'},
  {path:'/__/auth/* and other Hosting reserved URLs',result:'Platform-managed',reason:'Not overridden; existing Firebase Auth hosting behavior retained'},
 ];

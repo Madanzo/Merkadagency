@@ -299,9 +299,9 @@
       "reason": "Hosting cleanUrls; /index.html → /"
     },
     {
-      "path": "/{retained URL}/",
+      "path": "/{retained static public URL}/",
       "result": "301 → URL without trailing slash",
-      "reason": "Hosting trailingSlash:false"
+      "reason": "Hosting trailingSlash:false; private rewrites retain slash/query URLs"
     },
     {
       "path": "/assets/{new-private-primary,new-private-PDF}.js",

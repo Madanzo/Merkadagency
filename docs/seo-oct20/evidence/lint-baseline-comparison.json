@@ -1,0 +1,11 @@
+{
+  "baseline": "0950f66a2a1f6bf55123205f316a1ade39f6d527",
+  "baselineErrors": 54,
+  "baselineWarnings": 10,
+  "candidateErrors": 54,
+  "candidateWarnings": 10,
+  "findingByFindingUnchanged": true,
+  "historicalPR1Errors": 49,
+  "historicalPR1Warnings": 10,
+  "cleanupPerformed": false
+}

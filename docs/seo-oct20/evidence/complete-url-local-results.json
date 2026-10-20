@@ -1,0 +1,365 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/services",
+    "status": 301,
+    "expected": 301,
+    "location": "/services/website-development",
+    "pass": true
+  },
+  {
+    "path": "/services/ai-lead-capture",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/services/crm-automation",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/services/seo-content",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/services/paid-advertising",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/industries",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/industries/medspas",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/industries/cannabis",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/industries/construction",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/industries/ecommerce",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/results",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/portfolio",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/case-studies",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/case-studies/kravings",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/case-studies/teonanacatl",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/case-studies/gridnguard",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/resources/free-audit",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/resources/roi-calculator",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/resources/medspa-automation-checklist",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/resources/cannabis-marketing-playbook",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/resources/contractor-lead-gen-guide",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/resources/ecommerce-automation-blueprint",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/about",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/about/method",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/book",
+    "status": 302,
+    "expected": 302,
+    "location": "/contact",
+    "pass": true
+  },
+  {
+    "path": "/contact",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/blog",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/legal/privacy",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/legal/terms",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/admin/login",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/admin",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/sign/synthetic-boundary-review",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/assets/html2canvas.esm-QH1iLAAe.js",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/assets/index-DxLjU7W-.css",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/assets/index-oYkhmNmm.js",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/assets/index.es-BLzAEPB-.js",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/assets/purify.es-B9ZVCkUG.js",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/favicon.png",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/index.html",
+    "status": 301,
+    "expected": 301,
+    "location": "/",
+    "pass": true
+  },
+  {
+    "path": "/medspa-checklist.html",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/resources/cannabis-marketing-playbook.html",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/resources/contractor-lead-gen-guide.html",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/resources/ecommerce-automation-blueprint.html",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/resources/medspa-automation-checklist.html",
+    "status": 404,
+    "expected": 404,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/services/website-development",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/resources/website-brief",
+    "status": 200,
+    "expected": 200,
+    "location": null,
+    "pass": true
+  },
+  {
+    "path": "/sign/synthetic-boundary-review/?token=%2Bfixture%3D",
+    "status": 200,
+    "location": null,
+    "pass": true,
+    "expected": 200,
+    "note": "Private rewrite preserves slash/query URL without a redirect; browser verifies token remains readable."
+  },
+  {
+    "path": "/private-app.html",
+    "status": 301,
+    "location": "/private-app",
+    "pass": true
+  },
+  {
+    "path": "/resources/website-brief.html",
+    "status": 301,
+    "location": "/resources/website-brief",
+    "pass": true
+  }
+]

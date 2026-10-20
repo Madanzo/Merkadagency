@@ -24,3 +24,7 @@ This evidence applies to `codex/seo-informational-oct20`, not PR #1's design or 
 ## Separate outcome record
 
 Implemented / locally tested: yes, limited as above. Hosted CI: exact-source evidence linked in Linear after completion. Merged: no. Deployed: no. Production verification of candidate: not performed. Indexing submission/outcome: not performed. Intake/analytics activation: no. CAM-257 and full CAM-272 remain open; CAM-265/266 remain In Review.
+
+## Lint baseline clarification
+
+The historical PR#1 record remains 49 errors / 10 warnings. This independent main-based PR#2 branch reports **54 errors / 10 warnings**, which are **identical finding-by-finding to its pre-follow-up head0950f66** using the same locked ESLint toolchain. No error/warning was added by this technical follow-up. App/private TypeScript and affected scoped lint pass. No unrelated admin/signing cleanup was performed.

@@ -63,7 +63,7 @@ Proposed only; wording and retirements require Camilo approval. Includes all 34 
 | `/private-boundary.json` | 200 boundary metadata | Non-sensitive fingerprints only |
 | `/site.css` | 200 informational stylesheet | Self-hosted |
 | `/{six retained pages}.html` | 301 → extensionless canonical | Hosting cleanUrls; /index.html → / |
-| `/{retained URL}/` | 301 → URL without trailing slash | Hosting trailingSlash:false |
+| `/{retained static public URL}/` | 301 → URL without trailing slash | Hosting trailingSlash:false; private rewrites retain slash/query URLs |
 | `/assets/{new-private-primary,new-private-PDF}.js` | 200 source-pinned generated files | Old primary cannot be preserved with OFF/proof requirements; old PDF imports it |
 | `/__/auth/* and other Hosting reserved URLs` | Platform-managed | Not overridden; existing Firebase Auth hosting behavior retained |
 
