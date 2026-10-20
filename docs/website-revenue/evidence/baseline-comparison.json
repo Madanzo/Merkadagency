@@ -1,0 +1,15 @@
+{
+  "baseline": "a348a65d661b093faff38f6f02f8cc78e9cfac4d",
+  "candidate": "e875111237dfab74ce58665629d58c70549e5f20",
+  "files": 19,
+  "changed": [
+    "contact.html",
+    "services/website-development.html",
+    "site.css",
+    "website-release.json"
+  ],
+  "privateBytesUnchanged": true,
+  "fourUnchangedPublicPagesByteIdentical": true,
+  "urlsUnchanged": true,
+  "hostingConfigSha256": "10fba4d8718a8a6535dd83feab8e7516900bacd0a081b0de7e6e33079abfec71"
+}

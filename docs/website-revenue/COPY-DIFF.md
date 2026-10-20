@@ -62,7 +62,8 @@ Baseline: published main `a348a65d661b093faff38f6f02f8cc78e9cfac4d`. Draft only;
  No. A website can present clear information and provide a usable contact path. Search visibility, inquiries and sales depend on factors beyond the website build, and no result is guaranteed.
  Discuss your website
 -Email Camilo with your brief or a short description of the project. The next step is to clarify requirements before agreeing a scope.
--Email Camilo about your website+Email Camilo with your current website and main goals. You do not need a finished brief to get in touch. The next step is to clarify requirements before agreeing a scope.
+-Email Camilo about your website
++Email Camilo with your current website and main goals. You do not need a finished brief to get in touch. The next step is to clarify requirements before agreeing a scope.
 +Discuss your website
 +See what to include in your email.
 ```
@@ -81,7 +82,8 @@ Baseline: published main `a348a65d661b093faff38f6f02f8cc78e9cfac4d`. Draft only;
 -What to include
 -Share your current website URL if you have one, what your business does, and what you want visitors to understand or do. The website brief guide can help you prepare.
 -Website inquiries currently use email. Opening an email draft does not send a message; send it from your email application when you are ready. Do not include passwords, payment details or sensitive customer records.
--If the email link does not open an application, copy camiloreyna@merkadagency.com into your preferred email service.+Title: Discuss Your Website with Camilo | MerkadAgency
+-If the email link does not open an application, copy camiloreyna@merkadagency.com into your preferred email service.
++Title: Discuss Your Website with Camilo | MerkadAgency
 +Description: Email Camilo Reyna about a new website or redesign. Share your current website and goals to discuss scope, pricing and next steps.
 +H1: Discuss your website with Camilo.
 +Planning a new website or a focused redesign? Email Camilo your current website and project goals to discuss the scope.
