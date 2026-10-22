@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import {verifyPrivate} from './verify-private.mjs';
 import { pages, origin, projectContactLink } from '../../website/content.mjs';
+import {header,footer,pageLayout} from '../../website/layout.mjs';
 const preview = process.argv.includes('--preview');
 const dirty = execFileSync('git', ['status','--porcelain','--untracked-files=all'], {encoding:'utf8'}).trim();
 if (dirty) throw new Error('Commit the reviewable source and evidence before building a release artifact');
@@ -21,13 +22,12 @@ await verifyPrivate();
 const hostingConfigSha256=createHash('sha256').update(await readFile('firebase.seo.json')).digest('hex');
 const sourceTree=execFileSync('git',['rev-parse','HEAD^{tree}'],{encoding:'utf8'}).trim();
 const escape = x => x.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
-const nav = '<nav aria-label="Main"><a href="/services/website-development">Website development</a><a href="/resources/website-brief">Website brief</a><a href="/contact">Contact</a></nav>';
 function html(page, fallback = false) {
  const mobileContact = ['/services/website-development','/contact'].includes(page.path);
  const schema = [{ '@context':'https://schema.org','@type':'Organization',name:'MerkadAgency',url:origin,email:'camiloreyna@merkadagency.com' }];
  if(page.path === '/services/website-development') schema.push({'@context':'https://schema.org','@type':'Service',name:'Website development',serviceType:'Website development',url:origin+page.path,provider:{'@type':'Organization',name:'MerkadAgency',url:origin}});
  if(page.path !== '/' && page.path !== '/404') schema.push({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'MerkadAgency',item:origin+'/'},{'@type':'ListItem',position:2,name:page.heading,item:origin+page.path}]});
- return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><meta name="robots" content="${preview || page.path==='/404' ? 'noindex,nofollow' : 'index,follow'}">${page.path==='/404' ? '' : `<link rel="canonical" href="${origin+page.path}">`}<meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${origin+page.path}"><meta property="og:type" content="website"><link rel="stylesheet" href="/site.css"><script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script></head><body${mobileContact ? ' class="has-mobile-contact"' : ''}><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="/">MerkadAgency</a>${nav}</header><main id="main" tabindex="-1">${page.path==='/' ? '' : '<p class="breadcrumbs"><a href="/">Home</a> / '+escape(page.heading)+'</p>'}<p class="eyebrow">Website development</p><h1>${escape(page.heading)}</h1>${page.body}</main><footer><p>MerkadAgency · Website development</p><a href="mailto:camiloreyna@merkadagency.com">camiloreyna@merkadagency.com</a><nav aria-label="Legal"><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Website terms</a></nav></footer>${mobileContact ? `<aside class="mobile-contact" aria-label="Website inquiry">${projectContactLink}</aside>` : ''}</body></html>`;
+ return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><meta name="robots" content="${preview || page.path==='/404' ? 'noindex,nofollow' : 'index,follow'}">${page.path==='/404' ? '' : `<link rel="canonical" href="${origin+page.path}">`}<meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${origin+page.path}"><meta property="og:type" content="website"><link rel="stylesheet" href="/site.css"><script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script></head><body${mobileContact ? ' class="has-mobile-contact"' : ''}><a class="skip" href="#main">Skip to content</a>${header(page.path)}<main id="main" tabindex="-1">${pageLayout(page,fallback)}</main>${footer()}${mobileContact ? `<aside class="mobile-contact" aria-label="Website inquiry">${projectContactLink}</aside>` : ''}</body></html>`;
 }
 const outputs = preview ? [['dist-site-preview',false]] : [['dist-site',false],['dist-rollback',true]];
 for (const [dir, fallback] of outputs) {
@@ -37,6 +37,7 @@ for (const [dir, fallback] of outputs) {
  await cp('dist-private/favicon.png',`${dir}/favicon.png`);
  await cp('dist-private/private-boundary.json',`${dir}/private-boundary.json`);
  await cp('website/site.css',`${dir}/site.css`);
+ await cp('website/visuals',`${dir}/visuals`,{recursive:true});
  for (const page of pages) {
    const output = page.path==='/' ? `${dir}/index.html` : `${dir}${page.path}.html`;
    await mkdir(output.slice(0,output.lastIndexOf('/')),{recursive:true});

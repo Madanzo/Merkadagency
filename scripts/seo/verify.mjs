@@ -22,7 +22,13 @@ assert.equal(createHash('sha256').update(await readFile(dir+boundary.privatePrim
 const titleSet=new Set(),descriptionSet=new Set();
 for(const p of pages){
  const html=await readFile(`${dir}${p.path==='/'?'/index':p.path}.html`,'utf8');
- assert(html.includes(`<h1>${p.heading}</h1>`)); assert(manifest.fallback || html.includes(p.body));
+ const heading=/<h1>([\s\S]*?)<\/h1>/.exec(html);assert(heading);assert.equal(heading[1].replace(/<[^>]*>/g,''),p.heading);
+ const bodyChunks=[...html.matchAll(/<!--copy:start-->([\s\S]*?)<!--copy:end-->/g)].map(m=>m[1]).join('');
+ assert.equal(bodyChunks,manifest.fallback&&['/services/website-development','/resources/website-brief'].includes(p.path)?`<p>MerkadAgency offers website development. For project information, email <a href="mailto:camiloreyna@merkadagency.com">camiloreyna@merkadagency.com</a>.</p><p><a href="/contact">Contact Camilo</a></p>`:p.body,'Every source body byte must be retained in initial HTML');
+ for(const match of html.matchAll(/<(?:img|source)\b[^>]*\b(?:src|srcset)="([^"]+)"/g)) {
+  assert(/^\/(?:favicon\.png|visuals\/folded-glass-(?:480|640)\.webp)$/.test(match[1]),'Public artwork must be a retained local asset');
+  assert((await stat(dir+match[1])).isFile(),'Public artwork must exist in the release');
+ }
  assert(html.includes(`rel="canonical" href="${origin+p.path}"`));
  assert.equal((html.match(/rel="canonical"/g)||[]).length,1);
  assert(html.includes(manifest.preview?'noindex,nofollow':'index,follow'));
