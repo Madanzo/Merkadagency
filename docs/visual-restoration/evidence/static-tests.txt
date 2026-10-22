@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: All public pages have useful initial HTML without JavaScript or tracking
+ok 1 - All public pages have useful initial HTML without JavaScript or tracking
+  ---
+  duration_ms: 22.810919
+  type: 'test'
+  ...
+# Subtest: Compatible fallback keeps routes and disabled features without new long-form copy
+ok 2 - Compatible fallback keeps routes and disabled features without new long-form copy
+  ---
+  duration_ms: 207.938907
+  type: 'test'
+  ...
+# Subtest: Only retained URLs are emitted; obsolete proof and resources cannot be fetched from this artifact
+ok 3 - Only retained URLs are emitted; obsolete proof and resources cannot be fetched from this artifact
+  ---
+  duration_ms: 2.163072
+  type: 'test'
+  ...
+# Subtest: Review branch pushes cannot publish; main checks are independent of release dispatch
+ok 4 - Review branch pushes cannot publish; main checks are independent of release dispatch
+  ---
+  duration_ms: 2.207529
+  type: 'test'
+  ...
+# Subtest: Publication verification rejects a preview artifact
+ok 5 - Publication verification rejects a preview artifact
+  ---
+  duration_ms: 116.440925
+  type: 'test'
+  ...
+# Subtest: Visual reflow retains every existing body byte in source order
+ok 6 - Visual reflow retains every existing body byte in source order
+  ---
+  duration_ms: 2.333948
+  type: 'test'
+  ...
+# Subtest: Release verification rejects omitted or duplicated source copy after reflow
+ok 7 - Release verification rejects omitted or duplicated source copy after reflow
+  ---
+  duration_ms: 362.292556
+  type: 'test'
+  ...
+# Subtest: Only actual-main push checks can satisfy the publication gate
+ok 8 - Only actual-main push checks can satisfy the publication gate
+  ---
+  duration_ms: 2.110793
+  type: 'test'
+  ...
+# Subtest: An older green run cannot hide a newer pending or failed run
+ok 9 - An older green run cannot hide a newer pending or failed run
+  ---
+  duration_ms: 3.029288
+  type: 'test'
+  ...
+# Subtest: Every required job step must succeed on the validated attempt
+ok 10 - Every required job step must succeed on the validated attempt
+  ---
+  duration_ms: 1.443966
+  type: 'test'
+  ...
+# Subtest: The network gate rechecks the run attempt and rejects partial listings
+ok 11 - The network gate rechecks the run attempt and rejects partial listings
+  ---
+  duration_ms: 1.553636
+  type: 'test'
+  ...
+# Subtest: Main advancement aborts before the deployment callback
+ok 12 - Main advancement aborts before the deployment callback
+  ---
+  duration_ms: 1.153982
+  type: 'test'
+  ...
+# Subtest: Successful final recheck invokes only the injected synthetic deployment
+ok 13 - Successful final recheck invokes only the injected synthetic deployment
+  ---
+  duration_ms: 1.845431
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 465.583496

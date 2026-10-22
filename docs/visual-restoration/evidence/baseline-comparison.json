@@ -1,0 +1,42 @@
+{
+  "baseline": "26738dbd3a143963104846e06eb91ad4f1129820",
+  "implementation": "37bf3fb218d4adcecd332d739a39476560d8a518",
+  "changed": [
+    "404.html",
+    "contact.html",
+    "index.html",
+    "legal/privacy.html",
+    "legal/terms.html",
+    "resources/website-brief.html",
+    "services/website-development.html",
+    "site.css",
+    "website-release.json"
+  ],
+  "added": [
+    "visuals/folded-glass-480.webp",
+    "visuals/folded-glass-640.webp"
+  ],
+  "removed": [],
+  "unchanged": [
+    "assets/html2canvas.esm-QH1iLAAe.js",
+    "assets/index-DxLjU7W-.css",
+    "assets/index.es-C_ThFyeC.js",
+    "assets/private-V2frljdX.js",
+    "assets/purify.es-B9ZVCkUG.js",
+    "favicon.png",
+    "private-app.html",
+    "private-boundary.json",
+    "robots.txt",
+    "sitemap.xml"
+  ],
+  "privateFilesByteIdentical": true,
+  "contentModuleByteIdentical": true,
+  "bodyCopyReassembledAndVerifiedByBuild": true,
+  "urlRulesAndMetadataUnchanged": true,
+  "sourceArt": {
+    "PR1Head": "60069898dd0e9317f043c3457e6cb5ecb132eda4",
+    "480SHA256": "4e7eed04918fa241cab727e43afff15e5f81b4e50f2a232c27cd8965cb9a96d0",
+    "640SHA256": "9affe3681e13085e9f9db7721f8b208a59a6758c3a392d7c18d4bb649ed15217"
+  },
+  "allSixMetadataAndSchemaComparisonsPass": true
+}

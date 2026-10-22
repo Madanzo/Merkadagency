@@ -1,0 +1,123 @@
+{
+  "checkedAt": "2026-10-22T19:50:22.525Z",
+  "method": "Local Hosting emulator; Chromium lab simulation only; cache disabled; no production field-CWV or INP claim",
+  "profile": {
+    "viewport": "390x844",
+    "deviceScaleFactor": 1,
+    "rttMs": 150,
+    "downloadMbps": 1.6,
+    "uploadMbps": 0.75,
+    "cpuSlowdown": 4
+  },
+  "samples": [
+    {
+      "run": 1,
+      "lcp": {
+        "ms": 1124,
+        "tag": "P"
+      },
+      "cls": 0,
+      "fcp": 1124,
+      "resources": [
+        {
+          "path": "/site.css",
+          "encodedBytes": 3350,
+          "transferBytes": 3650,
+          "duration": 215.20000004768372
+        },
+        {
+          "path": "/favicon.png",
+          "encodedBytes": 312167,
+          "transferBytes": 312467,
+          "duration": 2623.100000143051
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "encodedBytes": 174622,
+          "transferBytes": 174922,
+          "duration": 1930.0999999046326
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 259.7999999523163,
+        "load": 2796.2000000476837
+      }
+    },
+    {
+      "run": 2,
+      "lcp": {
+        "ms": 692,
+        "tag": "P"
+      },
+      "cls": 0,
+      "fcp": 692,
+      "resources": [
+        {
+          "path": "/site.css",
+          "encodedBytes": 3350,
+          "transferBytes": 3650,
+          "duration": 220.20000004768372
+        },
+        {
+          "path": "/favicon.png",
+          "encodedBytes": 312167,
+          "transferBytes": 312467,
+          "duration": 2616.9000000953674
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "encodedBytes": 174622,
+          "transferBytes": 174922,
+          "duration": 1925.5
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 203,
+        "load": 2795.2000000476837
+      }
+    },
+    {
+      "run": 3,
+      "lcp": {
+        "ms": 684,
+        "tag": "P"
+      },
+      "cls": 0,
+      "fcp": 684,
+      "resources": [
+        {
+          "path": "/site.css",
+          "encodedBytes": 3350,
+          "transferBytes": 3650,
+          "duration": 205.29999995231628
+        },
+        {
+          "path": "/favicon.png",
+          "encodedBytes": 312167,
+          "transferBytes": 312467,
+          "duration": 2617.5
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "encodedBytes": 174622,
+          "transferBytes": 174922,
+          "duration": 1919.5
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 208.09999990463257,
+        "load": 2794
+      }
+    }
+  ],
+  "summary": {
+    "medianLcpMs": 692,
+    "medianFcpMs": 692,
+    "maxCLS": 0,
+    "encodedResourceBytes": [
+      490139,
+      490139,
+      490139
+    ]
+  }
+}
