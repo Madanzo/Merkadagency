@@ -24,7 +24,7 @@ The homepage uses whole-page service/guide links so the separately generated sho
 
 Review the exact three-page copy and new anchors together, including the after-email wording. No additional commercial decision blocks this informational preparation: scope, price, timing, payment, handover and ongoing work remain project-specific written agreements. Universal packages/feature inclusions, response deadlines, standard support, blanket refund/IP defaults and capacity dates are not supplied or promised. Future customer proof requires exact assets/copy, rights/permission and source/claim approval; existing code or a public URL alone is not permission. No permission request was sent.
 
-The six earlier coverage gaps remain untested for this candidate, not automatically accepted: physical phone, Safari/WebKit, screen reader, native text zoom, actual OS reduced motion and real mail-app behavior. Production login/signing remains unverified; use unchanged asset and prior synthetic evidence, without real writes. Search Console needs a usable intended business-account session before any property-access conclusion; Gmail denial is not evidence about that account.
+The six earlier coverage gaps remain untested for this candidate, not automatically accepted: physical phone, Safari/WebKit, screen reader, native text zoom, actual OS reduced motion and real mail-app behavior. Production login/signing remains unverified; use unchanged asset and prior synthetic evidence, without real writes. Search Console now confirms the intended business account but denies both exact MerkadAgency property targets; owner invitation/verification remains a separate dependency. Gmail denial is not evidence about that account.
 
 ## Publication and rollback proposal
 

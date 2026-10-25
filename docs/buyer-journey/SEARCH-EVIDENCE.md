@@ -1,13 +1,28 @@
-# Search evidence remains a separate dependency
+# Search Console — intended business account confirmed, property access denied
 
-Intended Search Console account: `camilo.reyna@merkadagency.com`; this is not the website's public contact `camiloreyna@merkadagency.com`.
+After the owner completed reauthentication, Search Console visibly confirms **`camilo.reyna@merkadagency.com`** in both the account label and “Signed in as” text. This is separate from public contact **`camiloreyna@merkadagency.com`**, which remains unchanged.
 
-The owner reported completing sign-in. The connected in-app browser was explicitly checked and the intended business identity selected; Google still presented reauthentication and an “Enter your password” field after Next. No password, token, account or permission was read, entered or changed. This observation does not establish whether the business account lacks property access, nor whether the property is verified for an existing owner. The personal Gmail account's denial is not evidence about the business account. No property/DNS or indexing actions.
+Read-only checks of both existing targets return **“Oops, you don't have access to this property”**:
 
-Required next evidence: usable business session, then existing `sc-domain:merkadagency.com` (preferred) or already verified exact `https://merkadagency.com/` property. If accessible, record existing sitemap status, index coverage, six URL Inspection records including user/Google canonicals and last crawl, plus Web-search Dates/Queries/Pages with clicks/impressions/CTR/position, exact date range, filters, latest available date and data limits. Do not request indexing, test live URLs or submit a sitemap for this read-only review.
+- `sc-domain:merkadagency.com`
+- `https://merkadagency.com/`
 
-Date markers: October20 service copy; October25 restored design at 20:09:44.821Z (15:09:44.821 Chicago); October25 PR6 brief publication at 20:49:51.301Z (15:49:51.301 Chicago). Historical query/page data is not an evaluation of those releases. Use a period ending October24 for historical context and separately retain any October25-and-later complete available days; if reporting has not caught up, mark post-release results unavailable. Query/page tabs are marginals, not a joined query–page report. Data privacy limits, delays and unavailable values remain explicit.
+No accessible MerkadAgency property is shown for that account. Authentication is now complete; the remaining dependency is property authorization or owner verification, not the earlier expired session. The prior personal Gmail denial is not used as evidence about this business account. This account-level denial does **not** establish that the property is globally unverified: another owner may already hold a verified property.
 
-Current state: no verified MerkadAgency query/page/performance, Google indexing/selected-canonical or sitemap-processing data read. No other-brand report contributes to the prioritization. Crawlable HTML, successful delivery and self-canonicals are technical observations, not evidence of Google indexing, AEO citation or acquisition. Voluntary aggregate inquiry/qualified/quote/accepted/paid counts remain unknown, not zero; mail draft openings are not received inquiries. Old August28–September24 Analytics report is not used. Intake/analytics stay OFF; do not install tracking to fill the gap.
+Precise next step: an existing verified owner of the exact domain property (preferred) or existing verified exact URL-prefix property should open **Settings → Users and permissions → Add user**, enter **`camilo.reyna@merkadagency.com`** and assign **Restricted** report access. If no owner has a verified property, the owner must separately authorize/complete verification. Do not create a duplicate property or change DNS for this review. No permission/credential changes were performed.
 
-Same candidate continues on qualitative journey evidence while the session dependency is open. If owner access is needed after authenticating, request Restricted report access on an existing verified property for the intended business account; do not create a duplicate or change DNS. The prior detailed export alternative remains in the release-evidence access handoff.
+## Requested review and date boundaries
+
+No MerkadAgency sitemap status, index coverage, Google-selected canonical or query/page performance report could be read. Do not infer traffic, search demand, indexing failure, rankings or AEO outcomes from denied access. No other-brand report contributes to prioritization. Sitemap delivery/self-canonical HTML remains technical evidence only.
+
+Once access is available, inspect the existing sitemap report, Page indexing and existing URL Inspection records for all six public URLs, recording status/last read/discovered pages, index state, last crawl, user/Google canonicals and exact property/report freshness. Use Web-search Dates/Queries/Pages with clicks, impressions, CTR and average position, exact dates/filters/latest complete available date and privacy/truncation limits. Separate query/page tabs are marginals, not joined query–page data. Do not submit a sitemap, request indexing or run a new live inspection for this read-only review.
+
+Keep these release markers distinct:
+
+- October20 service copy release.
+- October25 restored design: `2026-10-25T20:09:44.821Z` /15:09:44.821 Chicago.
+- October25 PR6 brief release: `2026-10-25T20:49:51.301Z` /15:49:51.301 Chicago.
+
+A historical comparison window ends October24 or the latest complete available earlier day; a separate October25-and-later window must retain actual freshness/date limits. Until complete post-release data exists, no conclusion about either October25 release is possible. The older August28–September24 Analytics report is not used. Analytics OFF does not mean zero traffic. Voluntary aggregate inquiry/qualified/quote/accepted/paid counts remain unknown; a mail draft is not a received inquiry.
+
+The same Home/Service/Contact candidate continues from qualitative journey evidence. This access result does not justify a new city/industry page, a different competing candidate or new tracking. Detailed alternative aggregate exports remain in the preserved release-evidence access handoff. `evidence/search-console-access.json` records this latest check; earlier authentication observations are historical, not the final access state.
