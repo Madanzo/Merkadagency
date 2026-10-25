@@ -1,0 +1,480 @@
+{
+  "checkedAt": "2026-10-25T21:27:51.215Z",
+  "unchanged": true,
+  "release": "sites/merkadagency-dd2aa/channels/live/releases/1792961391301000",
+  "version": "sites/merkadagency-dd2aa/versions/e3ddc9fbcce9fc31",
+  "config": {
+    "headers": [
+      {
+        "headers": {
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+          "Cache-Control": "no-cache",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN"
+        },
+        "glob": "**"
+      },
+      {
+        "headers": {
+          "Cache-Control": "public,max-age=31536000,immutable"
+        },
+        "glob": "/assets/**"
+      },
+      {
+        "headers": {
+          "X-Robots-Tag": "noindex,nofollow"
+        },
+        "glob": "/private-app.html"
+      },
+      {
+        "headers": {
+          "X-Robots-Tag": "noindex,nofollow"
+        },
+        "glob": "/admin{,/**}"
+      },
+      {
+        "headers": {
+          "X-Robots-Tag": "noindex,nofollow"
+        },
+        "glob": "/sign/**"
+      }
+    ],
+    "redirects": [
+      {
+        "statusCode": 301,
+        "location": "/services/website-development",
+        "glob": "/services"
+      },
+      {
+        "statusCode": 302,
+        "location": "/contact",
+        "glob": "/book"
+      }
+    ],
+    "rewrites": [
+      {
+        "glob": "/admin{,/**}",
+        "path": "/private-app.html"
+      },
+      {
+        "glob": "/sign/**",
+        "path": "/private-app.html"
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlashBehavior": "REMOVE"
+  },
+  "versionFiles": [
+    {
+      "path": "/__/firebase/init.js",
+      "hash": "97d69b14c26c7dd80beb1f5087b0bacbe5a0f43c3988628ae987d16d730c774e",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/__/firebase/init.json",
+      "hash": "e96012315d4d559f3a5e0b2998ca39db2d594a30fc6262391e33e0f9970de95c",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/404.html",
+      "hash": "cf21802a2a180fb0b11beff5132fdad91beb8d4a5b5dcd60d730c750011accf0",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/assets/html2canvas.esm-QH1iLAAe.js",
+      "hash": "30bb240b29c866a606065bf0288665dc0faaecc5fd566ebdba2d536aeeb2f446",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/assets/index-DxLjU7W-.css",
+      "hash": "0869b8d0d1935704e1b6e7fd02294ca2187425f17979c1ca59ebedd3b20755ec",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/assets/index.es-C_ThFyeC.js",
+      "hash": "5cc9d57441ad4360d680145155db21b2b1abba5b7a1f0736a8c54ddd9af6480b",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/assets/private-V2frljdX.js",
+      "hash": "4e9eed02734b255f5cccb15b81ab0a417993bf90e929d14556551bfd1a857519",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/assets/purify.es-B9ZVCkUG.js",
+      "hash": "1a273ea14d324a46ae0549af7dd4002bd7f5512146ca1e2e09a8a84acd6f424e",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/contact.html",
+      "hash": "c9989a3b9c22cb9c53d9e734a4b2d847efa10cb14c0bbe06c282392ee10b1951",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/favicon.png",
+      "hash": "8fb7f614b6c71dfb80e7a0779efb87d6e306218080e945edabc3c952ecf737be",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/index.html",
+      "hash": "8f8b02e4309d396f6b50777f6f28b222ba593fa0d779322e2db63f26c70cc39d",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/legal/privacy.html",
+      "hash": "3e48b69186887d6b132858652140756fb1df083705afcd8098d7184cc7c78cab",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/legal/terms.html",
+      "hash": "cf8928ccd4c5e6a533240651a29c9fa585923719d4cf6318754bb3a13f584953",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/private-app.html",
+      "hash": "58bda55c1af39b9d20f28b47cd7624ecc9b9368c63c765630420737c90c024a3",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/private-boundary.json",
+      "hash": "fa592aea24264bedeb067cb26c15dde4853da3b948ab0217eddb7fc3be32a707",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/resources/website-brief.html",
+      "hash": "a536b0b45f35623486008701ae0267d5a394cfdd16f8d3abad6951fc75c49cc1",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/robots.txt",
+      "hash": "88b73c99c1816958a3a9e681fe7b3002a5f52959932e978a2fa8faecef12a0a0",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/services/website-development.html",
+      "hash": "fd9b7a6bd6568d416298c83e168b1966817487e937f43fd3ad2dc97b2630c446",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/site.css",
+      "hash": "467457bf9d84dc0e101993b43d0008c6594f86e47f60aa754626d883811d415f",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/sitemap.xml",
+      "hash": "0a3b6d3b31565d934460eccf50bac302f9dea0d872c42324ac3d036e45466954",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/visuals/folded-glass-480.webp",
+      "hash": "4a9499958715b3e08b53faf43a09cd865b9bab03f7870a9a2b2752d394d79952",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/visuals/folded-glass-640.webp",
+      "hash": "35aec4261f70c72bca89b2d2c51bd9340e7c28b59ba733bda59dd5369cf2a78a",
+      "status": "ACTIVE"
+    },
+    {
+      "path": "/website-release.json",
+      "hash": "63cb1da856423b87961babb53bcaeda3aec265ba9b1d0af3d1adb889a817d302",
+      "status": "ACTIVE"
+    }
+  ],
+  "deliveredChecks": [
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/404",
+      "status": 200,
+      "sha256": "78ea448852f2d610c07e39a36271d034465acaaf5854e4a2133ec3796ad6e671",
+      "bytes": 2492
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/assets/html2canvas.esm-QH1iLAAe.js",
+      "status": 200,
+      "sha256": "061c08e50c0dc57b8d5e6531f0b8237a52a68b233260d49ab2f2c2906ad112c4",
+      "bytes": 202379
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/assets/index-DxLjU7W-.css",
+      "status": 200,
+      "sha256": "1507e06bfaf94c67ae84422a81bd98654b51dc31e285c0681ee647d9d4858154",
+      "bytes": 109695
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/assets/index.es-C_ThFyeC.js",
+      "status": 200,
+      "sha256": "4b5e426ea57301f5d5ef45f6a91f1f196c1cc5de65960c2e188606d3fd6e31a1",
+      "bytes": 150561
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/assets/private-V2frljdX.js",
+      "status": 200,
+      "sha256": "0072a7efaa7c0320be24eac12bd902ec470cc9751788d43a49e06ba6a10e39ce",
+      "bytes": 1624083
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/assets/purify.es-B9ZVCkUG.js",
+      "status": 200,
+      "sha256": "8f994fedccc1596fbf513fa2242f1c6e86b7a530310614dfe5b3b28d637df46e",
+      "bytes": 22636
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/contact",
+      "status": 200,
+      "sha256": "1b3dab2ddd587be02bb190f8264404a2f8d7f42a1268808c1b19f647d5859217",
+      "bytes": 5237
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/favicon.png",
+      "status": 200,
+      "sha256": "b8d1990cf96dafa0fac68696f7231d88221a97ea486b76f4cf2717b028b13197",
+      "bytes": 312167
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/",
+      "status": 200,
+      "sha256": "12f92409cadea0085a6485cca1b67c5ac1f2e2ebbad3add1b48508b5e2bc366c",
+      "bytes": 4870
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/legal/privacy",
+      "status": 200,
+      "sha256": "aa77b6f34378b2b11b72901c76ca8b4f7e104d6d3235c74550e67cb0bca2c225",
+      "bytes": 3811
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/legal/terms",
+      "status": 200,
+      "sha256": "bd2df055d30afde5f7230cb293e53186e727e22f04b10d47cf9f2817a3cbcc0d",
+      "bytes": 3555
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/private-app",
+      "status": 200,
+      "sha256": "845835b65979145f33c13a3a2ec2a985d4c744724b51ac968411df13693f9d3e",
+      "bytes": 767
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/private-boundary.json",
+      "status": 200,
+      "sha256": "c26270000d5913c3a42b57656b3bb2c0b1b140bc8a8bf6c18ba5f0b02a4cd417",
+      "bytes": 2906
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/resources/website-brief",
+      "status": 200,
+      "sha256": "8cd055839665c34d9161479dfcdce14750bd57dd5f115df1df2d61aafea8c7d4",
+      "bytes": 11096
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/robots.txt",
+      "status": 200,
+      "sha256": "d76947a7e6e12444ef5bd7809d9c2803e40599a29cf9412c1cacc6da6e19cf32",
+      "bytes": 132
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/services/website-development",
+      "status": 200,
+      "sha256": "1fc85fb22fd6ef62cfa059f7074d12720f5b4f11ea4c7ff7921dfedec9649ea2",
+      "bytes": 14500
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/site.css",
+      "status": 200,
+      "sha256": "05e81b7f2f83a1bdd70cc8cfb90484b5f8efd45eb6d6d9ae8cd95cc6dc6dfb4e",
+      "bytes": 10440
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/sitemap.xml",
+      "status": 200,
+      "sha256": "121070e6c5089252cda09d45ec9c58851498489871036a579a2993ae936c3b2b",
+      "bytes": 473
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/visuals/folded-glass-480.webp",
+      "status": 200,
+      "sha256": "4e7eed04918fa241cab727e43afff15e5f81b4e50f2a232c27cd8965cb9a96d0",
+      "bytes": 174622
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/visuals/folded-glass-640.webp",
+      "status": 200,
+      "sha256": "9affe3681e13085e9f9db7721f8b208a59a6758c3a392d7c18d4bb649ed15217",
+      "bytes": 322358
+    },
+    {
+      "origin": "https://merkadagency-dd2aa.web.app",
+      "path": "/website-release.json",
+      "status": 200,
+      "sha256": "e16fe802871b78c376889b11d346cc18d2ff5bb2d215ebc3e291d30588da4b11",
+      "bytes": 454
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/404",
+      "status": 200,
+      "sha256": "78ea448852f2d610c07e39a36271d034465acaaf5854e4a2133ec3796ad6e671",
+      "bytes": 2492
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/assets/html2canvas.esm-QH1iLAAe.js",
+      "status": 200,
+      "sha256": "061c08e50c0dc57b8d5e6531f0b8237a52a68b233260d49ab2f2c2906ad112c4",
+      "bytes": 202379
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/assets/index-DxLjU7W-.css",
+      "status": 200,
+      "sha256": "1507e06bfaf94c67ae84422a81bd98654b51dc31e285c0681ee647d9d4858154",
+      "bytes": 109695
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/assets/index.es-C_ThFyeC.js",
+      "status": 200,
+      "sha256": "4b5e426ea57301f5d5ef45f6a91f1f196c1cc5de65960c2e188606d3fd6e31a1",
+      "bytes": 150561
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/assets/private-V2frljdX.js",
+      "status": 200,
+      "sha256": "0072a7efaa7c0320be24eac12bd902ec470cc9751788d43a49e06ba6a10e39ce",
+      "bytes": 1624083
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/assets/purify.es-B9ZVCkUG.js",
+      "status": 200,
+      "sha256": "8f994fedccc1596fbf513fa2242f1c6e86b7a530310614dfe5b3b28d637df46e",
+      "bytes": 22636
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/contact",
+      "status": 200,
+      "sha256": "1b3dab2ddd587be02bb190f8264404a2f8d7f42a1268808c1b19f647d5859217",
+      "bytes": 5237
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/favicon.png",
+      "status": 200,
+      "sha256": "b8d1990cf96dafa0fac68696f7231d88221a97ea486b76f4cf2717b028b13197",
+      "bytes": 312167
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/",
+      "status": 200,
+      "sha256": "12f92409cadea0085a6485cca1b67c5ac1f2e2ebbad3add1b48508b5e2bc366c",
+      "bytes": 4870
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/legal/privacy",
+      "status": 200,
+      "sha256": "aa77b6f34378b2b11b72901c76ca8b4f7e104d6d3235c74550e67cb0bca2c225",
+      "bytes": 3811
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/legal/terms",
+      "status": 200,
+      "sha256": "bd2df055d30afde5f7230cb293e53186e727e22f04b10d47cf9f2817a3cbcc0d",
+      "bytes": 3555
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/private-app",
+      "status": 200,
+      "sha256": "845835b65979145f33c13a3a2ec2a985d4c744724b51ac968411df13693f9d3e",
+      "bytes": 767
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/private-boundary.json",
+      "status": 200,
+      "sha256": "c26270000d5913c3a42b57656b3bb2c0b1b140bc8a8bf6c18ba5f0b02a4cd417",
+      "bytes": 2906
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/resources/website-brief",
+      "status": 200,
+      "sha256": "8cd055839665c34d9161479dfcdce14750bd57dd5f115df1df2d61aafea8c7d4",
+      "bytes": 11096
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/robots.txt",
+      "status": 200,
+      "sha256": "d76947a7e6e12444ef5bd7809d9c2803e40599a29cf9412c1cacc6da6e19cf32",
+      "bytes": 132
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/services/website-development",
+      "status": 200,
+      "sha256": "1fc85fb22fd6ef62cfa059f7074d12720f5b4f11ea4c7ff7921dfedec9649ea2",
+      "bytes": 14500
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/site.css",
+      "status": 200,
+      "sha256": "05e81b7f2f83a1bdd70cc8cfb90484b5f8efd45eb6d6d9ae8cd95cc6dc6dfb4e",
+      "bytes": 10440
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/sitemap.xml",
+      "status": 200,
+      "sha256": "121070e6c5089252cda09d45ec9c58851498489871036a579a2993ae936c3b2b",
+      "bytes": 473
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/visuals/folded-glass-480.webp",
+      "status": 200,
+      "sha256": "4e7eed04918fa241cab727e43afff15e5f81b4e50f2a232c27cd8965cb9a96d0",
+      "bytes": 174622
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/visuals/folded-glass-640.webp",
+      "status": 200,
+      "sha256": "9affe3681e13085e9f9db7721f8b208a59a6758c3a392d7c18d4bb649ed15217",
+      "bytes": 322358
+    },
+    {
+      "origin": "https://merkadagency.com",
+      "path": "/website-release.json",
+      "status": 200,
+      "sha256": "e16fe802871b78c376889b11d346cc18d2ff5bb2d215ebc3e291d30588da4b11",
+      "bytes": 454
+    }
+  ]
+}
