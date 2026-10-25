@@ -19,3 +19,7 @@ Use the latest available dates, retain the prior period for context, and disting
 The existing owner-only `aggregate-outcomes.csv` still contains UNKNOWN observations. No new voluntarily supplied aggregate inquiry/qualified/quoted/accepted/paid-project outcome is available in this task. Counts are **unknown, not zero**. No raw mailbox/customer-record search or message was performed for this milestone. Opening an email draft is not a received inquiry; publication is not a sale.
 
 The August 28–September 24 Analytics report describes the older website and is not used. Analytics OFF is not evidence of zero traffic. No tracking is introduced to fill the gaps. Existing stage definitions and voluntary aggregate worksheet remain usable without activating analytics, CRM or Finix.
+
+## Official interpretation references
+
+[Google Search Console permission levels](https://support.google.com/webmasters/answer/7687615?hl=en-SG) distinguish Restricted report viewing from ownership/actions. No extra ownership or submission right is needed for this analysis. [Google’s export guidance](https://support.google.com/webmasters/answer/12919797?hl=en) notes that report exports retain applied filters and can be truncated; keep those limits and missing values explicit. [About Search Console data](https://support.google.com/webmasters/answer/96568?hl=en) explains that available reports can lag and may omit query detail. These are interpretation references, not evidence of access or performance for MerkadAgency.

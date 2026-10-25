@@ -1,0 +1,37 @@
+{
+  "baselineSource": "eda3e800170883affa7392f7d1063feab3a60f62",
+  "baselineHostingVersion": "c480659af373fb7d",
+  "candidateSource": "21ee725c72e76769f35678d7bb4e52e1d80ad924",
+  "addedFiles": [],
+  "removedFiles": [],
+  "changedFiles": [
+    "resources/website-brief.html",
+    "services/website-development.html",
+    "website-release.json"
+  ],
+  "unchangedFiles": [
+    "404.html",
+    "assets/html2canvas.esm-QH1iLAAe.js",
+    "assets/index-DxLjU7W-.css",
+    "assets/index.es-C_ThFyeC.js",
+    "assets/private-V2frljdX.js",
+    "assets/purify.es-B9ZVCkUG.js",
+    "contact.html",
+    "favicon.png",
+    "index.html",
+    "legal/privacy.html",
+    "legal/terms.html",
+    "private-app.html",
+    "private-boundary.json",
+    "robots.txt",
+    "site.css",
+    "sitemap.xml",
+    "visuals/folded-glass-480.webp",
+    "visuals/folded-glass-640.webp"
+  ],
+  "allStylesArtworkPrivateRobotsSitemapOtherFourPagesUnchanged": true,
+  "intake": false,
+  "analytics": false,
+  "newRoutesOrRedirectChanges": false,
+  "productionPublication": false
+}
