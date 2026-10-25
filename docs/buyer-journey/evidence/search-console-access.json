@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-25T21:41:53.382702+00:00",
+  "selectedAccount": "camilo.reyna@merkadagency.com",
+  "accountConfirmedBy": "Visible Search Console Google Account label and Signed in as text, after owner reauthentication",
+  "authentication": "completed",
+  "properties": [
+    {
+      "property": "sc-domain:merkadagency.com",
+      "access": "denied",
+      "visibleMessage": "Oops, you don't have access to this property"
+    },
+    {
+      "property": "https://merkadagency.com/",
+      "access": "denied",
+      "visibleMessage": "Oops, you don't have access to this property"
+    }
+  ],
+  "accessibleMerkadAgencyPropertyShown": false,
+  "globalVerificationStatus": "Not established by this account denial; an existing verified owner must confirm whether either exact property is verified.",
+  "nextStep": "Existing verified property owner: Settings \u2192 Users and permissions \u2192 Add user \u2192 camilo.reyna@merkadagency.com \u2192 Restricted. If no verified property exists, owner verification is separate authorized work; no duplicate property or DNS change here.",
+  "metricsIndexingSitemapAndSelectedCanonicals": "Unavailable; not zero or an indexing failure conclusion",
+  "scope": "Read-only existing-property access and visible account check; no property creation, owner verification, DNS, indexing request, tracking or publication",
+  "publicContactUnchanged": "camiloreyna@merkadagency.com"
+}

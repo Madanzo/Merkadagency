@@ -1,0 +1,636 @@
+{
+  "checkedAt": "2026-10-25T21:36:11.746Z",
+  "base": "http://localhost:8101",
+  "source": "8171b9bfbf9d01d204310f61e7b24f3a89654129",
+  "localOnly": true,
+  "files": [
+    {
+      "path": "/404",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "404.html"
+    },
+    {
+      "path": "/assets/html2canvas.esm-QH1iLAAe.js",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "assets/html2canvas.esm-QH1iLAAe.js"
+    },
+    {
+      "path": "/assets/index-DxLjU7W-.css",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "assets/index-DxLjU7W-.css"
+    },
+    {
+      "path": "/assets/index.es-C_ThFyeC.js",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "assets/index.es-C_ThFyeC.js"
+    },
+    {
+      "path": "/assets/private-V2frljdX.js",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "assets/private-V2frljdX.js"
+    },
+    {
+      "path": "/assets/purify.es-B9ZVCkUG.js",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "assets/purify.es-B9ZVCkUG.js"
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "contact.html"
+    },
+    {
+      "path": "/favicon.png",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "favicon.png"
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "index.html"
+    },
+    {
+      "path": "/legal/privacy",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "legal/privacy.html"
+    },
+    {
+      "path": "/legal/terms",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "legal/terms.html"
+    },
+    {
+      "path": "/private-app",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "private-app.html"
+    },
+    {
+      "path": "/private-boundary.json",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "private-boundary.json"
+    },
+    {
+      "path": "/resources/website-brief",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "resources/website-brief.html"
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "robots.txt"
+    },
+    {
+      "path": "/services/website-development",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "services/website-development.html"
+    },
+    {
+      "path": "/site.css",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "site.css"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "sitemap.xml"
+    },
+    {
+      "path": "/visuals/folded-glass-480.webp",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "visuals/folded-glass-480.webp"
+    },
+    {
+      "path": "/visuals/folded-glass-640.webp",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "visuals/folded-glass-640.webp"
+    },
+    {
+      "path": "/website-release.json",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff",
+      "file": "website-release.json"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/services",
+      "status": 301,
+      "location": "/services/website-development",
+      "robots": null,
+      "nosniff": null
+    },
+    {
+      "path": "/services/ai-lead-capture",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/services/crm-automation",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/services/seo-content",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/services/paid-advertising",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/industries",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/industries/medspas",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/industries/cannabis",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/industries/construction",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/industries/ecommerce",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/results",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/portfolio",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/case-studies",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/case-studies/kravings",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/case-studies/teonanacatl",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/case-studies/gridnguard",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/free-audit",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/roi-calculator",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/medspa-automation-checklist",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/cannabis-marketing-playbook",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/contractor-lead-gen-guide",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/ecommerce-automation-blueprint",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/about",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/about/method",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/book",
+      "status": 302,
+      "location": "/contact",
+      "robots": null,
+      "nosniff": null
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/blog",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/legal/privacy",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/legal/terms",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/admin/login",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/admin",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/sign/synthetic-boundary-review",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/assets/html2canvas.esm-QH1iLAAe.js",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/assets/index-DxLjU7W-.css",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/assets/index-oYkhmNmm.js",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/assets/index.es-BLzAEPB-.js",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/assets/purify.es-B9ZVCkUG.js",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/favicon.png",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/index.html",
+      "status": 301,
+      "location": "/",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/medspa-checklist.html",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/cannabis-marketing-playbook.html",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/contractor-lead-gen-guide.html",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/ecommerce-automation-blueprint.html",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/medspa-automation-checklist.html",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/services/website-development",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/website-brief",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    }
+  ],
+  "aliases": [
+    {
+      "path": "/private-app.html",
+      "status": 301,
+      "location": "/private-app",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/private-app",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/admin/unmatched-boundary",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/sign/synthetic-boundary-review/?token=c3ludGhldGlj",
+      "status": 200,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/unmatched-informational-page",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/api/contact-intake",
+      "status": 404,
+      "location": null,
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/services/website-development.html",
+      "status": 301,
+      "location": "/services/website-development",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/services/website-development/",
+      "status": 301,
+      "location": "/services/website-development",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/website-brief.html",
+      "status": 301,
+      "location": "/resources/website-brief",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/resources/website-brief/",
+      "status": 301,
+      "location": "/resources/website-brief",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/contact.html",
+      "status": 301,
+      "location": "/contact",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/contact/",
+      "status": 301,
+      "location": "/contact",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/legal/privacy.html",
+      "status": 301,
+      "location": "/legal/privacy",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/legal/privacy/",
+      "status": 301,
+      "location": "/legal/privacy",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/legal/terms.html",
+      "status": 301,
+      "location": "/legal/terms",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    },
+    {
+      "path": "/legal/terms/",
+      "status": 301,
+      "location": "/legal/terms",
+      "robots": "noindex,nofollow",
+      "nosniff": "nosniff"
+    }
+  ],
+  "failures": []
+}

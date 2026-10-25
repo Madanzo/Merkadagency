@@ -1,0 +1,23 @@
+{
+  "source": "8171b9bfbf9d01d204310f61e7b24f3a89654129",
+  "liveBaseline": "e3ddc9fbcce9fc31",
+  "changed": [
+    "contact.html",
+    "index.html",
+    "services/website-development.html",
+    "website-release.json"
+  ],
+  "unchangedFiles": 17,
+  "privateDesignRobotsSitemapGuideLegalByteIdentical": true,
+  "allMetadataUnchanged": true,
+  "sourceDiff": [
+    "docs/buyer-journey/COPY-DIFF.md",
+    "docs/buyer-journey/EXAMPLE-PERMISSIONS.md",
+    "docs/buyer-journey/REVIEW.md",
+    "docs/buyer-journey/SEARCH-EVIDENCE.md",
+    "website/content.mjs"
+  ],
+  "configSHA256": "10fba4d8718a8a6535dd83feab8e7516900bacd0a081b0de7e6e33079abfec71",
+  "hashListSHA256": "15fb26ffed3f1b68416c01d65e536017737655371f616e0722a58bc5fba762df",
+  "candidateAggregateSHA256": "c185f2f00e4c30062f30f40d4e98eef97694027e5ee90143238b224b285f47b1"
+}
