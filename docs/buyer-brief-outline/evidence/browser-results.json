@@ -1,0 +1,901 @@
+{
+  "checkedAt": "2026-10-25T20:28:32.311Z",
+  "base": "http://127.0.0.1:8100",
+  "engines": [
+    {
+      "name": "chromium",
+      "version": "149.0.7827.55",
+      "checks": [
+        {
+          "route": "/services/website-development",
+          "width": 320,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 390,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 844,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 1370,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "check": "keyboard: skip, all links/disclosures, visible unobscured focus",
+          "pass": true,
+          "stops": 28
+        },
+        {
+          "route": "/services/website-development",
+          "check": "200% root-text surrogate: no overflow, main-link focus unobscured",
+          "pass": true
+        },
+        {
+          "route": "/services/website-development",
+          "check": "print: readable heading, no art or fixed action",
+          "pass": true
+        },
+        {
+          "route": "/services/website-development",
+          "check": "no JS: complete initial content, visible navigation and email path",
+          "pass": true
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 320,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 390,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 844,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 1370,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/resources/website-brief",
+          "check": "keyboard: skip, all links/disclosures, visible unobscured focus",
+          "pass": true,
+          "stops": 17
+        },
+        {
+          "route": "/resources/website-brief",
+          "check": "200% root-text surrogate: no overflow, main-link focus unobscured",
+          "pass": true
+        },
+        {
+          "route": "/resources/website-brief",
+          "check": "print: readable heading, no art or fixed action",
+          "pass": true
+        },
+        {
+          "route": "/resources/website-brief",
+          "check": "no JS: complete initial content, visible navigation and email path",
+          "pass": true
+        },
+        {
+          "check": "static visual under both emulated motion preferences; no executable public scripts",
+          "pass": true
+        },
+        {
+          "check": "native FAQ keyboard toggle",
+          "pass": true
+        },
+        {
+          "check": "keyboard forward/return links resolve exact fragments; six-part outline, planning labels and plain email path visible",
+          "pass": true
+        }
+      ],
+      "requests": [
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-640.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-640.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-640.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-640.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        }
+      ],
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "name": "firefox",
+      "version": "151.0",
+      "checks": [
+        {
+          "route": "/services/website-development",
+          "width": 320,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 390,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 844,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "width": 1370,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/services/website-development",
+          "check": "keyboard: skip, all links/disclosures, visible unobscured focus",
+          "pass": true,
+          "stops": 29
+        },
+        {
+          "route": "/services/website-development",
+          "check": "200% root-text surrogate: no overflow, main-link focus unobscured",
+          "pass": true
+        },
+        {
+          "route": "/services/website-development",
+          "check": "print: readable heading, no art or fixed action",
+          "pass": true
+        },
+        {
+          "route": "/services/website-development",
+          "check": "no JS: complete initial content, visible navigation and email path",
+          "pass": true
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 320,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 390,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 844,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/resources/website-brief",
+          "width": 1370,
+          "check": "responsive, mailto, navigation, disabled controls, canonical, axe",
+          "axeViolations": 0,
+          "axeIncomplete": []
+        },
+        {
+          "route": "/resources/website-brief",
+          "check": "keyboard: skip, all links/disclosures, visible unobscured focus",
+          "pass": true,
+          "stops": 18
+        },
+        {
+          "route": "/resources/website-brief",
+          "check": "200% root-text surrogate: no overflow, main-link focus unobscured",
+          "pass": true
+        },
+        {
+          "route": "/resources/website-brief",
+          "check": "print: readable heading, no art or fixed action",
+          "pass": true
+        },
+        {
+          "route": "/resources/website-brief",
+          "check": "no JS: complete initial content, visible navigation and email path",
+          "pass": true
+        },
+        {
+          "check": "static visual under both emulated motion preferences; no executable public scripts",
+          "pass": true
+        },
+        {
+          "check": "native FAQ keyboard toggle",
+          "pass": true
+        },
+        {
+          "check": "keyboard forward/return links resolve exact fragments; six-part outline, planning labels and plain email path visible",
+          "pass": true
+        }
+      ],
+      "requests": [
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-640.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-640.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-640.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-640.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/services/website-development",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-480.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        },
+        {
+          "path": "/visuals/folded-glass-640.webp",
+          "method": "GET"
+        },
+        {
+          "path": "/resources/website-brief",
+          "method": "GET"
+        },
+        {
+          "path": "/site.css",
+          "method": "GET"
+        },
+        {
+          "path": "/favicon.png",
+          "method": "GET"
+        }
+      ],
+      "forbidden": [],
+      "errors": []
+    }
+  ],
+  "limitations": [
+    "Physical device, Safari/WebKit, screen reader, native text zoom, actual OS-motion and real mail-app not tested. Enlarged-root-text and media emulation are surrogates."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-10-25T20:20:58.605786+00:00",
+  "requestedProperty": "sc-domain:merkadagency.com",
+  "result": "Oops, you do not have access to this property",
+  "selectorStatus": "Not verified",
+  "accessibleMerkadAgencyUrlPrefixPropertyShown": false,
+  "queriesPagesClicksImpressionsCtr": "unavailable, not zero",
+  "indexCoverageAndGoogleSelectedCanonical": "unavailable",
+  "sitemapSubmissionOrProcessingEvidence": "unavailable",
+  "permissionOrVerificationChanges": false,
+  "indexingSubmission": false,
+  "accessNeeded": "Restricted/read-only access for the existing Google account to an already verified sc-domain:merkadagency.com or https://merkadagency.com/ property; alternatively aggregate Web search query/page/date exports with clicks, impressions, CTR, filters and freshness, plus Pages/URL Inspection and sitemap-status evidence."
+}
