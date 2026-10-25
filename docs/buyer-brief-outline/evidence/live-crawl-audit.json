@@ -1,0 +1,89 @@
+{
+  "checkedAt": "2026-10-25T20:22:39.615762+00:00",
+  "source": "eda3e800170883affa7392f7d1063feab3a60f62",
+  "liveVersion": "c480659af373fb7d",
+  "evidence": "Audited delivered artifact bytes freshly hash-matched against both live hostnames.",
+  "publicPages": [
+    {
+      "path": "/",
+      "title": "Website Development | MerkadAgency",
+      "description": "Website development from MerkadAgency. Explore a clear planning, design and build process, prepare a website brief, and contact Camilo by email.",
+      "canonical": "https://merkadagency.com/",
+      "robots": "index,follow",
+      "mainTextWords": 161,
+      "internalLinks": 10,
+      "executableScripts": 0,
+      "formControls": 0
+    },
+    {
+      "path": "/services/website-development",
+      "title": "Website Development for Your Business | MerkadAgency",
+      "description": "New website or focused redesign? Explore project scope, process and practical buyer answers, then email Camilo to discuss your website.",
+      "canonical": "https://merkadagency.com/services/website-development",
+      "robots": "index,follow",
+      "mainTextWords": 1182,
+      "internalLinks": 14,
+      "executableScripts": 0,
+      "formControls": 0
+    },
+    {
+      "path": "/resources/website-brief",
+      "title": "Website Brief & Redesign Guide | MerkadAgency",
+      "description": "A practical website brief checklist for a new site or redesign: goals, audience, page inventory, content, permissions, ownership, proposal questions and launch checks.",
+      "canonical": "https://merkadagency.com/resources/website-brief",
+      "robots": "index,follow",
+      "mainTextWords": 805,
+      "internalLinks": 10,
+      "executableScripts": 0,
+      "formControls": 0
+    },
+    {
+      "path": "/contact",
+      "title": "Discuss Your Website with Camilo | MerkadAgency",
+      "description": "Email Camilo Reyna about a new website or redesign. Share your current website and goals to discuss scope, pricing and next steps.",
+      "canonical": "https://merkadagency.com/contact",
+      "robots": "index,follow",
+      "mainTextWords": 253,
+      "internalLinks": 12,
+      "executableScripts": 0,
+      "formControls": 0
+    },
+    {
+      "path": "/legal/privacy",
+      "title": "Privacy & Contact Information | MerkadAgency",
+      "description": "How to contact Camilo Reyna about privacy at MerkadAgency. This informational website has no inquiry form or analytics tracking enabled.",
+      "canonical": "https://merkadagency.com/legal/privacy",
+      "robots": "index,follow",
+      "mainTextWords": 139,
+      "internalLinks": 9,
+      "executableScripts": 0,
+      "formControls": 0
+    },
+    {
+      "path": "/legal/terms",
+      "title": "Website Information & Project Terms | MerkadAgency",
+      "description": "MerkadAgency website information and project terms: website development scope, cost, timing and responsibilities require a separate written agreement.",
+      "canonical": "https://merkadagency.com/legal/terms",
+      "robots": "index,follow",
+      "mainTextWords": 88,
+      "internalLinks": 9,
+      "executableScripts": 0,
+      "formControls": 0
+    }
+  ],
+  "uniqueTitlesAndDescriptions": true,
+  "allCanonicalSelfReferences": true,
+  "allInternalRoutesAndFragmentsValid": true,
+  "sitemap": [
+    "https://merkadagency.com/",
+    "https://merkadagency.com/services/website-development",
+    "https://merkadagency.com/resources/website-brief",
+    "https://merkadagency.com/contact",
+    "https://merkadagency.com/legal/privacy",
+    "https://merkadagency.com/legal/terms"
+  ],
+  "robots": "User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /sign/\nDisallow: /private-app.html\n\nSitemap: https://merkadagency.com/sitemap.xml\n",
+  "indexingOutcome": "Unknown; indexable delivery is not indexing or Google-selected-canonical evidence.",
+  "searchConsole": "Access denied; no query/page/impression/click/CTR data available.",
+  "failures": []
+}
