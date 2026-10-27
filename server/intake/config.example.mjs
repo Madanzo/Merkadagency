@@ -7,5 +7,7 @@ export const config = {
   requestedService: '', // Approved service accepted by this tenant's intake mapper
   turnstileSiteKey: '', // Approved public widget key
   turnstileSecret: '', // Server secret binding only
+  abuseDatabaseId: '', // Explicit approved website database; no default selection
+  abuseLimit: 0,       // Approved shared request ceiling per60s; 0 fails closed
   allowedOrigins: [], // Exact public website origins approved for this deployment
 };

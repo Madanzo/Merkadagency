@@ -1,3 +1,7 @@
+# Current production-preparation status
+
+Production form/privacy, shared counter, dependency fixes and exact staged scope are specified in `../../docs/intake-connection/ACTIVATION-PACKAGE.md`. Current runtime requires a shared atomic limiter as well as the listed settings; server package is Admin14.5.0/Functions7.3.2 with a zero-finding isolated audit. Historical notes below retain the initial recovery record, including superseded versions/configuration paths. No deployment/activation.
+
 # October 27 recovery status
 
 See `../../docs/intake-connection/README.md` for current source/contract evidence, isolated reproduction and activation dependencies. The dated notes below are preserved recovery history; their old visual, qualification and source/runtime findings are not current production proof. Current runtime is still not deployed or activated.
