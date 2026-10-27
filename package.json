@@ -19,7 +19,10 @@
     "test:intake": "node --test server/intake/*.test.mjs",
     "test:intake:integration": "vitest run --config vitest.intake.config.ts",
     "build:intake:lab": "node scripts/seo/build-intake-lab.mjs",
-    "preview:intake:lab": "node scripts/intake-lab.mjs"
+    "preview:intake:lab": "node scripts/intake-lab.mjs",
+    "build:intake:review": "node scripts/seo/build-intake-candidate.mjs && node scripts/seo/verify-intake-candidate.mjs dist-intake-review",
+    "build:intake:candidate": "node scripts/seo/build.mjs && node scripts/seo/build-intake-candidate.mjs --candidate && node scripts/seo/verify-intake-candidate.mjs",
+    "test:intake:abuse": "node --test server/intake/distributed.integration.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

@@ -1,4 +1,4 @@
-// The isolated lab uses the current site renderer/style; never included by OFF builds.
+// Shared markup only; the simulation disclosure is added exclusively by the lab builder.
 export const inquiryForm = `<section class="panel inquiry" aria-labelledby="inquiry-title"><h2 id="inquiry-title">Send a website inquiry</h2>
 <p id="intake-availability" role="status">Checking inquiry availability…</p>
 <div id="intake-content" hidden>
@@ -10,7 +10,7 @@ export const inquiryForm = `<section class="panel inquiry" aria-labelledby="inqu
 <p><label for="inquiry-url">Current website URL <span>(optional)</span></label><input id="inquiry-url" name="websiteUrl" type="url" maxlength="512" placeholder="https://example.com" aria-describedby="url-help"><small id="url-help">Use a full http or https address without login details, queries or fragments. Leave blank for a new website.</small></p>
 <p><label for="inquiry-description">Project description</label><textarea id="inquiry-description" name="message" rows="6" required maxlength="4000" aria-describedby="description-help"></textarea><small id="description-help">What does your business do, and what should the website help visitors understand or do? Share open questions; do not include passwords, payment details or sensitive customer records.</small></p>
 <div hidden aria-hidden="true"><label for="inquiry-trap">Leave this field empty</label><input id="inquiry-trap" name="website" tabindex="-1" autocomplete="off"></div>
-<p class="small">When you send, this browser tab saves the attempted name, email, optional website, description, submission time and retry reference until confirmed receipt or discard. Verification tokens are not saved. This is an inquiry, not marketing or SMS consent. <a href="/legal/privacy">Current privacy information</a>. This isolated demo uses synthetic test data only.</p>
+<p class="small">When you send, this browser tab saves the attempted name, email, optional website, description, submission time and retry reference until confirmed receipt or discard. Verification tokens are not saved. This is an inquiry, not marketing or SMS consent. <a href="/legal/privacy">How we handle inquiry information</a>. </p>
 <div id="verification"></div><p id="verification-status" role="status"></p>
 <p><button id="inquiry-submit" class="cta" type="submit" disabled>Send website inquiry</button> <button id="inquiry-discard" type="button">Discard saved draft</button></p>
 <div id="discard-confirm" hidden role="alertdialog" aria-label="Discard saved draft"><p>Discard the copy in this tab? This does not cancel an inquiry already received. Starting again after an uncertain response could create another inquiry.</p><button id="discard-yes" type="button">Discard saved draft</button> <button id="discard-no" type="button">Keep draft</button></div>

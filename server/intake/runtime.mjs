@@ -10,15 +10,16 @@ export function runtimeConfig(env) {
     apiKey: env.CONTACT_CRM_API_KEY, requestedService: env.CONTACT_CRM_SERVICE,
     allowedOrigins: (env.CONTACT_ALLOWED_ORIGINS || '').split(',').filter(Boolean),
     turnstileSiteKey: env.CONTACT_TURNSTILE_SITE_KEY, turnstileSecret: env.CONTACT_TURNSTILE_SECRET,
+    abuseDatabaseId: env.CONTACT_ABUSE_DATABASE_ID, abuseLimit: Number(env.CONTACT_ABUSE_MAX_PER_MINUTE),
   };
 }
-export function createRuntime({ config = disabledConfig, fetchImpl = fetch, limiter = createLimiter() } = {}) {
+export function createRuntime({ config = disabledConfig, fetchImpl = fetch, limiter = createLimiter(), distributedLimiter } = {}) {
   const validOrigin = value => {
     try { const url = new URL(value); return url.protocol === 'https:' && url.origin === value; }
     catch { return false; }
   };
   const nonempty = value => typeof value === 'string' && value.trim().length > 0;
-  const configured = validOrigin(config.crmOrigin) && /^[a-z0-9_-]+$/.test(config.tenantSlug || '') &&
+  const configured = typeof distributedLimiter === 'function' && validOrigin(config.crmOrigin) && /^[a-z0-9_-]+$/.test(config.tenantSlug || '') &&
     Array.isArray(config.allowedOrigins) && config.allowedOrigins.every(validOrigin) && config.enabled === true && config.crmOrigin && config.tenantSlug && nonempty(config.apiKey) &&
     nonempty(config.requestedService) && nonempty(config.turnstileSiteKey) && nonempty(config.turnstileSecret) && config.allowedOrigins?.length;
   const bound = Object.freeze({ ...config, enabled: Boolean(configured), allowedOrigins: configured ? [...config.allowedOrigins] : [] });
@@ -37,7 +38,10 @@ export function createRuntime({ config = disabledConfig, fetchImpl = fetch, limi
     if (!bound.enabled) return response(503, { code: 'not_configured' });
     if (active >= 8 || !limiter(address)) return response(429, { code: 'rate_limited' });
     active++;
-    try { return await intake(request); }
+    try {
+      if(!await distributedLimiter()) return response(503,{code:'temporarily_unavailable'});
+      return await intake(request);
+    }
     catch { return response(400, { code: 'invalid_request' }); }
     finally { active--; }
   };

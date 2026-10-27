@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "merkadagency-dd2aa",
-    "public": "dist-site",
+    "public": "dist-intake-candidate",
     "ignore": [
       "**/.*",
       "**/node_modules/**"
@@ -104,7 +104,7 @@
       }
     ],
     "predeploy": [
-      "npm run verify:seo"
+      "node scripts/seo/verify-intake-candidate.mjs"
     ]
   },
   "functions": [
@@ -118,7 +118,8 @@
         "*.log",
         "**/*.test.mjs",
         "canonical.integration.ts",
-        "isolated-fixture.ts"
+        "isolated-fixture.ts",
+        "distributed.integration.mjs"
       ]
     }
   ]

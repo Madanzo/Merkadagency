@@ -48,11 +48,11 @@ test('blank secret configuration cannot expose enabled intake or forward', async
 test('rate limit and concurrent request cap protect verification and upstream work', async()=>{
   const config={enabled:true,crmOrigin:'https://crm.test',tenantSlug:'fixture',apiKey:'synthetic',requestedService:'inquiry',turnstileSiteKey:'fixture',turnstileSecret:'synthetic',allowedOrigins:['https://website.test']};
   let release; const blocked=new Promise(resolve=>{release=resolve;}); let calls=0;
-  const runtime=createRuntime({config,limiter:()=>true,fetchImpl:async()=>{calls++;await blocked;return Response.json({success:false});}});
+  const runtime=createRuntime({config,distributedLimiter:async()=>true,limiter:()=>true,fetchImpl:async()=>{calls++;await blocked;return Response.json({success:false});}});
   const request=()=>new Request('https://website.test/api/contact-intake',{method:'POST',headers:{Origin:'https://website.test','Content-Type':'application/json','Idempotency-Key':'synthetic-attempt-0001','X-Turnstile-Token':'synthetic'},body:JSON.stringify({name:'Test',email:'test@example.test',subject:'Inquiry',message:'Synthetic',submittedAt:'2026-10-06T00:00:00Z',website:''})});
   const attempts=Array.from({length:8},()=>runtime(request(),{address:'synthetic'}));
   assert.equal((await runtime(request(),{address:'synthetic'})).status,429);
   release();await Promise.all(attempts);assert.equal(calls,8);
-  const denied=createRuntime({config,limiter:()=>false,fetchImpl:()=>assert.fail('network forbidden')});
+  const denied=createRuntime({config,distributedLimiter:async()=>true,limiter:()=>false,fetchImpl:()=>assert.fail('network forbidden')});
   assert.equal((await denied(request(),{address:'synthetic'})).status,429);
 });
