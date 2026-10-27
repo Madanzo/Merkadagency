@@ -1,4 +1,5 @@
-import type { InquiryAttribution } from './inquiryAttribution';
+// Legacy wire shape only; no attribution collector or analytics runtime is restored.
+type InquiryAttribution = Partial<Record<'pageUrl' | 'landingPage' | 'referrer' | 'utmSource' | 'utmMedium' | 'utmCampaign' | 'utmContent' | 'utmTerm', string>>;
 export type ContactQualification = Partial<Record<'companyName' | 'currentStack' | 'locale' | 'referralBrand' | 'desiredTimeline' | 'estimatedBudget', string>>;
 export type ContactFields = { name: string; email: string; subject: string; message: string } & ContactQualification & { attribution?: InquiryAttribution; websiteUrl?: string };
 export type ContactAttempt = { key: string; body: string };

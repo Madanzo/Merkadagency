@@ -1,3 +1,7 @@
+# October 27 recovery status
+
+See `../../docs/intake-connection/README.md` for current source/contract evidence, isolated reproduction and activation dependencies. The dated notes below are preserved recovery history; their old visual, qualification and source/runtime findings are not current production proof. Current runtime is still not deployed or activated.
+
 # Contact intake boundary — mounted locally, disabled, not deployed
 
 The website owns validation and transport only. Canonical CRM owns identity, lead/contact/opportunity persistence, audit and ongoing communications. This code creates no operational database, email sender, CRM UI or migration job.
