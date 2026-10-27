@@ -30,3 +30,5 @@ No merge, deployment, credential provisioning, production submission, notificati
 ## Runtime advisory findings
 
 Recovered lockfile audit initially reported7 advisories, including1 critical/3 high. Compatible lockfile-only fixes removed all high/critical findings. The final audit retains2 moderate transitive findings, gaxios/uuid (uuid advisory GHSA-w5hq-g745-h8pq). No breaking override was silently substituted. They are server-framework/Admin-SDK dependencies, not part of the public client bundle; the adapter itself uses bounded fetch to the approved CRM/Siteverify paths. This observation is not an exploitability waiver: runtime-owner review/fix and deployment gating remain required before activation. No live runtime changed.
+
+The loopback lab additionally refuses private app/assets/admin/sign paths so the isolated demonstration cannot accidentally boot production private SDKs. This lab denial is not a change to production private routes or the reviewed Hosting proposal. Production artifacts retain those assets/routes exactly.
