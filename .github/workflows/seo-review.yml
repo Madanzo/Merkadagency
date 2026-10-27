@@ -17,6 +17,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - run: npm run test:intake
       - run: npx tsc -p tsconfig.app.json --noEmit
       - run: npx tsc -p website/tsconfig.private.json --noEmit
       - run: npx eslint website/private.tsx website/PrivateLayout.tsx
