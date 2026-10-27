@@ -11,7 +11,7 @@ exports.contactIntake = onRequest({
       const {getApps,initializeApp}=require('firebase-admin/app');
       const {getFirestore}=require('firebase-admin/firestore');
       const {createDistributedLimiter}=await import('./distributed-abuse.mjs');
-      const app=getApps()[0] || initializeApp();
+      const app=getApps().find(app=>app.name==='website-intake-abuse') || initializeApp({projectId:'merkadagency-dd2aa'},'website-intake-abuse');
       distributedLimiter=createDistributedLimiter({db:getFirestore(app,config.abuseDatabaseId),limit:config.abuseLimit});
     }
     return nodeListener(createRuntime({config,distributedLimiter}));
