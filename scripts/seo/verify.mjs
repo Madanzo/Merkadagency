@@ -20,6 +20,8 @@ const boundary=JSON.parse(await readFile(`${dir}/private-boundary.json`,'utf8'))
 for(const entry of boundary.preserved)assert.equal(createHash('sha256').update(await readFile(dir+entry.path)).digest('hex'),entry.sha256);
 assert.equal(createHash('sha256').update(await readFile(dir+boundary.privatePrimary.path)).digest('hex'),boundary.privatePrimary.sha256);
 const titleSet=new Set(),descriptionSet=new Set();
+assert.equal(await readFile(`${dir}/email-brief.js`,'utf8'),await readFile('website/email-brief.js','utf8'),'Optional clipboard asset must match the reviewed source exactly');
+const emailScript='<script src="/email-brief.js" defer></script>';
 for(const p of pages){
  const html=await readFile(`${dir}${p.path==='/'?'/index':p.path}.html`,'utf8');
  const heading=/<h1>([\s\S]*?)<\/h1>/.exec(html);assert(heading);assert.equal(heading[1].replace(/<[^>]*>/g,''),p.heading);
@@ -32,7 +34,11 @@ for(const p of pages){
  assert(html.includes(`rel="canonical" href="${origin+p.path}"`));
  assert.equal((html.match(/rel="canonical"/g)||[]).length,1);
  assert(html.includes(manifest.preview?'noindex,nofollow':'index,follow'));
- assert(!/<(?:form|input|iframe)\b|<script(?! type="application\/ld\+json")/i.test(html));
+ const scripts=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
+ assert.equal((html.match(/<script\b/gi)||[]).length,scripts.length,'Every public script must have a complete reviewed tag');
+ const executable=scripts.filter(match=>match[1]!==' type="application/ld+json"');
+ assert.deepEqual(executable.map(match=>match[0]),p.path==='/contact'?[emailScript]:[],'Only the exact local clipboard helper on Contact is allowed');
+ assert(!/<(?:form|input|iframe)\b|\son[a-z]+\s*=/i.test(html));
  assert(!/googletagmanager|clarity\.ms|cal\.com|turnstile|one year of free CRM|150-200%|Kravings|Teonanacatl|Grid.?N.?Guard/i.test(html));
  for(const match of html.matchAll(/href="(\/[^"#]*)"/g)){
   const href=match[1];assert(href==='/site.css'||pages.some(x=>x.path===href),`Broken internal link ${href}`);
