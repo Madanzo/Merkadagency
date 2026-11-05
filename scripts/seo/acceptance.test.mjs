@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { pages } from '../../website/content.mjs';
 const get = async (file,dir='dist-site') => readFile(`${dir}/${file}`,'utf8');
 test('All public pages have useful initial HTML without JavaScript or tracking',async()=>{
- for(const p of pages){const html=await get(p.path==='/'?'index.html':p.path.slice(1)+'.html');assert.match(html,/<main[^>]*>[\s\S]*<h1>/);assert(!/<script(?! type="application\/ld\+json")/.test(html));assert(!/<(?:form|input|iframe)\b/.test(html));}
+ for(const p of pages){const html=await get(p.path==='/'?'index.html':p.path.slice(1)+'.html');assert.match(html,/<main[^>]*>[\s\S]*<h1>/);const withoutHelper=p.path==='/contact'?html.replace('<script src="/email-brief.js" defer></script>',''):html;assert(!/<script(?! type="application\/ld\+json")/.test(withoutHelper));assert(!/<(?:form|input|iframe)\b/.test(html));}
  assert((await get('resources/website-brief.html')).length>7000);
 });
 test('Compatible fallback keeps routes and disabled features without new long-form copy',async()=>{
@@ -36,4 +36,16 @@ test('Publication verification rejects a preview artifact',async()=>{
   await writeFile(join(temp,'website-release.json'),JSON.stringify(manifest));
   assert.throws(()=>execFileSync('node',['scripts/seo/verify.mjs',temp],{stdio:'pipe'}),error=>error.stderr.toString().includes('Preview artifacts cannot be selected'));
  } finally { await rm(temp,{recursive:true,force:true}); }
+});
+
+test('Publication rejects unreviewed scripts, helper on another page, and a changed clipboard payload',async()=>{
+ for(const kind of ['extra-script','wrong-page','changed-helper']){
+  const temp=await mkdtemp(join(tmpdir(),'merkad-script-rejection-'));
+  try{
+   await cp('dist-site',temp,{recursive:true});
+   if(kind==='changed-helper')await writeFile(join(temp,'email-brief.js'),'throw new Error("unreviewed");');
+   else{const file=join(temp,kind==='wrong-page'?'index.html':'contact.html');const html=await readFile(file,'utf8');await writeFile(file,html.replace('</body>',(kind==='wrong-page'?'<script src="/email-brief.js" defer></script>':'<script src="https://unreviewed.invalid/script.js"></script>')+'</body>'));}
+   assert.throws(()=>execFileSync('node',['scripts/seo/verify.mjs',temp],{stdio:'pipe'}));
+  }finally{await rm(temp,{recursive:true,force:true});}
+ }
 });
