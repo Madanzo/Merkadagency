@@ -17,6 +17,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - run: npm ci --prefix server/intake --ignore-scripts
+      - run: npm audit --prefix server/intake --audit-level=moderate
+      - run: node -e "if(typeof require('./server/intake/index.cjs').contactIntake !== 'function') process.exit(1)"
+      - run: npm run test:intake
+      - run: npx tsc -p website/inquiry/tsconfig.json --noEmit
       - run: npx tsc -p tsconfig.app.json --noEmit
       - run: npx tsc -p website/tsconfig.private.json --noEmit
       - run: npx eslint website/private.tsx website/PrivateLayout.tsx
@@ -25,6 +30,8 @@ jobs:
           VITE_CONTACT_INTAKE_ENABLED: 'true'
           VITE_ANALYTICS_ENABLED: 'true'
       - run: node --test scripts/seo/acceptance.test.mjs scripts/seo/tests/*.test.mjs
+      - run: npm run build:intake:review
+      - run: npm run build:intake:candidate
       - run: npm run test:private
       - uses: actions/upload-artifact@v4
         with:
@@ -34,4 +41,8 @@ jobs:
             dist-rollback
             dist-site.sha256
             dist-rollback.sha256
+            dist-intake-review
+            dist-intake-review.sha256
+            dist-intake-candidate
+            dist-intake-candidate.sha256
           retention-days: 30
