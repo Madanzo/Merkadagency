@@ -62,7 +62,7 @@
         ]
       },
       {
-        "source": "/private-app.html",
+        "source": "/private-app{,.html,/**}",
         "headers": [
           {
             "key": "X-Robots-Tag",
@@ -80,7 +80,7 @@
         ]
       },
       {
-        "source": "/sign/**",
+        "source": "/sign{,/**}",
         "headers": [
           {
             "key": "X-Robots-Tag",

@@ -57,8 +57,8 @@ export function ContactPage() {
                   </div>
                   <div>
                     <div className="text-sm text-merkad-text-muted">Email</div>
-                    <a href="mailto:hello@merkadagency.com" className="text-white hover:text-merkad-purple-light transition-colors">
-                      hello@merkadagency.com
+                    <a href="mailto:camiloreyna@merkadagency.com" className="text-white hover:text-merkad-purple-light transition-colors">
+                      camiloreyna@merkadagency.com
                     </a>
                   </div>
                 </div>
