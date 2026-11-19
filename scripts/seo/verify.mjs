@@ -31,9 +31,17 @@ for (const route of privateRoutes) {
 assert.match(await readFile(`${dir}/private-app.html`,'utf8'), /<meta name="robots" content="noindex,nofollow">/);
 const robots = await readFile(`${dir}/robots.txt`,'utf8');
 assert.equal(/^Disallow: ./m.test(robots),manifest.preview,'Production crawlers must be able to see the private-route noindex directives');
+const iconFiles = ['favicon.ico', 'favicon.svg', 'favicon-32.png', 'apple-touch-icon.png', 'favicon-192.png', 'favicon-512.png'];
 const favicon = await readFile(`${dir}/favicon.png`);
 assert(favicon.length < 4096,'Favicon exceeds 4 KiB');
 assert.deepEqual(favicon,await readFile('public/favicon.png'));
+let iconBytes = favicon.length;
+for (const icon of iconFiles) {
+ const asset = await readFile(`${dir}/${icon}`);
+ assert.deepEqual(asset,await readFile(`public/${icon}`));
+ iconBytes += asset.length;
+}
+assert(iconBytes < 50_000,'Favicon assets exceed 50 KB');
 assert.deepEqual(await readFile(`${dir}/social-preview.jpg`),await readFile('public/social-preview.jpg'));
 const titleSet=new Set(),descriptionSet=new Set();
 assert.equal(await readFile(`${dir}/email-brief.js`,'utf8'),await readFile('website/email-brief.js','utf8'),'Optional clipboard asset must match the reviewed source exactly');
@@ -43,7 +51,13 @@ for(const p of pages){
  const recipients = [...html.matchAll(/href="mailto:([^"?]+)(?:[?"])/gi)].map(match => match[1]);
  assert.deepEqual([...new Set(recipients)],[email],`Unexpected email recipient on ${p.path}`);
  assert(html.includes(`<meta property="og:image" content="${origin}/social-preview.jpg">`));
- assert(html.includes('<link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">'));
+ assert(html.includes('<meta name="twitter:card" content="summary_large_image">'));
+ assert(html.includes(`<meta name="twitter:image" content="${origin}/social-preview.jpg">`));
+ const title = /<title>(.*?)<\/title>/.exec(html)?.[1];
+ const description = /<meta name="description" content="([^"]+)">/.exec(html)?.[1];
+ assert(title && html.includes(`<meta property="og:title" content="${title}">`));
+ assert(description && html.includes(`<meta property="og:description" content="${description}">`));
+ for (const icon of iconFiles) assert(html.includes(`href="/${icon}">`));
  const heading=/<h1>([\s\S]*?)<\/h1>/.exec(html);assert(heading);assert.equal(heading[1].replace(/<[^>]*>/g,''),p.heading);
  const bodyChunks=[...html.matchAll(/<!--copy:start-->([\s\S]*?)<!--copy:end-->/g)].map(m=>m[1]).join('');
  assert.equal(bodyChunks,manifest.fallback&&['/services/website-development','/resources/website-brief'].includes(p.path)?`<p>MerkadAgency offers website development. For project information, email <a href="mailto:${email}">${email}</a>.</p><p><a href="/contact">Contact Camilo</a></p>`:p.body,'Every source body byte must be retained in initial HTML');
@@ -61,7 +75,7 @@ for(const p of pages){
  assert(!/<(?:form|input|iframe)\b|\son[a-z]+\s*=/i.test(html));
  assert(!/googletagmanager|clarity\.ms|cal\.com|turnstile|one year of free CRM|150-200%|Kravings|Teonanacatl|Grid.?N.?Guard/i.test(html));
  for(const match of html.matchAll(/href="(\/[^"#]*)"/g)){
-  const href=match[1];assert(['/site.css','/favicon.png'].includes(href)||pages.some(x=>x.path===href),`Broken internal link ${href}`);
+  const href=match[1];assert((href==='/site.css'||iconFiles.includes(href.slice(1)))||pages.some(x=>x.path===href),`Broken internal link ${href}`);
  }
  for(const match of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g))JSON.parse(match[1]);
  assert(!titleSet.has(p.title));titleSet.add(p.title);assert(!descriptionSet.has(p.description));descriptionSet.add(p.description);
