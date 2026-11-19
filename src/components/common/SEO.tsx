@@ -13,7 +13,7 @@ export function SEO({ title, description, canonical, image }: SEOProps) {
 
     // Ensure absolute URL for social images
     const siteUrl = 'https://merkadagency.com';
-    const defaultImage = `${siteUrl}/favicon.png`;
+    const defaultImage = `${siteUrl}/social-preview.jpg`;
     const ogImage = image
         ? (image.startsWith('http') ? image : `${siteUrl}${image}`)
         : defaultImage;

@@ -22,7 +22,7 @@ export async function verifyPrivate() {
     components.push({name:key,fingerprint:b.fingerprint,directDependencies:b.dependencies.length,intentionalLayoutChange:key==='login'});
   }
   const preserved=[];
-  for(const path of ['/assets/index-DxLjU7W-.css','/assets/html2canvas.esm-QH1iLAAe.js','/assets/purify.es-B9ZVCkUG.js','/favicon.png']) {
+  for(const path of ['/assets/index-DxLjU7W-.css','/assets/html2canvas.esm-QH1iLAAe.js','/assets/purify.es-B9ZVCkUG.js']) {
     const entry=baseline.files.find(x=>x.path===path);assert(entry);
     const data=await readFile('dist-private'+path);assert.equal(hash(data),entry.sha256,`Live asset changed: ${path}`);
     preserved.push({path,sha256:entry.sha256,bytes:data.length});

@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile, rm, cp } from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import {verifyPrivate} from './verify-private.mjs';
-import { pages, origin, projectContactLink } from '../../website/content.mjs';
+import { pages, origin, email, projectContactLink } from '../../website/content.mjs';
 import {header,footer,pageLayout} from '../../website/layout.mjs';
 const preview = process.argv.includes('--preview');
 const dirty = execFileSync('git', ['status','--porcelain','--untracked-files=all'], {encoding:'utf8'}).trim();
@@ -14,7 +14,7 @@ process.env.VITE_CONTACT_INTAKE_ENABLED = 'false';
 process.env.VITE_ANALYTICS_ENABLED = 'false';
 await build({configFile:'website/private.config.mjs'});
 await cp('website/private-baseline/assets/index-DxLjU7W-.css','dist-private/assets/index-DxLjU7W-.css');
-await cp('website/private-baseline/assets/favicon.png','dist-private/favicon.png');
+await cp('public/favicon.png','dist-private/favicon.png');
 const privateFile='dist-private/website/private.html';
 const privateHTML=(await readFile(privateFile,'utf8')).replace('</head>','<link rel="stylesheet" href="/assets/index-DxLjU7W-.css"></head>');
 await writeFile(privateFile,privateHTML);
@@ -24,10 +24,10 @@ const sourceTree=execFileSync('git',['rev-parse','HEAD^{tree}'],{encoding:'utf8'
 const escape = x => x.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
 function html(page, fallback = false) {
  const mobileContact = ['/services/website-development','/contact'].includes(page.path);
- const schema = [{ '@context':'https://schema.org','@type':'Organization',name:'MerkadAgency',url:origin,email:'camiloreyna@merkadagency.com' }];
+ const schema = [{ '@context':'https://schema.org','@type':'Organization',name:'MerkadAgency',url:origin,email }];
  if(page.path === '/services/website-development') schema.push({'@context':'https://schema.org','@type':'Service',name:'Website development',serviceType:'Website development',url:origin+page.path,provider:{'@type':'Organization',name:'MerkadAgency',url:origin}});
  if(page.path !== '/' && page.path !== '/404') schema.push({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'MerkadAgency',item:origin+'/'},{'@type':'ListItem',position:2,name:page.heading,item:origin+page.path}]});
- return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><meta name="robots" content="${preview || page.path==='/404' ? 'noindex,nofollow' : 'index,follow'}">${page.path==='/404' ? '' : `<link rel="canonical" href="${origin+page.path}">`}<meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${origin+page.path}"><meta property="og:type" content="website"><link rel="stylesheet" href="/site.css"><script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script></head><body${mobileContact ? ' class="has-mobile-contact"' : ''}><a class="skip" href="#main">Skip to content</a>${header(page.path)}<main id="main" tabindex="-1">${pageLayout(page,fallback)}</main>${footer()}${mobileContact ? `<aside class="mobile-contact" aria-label="Website inquiry">${projectContactLink}</aside>` : ''}${page.path==='/contact'?'<script src="/email-brief.js" defer></script>':''}</body></html>`;
+ return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><meta name="robots" content="${preview || page.path==='/404' ? 'noindex,nofollow' : 'index,follow'}">${page.path==='/404' ? '' : `<link rel="canonical" href="${origin+page.path}">`}<meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${origin+page.path}"><meta property="og:type" content="website"><meta property="og:image" content="${origin}/social-preview.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="MerkadAgency · Website development"><link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="stylesheet" href="/site.css"><script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script></head><body${mobileContact ? ' class="has-mobile-contact"' : ''}><a class="skip" href="#main">Skip to content</a>${header(page.path)}<main id="main" tabindex="-1">${pageLayout(page,fallback)}</main>${footer()}${mobileContact ? `<aside class="mobile-contact" aria-label="Website inquiry">${projectContactLink}</aside>` : ''}${page.path==='/contact'?'<script src="/email-brief.js" defer></script>':''}</body></html>`;
 }
 const outputs = preview ? [['dist-site-preview',false]] : [['dist-site',false],['dist-rollback',true]];
 for (const [dir, fallback] of outputs) {
@@ -35,6 +35,7 @@ for (const [dir, fallback] of outputs) {
  await cp('dist-private/assets',`${dir}/assets`,{recursive:true});
  await cp('dist-private/website/private.html',`${dir}/private-app.html`);
  await cp('dist-private/favicon.png',`${dir}/favicon.png`);
+ await cp('public/social-preview.jpg',`${dir}/social-preview.jpg`);
  await cp('dist-private/private-boundary.json',`${dir}/private-boundary.json`);
  await cp('website/site.css',`${dir}/site.css`);
  await cp('website/email-brief.js',`${dir}/email-brief.js`);
@@ -45,11 +46,11 @@ for (const [dir, fallback] of outputs) {
    // Compatible fallback retains all approved URLs, email-only contact and no tracking.
    // It omits the new detailed service/guide copy while preserving truthful destinations.
    const safePage = fallback && ['/services/website-development','/resources/website-brief'].includes(page.path)
-     ? {...page,body:'<p>MerkadAgency offers website development. For project information, email <a href="mailto:camiloreyna@merkadagency.com">camiloreyna@merkadagency.com</a>.</p><p><a href="/contact">Contact Camilo</a></p>'} : page;
+     ? {...page,body:`<p>MerkadAgency offers website development. For project information, email <a href="mailto:${email}">${email}</a>.</p><p><a href="/contact">Contact Camilo</a></p>`} : page;
    await writeFile(output,html(safePage,fallback));
  }
  await writeFile(`${dir}/404.html`,html({path:'/404',title:'Page Not Available | MerkadAgency',description:'This page is not available. Explore website development or contact MerkadAgency by email.',heading:'This page is not available.',body:'<p>Find current information about <a href="/services/website-development">website development</a>, or <a href="/contact">contact Camilo by email</a>.</p>'}));
- await writeFile(`${dir}/robots.txt`,preview?'User-agent: *\nDisallow: /\n':`User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /sign/\nDisallow: /private-app.html\n\nSitemap: ${origin}/sitemap.xml\n`);
+ await writeFile(`${dir}/robots.txt`,preview?'User-agent: *\nDisallow: /\n':`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
  await writeFile(`${dir}/sitemap.xml`,`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(p=>`<url><loc>${origin+p.path}</loc></url>`).join('')}</urlset>\n`);
  await writeFile(`${dir}/website-release.json`,JSON.stringify({source,sourceTree,hostingConfigSha256,intake:false,analytics:false,preview,fallback,publicRoutes:pages.map(p=>p.path)},null,2)+'\n');
 }

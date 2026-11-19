@@ -1,4 +1,4 @@
-import {projectContactLink} from './content.mjs';
+import {email, projectContactLink} from './content.mjs';
 
 const escape = text => text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const navigation = [['/','Home'],['/services/website-development','Website development'],['/resources/website-brief','Website brief'],['/contact','Contact']];
@@ -10,7 +10,7 @@ export function header(path) {
 }
 
 export function footer() {
- return `<footer class="site-footer"><div class="footer-inner"><div><p class="footer-brand">MerkadAgency <span>· Website development</span></p><a href="mailto:camiloreyna@merkadagency.com">camiloreyna@merkadagency.com</a></div><nav aria-label="Legal"><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Website terms</a></nav></div></footer>`;
+ return `<footer class="site-footer"><div class="footer-inner"><div><p class="footer-brand">MerkadAgency <span>· Website development</span></p><a href="mailto:${email}">${email}</a></div><nav aria-label="Legal"><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Website terms</a></nav></div></footer>`;
 }
 
 function heading(page) {

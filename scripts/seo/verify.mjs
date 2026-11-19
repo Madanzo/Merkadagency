@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFile,readdir,stat,writeFile} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
-import {pages,origin} from '../../website/content.mjs';
+import {pages,origin,email} from '../../website/content.mjs';
 const dir=process.argv[2] || 'dist-site';
 const config=JSON.parse(await readFile('firebase.seo.json','utf8'));
 assert.deepEqual(Object.keys(config),['hosting']);
@@ -19,14 +19,34 @@ assert.equal(manifest.intake,false);assert.equal(manifest.analytics,false);asser
 const boundary=JSON.parse(await readFile(`${dir}/private-boundary.json`,'utf8'));
 for(const entry of boundary.preserved)assert.equal(createHash('sha256').update(await readFile(dir+entry.path)).digest('hex'),entry.sha256);
 assert.equal(createHash('sha256').update(await readFile(dir+boundary.privatePrimary.path)).digest('hex'),boundary.privatePrimary.sha256);
+const privateRoutes = ['/admin{,/**}', '/sign{,/**}', '/private-app{,.html,/**}'];
+const hosting = manifest.preview
+ ? JSON.parse(await readFile('firebase.seo.preview.json','utf8')).hosting
+ : config.hosting;
+for (const route of privateRoutes) {
+ assert(hosting.headers.some(rule => rule.source===route && rule.headers.some(
+  ({key,value}) => key==='X-Robots-Tag' && value==='noindex,nofollow'
+ )), `Missing noindex header for ${route}`);
+}
+assert.match(await readFile(`${dir}/private-app.html`,'utf8'), /<meta name="robots" content="noindex,nofollow">/);
+const robots = await readFile(`${dir}/robots.txt`,'utf8');
+assert.equal(/^Disallow: ./m.test(robots),manifest.preview,'Production crawlers must be able to see the private-route noindex directives');
+const favicon = await readFile(`${dir}/favicon.png`);
+assert(favicon.length < 4096,'Favicon exceeds 4 KiB');
+assert.deepEqual(favicon,await readFile('public/favicon.png'));
+assert.deepEqual(await readFile(`${dir}/social-preview.jpg`),await readFile('public/social-preview.jpg'));
 const titleSet=new Set(),descriptionSet=new Set();
 assert.equal(await readFile(`${dir}/email-brief.js`,'utf8'),await readFile('website/email-brief.js','utf8'),'Optional clipboard asset must match the reviewed source exactly');
 const emailScript='<script src="/email-brief.js" defer></script>';
 for(const p of pages){
  const html=await readFile(`${dir}${p.path==='/'?'/index':p.path}.html`,'utf8');
+ const recipients = [...html.matchAll(/href="mailto:([^"?]+)(?:[?"])/gi)].map(match => match[1]);
+ assert.deepEqual([...new Set(recipients)],[email],`Unexpected email recipient on ${p.path}`);
+ assert(html.includes(`<meta property="og:image" content="${origin}/social-preview.jpg">`));
+ assert(html.includes('<link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">'));
  const heading=/<h1>([\s\S]*?)<\/h1>/.exec(html);assert(heading);assert.equal(heading[1].replace(/<[^>]*>/g,''),p.heading);
  const bodyChunks=[...html.matchAll(/<!--copy:start-->([\s\S]*?)<!--copy:end-->/g)].map(m=>m[1]).join('');
- assert.equal(bodyChunks,manifest.fallback&&['/services/website-development','/resources/website-brief'].includes(p.path)?`<p>MerkadAgency offers website development. For project information, email <a href="mailto:camiloreyna@merkadagency.com">camiloreyna@merkadagency.com</a>.</p><p><a href="/contact">Contact Camilo</a></p>`:p.body,'Every source body byte must be retained in initial HTML');
+ assert.equal(bodyChunks,manifest.fallback&&['/services/website-development','/resources/website-brief'].includes(p.path)?`<p>MerkadAgency offers website development. For project information, email <a href="mailto:${email}">${email}</a>.</p><p><a href="/contact">Contact Camilo</a></p>`:p.body,'Every source body byte must be retained in initial HTML');
  for(const match of html.matchAll(/<(?:img|source)\b[^>]*\b(?:src|srcset)="([^"]+)"/g)) {
   assert(/^\/(?:favicon\.png|visuals\/folded-glass-(?:480|640)\.webp)$/.test(match[1]),'Public artwork must be a retained local asset');
   assert((await stat(dir+match[1])).isFile(),'Public artwork must exist in the release');
@@ -41,7 +61,7 @@ for(const p of pages){
  assert(!/<(?:form|input|iframe)\b|\son[a-z]+\s*=/i.test(html));
  assert(!/googletagmanager|clarity\.ms|cal\.com|turnstile|one year of free CRM|150-200%|Kravings|Teonanacatl|Grid.?N.?Guard/i.test(html));
  for(const match of html.matchAll(/href="(\/[^"#]*)"/g)){
-  const href=match[1];assert(href==='/site.css'||pages.some(x=>x.path===href),`Broken internal link ${href}`);
+  const href=match[1];assert(['/site.css','/favicon.png'].includes(href)||pages.some(x=>x.path===href),`Broken internal link ${href}`);
  }
  for(const match of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g))JSON.parse(match[1]);
  assert(!titleSet.has(p.title));titleSet.add(p.title);assert(!descriptionSet.has(p.description));descriptionSet.add(p.description);
