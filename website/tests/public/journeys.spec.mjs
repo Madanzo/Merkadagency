@@ -1,13 +1,12 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
+import { pages } from '../../content.mjs';
 
 const missingPath = '/missing/public-qa-page';
 const email = 'camiloreyna@merkadagency.com';
 
 for (const [path, heading, status] of [
-  ['/', 'A clear website starts with a clear plan.', 200],
-  ['/contact', 'Discuss your website with Camilo.', 200],
-  ['/services/website-development', 'Website development for your business.', 200],
+  ...pages.map(({ path, heading }) => [path, heading, 200]),
   [missingPath, 'This page is not available.', 404],
 ]) {
   test(`renders ${path} with keyboard access and no axe violations`, async ({ page, baseURL }) => {
@@ -24,11 +23,14 @@ for (const [path, heading, status] of [
     expect((await page.goto(path)).status()).toBe(status);
     await expect(page.getByRole('heading', { level: 1, name: heading })).toBeVisible();
     await expect(page.locator('form')).toHaveCount(0);
+    const skip = page.getByRole('link', { name: 'Skip to content', exact: true });
+    await expect(skip).toHaveAttribute('href', '#main');
+    await expect(skip).not.toBeInViewport();
     await page.keyboard.press('Tab');
-    const skip = page.getByRole('link', { name: 'Skip to content' });
     await expect(skip).toBeFocused();
     await expect(skip).toBeInViewport();
     await page.keyboard.press('Enter');
+    await expect(page.getByRole('main')).toHaveId('main');
     await expect(page.getByRole('main')).toBeFocused();
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
