@@ -6,6 +6,8 @@ const firebase = 'npm exec --yes --package firebase-tools@15.37.0 -- firebase';
 
 export default defineConfig({
   testDir: '.',
+  // Run lab measurements without concurrent Chromium workloads.
+  workers: 1,
   use: {
     baseURL,
     launchOptions: { executablePath: process.env.PUBLIC_QA_CHROMIUM },

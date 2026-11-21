@@ -27,7 +27,7 @@ test('Only retained URLs are emitted; obsolete proof and resources cannot be fet
  assert.doesNotMatch(errorPage, /<script\b|rel="canonical"/);
 });
 test('Hero artwork fits the mobile and desktop page-weight budgets', async () => {
- for (const [width, budget] of [[480, 16_000], [640, 24_000]]) {
+ for (const [width, budget] of [[320, 6_000], [480, 12_000], [640, 18_000]]) {
   const file = await stat(`dist-site/visuals/folded-glass-${width}.webp`);
   assert(file.size <= budget, `${width}px artwork exceeds ${budget} bytes`);
  }

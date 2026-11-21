@@ -61,9 +61,16 @@ for(const p of pages){
  const heading=/<h1>([\s\S]*?)<\/h1>/.exec(html);assert(heading);assert.equal(heading[1].replace(/<[^>]*>/g,''),p.heading);
  const bodyChunks=[...html.matchAll(/<!--copy:start-->([\s\S]*?)<!--copy:end-->/g)].map(m=>m[1]).join('');
  assert.equal(bodyChunks,manifest.fallback&&['/services/website-development','/resources/website-brief'].includes(p.path)?`<p>MerkadAgency offers website development. For project information, email <a href="mailto:${email}">${email}</a>.</p><p><a href="/contact">Contact Camilo</a></p>`:p.body,'Every source body byte must be retained in initial HTML');
- for(const match of html.matchAll(/<(?:img|source)\b[^>]*\b(?:src|srcset)="([^"]+)"/g)) {
-  assert(/^\/(?:favicon\.png|visuals\/folded-glass-(?:480|640)\.webp)$/.test(match[1]),'Public artwork must be a retained local asset');
-  assert((await stat(dir+match[1])).isFile(),'Public artwork must exist in the release');
+ for (const [image] of html.matchAll(/<(?:img|source)\b[^>]*>/g)) {
+  for (const [, attribute, value] of image.matchAll(/\b(src|srcset)="([^"]+)"/g)) {
+   const candidates = attribute === 'srcset' ? value.split(',').map(candidate => candidate.trim()) : [value];
+   for (const candidate of candidates) {
+    const [url, width] = candidate.split(/\s+/);
+    assert(/^\/(?:favicon\.png|visuals\/folded-glass-(?:320|480|640)\.webp)$/.test(url),'Public artwork must be a retained local asset');
+    if (attribute === 'srcset') assert.equal(width, url.match(/-(\d+)\.webp$/)?.[1] + 'w');
+    assert((await stat(dir+url)).isFile(),'Public artwork must exist in the release');
+   }
+  }
  }
  assert(html.includes(`rel="canonical" href="${origin+p.path}"`));
  assert.equal((html.match(/rel="canonical"/g)||[]).length,1);
