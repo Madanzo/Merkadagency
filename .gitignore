@@ -58,3 +58,13 @@ dist-rollback.sha256
 
 # Ephemeral workflow auth output; never copied into Hosting artifacts
 gha-creds-*.json
+
+# Isolated intake demonstration outputs (never publish)
+dist-intake-client/
+dist-intake-lab/
+
+# Proposed production-form review artifacts; never selected by current publisher
+dist-intake-review/
+dist-intake-candidate/
+dist-intake-review.sha256
+dist-intake-candidate.sha256
