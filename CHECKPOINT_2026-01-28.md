@@ -13,7 +13,6 @@
 ## 3. Key Changes (Cleanup Phase)
 - **Deleted:** `public/placeholder.svg`, `vercel.json` (Unused), `lovable-tagger` (Unused Dependency)
 - **Cleaned:** Removed debug logs from `src/main.tsx`
-- **Retained:** `public/medspa-checklist.html` (Identified as "Active Lead Magnet" - Safe Mode)
 
 ## 4. Current State
 - **Audit:** Passed (Deep Audit 4-Phase Protocol)
