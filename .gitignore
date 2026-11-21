@@ -58,3 +58,7 @@ dist-rollback.sha256
 
 # Ephemeral workflow auth output; never copied into Hosting artifacts
 gha-creds-*.json
+
+# Local browser QA output
+/test-results/
+/playwright-report/

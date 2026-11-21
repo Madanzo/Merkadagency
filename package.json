@@ -15,7 +15,8 @@
     "build:seo": "node scripts/seo/build.mjs && node scripts/seo/verify.mjs && node scripts/seo/verify.mjs dist-rollback",
     "build:seo:preview": "node scripts/seo/build.mjs --preview && node scripts/seo/verify.mjs dist-site-preview",
     "verify:seo": "node scripts/seo/verify.mjs",
-    "test:private": "vitest run --config website/tests/private.config.mjs"
+    "test:private": "vitest run --config website/tests/private.config.mjs",
+    "test:public": "playwright test --config website/tests/public/playwright.config.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -74,7 +75,9 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
     "@eslint/js": "^9.32.0",
+    "@playwright/test": "1.65.1",
     "@tailwindcss/typography": "^0.5.16",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",

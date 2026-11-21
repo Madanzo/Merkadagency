@@ -85,6 +85,18 @@ chore: update react-router-dom to fix vulnerability
 
 ---
 
+## Public website browser QA
+
+With Node 22 and dependencies installed, run from a clean checkout:
+
+```bash
+npx playwright install chromium
+npm run build:seo
+npm run test:public
+```
+
+Playwright starts the local Firebase Hosting emulator on port 5000 with a demo project and tests the generated site in desktop and mobile Chromium. The suite uses a local clipboard stub and checks that intake and analytics are disabled.
+
 ## Release Process
 
 1. Update `CHANGELOG.md` with release notes
