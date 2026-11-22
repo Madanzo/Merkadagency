@@ -1,0 +1,199 @@
+name: Propose CI revert
+
+on:
+  workflow_run:
+    workflows: [Informational website checks]
+    branches: [main]
+    types: [completed]
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+
+jobs:
+  propose:
+    if: >-
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      github.event.workflow_run.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    concurrency:
+      group: auto-revert-run-${{ github.event.workflow_run.id }}
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Retry CI and propose a revert if main is still broken
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          import subprocess
+          import time
+          from urllib.parse import urlencode
+
+          repo = os.environ["GITHUB_REPOSITORY"]
+          endpoint = f"repos/{repo}"
+          with open(os.environ["GITHUB_EVENT_PATH"]) as file:
+              trigger = json.load(file)["workflow_run"]
+
+          def api(path, method="GET", payload=None, paginate=False):
+              command = ["gh", "api", f"{endpoint}/{path}", "--method", method]
+              if paginate:
+                  command.extend(["--paginate", "--slurp"])
+              if payload is not None:
+                  command.extend(["--input", "-"])
+              result = subprocess.check_output(
+                  command, input=json.dumps(payload) if payload is not None else None, text=True
+              )
+              return json.loads(result) if result.strip() else None
+
+          def git(*args):
+              return subprocess.check_output(["git", *args], text=True).strip()
+
+          def skip(reason):
+              print(reason)
+              raise SystemExit(0)
+
+          def run_for(sha):
+              query = urlencode({"branch": "main", "event": "push", "head_sha": sha, "per_page": 1})
+              runs = api(f"actions/workflows/{trigger['workflow_id']}/runs?{query}")["workflow_runs"]
+              return runs[0] if runs else {}
+
+          run_path = f"actions/runs/{trigger['id']}"
+          if api(run_path)["run_attempt"] == 1:
+              api(f"{run_path}/rerun-failed-jobs", "POST", {})
+          # Watch the retry in this job so delivery of another workflow_run event is unnecessary.
+          for _ in range(150):
+              retry = api(f"{run_path}/attempts/2") if api(run_path)["run_attempt"] >= 2 else {}
+              if retry.get("status") == "completed":
+                  break
+              time.sleep(30)
+          else:
+              raise RuntimeError("CI attempt 2 did not finish before the polling deadline")
+          if retry["conclusion"] != "failure":
+              skip(f"CI attempt 2 concluded {retry['conclusion']}")
+
+          tip = trigger["head_sha"]
+          current = run_for(tip)
+          if current.get("id") != trigger["id"] or current.get("run_attempt") != 2:
+              skip("A newer CI run or attempt superseded this result")
+          if api("git/ref/heads/main")["object"]["sha"] != tip:
+              skip("Main advanced while CI was running")
+
+          # Fetch history without running scripts or using artifacts from the failed workflow.
+          git("init", "--quiet")
+          git("remote", "add", "origin", f"{os.environ['GITHUB_SERVER_URL']}/{repo}.git")
+          subprocess.run(["gh", "auth", "setup-git"], check=True)
+          git("fetch", "--no-tags", "origin", "+refs/heads/main:refs/remotes/origin/main")
+          if git("rev-parse", "origin/main") != tip:
+              skip("Main advanced while fetching history")
+
+          breaking_sha, failing_run = tip, retry
+          # Find the first confirmed failure immediately after a known green first parent.
+          for parent in git("rev-list", "--first-parent", "--max-count=101", "origin/main").splitlines()[1:]:
+              run = run_for(parent)
+              if run.get("status") == "completed" and run.get("conclusion") == "success":
+                  break
+              if (run.get("status"), run.get("conclusion")) != ("completed", "failure"):
+                  skip(f"No conclusive CI result for first-parent commit {parent}")
+              if run["run_attempt"] < 2:
+                  skip(f"No confirmed retry failure for first-parent commit {parent}")
+              breaking_sha, failing_run = parent, run
+          else:
+              skip("No green first parent found within 100 commits")
+
+          def is_revert(text):
+              return re.search(
+                  r"(?im)^(?:revert(?:s|ed|ing)?\b|this reverts commit\b)", text
+              ) is not None
+
+          if is_revert(git("show", "-s", "--format=%B", breaking_sha)):
+              skip(f"{breaking_sha} is a revert")
+
+          associated = api(f"commits/{breaking_sha}/pulls?per_page=100", paginate=True)
+          matches = [
+              pr for page in associated for pr in page
+              if pr["merged_at"] and pr["base"]["ref"] == "main"
+              and pr["base"]["repo"]["full_name"] == repo
+              and pr["merge_commit_sha"] == breaking_sha
+          ]
+          if len(matches) != 1:
+              skip(f"Could not identify a unique original PR for {breaking_sha}")
+          original = matches[0]
+          if is_revert(original["title"]):
+              skip(f"Original PR #{original['number']} is a revert")
+
+          branch = f"auto-revert/{breaking_sha}"
+          marker = f"<!-- auto-revert:{breaking_sha} -->"
+          query = urlencode({"state": "all", "head": f"{repo.split('/')[0]}:{branch}", "base": "main"})
+          if api(f"pulls?{query}"):
+              skip(f"A revert PR already exists for {breaking_sha}")
+          # Inspect PRs directly so deduplication also covers manually opened and recently created PRs.
+          for page in api("pulls?state=all&base=main&per_page=100", paginate=True):
+              for pr in page:
+                  body = pr["body"] or ""
+                  if marker in body or (
+                      is_revert(pr["title"]) and re.search(rf"\b{breaking_sha}\b", body)
+                  ):
+                      skip(f"A revert PR already exists for {breaking_sha}")
+
+          git("-c", "core.hooksPath=/dev/null", "checkout", "--detach", "origin/main")
+          git("config", "user.name", "github-actions[bot]")
+          git("config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com")
+          parents = git("show", "-s", "--format=%P", breaking_sha).split()
+          mainline = ["-m", "1"] if len(parents) > 1 else []
+          git("-c", "core.hooksPath=/dev/null", "revert", "--no-edit", *mainline, breaking_sha)
+
+          if api("git/ref/heads/main")["object"]["sha"] != tip:
+              skip("Main advanced before opening the revert PR")
+          # Reserve this SHA atomically. A lease requiring an absent ref prevents overwrites.
+          ref = f"refs/heads/{branch}"
+          remote_branch = git("ls-remote", "origin", ref)
+          if remote_branch:
+              previous = remote_branch.split()[0]
+              equivalent = (
+                  api(f"git/commits/{previous}")["tree"]["sha"]
+                  == git("rev-parse", "HEAD^{tree}")
+              )
+              if not equivalent:
+                  skip(f"Existing branch {branch} requires owner review")
+          else:
+              git("push", f"--force-with-lease={ref}:", "origin", f"HEAD:{ref}")
+
+          original_number = original["number"]
+          pr_text = f"{original['title']}\n{original['body'] or ''}"
+          tickets = sorted(set(re.findall(r"\bCAM-\d+\b", pr_text, flags=re.I)), key=str.upper)
+          ticket_refs = [
+              f"[{ticket.upper()}](https://linear.app/camiloreynar/issue/{ticket.upper()})"
+              for ticket in dict.fromkeys(ticket.upper() for ticket in tickets)
+          ]
+          cam = "\n\nCAM tickets: " + ", ".join(ticket_refs) if ticket_refs else ""
+          failure = f"{failing_run['html_url']}/attempts/2"
+          body = (
+              f"{marker}\n\nReverts `{breaking_sha}` from #{original_number}. "
+              f"CI failed again on [attempt 2]({failure})."
+              f"{cam}\n\nHeld for owner review."
+          )
+          revert = api("pulls", "POST", {
+              "title": f"Revert: {original['title']}",
+              "head": branch,
+              "base": "main",
+              "body": body,
+              "draft": True,
+          })
+          labels = api("labels?per_page=100", paginate=True)
+          if not any(label["name"] == "auto-revert" for page in labels for label in page):
+              api("labels", "POST", {"name": "auto-revert", "color": "B60205"})
+          api(f"issues/{revert['number']}/labels", "POST", {"labels": ["auto-revert"]})
+          api(f"issues/{original_number}/comments", "POST", {
+              "body": (
+                  f"CI on main failed again on [attempt 2]({failure}). "
+                  f"Draft revert #{revert['number']} is held for owner review.{cam}"
+              ),
+          })
+          PY
