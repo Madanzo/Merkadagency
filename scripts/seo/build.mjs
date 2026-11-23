@@ -30,7 +30,16 @@ function html(page, fallback = false) {
  const errorPolicy = notFound ? `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">` : '';
  const mobileContact = ['/services/website-development','/contact'].includes(page.path);
  const schema = [{ '@context':'https://schema.org','@type':'Organization',name:'MerkadAgency',url:origin,email }];
- if(page.path === '/services/website-development') schema.push({'@context':'https://schema.org','@type':'Service',name:'Website development',serviceType:'Website development',url:origin+page.path,provider:{'@type':'Organization',name:'MerkadAgency',url:origin}});
+ if(page.path === '/services/website-development') {
+  schema.push({'@context':'https://schema.org','@type':'Service',name:'Website development',serviceType:'Website development',url:origin+page.path,provider:{'@type':'Organization',name:'MerkadAgency',url:origin}});
+  schema.push({
+   '@context':'https://schema.org',
+   '@type':'ProfessionalService',
+   name:'MerkadAgency',
+   url:origin+page.path,
+   description:fallback ? 'MerkadAgency offers website development.' : 'Website development for your business, including new websites and focused website redesigns.',
+  });
+ }
  if(page.path !== '/' && page.path !== '/404') schema.push({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'MerkadAgency',item:origin+'/'},{'@type':'ListItem',position:2,name:page.heading,item:origin+page.path}]});
  return `<!doctype html><html lang="en"><head><meta charset="utf-8">${errorPolicy}<meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><meta name="robots" content="${preview || page.path==='/404' ? 'noindex,nofollow' : 'index,follow'}">${page.path==='/404' ? '' : `<link rel="canonical" href="${origin+page.path}">`}<meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${origin+page.path}"><meta property="og:type" content="website"><meta property="og:image" content="${origin}/social-preview.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="MerkadAgency · Website development"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${origin}/social-preview.jpg"><meta name="twitter:image:alt" content="MerkadAgency · Website development">${iconLinks}<link rel="stylesheet" href="/site.css">${notFound ? '' : `<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>`}</head><body><a class="skip" href="#main">Skip to content</a>${header(page.path)}<main id="main" tabindex="-1">${pageLayout(page,fallback)}${mobileContact ? `<div class="mobile-contact">${projectContactLink}</div>` : ''}</main>${footer()}${page.path==='/contact'?'<script src="/email-brief.js" defer></script>':''}</body></html>`;
 }
@@ -43,6 +52,7 @@ for (const [dir, fallback] of outputs) {
  for (const icon of iconFiles) await cp(`public/${icon}`,`${dir}/${icon}`);
  await cp('public/social-preview.jpg',`${dir}/social-preview.jpg`);
  await cp('dist-private/private-boundary.json',`${dir}/private-boundary.json`);
+ await cp('public/llms.txt',`${dir}/llms.txt`);
  await cp('website/site.css',`${dir}/site.css`);
  await cp('website/email-brief.js',`${dir}/email-brief.js`);
  await cp('website/visuals',`${dir}/visuals`,{recursive:true});
@@ -57,7 +67,7 @@ for (const [dir, fallback] of outputs) {
  }
  await writeFile(`${dir}/404.html`,html({path:'/404',title:'Page Not Available | MerkadAgency',description:'This page is not available. Explore website development or contact MerkadAgency by email.',heading:'This page is not available.',body:'<p>Find current information about <a href="/services/website-development">website development</a>, or <a href="/contact">contact Camilo by email</a>.</p>'}));
  await writeFile(`${dir}/robots.txt`,preview?'User-agent: *\nDisallow: /\n':`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
- await writeFile(`${dir}/sitemap.xml`,`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(p=>`<url><loc>${origin+p.path}</loc></url>`).join('')}</urlset>\n`);
+ await writeFile(`${dir}/sitemap.xml`,`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(p=>`<url><loc>${origin+p.path}</loc></url>`).join('')}<url><loc>${origin}/llms.txt</loc></url></urlset>\n`);
  await writeFile(`${dir}/website-release.json`,JSON.stringify({source,sourceTree,hostingConfigSha256,intake:false,analytics:false,preview,fallback,publicRoutes:pages.map(p=>p.path)},null,2)+'\n');
 }
 console.log(`Static public site and compatible fallback built from ${source}; intake=false analytics=false preview=${preview}`);
