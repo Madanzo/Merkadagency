@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
-import { pages } from '../../content.mjs';
+import { contactLabel, pages } from '../../content.mjs';
 
 const missingPath = '/missing/public-qa-page';
 const email = 'camiloreyna@merkadagency.com';
@@ -49,7 +49,7 @@ test('serves a release with intake and analytics disabled', async ({ request }) 
 test('navigates from home through the main links with a keyboard', async ({ page }) => {
   await page.goto('/');
   const nav = page.getByRole('navigation', { name: 'Main' });
-  for (const name of ['Home', 'Website development', 'Website brief', 'Contact']) {
+  for (const name of ['Home', 'Wrap-shop marketing', 'Wrap-shop CRM', 'Website development', 'Website brief', 'Contact']) {
     if (name === 'Home') {
       await page.keyboard.press('Tab'); // Skip link
       await page.keyboard.press('Tab'); // Brand
@@ -109,7 +109,7 @@ test('focuses the webmail instructions and recovers after clipboard denial', asy
   await expect(brief).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('status')).toContainText('Questions copied');
-  expect(await page.evaluate(() => window.publicQaCopiedText)).toContain('Main goals and questions:');
+  expect(await page.evaluate(() => window.publicQaCopiedText)).toContain('What you want to improve:');
 });
 
 test('keeps mailto and manual instructions available without JavaScript', async ({ browser, baseURL }, testInfo) => {
@@ -118,13 +118,13 @@ test('keeps mailto and manual instructions available without JavaScript', async 
   try {
     const page = await context.newPage();
     await page.goto('/contact');
-    const draft = page.getByRole('main').getByRole('link', { name: 'Discuss your website' }).first();
+    const draft = page.getByRole('main').getByRole('link', { name: contactLabel }).first();
     const href = new URL(await draft.getAttribute('href'));
     expect(href.protocol).toBe('mailto:');
     expect(href.pathname).toBe(email);
-    expect(href.searchParams.get('body')).toContain('Current website (if any):');
+    expect(href.searchParams.get('body')).toContain('Website and Google Business Profile (if available):');
     await expect(page.locator('[data-email-address]')).toHaveText(email);
-    await expect(page.locator('[data-email-brief]')).toContainText('Main goals and questions:');
+    await expect(page.locator('[data-email-brief]')).toContainText('What you want to improve:');
     await expect(page.getByRole('button', { name: 'Copy email address' })).toBeHidden();
   } finally {
     await context.close();

@@ -1,13 +1,17 @@
 # MerkadAgency
 
-> MerkadAgency offers website development.
+> MerkadAgency helps vehicle wrap shops get found locally and turn quote requests into followed-up leads.
 
-Contact: camiloreyna@merkadagency.com
+Email Camilo Reyna: camiloreyna@merkadagency.com
+Address: 10601 N Lamar Blvd, Austin, TX 78753
 
 ## Public pages
 
 - [Home](https://merkadagency.com/)
-- [Website development](https://merkadagency.com/services/website-development)
+- [Marketing for wrap shops](https://merkadagency.com/services/marketing-for-wrap-shops): Portfolio websites, quote questions, local SEO and AEO, Google Business Profile, and quote follow-up. Websites start at $500.
+- [Wrap-shop CRM](https://merkadagency.com/services/wrap-shop-crm): Website lead and quote intake, contacts, sales pipeline, quotes, and email through the shop's Resend account. CRM license is $1,500 setup + $800/month.
+- [Phantom Wraps & Coatings](https://merkadagency.com/work/phantom-wraps): The website and CRM used at Camilo Reyna's own Austin wrap shop.
+- [Website development](https://merkadagency.com/services/website-development): Website-only projects and redesigns.
 - [Website brief](https://merkadagency.com/resources/website-brief)
 - [Contact](https://merkadagency.com/contact)
 - [Privacy](https://merkadagency.com/legal/privacy)

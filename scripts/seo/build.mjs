@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile, rm, cp } from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import {verifyPrivate} from './verify-private.mjs';
-import { pages, origin, email, projectContactLink } from '../../website/content.mjs';
+import { address, contactLink, pages, origin, email } from '../../website/content.mjs';
 import {header,footer,pageLayout} from '../../website/layout.mjs';
 const preview = process.argv.includes('--preview');
 const dirty = execFileSync('git', ['status','--porcelain','--untracked-files=all'], {encoding:'utf8'}).trim();
@@ -29,19 +29,50 @@ function html(page, fallback = false) {
  // Hosting matches headers against the requested URL, so unknown paths need a document-level policy.
  const errorPolicy = notFound ? `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">` : '';
  const mobileContact = ['/services/website-development','/contact'].includes(page.path);
- const schema = [{ '@context':'https://schema.org','@type':'Organization',name:'MerkadAgency',url:origin,email }];
+ const organization = {
+  '@context':'https://schema.org',
+  '@type':'Organization',
+  '@id':origin+'/#organization',
+  name:'MerkadAgency',
+  url:origin,
+  email,
+  address:{'@type':'PostalAddress',...address},
+ };
+ const websiteOffer = {
+  '@type':'Offer',
+  name:'Website development',
+  url:origin+'/services/website-development',
+  priceSpecification:{'@type':'PriceSpecification',minPrice:500,priceCurrency:'USD'},
+ };
+ const crmOffer = {
+  '@type':'Offer',
+  name:'Wrap-shop CRM license',
+  url:origin+'/services/wrap-shop-crm',
+  priceSpecification:[
+   {'@type':'UnitPriceSpecification',name:'Setup',price:1500,priceCurrency:'USD'},
+   {'@type':'UnitPriceSpecification',name:'Monthly license',price:800,priceCurrency:'USD',unitCode:'MON'},
+  ],
+ };
+ const schema = [organization];
+ const offers = {
+  '/':[websiteOffer,crmOffer],
+  '/services/marketing-for-wrap-shops':[websiteOffer],
+  '/services/wrap-shop-crm':[crmOffer],
+  '/services/website-development':fallback ? [] : [websiteOffer],
+ };
+ if (offers[page.path]) {
+  schema[0] = {
+   ...organization,
+   '@type':['Organization','ProfessionalService'],
+   description:'Marketing, website development and CRM for vehicle wrap shops.',
+   ...(offers[page.path].length ? {makesOffer:offers[page.path]} : {}),
+  };
+ }
  if(page.path === '/services/website-development') {
-  schema.push({'@context':'https://schema.org','@type':'Service',name:'Website development',serviceType:'Website development',url:origin+page.path,provider:{'@type':'Organization',name:'MerkadAgency',url:origin}});
-  schema.push({
-   '@context':'https://schema.org',
-   '@type':'ProfessionalService',
-   name:'MerkadAgency',
-   url:origin+page.path,
-   description:fallback ? 'MerkadAgency offers website development.' : 'Website development for your business, including new websites and focused website redesigns.',
-  });
+  schema.push({'@context':'https://schema.org','@type':'Service',name:'Website development',serviceType:'Website development',url:origin+page.path,provider:{'@id':organization['@id']}});
  }
  if(page.path !== '/' && page.path !== '/404') schema.push({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'MerkadAgency',item:origin+'/'},{'@type':'ListItem',position:2,name:page.heading,item:origin+page.path}]});
- return `<!doctype html><html lang="en"><head><meta charset="utf-8">${errorPolicy}<meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><meta name="robots" content="${preview || page.path==='/404' ? 'noindex,nofollow' : 'index,follow'}">${page.path==='/404' ? '' : `<link rel="canonical" href="${origin+page.path}">`}<meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${origin+page.path}"><meta property="og:type" content="website"><meta property="og:image" content="${origin}/social-preview.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="MerkadAgency · Website development"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${origin}/social-preview.jpg"><meta name="twitter:image:alt" content="MerkadAgency · Website development">${iconLinks}<link rel="stylesheet" href="/site.css">${notFound ? '' : `<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>`}</head><body><a class="skip" href="#main">Skip to content</a>${header(page.path)}<main id="main" tabindex="-1">${pageLayout(page,fallback)}${mobileContact ? `<div class="mobile-contact">${projectContactLink}</div>` : ''}</main>${footer()}${page.path==='/contact'?'<script src="/email-brief.js" defer></script>':''}</body></html>`;
+ return `<!doctype html><html lang="en"><head><meta charset="utf-8">${errorPolicy}<meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><meta name="robots" content="${preview || page.path==='/404' ? 'noindex,nofollow' : 'index,follow'}">${page.path==='/404' ? '' : `<link rel="canonical" href="${origin+page.path}">`}<meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${origin+page.path}"><meta property="og:type" content="website"><meta property="og:image" content="${origin}/social-preview.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="MerkadAgency · Website development"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${origin}/social-preview.jpg"><meta name="twitter:image:alt" content="MerkadAgency · Website development">${iconLinks}<link rel="stylesheet" href="/site.css">${notFound ? '' : `<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>`}</head><body><a class="skip" href="#main">Skip to content</a>${header(page.path)}<main id="main" tabindex="-1">${pageLayout(page,fallback)}${mobileContact ? `<div class="mobile-contact">${contactLink}</div>` : ''}</main>${footer()}${page.path==='/contact'?'<script src="/email-brief.js" defer></script>':''}</body></html>`;
 }
 const outputs = preview ? [['dist-site-preview',false]] : [['dist-site',false],['dist-rollback',true]];
 for (const [dir, fallback] of outputs) {

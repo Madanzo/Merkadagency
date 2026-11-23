@@ -66,7 +66,7 @@ for(const p of pages){
    const candidates = attribute === 'srcset' ? value.split(',').map(candidate => candidate.trim()) : [value];
    for (const candidate of candidates) {
     const [url, width] = candidate.split(/\s+/);
-    assert(/^\/(?:favicon\.png|visuals\/folded-glass-(?:320|480|640)\.webp)$/.test(url),'Public artwork must be a retained local asset');
+    assert(/^\/(?:favicon\.png|visuals\/folded-glass-(?:320|480|640)\.webp|visuals\/gmc-sierra-(?:before-1600-640-14149a01646e|after-1600-640-3244fe6d9f95)\.avif)$/.test(url),'Public artwork must be a retained local asset');
     if (attribute === 'srcset') assert.equal(width, url.match(/-(\d+)\.webp$/)?.[1] + 'w');
     assert((await stat(dir+url)).isFile(),'Public artwork must exist in the release');
    }

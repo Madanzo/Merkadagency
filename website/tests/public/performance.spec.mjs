@@ -91,8 +91,10 @@ for (const { path } of [...pages, { path: missingPath }]) {
     expect.soft(result.lcp, 'median LCP (ms)').toBeLessThanOrEqual(2500);
     expect.soft(result.inp, 'median scripted INP (ms)').toBeLessThanOrEqual(200);
     expect.soft(result.cls, 'maximum initial CLS').toBeLessThanOrEqual(0.1);
-    const totalBudget = hero ? (mobile ? 26 : 38) : 20;
-    const imageBudget = hero ? (mobile ? 10 : 22) : 4;
+    // The Phantom page includes two published job photos totaling under 40 KiB.
+    const phantom = path === '/work/phantom-wraps';
+    const totalBudget = phantom ? 64 : hero ? (mobile ? 26 : 38) : 20;
+    const imageBudget = phantom ? 44 : hero ? (mobile ? 10 : 22) : 4;
     expect.soft(result.total, 'maximum initial wire bytes').toBeLessThanOrEqual(totalBudget * KiB);
     expect.soft(result.image, 'maximum initial image wire bytes').toBeLessThanOrEqual(imageBudget * KiB);
     expect.soft(result.font, 'maximum initial font wire bytes').toBe(0);
