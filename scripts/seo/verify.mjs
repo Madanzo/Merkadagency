@@ -30,7 +30,7 @@ for (const route of privateRoutes) {
 }
 assert.match(await readFile(`${dir}/private-app.html`,'utf8'), /<meta name="robots" content="noindex,nofollow">/);
 const robots = await readFile(`${dir}/robots.txt`,'utf8');
-assert.equal(/^Disallow: ./m.test(robots),manifest.preview,'Production crawlers must be able to see the private-route noindex directives');
+assert.equal(/^Disallow: \/$/m.test(robots),manifest.preview,'Only preview builds may disallow all crawling');
 const iconFiles = ['favicon.ico', 'favicon.svg', 'favicon-32.png', 'apple-touch-icon.png', 'favicon-192.png', 'favicon-512.png'];
 const favicon = await readFile(`${dir}/favicon.png`);
 assert(favicon.length < 4096,'Favicon exceeds 4 KiB');
