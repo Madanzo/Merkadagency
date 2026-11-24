@@ -14,7 +14,7 @@ test('Visual reflow retains every existing body byte in source order',()=>{
   assert.equal(retained,page.body);
   const navigation=header(page.path);
   for(const match of navigation.matchAll(/href="(\/[^"#]*)"/g))assert(pages.some(p=>p.path===match[1]));
-  assert(!/CRM|AI assistance|<script|<form|<input/.test(html+navigation));
+  assert(!/AI assistance|<script|<form|<input/.test(html+navigation));
  }
 });
 

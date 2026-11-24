@@ -53,7 +53,7 @@
         ]
       },
       {
-        "regex": "^/(?:index(?:[.]html)?|contact(?:[.]html)?|services/website-development(?:[.]html)?|resources/website-brief(?:[.]html)?|legal/(?:privacy|terms)(?:[.]html)?|404(?:[.]html)?)?/?$",
+        "regex": "^/(?:index(?:[.]html)?|contact(?:[.]html)?|services/(?:website-development|marketing-for-wrap-shops|wrap-shop-crm)(?:[.]html)?|work/phantom-wraps(?:[.]html)?|resources/website-brief(?:[.]html)?|legal/(?:privacy|terms)(?:[.]html)?|404(?:[.]html)?)?/?$",
         "headers": [
           {
             "key": "Content-Security-Policy",
