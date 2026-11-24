@@ -16,3 +16,18 @@ h2[tabindex]{scroll-margin-block-start:1rem}
 /* Reserve the clipboard controls’ row while the deferred helper loads. */
 @media (scripting:enabled){.email-tools .email-actions[hidden]{display:flex;visibility:hidden}}
 @media print{.email-tools .email-actions,.email-tools .email-copy-status{display:none!important}.email-tools .email-brief{color:#111;background:#fff;border-color:#777}}
+
+.project-photo {
+  margin: 0;
+}
+.project-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+.project-photo figcaption {
+  margin-top: .65rem;
+  font-size: .8rem;
+  color: #bdb8c6;
+}
