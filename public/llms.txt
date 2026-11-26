@@ -1,18 +1,30 @@
 # MerkadAgency
 
-> MerkadAgency helps vehicle wrap shops get found locally and turn quote requests into followed-up leads.
+> MerkadAgency is an Austin, Texas agency serving vehicle wrap, paint protection film (PPF), window tint, ceramic coating and auto detailing shops in the United States. It offers portfolio websites, local search marketing and a CRM for inquiries, quotes and follow-up.
 
 Email Camilo Reyna: camiloreyna@merkadagency.com
-Address: 10601 N Lamar Blvd, Austin, TX 78753
 
-## Public pages
+## Marketing, websites and CRM
 
 - [Home](https://merkadagency.com/)
-- [Marketing for wrap shops](https://merkadagency.com/services/marketing-for-wrap-shops): Portfolio websites, quote questions, local SEO and AEO, Google Business Profile, and quote follow-up. Websites start at $500.
-- [Wrap-shop CRM](https://merkadagency.com/services/wrap-shop-crm): Website lead and quote intake, contacts, sales pipeline, quotes, and email through the shop's Resend account. CRM license is $1,500 setup + $800/month.
-- [Phantom Wraps & Coatings](https://merkadagency.com/work/phantom-wraps): The website and CRM used at Camilo Reyna's own Austin wrap shop.
-- [Website development](https://merkadagency.com/services/website-development): Website-only projects and redesigns.
-- [Website brief](https://merkadagency.com/resources/website-brief)
+- [Shop marketing](https://merkadagency.com/services/marketing-for-wrap-shops): Portfolio websites, local SEO, Google Business Profile consistency and quote follow-up.
+- [MerkadAgency CRM](https://merkadagency.com/services/wrap-shop-crm): Website leads, sales pipeline, quotes and invoices, review requests, email campaigns and click-to-call. Sending from the shop's domain uses its own Resend account.
+- [Website development](https://merkadagency.com/services/website-development): Standalone site builds and redesigns.
+- [Website brief](https://merkadagency.com/resources/website-brief): Planning guide for website projects.
+- [Phantom Wraps & Coatings](https://merkadagency.com/work/phantom-wraps): The website and CRM used at Camilo Reyna's Austin shop.
 - [Contact](https://merkadagency.com/contact)
-- [Privacy](https://merkadagency.com/legal/privacy)
-- [Terms](https://merkadagency.com/legal/terms)
+
+## Shop specialties
+
+- [Paint protection film](https://merkadagency.com/services/marketing-for-ppf-shops)
+- [Window tint](https://merkadagency.com/services/marketing-for-tint-shops)
+- [Ceramic coating](https://merkadagency.com/services/marketing-for-ceramic-coating-shops)
+- [Auto detailing](https://merkadagency.com/services/marketing-for-detailing-shops)
+
+## Español
+
+- [Inicio](https://merkadagency.com/es)
+- [Marketing para talleres](https://merkadagency.com/es/servicios/marketing-para-talleres)
+- [CRM para talleres](https://merkadagency.com/es/servicios/crm-para-talleres)
+- [Proyecto Phantom Wraps](https://merkadagency.com/es/proyectos/phantom-wraps)
+- [Marketing y CRM para talleres de PPF](https://merkadagency.com/es/servicios/marketing-para-talleres-ppf)

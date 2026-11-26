@@ -5,8 +5,8 @@ import { contactLabel, pages } from '../../content.mjs';
 const missingPath = '/missing/public-qa-page';
 const email = 'camiloreyna@merkadagency.com';
 
-for (const [path, heading, status] of [
-  ...pages.map(({ path, heading }) => [path, heading, 200]),
+for (const [path, heading, status, lang] of [
+  ...pages.map(({ path, heading, lang }) => [path, heading, 200, lang]),
   [missingPath, 'This page is not available.', 404],
 ]) {
   test(`renders ${path} with keyboard access and no axe violations`, async ({ page, baseURL }) => {
@@ -23,7 +23,7 @@ for (const [path, heading, status] of [
     expect((await page.goto(path)).status()).toBe(status);
     await expect(page.getByRole('heading', { level: 1, name: heading })).toBeVisible();
     await expect(page.locator('form')).toHaveCount(0);
-    const skip = page.getByRole('link', { name: 'Skip to content', exact: true });
+    const skip = page.getByRole('link', { name: lang === 'es' ? 'Saltar al contenido' : 'Skip to content', exact: true });
     await expect(skip).toHaveAttribute('href', '#main');
     await expect(skip).not.toBeInViewport();
     await page.keyboard.press('Tab');
@@ -49,7 +49,7 @@ test('serves a release with intake and analytics disabled', async ({ request }) 
 test('navigates from home through the main links with a keyboard', async ({ page }) => {
   await page.goto('/');
   const nav = page.getByRole('navigation', { name: 'Main' });
-  for (const name of ['Home', 'Wrap-shop marketing', 'Wrap-shop CRM', 'Website development', 'Website brief', 'Contact']) {
+  for (const name of ['Home', 'Marketing', 'CRM', 'Website development', 'Website brief', 'Contact']) {
     if (name === 'Home') {
       await page.keyboard.press('Tab'); // Skip link
       await page.keyboard.press('Tab'); // Brand
