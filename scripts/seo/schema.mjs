@@ -41,7 +41,7 @@ export function pageSchema(page, fallback) {
   logo: origin + '/favicon-512.png',
   image: origin + '/social-preview.jpg',
   description: `Portfolio websites, local SEO and CRM for ${shopTypes}.`,
-  founder: { '@type': 'Person', name: 'Camilo Reyna' },
+  contactPoint: { '@type': 'ContactPoint', name: 'Camilo Reyna', email, contactType: 'project inquiries' },
   areaServed: [
    { '@type': 'Country', name: 'United States' },
    { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
