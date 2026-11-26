@@ -7,6 +7,7 @@ import { contactLink, pages, origin, email } from '../../website/content.mjs';
 import {alternates,header,footer,pageLayout} from '../../website/layout.mjs';
 import { withShopPositioning } from '../../website/shop-pages.mjs';
 import { pageSchema } from './schema.mjs';
+import { sitemap } from './sitemap.mjs';
 const preview = process.argv.includes('--preview');
 const dirty = execFileSync('git', ['status','--porcelain','--untracked-files=all'], {encoding:'utf8'}).trim();
 if (dirty) throw new Error('Commit the reviewable source and evidence before building a release artifact');
@@ -64,14 +65,12 @@ for (const [dir, fallback] of outputs) {
    await writeFile(output,html(safePage,fallback));
  }
  await writeFile(`${dir}/404.html`,html(withShopPositioning({path:'/404',title:'Page Not Available | MerkadAgency',description:'This page is not available. Explore website development or contact MerkadAgency by email.',heading:'This page is not available.',body:'<p>Find current information about <a href="/services/website-development">website development</a>, or <a href="/contact">contact Camilo by email</a>.</p>'})));
- await writeFile(`${dir}/robots.txt`,preview?'User-agent: *\nDisallow: /\n':`User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /sign/\nDisallow: /private-app$\nDisallow: /private-app.html\nDisallow: /private-boundary.json\nDisallow: /website-release.json\n\nSitemap: ${origin}/sitemap.xml\n`);
- await writeFile(`${dir}/sitemap.xml`,`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${pages.map(page => {
-  const locales = alternates(page);
-  const links = locales ? Object.entries({ ...locales, 'x-default': locales.en }).map(
-   ([lang, path]) => `<xhtml:link rel="alternate" hreflang="${lang}" href="${origin+path}"/>`,
-  ).join('') : '';
-  return `<url><loc>${origin+page.path}</loc>${links}</url>`;
- }).join('')}<url><loc>${origin}/llms.txt</loc></url></urlset>\n`);
+ if (preview) {
+  await writeFile(`${dir}/robots.txt`, 'User-agent: *\nDisallow: /\n');
+ } else {
+  await cp('public/robots.txt', `${dir}/robots.txt`);
+ }
+ await writeFile(`${dir}/sitemap.xml`, sitemap());
  await writeFile(`${dir}/website-release.json`,JSON.stringify({source,sourceTree,hostingConfigSha256,intake:false,analytics:false,preview,fallback,publicRoutes:pages.map(p=>p.path)},null,2)+'\n');
 }
 console.log(`Static public site and compatible fallback built from ${source}; intake=false analytics=false preview=${preview}`);
