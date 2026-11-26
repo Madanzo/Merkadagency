@@ -79,7 +79,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <div className="text-sm text-merkad-text-muted">Location</div>
-                    <span className="text-white">Remote / [City, Country]</span>
+                    <span className="text-white">12320 Alameda Trace Cir, Austin, TX 78727</span>
                   </div>
                 </div>
               </div>
