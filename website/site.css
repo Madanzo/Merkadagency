@@ -46,3 +46,8 @@ h1 .heading-audience{max-width:36rem;margin-top:.75rem;color:#c6c0ce;font-size:c
 .comparison-scroll thead,.comparison-scroll :is(th,td):last-child{background:#211a2c}
 .comparison-scroll td span{color:#c7a7fa}
 @media(max-width:800px){.value-comparison{margin-block:2.5rem;padding-top:2rem}.comparison-scroll table{font-size:.72rem}.comparison-scroll :is(th,td){padding:.55rem .35rem}}
+
+@media print {
+  .comparison-scroll, .comparison-scroll thead, .comparison-scroll :is(th,td):last-child {background:#fff;color:#111}
+  .comparison-scroll caption, .comparison-scroll td span {color:#111}
+}

@@ -18,7 +18,7 @@ export function header(page) {
  const links = (es ? navigationEs : navigation).map(([href,label])=>`<a href="${href}"${page.path===href?' aria-current="page"':''}>${label}</a>`).join('');
  const language = es
   ? `<a href="${translations.en}" lang="en" hreflang="en">English</a>`
-  : `<a href="${translations?.es ?? spanishHome}" lang="es" hreflang="es">Español</a>`;
+  : `<a href="${translations?.es ?? spanishHome}" lang="es" hreflang="es">${translations ? 'Español' : 'Inicio en español'}</a>`;
  return `<header class="site-header"><div class="header-inner"><a class="brand" href="${es ? spanishHome : '/'}" aria-label="${es ? 'MerkadAgency, inicio' : 'MerkadAgency home'}"><img src="/favicon.png" width="48" height="48" alt=""><span>MerkadAgency</span></a><nav aria-label="${es ? 'Principal' : 'Main'}">${links}${language}</nav><div class="header-contact">${es ? spanishContact(email) : contactLink}</div></div></header>`;
 }
 

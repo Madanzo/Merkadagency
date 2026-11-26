@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { JSDOM } from 'jsdom';
-import { address, addressLine, email, pages } from '../../../website/content.mjs';
+import { address, addressLine, email, origin, pages } from '../../../website/content.mjs';
 import { shopTypes, shopTypesEs } from '../../../website/shop-pages.mjs';
 
 const publicPaths = [...pages.map(({ path }) => path), '/404'];
@@ -55,6 +55,11 @@ test('localized metadata, FAQ answers and page entities match the public pages a
     [...links].map(link => [link.getAttribute('hreflang'), link.getAttribute('href')]),
   );
 
+  assert.deepEqual(sitemapUrls.map(entry => entry.querySelector('loc').textContent), pages.map(page => origin + page.path));
+  const llms = await readFile('dist-site/llms.txt', 'utf8');
+  const llmsUrls = [...llms.matchAll(/\]\((https?:\/\/[^)]+)\)/g)].map(([, url]) => url);
+  assert.deepEqual(llmsUrls.sort(), pages.map(page => origin + page.path).sort());
+
   for (const page of pages) {
     const file = `dist-site${page.path === '/' ? '/index' : page.path}.html`;
     const { window } = new JSDOM(await readFile(file, 'utf8'));
@@ -79,7 +84,6 @@ test('localized metadata, FAQ answers and page entities match the public pages a
     assert.deepEqual(business['@type'], ['Organization', 'ProfessionalService']);
     assert.deepEqual(business.address, { '@type': 'PostalAddress', ...address });
     assert.equal(business.email, email);
-    assert.equal(business.contactPoint.email, email);
     assert.ok(doc.querySelector('footer').textContent.includes(addressLine));
     if (page.path === '/contact') assert.ok(doc.querySelector('main').textContent.includes(addressLine));
     if (page.path === '/work/phantom-wraps') {
@@ -87,7 +91,6 @@ test('localized metadata, FAQ answers and page entities match the public pages a
       assert.match(main, /10601 N Lamar Blvd, Austin, TX 78753/);
       assert.ok(!main.includes(addressLine));
     }
-    assert.deepEqual(business.areaServed.map(area => area.name), ['United States', 'Austin']);
     const faq = [...doc.querySelectorAll('main details')].map(item => [
       item.querySelector('summary').textContent.trim(), item.querySelector('p').textContent.trim(),
     ]);
@@ -100,9 +103,15 @@ test('localized metadata, FAQ answers and page entities match the public pages a
     } else {
       assert.equal(breadcrumbs, undefined);
     }
+    const service = graph.find(node => node['@type'] === 'Service');
+    if (service) {
+      assert.equal(service.name, doc.querySelector('h1').textContent);
+      assert.equal(service.description, doc.querySelector('main .intro').textContent);
+    }
     const software = graph.find(node => node['@type'] === 'SoftwareApplication');
     if ((page.englishPath ?? page.path) === '/services/wrap-shop-crm') {
       assert.equal(software.url, canonical);
+      assert.equal(software.description, doc.querySelector('main .intro').textContent);
       assert.equal(software.publisher['@id'], business['@id']);
       assert.deepEqual(software.offers.priceSpecification.map(item => item.price), [1500, 800]);
     } else {

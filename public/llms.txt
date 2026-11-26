@@ -15,6 +15,11 @@ Address: 12320 Alameda Trace Cir, Austin, TX 78727
 - [Phantom Wraps & Coatings](https://merkadagency.com/work/phantom-wraps): The website and CRM used at Camilo Reyna's Austin shop.
 - [Contact](https://merkadagency.com/contact)
 
+## Legal
+
+- [Privacy & Contact Information](https://merkadagency.com/legal/privacy)
+- [Website & CRM Offer Terms](https://merkadagency.com/legal/terms)
+
 ## Shop specialties
 
 - [Paint protection film](https://merkadagency.com/services/marketing-for-ppf-shops)

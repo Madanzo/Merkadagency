@@ -89,7 +89,7 @@ for(const p of pages){
  for(const match of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g))JSON.parse(match[1]);
  assert(!titleSet.has(p.title));titleSet.add(p.title);assert(!descriptionSet.has(p.description));descriptionSet.add(p.description);
 }
-const map=await readFile(`${dir}/sitemap.xml`,'utf8');assert.deepEqual([...map.matchAll(/<loc>(.*?)<\/loc>/g)].map(x=>x[1]),[...pages.map(p=>origin+p.path),origin+'/llms.txt']);
+const map=await readFile(`${dir}/sitemap.xml`,'utf8');assert.deepEqual([...map.matchAll(/<loc>(.*?)<\/loc>/g)].map(x=>x[1]),pages.map(p=>origin+p.path));
 assert.deepEqual(await readFile(`${dir}/llms.txt`),await readFile('public/llms.txt'));
 const notfound=await readFile(`${dir}/404.html`,'utf8');assert(notfound.includes('noindex,nofollow'));assert(!notfound.includes('rel="canonical"'));
 const hash=createHash('sha256');const fileHashes=[];let count=0,bytes=0;

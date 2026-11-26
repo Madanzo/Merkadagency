@@ -1,29 +1,30 @@
 import { JSDOM } from 'jsdom';
 import { address, email, origin } from '../../website/content.mjs';
-import { crmPath, marketingPath, shopTypes } from '../../website/shop-pages.mjs';
+import { crmPath, marketingPath } from '../../website/shop-pages.mjs';
 import { spanishCrm, spanishHome, spanishMarketing } from '../../website/spanish.mjs';
 
 const organizationId = origin + '/#organization';
 const websitePath = '/services/website-development';
 const websiteOffer = {
  '@type': 'Offer',
- name: 'Website development',
  url: origin + websitePath,
  priceSpecification: { '@type': 'PriceSpecification', minPrice: 500, priceCurrency: 'USD' },
 };
 const crmOffer = {
  '@type': 'Offer',
- name: 'MerkadAgency CRM license',
  url: origin + crmPath,
  priceSpecification: [
-  { '@type': 'UnitPriceSpecification', name: 'Setup', price: 1500, priceCurrency: 'USD' },
-  { '@type': 'UnitPriceSpecification', name: 'Monthly license', price: 800, priceCurrency: 'USD', unitCode: 'MON' },
+  { '@type': 'UnitPriceSpecification', price: 1500, priceCurrency: 'USD' },
+  { '@type': 'UnitPriceSpecification', price: 800, priceCurrency: 'USD', unitCode: 'MON' },
  ],
 };
 
 export function pageSchema(page, fallback) {
  const enPath = page.englishPath ?? page.path;
  const es = page.lang === 'es';
+ const body = JSDOM.fragment(page.body);
+ const intro = body.querySelector('.intro')?.textContent.trim();
+ const heading = [page.heading, page.headingAudience].filter(Boolean).join(' ');
  const home = es ? spanishHome : '/';
  const url = origin + page.path;
  const offers = {
@@ -40,20 +41,14 @@ export function pageSchema(page, fallback) {
   email,
   logo: origin + '/favicon-512.png',
   image: origin + '/social-preview.jpg',
-  description: `Portfolio websites, local SEO and CRM for ${shopTypes}.`,
-  contactPoint: { '@type': 'ContactPoint', name: 'Camilo Reyna', email, contactType: 'project inquiries' },
   address: { '@type': 'PostalAddress', ...address },
-  areaServed: [
-   { '@type': 'Country', name: 'United States' },
-   { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  ],
   ...(offers?.length ? { makesOffer: offers } : {}),
  }];
 
  if (enPath === websitePath || [marketingPath, spanishMarketing].includes(page.path)) {
-  const name = enPath === websitePath ? 'Website development' : es ? 'Marketing para talleres' : 'Marketing for automotive shops';
   nodes.push({
-   '@type': 'Service', name, serviceType: name, url, description: page.description,
+   '@type': 'Service', name: heading, url,
+   ...(intro ? { description: intro } : {}),
    provider: { '@id': organizationId },
   });
  }
@@ -64,9 +59,8 @@ export function pageSchema(page, fallback) {
    '@id': origin + crmPath + '#software',
    name: 'MerkadAgency CRM',
    url,
-   description: page.description,
+   description: intro,
    inLanguage: page.lang ?? 'en',
-   applicationCategory: 'BusinessApplication',
    publisher: { '@id': organizationId },
    offers: crmOffer,
   });
@@ -77,13 +71,12 @@ export function pageSchema(page, fallback) {
    '@type': 'BreadcrumbList',
    itemListElement: [
     { '@type': 'ListItem', position: 1, name: es ? 'Inicio' : 'Home', item: origin + home },
-    { '@type': 'ListItem', position: 2, name: page.heading, item: url },
+    { '@type': 'ListItem', position: 2, name: heading, item: url },
    ],
   });
  }
 
  // Use the rendered answers, including their link text, to keep schema in sync with the page.
- const body = JSDOM.fragment(page.body);
  const questions = [...body.querySelectorAll('details')].map(details => ({
   '@type': 'Question',
   name: details.querySelector('summary').textContent.trim(),
