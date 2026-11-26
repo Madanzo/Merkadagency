@@ -20,7 +20,7 @@ function observeVitals() {
   }
 }
 
-for (const { path } of [...pages, { path: missingPath }]) {
+for (const { path, lang, englishPath } of [...pages, { path: missingPath }]) {
   test(`public performance budget for ${path}`, async ({ browser, baseURL }, testInfo) => {
     const mobile = testInfo.project.name === 'mobile';
     const samples = [];
@@ -58,7 +58,7 @@ for (const { path } of [...pages, { path: missingPath }]) {
         const weight = { ...transferred };
         // Every page has a keyboard-accessible skip link. Also exercise the service FAQ.
         await page.keyboard.press('Tab');
-        await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
+        await expect(page.getByRole('link', { name: lang === 'es' ? 'Saltar al contenido' : 'Skip to content' })).toBeFocused();
         await page.keyboard.press('Enter');
         await expect(page.locator('main')).toBeFocused();
         if (path === '/services/website-development') {
@@ -87,12 +87,12 @@ for (const { path } of [...pages, { path: missingPath }]) {
       contentType: 'application/json',
     });
 
-    const hero = path === '/' || path === '/services/website-development';
+    const hero = (englishPath ?? path) === '/' || path === '/services/website-development';
     expect.soft(result.lcp, 'median LCP (ms)').toBeLessThanOrEqual(2500);
     expect.soft(result.inp, 'median scripted INP (ms)').toBeLessThanOrEqual(200);
     expect.soft(result.cls, 'maximum initial CLS').toBeLessThanOrEqual(0.1);
     // The Phantom page includes two published job photos totaling under 40 KiB.
-    const phantom = path === '/work/phantom-wraps';
+    const phantom = (englishPath ?? path) === '/work/phantom-wraps';
     const totalBudget = phantom ? 64 : hero ? (mobile ? 26 : 38) : 20;
     const imageBudget = phantom ? 44 : hero ? (mobile ? 10 : 22) : 4;
     expect.soft(result.total, 'maximum initial wire bytes').toBeLessThanOrEqual(totalBudget * KiB);

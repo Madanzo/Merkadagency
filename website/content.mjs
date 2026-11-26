@@ -1,17 +1,22 @@
+import { crmPath, marketingPath, phantomPath, shopLinks, shopTypes, verticalLinks, verticalPages, withShopPositioning } from './shop-pages.mjs';
+import { spanishPages } from './spanish.mjs';
+import { valueComparison } from './value-comparison.mjs';
+
 export const origin = 'https://merkadagency.com';
-export const email = 'camiloreyna@merkadagency.com';
+export const email = 'camilo.reyna@merkadagency.com';
 export const address = {
- streetAddress: '10601 N Lamar Blvd',
+ streetAddress: '12320 Alameda Trace Cir',
  addressLocality: 'Austin',
  addressRegion: 'TX',
- postalCode: '78753',
+ postalCode: '78727',
  addressCountry: 'US',
 };
+const phantomAddressLine = '10601 N Lamar Blvd, Austin, TX 78753';
 export const addressLine = `${address.streetAddress}, ${address.addressLocality}, ${address.addressRegion} ${address.postalCode}`;
-export const contactLabel = 'Email Camilo about your wrap shop';
+export const contactLabel = 'Email Camilo about your shop';
 export const contactLink = `<a class="cta" href="mailto:${email}">${contactLabel}</a>`;
-export const wrapInquiryBody = 'Shop name and city:\nWebsite and Google Business Profile (if available):\nWrap services and projects to feature:\nHow you receive and follow up on quote requests:\nWhat you want to improve:\n';
-const wrapInquiryHref = `mailto:${email}?subject=${encodeURIComponent('Wrap shop inquiry')}&amp;body=${encodeURIComponent(wrapInquiryBody)}`;
+export const wrapInquiryBody = 'Shop name and city:\nWebsite and Google Business Profile (if available):\nServices and projects to feature:\nHow you receive and follow up on quote requests:\nWhat you want to improve:\n';
+const wrapInquiryHref = `mailto:${email}?subject=${encodeURIComponent('Shop inquiry')}&amp;body=${encodeURIComponent(wrapInquiryBody)}`;
 const wrapContactLink = `<a class="cta" href="${wrapInquiryHref}">${contactLabel}</a>`;
 export const projectInquiryBody = 'Business:\nCurrent website (if any):\nNew website or redesign:\nMain goals and questions:\n';
 export const projectInquiryHref = `mailto:${email}?subject=${encodeURIComponent('Website project inquiry')}&body=${encodeURIComponent(projectInquiryBody)}`;
@@ -19,18 +24,20 @@ export const projectContactLink = `<a class="cta" href="${projectInquiryHref.rep
 const scopeInquiryLink = (label, subject, body) => `<p><a href="mailto:${email}?subject=${encodeURIComponent(subject)}&amp;body=${encodeURIComponent(body)}">${label}</a></p>`;
 const newWebsiteLink = scopeInquiryLink('Discuss a new website', 'New website project inquiry', 'Project type: New website\nBusiness and audience:\nServices to explain:\nPages or visitor tasks:\nContent already available:\nQuestions about scope:\n');
 const redesignLink = scopeInquiryLink('Discuss a redesign', 'Website redesign inquiry', 'Project type: Redesign\nBusiness and current website:\nMain problem to solve:\nPages or URLs to keep:\nContent to update:\nQuestions about scope:\n');
-export const pages = [
-{path:'/',title:'Marketing & CRM for Vehicle Wrap Shops | MerkadAgency',description:'MerkadAgency helps vehicle wrap shops get found locally and follow up on quote requests with portfolio websites, local search and a wrap-shop CRM.',heading:'Get found locally. Follow up on wrap quotes.',body:`
-<p class="intro">MerkadAgency helps vehicle wrap shops get found locally and turn quote requests into followed-up leads.</p>
+const englishPages = [
+{path:'/',title:'Marketing & CRM for Wrap, PPF, Tint, Ceramic Coating & Detailing Shops | MerkadAgency',description:`Portfolio websites, local SEO and CRM for ${shopTypes}. Help local customers find your work and follow up on quotes.`,heading:'Get found locally. Follow up on shop quotes.',accent:'Follow up on shop quotes.',body:`
+<p class="intro">Show local customers what you do with a portfolio website. Keep track of every quote request in your CRM.</p>
 ${contactLink}
 <div class="grid">
-<section class="panel"><h2>Marketing for wrap shops</h2><p>Show your best work, answer local customers’ questions, and ask for the details your team needs to quote a job. Websites start at $500.</p><a href="/services/marketing-for-wrap-shops">Explore wrap-shop marketing</a></section>
-<section class="panel"><h2>Wrap-shop CRM</h2><p>Bring website inquiries into a workspace for contacts, quotes, the sales pipeline, and email from your shop’s domain. The CRM license is $1,500 setup + $800/month.</p><a href="/services/wrap-shop-crm">Explore the wrap-shop CRM</a></section>
+<section class="panel"><h2>Shop marketing</h2><p>Show your best work, answer local customers’ questions, and ask for the details your team needs to quote a job. Websites start at $500.</p><a href="/services/marketing-for-wrap-shops">Explore shop marketing</a></section>
+<section class="panel"><h2>Shop CRM</h2><p>Bring website inquiries into a workspace for contacts, quotes, the sales pipeline, and email from your shop’s domain. The CRM license is $1,500 setup + $800/month.</p><a href="/services/wrap-shop-crm">Explore the shop CRM</a></section>
 <section class="panel"><h2>Phantom Wraps &amp; Coatings</h2><p>See the website and quote workflow at Camilo Reyna’s own wrap shop in Austin.</p><a href="/work/phantom-wraps">See the Phantom Wraps project</a></section>
 </div>
+${valueComparison('en')}
+<h2>Find marketing and CRM for your specialty</h2><ul>${shopLinks(verticalLinks).map(link => `<li>${link}</li>`).join('')}</ul>
 <h2>Need a website on its own?</h2><p>Explore <a href="/services/website-development">website development</a> for a new site or redesign, or use the <a href="/resources/website-brief">website brief</a> to plan what you need.</p>`},
-{path:'/services/website-development',title:'Website Development for Wrap Shops & Other Businesses | MerkadAgency',description:'New website or focused redesign? Explore project scope, process and practical buyer answers, then email Camilo to discuss your website.',heading:'Website development for wrap shops.',body:`
-<p class="intro">Show your wrap work, explain your services, and give customers a clear way to request a quote. Camilo also takes website inquiries from other businesses.</p>
+{path:'/services/website-development',title:'Websites for Wrap, PPF, Tint, Ceramic Coating & Detailing Shops | MerkadAgency',description:`Plan a new website or redesign for ${shopTypes}. Explore project scope, buyer questions and how to get started.`,heading:'Websites for automotive shops.',accent:'for automotive shops.',body:`
+<p class="intro">Show your work, explain your services, and tell customers what to send for a quote. Camilo also takes website inquiries from other businesses.</p>
 ${projectContactLink}
 <p class="small">Websites start at $500. Scope, timing and ongoing responsibilities are agreed in writing.</p>
 <p>Explore the starting points below, skip to the <a href="#website-examples">website planning examples</a>, or read <a href="/contact#after-you-email">what happens after you email</a>.</p>
@@ -65,7 +72,7 @@ ${projectContactLink}
 <ol><li><strong>Business and visitor:</strong> [Business name], [current services] and [intended customers or service area]. Visitors need to understand [main question] and be able to [next action].</li><li><strong>Starting point:</strong> New website: [why a site is needed]. Redesign: [current URL], [useful content to keep] and [specific problem to solve].</li><li><strong>Essential work and later ideas:</strong> [Pages or visitor tasks needed first], [optional ideas] and [external tools that still need availability and cost confirmation].</li><li><strong>Content and decisions:</strong> [Copy and permitted images already available], [content still needed] and [person who approves the work].</li><li><strong>What to preserve and hand over:</strong> [Existing URLs or content to retain], [domain and hosting ownership] and [questions about editing or later changes]. List access questions; never include passwords.</li><li><strong>Project questions:</strong> [Preferred timing and reason], [budget range, if you choose to share it] and [questions about scope, reviews, testing or ongoing work]. These are discussion inputs, not an agreed price or deadline.</li></ol>
 <h3>Two starting points to adapt</h3><p class="small">Planning examples only — not client projects or promised deliverables.</p><p><strong>New website:</strong> We need to explain [service] to [audience] and make [contact action] easy to find. We have [content] ready. Please discuss which pages are needed and who will supply the missing content before quoting.</p><p><strong>Redesign:</strong> Our site at [URL] has useful [pages] to keep, but visitors struggle with [specific task]. Please separate content or navigation changes from new functions, and agree any URL moves before replacing pages.</p>
 <p><a href="mailto:${email}">Email Camilo your brief or open questions</a>, or review the <a href="/services/website-development#scope-and-deliverables">scope and deliverables to discuss</a>. The detailed questions below can help you fill the gaps; they are not prerequisites for an inquiry.</p></section>
-<h2>What should a wrap-shop website cover?</h2><ul><li>Which wrap jobs can you show with approved photos and accurate descriptions?</li><li>What vehicle year, make, model, service and coverage details does your team need to quote?</li><li>Where do you work, and do your site and Google Business Profile show the same contact details and hours?</li><li>Who reviews new quote requests, and how does the team track follow-up?</li></ul><p>See <a href="/services/marketing-for-wrap-shops">marketing for wrap shops</a> for how these pieces fit together.</p>
+<h2>What should an automotive shop website cover?</h2><ul><li>Which jobs can you show with approved photos and accurate descriptions?</li><li>What vehicle year, make, model, service and coverage details does your team need to quote?</li><li>Where do you work, and do your site and Google Business Profile show the same contact details and hours?</li><li>Who reviews new quote requests, and how does the team track follow-up?</li></ul><p>See <a href="/services/marketing-for-wrap-shops">shop marketing</a> for how these pieces fit together.</p>
 <h2>1. Describe the business and the visitor</h2><ul><li>What does your business offer today? Which services should not be advertised?</li><li>Who is the primary visitor, and what do they need to know before contacting you?</li><li>What should they be able to do: understand a service, find a location, read instructions or send an inquiry?</li><li>What would make the website useful even if the visitor does not contact you immediately?</li></ul><p>Example brief sentence: “We need a website that explains our current services, answers common questions, and gives visitors a clear email contact.” Adapt it to your business rather than treating it as a promised result.</p>
 <h2>2. Inventory the existing site</h2><p>For a redesign, list each current URL with its purpose, content owner and proposed action: keep, update, combine or retire. Record any available search or referral evidence without inventing traffic figures. If you do not have access to reporting, mark that evidence unavailable.</p><ul><li>Which pages have accurate information worth keeping?</li><li>Which pages answer the same question and could be combined?</li><li>Which old addresses have useful links pointing to them?</li><li>Where should a moved page redirect? Choose the closest relevant replacement.</li></ul><p>Keep a copy of the current URL inventory. A visual redesign and a URL change are separate decisions.</p>
 <h2>3. Map one purpose to each page</h2><p>Start with the fewest pages needed to answer real visitor questions. For each proposed page, write its audience, main question, approved evidence and next step. Avoid separate pages that repeat the same service description with only a city or industry name changed.</p><p>Example inventory: a homepage introduces the business; a service page explains the work and scope; a contact page gives an approved contact method. Add other pages only when they provide distinct, useful information.</p>
@@ -75,35 +82,51 @@ ${projectContactLink}
 <h2>7. Agree launch checks before building</h2><p>Write a short acceptance list that a person can actually perform:</p><ol><li>Open key pages on a phone and desktop; read the headings and body text.</li><li>Use navigation with a keyboard. Check that focus is visible and links make sense.</li><li>Confirm the contact address and open an email draft without sending a test message.</li><li>Check old URLs, redirects, titles, canonical URLs and the sitemap.</li><li>Confirm that private or unapproved material is absent from public files.</li><li>Name the person who will monitor the release and decide whether to roll back.</li></ol><p>Record checks that were not performed. An automated scan does not replace physical-device or screen-reader review.</p>
 <h2>Send the brief when you are ready</h2><p>For MerkadAgency’s approach, read <a href="/services/website-development">website development and project scope</a>. To discuss a project, email Camilo with your brief or the decisions you still need to make.</p>${contactLink}
 <p class="small">For further reading: <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content">Google’s guidance on helpful content</a> and <a href="https://www.w3.org/WAI/test-evaluate/preliminary/">W3C accessibility Easy Checks</a>. These are planning references, not a guarantee of search performance or an accessibility certification.</p></article>`},
-{path:'/services/marketing-for-wrap-shops',title:'Marketing for Wrap Shops | MerkadAgency',description:'Plan a wrap portfolio, stronger quote questions, local SEO, Google Business Profile and follow-up. Wrap-shop websites start at $500.',heading:'Marketing for wrap shops.',body:`
-<p class="intro">Give local customers a clear view of your work and an easy way to tell you what they want wrapped. Websites from $500. Scope, timing, and work beyond the starting price are agreed in writing.</p>
+{path:'/services/marketing-for-wrap-shops',title:'Marketing for Wrap, PPF, Tint, Ceramic Coating & Detailing Shops | MerkadAgency',description:`Portfolio websites, local SEO and quote follow-up for ${shopTypes}. Websites start at $500.`,heading:'Marketing for wrap, PPF, tint, ceramic coating and detailing shops.',body:`
+<p class="intro">Give local customers a clear view of your work and an easy way to tell you what they need done. Websites from $500. Scope, timing, and work beyond the starting price are agreed in writing.</p>
 ${contactLink}
-<h2>Build a portfolio around the work you do</h2>
-<p>Organize approved job photos by the services your shop offers, such as color changes, partial wraps, or fleet graphics. Explain the vehicle, coverage, and work shown so customers can find examples relevant to their project.</p>
-<h2>Ask the questions needed for a quote</h2>
-<p>Start with the vehicle year, make, and model, the requested service, and the desired coverage. A full wrap and a roof wrap need different details. Ask for any additional information your team uses to decide the next step.</p>
-<h2>Help local customers find and understand your shop</h2>
+<h2>What should your shop portfolio show?</h2>
+<p>Organize approved job photos by the services your shop offers, such as fleet wraps, full-front PPF, window tint, ceramic coating or interior detailing. Explain the vehicle, coverage, and work shown so customers can find examples relevant to their project.</p>
+<h2>What information do you need to quote a job?</h2>
+<p>Start with the vehicle year, make, and model, the requested service, and the desired coverage. A full wrap, a front-end PPF install and an interior detail each need different details. Ask for any additional information your team uses to decide the next step.</p>
+<h2>How can customers find your shop in local search?</h2>
 <p>Local search engine optimization (SEO) starts with accurate services, location, hours, and contact details. Keep those details consistent with your Google Business Profile and use relevant job photos to show the work you do.</p>
-<p>Answer engine optimization (AEO) means answering common questions directly on the page and using structured data that reflects the visible information. Give customers clear answers about service areas, wrap options, and how to request a quote.</p>
-<h2>Give quote requests a clear next step</h2>
-<p>Agree who reviews incoming requests, asks for missing details, and follows up after a quote goes out. If you want a shared place to handle that work, connect your shop website to the <a href="/services/wrap-shop-crm">wrap-shop CRM</a>.</p>
+<p>Answer engine optimization (AEO) means answering common questions directly on the page and using structured data that reflects the visible information. Give customers clear answers about service areas, service options, and how to request a quote.</p>
+<h2>Who follows up on quote requests?</h2>
+<p>Agree who reviews incoming requests, asks for missing details, and follows up after a quote goes out. If you want a shared place to handle that work, connect your shop website to the <a href="/services/wrap-shop-crm">shop CRM</a>.</p>
 <h2>Frequently asked questions</h2>
 <details><summary>Can I start with just a website?</summary><p>Yes. Explore <a href="/services/website-development">website development</a> for a website-only project. The written scope sets the pages, content, and functions included.</p></details>
 <details><summary>Can we work with my existing website?</summary><p>Share your current URL, examples of the jobs you want to feature, and how you handle quote requests today. Camilo can review which pages to keep and what needs to change.</p></details>
 <p>See how Camilo’s own shop presents its work on the <a href="/work/phantom-wraps">Phantom Wraps project page</a>.</p>`},
-{path:'/services/wrap-shop-crm',title:'Wrap-Shop CRM for Leads & Quotes | MerkadAgency',description:'Track website leads, contacts, pipeline and quotes in the wrap-shop CRM. License pricing is $1,500 setup + $800/month.',heading:'A CRM for wrap-shop leads and quotes.',body:`
-<p class="intro">Keep incoming website requests, contacts, quotes, and sales follow-up in one workspace. The wrap-shop CRM license is <strong>$1,500 setup + $800/month</strong>.</p>
+{
+ path: crmPath,
+ title: 'CRM for Wrap, PPF, Tint, Ceramic Coating & Detailing Shops | MerkadAgency',
+ description: `Manage website leads, pipeline, quotes, invoices and follow-up in the MerkadAgency CRM for ${shopTypes}.`,
+ heading: 'CRM for automotive shop leads and quotes.',
+ body: `
+<p class="intro">Keep website leads, quotes, invoices and follow-up in one workspace. The CRM license is <strong>$1,500 setup + $800/month</strong>.</p>
 ${contactLink}
-<h2>Take website inquiries into the CRM</h2>
-<p>Connect your shop website so lead and quote requests become CRM records. Work from your contacts and sales pipeline, and create quotes from the quotes area or use quick-create in the sales workspace.</p>
-<h2>Send email from your shop’s domain</h2>
-<p>Connect your shop’s own Resend account in Settings under Integrations. Once the sending domain is verified in Resend and configured for your workspace, staff can send email from your shop’s domain.</p>
-<h2>Set up your staff and shop profile</h2>
-<p>Invite staff to sign in, assign roles, and set your business profile and branding for the workspace.</p>
+<h2>What’s included in the MerkadAgency CRM?</h2>
+<ul>
+<li><strong>Website leads and contacts.</strong> Connect your shop website to bring lead and quote requests into the CRM.</li>
+<li><strong>Sales pipeline.</strong> See which requests are new, which have a quote and which need follow-up.</li>
+<li><strong>Quotes and invoices.</strong> Create quotes for the work and prepare invoices for accepted jobs.</li>
+<li><strong>Review requests.</strong> Ask customers for a review after the job is complete.</li>
+<li><strong>Email campaigns.</strong> Send shop updates and follow-up email from your verified domain through your shop’s Resend account.</li>
+<li><strong>Click-to-call.</strong> Start a call from the customer’s record using the device’s calling app.</li>
+<li><strong>Staff access and branding.</strong> Invite staff, assign roles and set up your shop profile.</li>
+</ul>
+${valueComparison('en')}
+<h2>Inside the CRM</h2>
+<div class="grid">
+<figure class="panel screenshot-placeholder"><figcaption><strong>Sales pipeline</strong><p class="small">Screenshot coming soon.</p></figcaption></figure>
+<figure class="panel screenshot-placeholder"><figcaption><strong>Quotes and invoices</strong><p class="small">Screenshot coming soon.</p></figcaption></figure>
+</div>
 <h2>Frequently asked questions</h2>
 <details><summary>Can my shop use its existing website?</summary><p>Email Camilo with your current URL and how you receive quote requests. Discuss what’s required to connect the website to the CRM.</p></details>
 <details><summary>Whose email account sends messages?</summary><p>Your shop connects its own Resend account and sends from its verified domain.</p></details>
-<p>Explore <a href="/services/marketing-for-wrap-shops">wrap-shop marketing</a> if you also need help with your site, or see how Camilo uses the CRM at <a href="/work/phantom-wraps">Phantom Wraps &amp; Coatings</a>.</p>`},
+<p>Explore <a href="${marketingPath}">shop marketing</a> if you also need help with your site, or see how Camilo uses the CRM at <a href="${phantomPath}">Phantom Wraps &amp; Coatings</a>.</p>`,
+},
 {path:'/work/phantom-wraps',title:'Phantom Wraps & Coatings Website & CRM | MerkadAgency',description:'See the website and CRM used at Phantom Wraps & Coatings, Camilo Reyna’s Austin wrap shop, and its silver-to-pink GMC Sierra project.',heading:'Phantom Wraps and Coatings',body:`
 <p class="intro">Phantom Wraps &amp; Coatings is Camilo Reyna’s own wrap shop in Austin. MerkadAgency built the shop’s website, and Camilo uses the <a href="/services/wrap-shop-crm">MerkadAgency CRM</a> there for leads, quote intake, and email.</p>
 ${contactLink}
@@ -115,21 +138,23 @@ ${contactLink}
 <p><a href="https://phantomwrapsco.com/#journey">See the original project photos on Phantom’s website</a>.</p>
 <h2>The Austin shop</h2>
 <p>Phantom serves Austin and surrounding Central Texas communities. Its published services include vinyl wraps, commercial and fleet wraps, chrome delete, ceramic coatings, paint protection film, window tint, and interior detailing.</p>
-<p>${addressLine}<br>Shop phone (512) 434-3793<br><a href="https://phantomwrapsco.com/">Visit Phantom Wraps &amp; Coatings for shop hours and service details</a>.</p>
-<p>For help with your own portfolio and quote workflow, explore <a href="/services/marketing-for-wrap-shops">marketing for wrap shops</a>.</p>`},
-{path:'/contact',title:'Contact Camilo About Your Wrap Shop | MerkadAgency',description:'Email Camilo Reyna about wrap-shop marketing, a website or the wrap-shop CRM. MerkadAgency is based on North Lamar Boulevard in Austin.',heading:'Talk to Camilo about your wrap shop.',body:`
+<p>${phantomAddressLine}<br>Shop phone (512) 434-3793<br><a href="https://phantomwrapsco.com/">Visit Phantom Wraps &amp; Coatings for shop hours and service details</a>.</p>
+<p>For help with your own portfolio and quote workflow, explore <a href="/services/marketing-for-wrap-shops">shop marketing</a>.</p>`},
+{path:'/contact',title:'Contact Camilo About Automotive Shop Marketing & CRM | MerkadAgency',description:`Email Camilo Reyna in Austin about websites, local marketing or CRM for ${shopTypes}.`,heading:'Talk to Camilo about your shop.',body:`
 <p class="intro">Tell Camilo where your shop works, which jobs you want to feature, and how you handle quote requests today.</p>
 ${wrapContactLink}
 <p>Email: <a href="mailto:${email}">${email}</a></p>
 <p>MerkadAgency · ${addressLine}</p>
 <p class="small">Using webmail? <a href="#email-without-app">Copy the address and optional questions below</a>.</p>
-<h2>Start with a short project summary</h2><ul><li>Your shop name, service area, and the wrap work you want to show.</li><li>Your current website URL, if you have one.</li><li>How you receive quote requests and who follows up.</li><li>The main things visitors should understand or be able to do.</li></ul><p>You do not need a finished brief. If useful, add your main priorities, a budget range and a preferred timeframe for discussion. These details are not an agreed price or delivery date.</p>
+<h2>Start with a short project summary</h2><ul><li>Your shop name, service area, and the work you want to show.</li><li>Your current website URL, if you have one.</li><li>How you receive quote requests and who follows up.</li><li>The main things visitors should understand or be able to do.</li></ul><p>You do not need a finished brief. If useful, add your main priorities, a budget range and a preferred timeframe for discussion. These details are not an agreed price or delivery date.</p>
 <h2 id="after-you-email" tabindex="-1">What happens after you email?</h2><p>Your inquiry starts a scope discussion; it is not a booking or an agreement to begin work.</p><ol><li><strong>Clarify the request.</strong> Camilo may ask about your audience, current website, priority pages, content and the problem you want to solve. Open questions are welcome.</li><li><strong>Define the proposed work.</strong> Discuss the pages and functions, what to preserve, who supplies and approves content, and the review and launch checks. Separate essential work from later ideas.</li><li><strong>Confirm the agreement.</strong> Before work begins, agree scope, price, timing, payment arrangements and responsibilities in writing. Ask about anything still undecided rather than assuming it is included.</li></ol>
 <h2>Before agreeing to a project</h2><p>Clarify the pages and functions, content responsibilities, review process, price, timing and handover in writing. Camilo confirms invoicing and payment arrangements directly after scope is agreed. This website does not collect payments.</p>
-<h2>Prefer to prepare more detail?</h2><p>Use the <a href="/resources/website-brief">website brief and redesign guide</a>, or explore <a href="/services/marketing-for-wrap-shops">wrap-shop marketing</a>, the <a href="/services/wrap-shop-crm">wrap-shop CRM</a>, and <a href="/services/website-development">website development</a>.</p>
-<h2 id="email-without-app" tabindex="-1">If the email button does not open your app</h2><p>Copy <strong data-email-address>${email}</strong> into your preferred email service. Use the subject “Wrap shop inquiry” and include whichever details you know.</p>
+<h2>Prefer to prepare more detail?</h2><p>Use the <a href="/resources/website-brief">website brief and redesign guide</a>, or explore <a href="/services/marketing-for-wrap-shops">shop marketing</a>, the <a href="/services/wrap-shop-crm">shop CRM</a>, and <a href="/services/website-development">website development</a>.</p>
+<h2 id="email-without-app" tabindex="-1">If the email button does not open your app</h2><p>Copy <strong data-email-address>${email}</strong> into your preferred email service. Use the subject “Shop inquiry” and include whichever details you know.</p>
 <div class="panel email-tools" data-email-tools><h3>Optional questions for your email</h3><p>Paste these questions into your email and answer whichever details you know. You can also start with your own questions.</p><pre class="email-brief" data-email-brief>${wrapInquiryBody}</pre><div class="email-actions" data-email-actions hidden><button type="button" data-copy-email="address">Copy email address</button><button type="button" data-copy-email="brief">Copy brief questions</button></div><p class="small email-copy-status" role="status" data-email-copy-status></p></div>
 <p>Do not include passwords, payment details or sensitive customer records. For privacy requests, see our <a href="/legal/privacy">privacy information</a>.</p>`},
 {path:'/legal/privacy',title:'Privacy & Contact Information | MerkadAgency',description:'How to contact Camilo Reyna about privacy at MerkadAgency. This informational website has no inquiry form or analytics tracking enabled.',heading:'Privacy and your information.',body:`<p>This informational website has no inquiry form or analytics tracking enabled. Contacting us by email shares the information you choose to include in that message.</p><h2>Website delivery</h2><p>The site is delivered through Firebase Hosting. Hosting and network providers may process technical request information, such as an IP address, to deliver and protect the website. The public informational pages do not load third-party fonts, advertising trackers or embedded scheduling tools.</p><h2>Email inquiries</h2><p>We use inquiry information to understand and respond to your request. Please avoid sending passwords, payment details or sensitive customer records.</p><h2>Privacy requests</h2><p>Camilo Reyna handles privacy requests at <a href="mailto:${email}">${email}</a>. Explain the information or request you would like us to review. Account or contract services may involve separate information provided for those purposes.</p>`},
-{path:'/legal/terms',title:'Website & CRM Offer Terms | MerkadAgency',description:'Terms for MerkadAgency’s wrap-shop marketing, website development and CRM offers. Scope, pricing and responsibilities are confirmed in writing.',heading:'Website information and project terms.',body:`<p>MerkadAgency offers marketing and a CRM license for vehicle wrap shops, as well as website development. Websites start at $500. The CRM license is $1,500 setup + $800/month.</p><h2>Project agreements</h2><p>Scope, price, timing, deliverables and ongoing responsibilities require a separate written agreement. This website does not promise a particular delivery date, search ranking, lead volume or revenue result.</p><h2>Planning resources</h2><p>The website brief guide is general planning information. Adapt it to your project and confirm requirements before commissioning work.</p><h2>Contact</h2><p>Email <a href="mailto:${email}">${email}</a> about your project or CRM license. MerkadAgency is at ${addressLine}.</p>`}
+{path:'/legal/terms',title:'Website & CRM Offer Terms | MerkadAgency',description:'Terms for MerkadAgency’s shop marketing, website development and CRM offers. Scope, pricing and responsibilities are confirmed in writing.',heading:'Website information and project terms.',body:`<p>MerkadAgency offers marketing and a CRM license for ${shopTypes}, as well as website development. Websites start at $500. The CRM license is $1,500 setup + $800/month.</p><h2>Project agreements</h2><p>Scope, price, timing, deliverables and ongoing responsibilities require a separate written agreement. This website does not promise a particular delivery date, search ranking, lead volume or revenue result.</p><h2>Planning resources</h2><p>The website brief guide is general planning information. Adapt it to your project and confirm requirements before commissioning work.</p><h2>Contact</h2><p>Email <a href="mailto:${email}">${email}</a> about your project or CRM license. MerkadAgency is based at ${addressLine}.</p>`}
 ];
+
+export const pages = [...englishPages, ...verticalPages(contactLink), ...spanishPages(email)].map(withShopPositioning);

@@ -75,20 +75,20 @@ Baseline: published main `a348a65d661b093faff38f6f02f8cc78e9cfac4d`. Draft only;
 +++ Proposed
 @@ -1,9 +1,20 @@
 -Title: Contact Camilo About Your Website | MerkadAgency
--Description: Discuss a website development project with Camilo Reyna at camiloreyna@merkadagency.com. Website inquiries currently use email.
+-Description: Discuss a website development project with Camilo Reyna at camilo.reyna@merkadagency.com. Website inquiries currently use email.
 -H1: Tell Camilo about your website.
--Email camiloreyna@merkadagency.com to discuss a website development project.
+-Email camilo.reyna@merkadagency.com to discuss a website development project.
 -Email Camilo about your website
 -What to include
 -Share your current website URL if you have one, what your business does, and what you want visitors to understand or do. The website brief guide can help you prepare.
 -Website inquiries currently use email. Opening an email draft does not send a message; send it from your email application when you are ready. Do not include passwords, payment details or sensitive customer records.
--If the email link does not open an application, copy camiloreyna@merkadagency.com into your preferred email service.
+-If the email link does not open an application, copy camilo.reyna@merkadagency.com into your preferred email service.
 +Title: Discuss Your Website with Camilo | MerkadAgency
 +Description: Email Camilo Reyna about a new website or redesign. Share your current website and goals to discuss scope, pricing and next steps.
 +H1: Discuss your website with Camilo.
 +Planning a new website or a focused redesign? Email Camilo your current website and project goals to discuss the scope.
 +Discuss your website
-+Email: camiloreyna@merkadagency.com
++Email: camilo.reyna@merkadagency.com
 +The button opens a draft in your email app with optional prompts. Nothing is submitted by this website. Send the email from your app when you are ready.
 +Start with a short project summary
 +What your business does and who the website should serve.
@@ -101,13 +101,13 @@ Baseline: published main `a348a65d661b093faff38f6f02f8cc78e9cfac4d`. Draft only;
 +Prefer to prepare more detail?
 +Use the website brief and redesign guide, or review the website-development process and buyer questions.
 +If the email button does not open your app
-+Copy camiloreyna@merkadagency.com into your preferred email service. Use the subject “Website project inquiry” and include whichever details you know.
++Copy camilo.reyna@merkadagency.com into your preferred email service. Use the subject “Website project inquiry” and include whichever details you know.
 +Do not include passwords, payment details or sensitive customer records. For privacy requests, see our privacy information.
 ```
 
 ## Action and structural changes
 
-- On the two changed pages, primary actions read **Discuss your website** and open a draft to `camiloreyna@merkadagency.com`. Existing plain-address links remain available.
+- On the two changed pages, primary actions read **Discuss your website** and open a draft to `camilo.reyna@merkadagency.com`. Existing plain-address links remain available.
 - Draft subject: **Website project inquiry**. Optional body prompts:
 
 ```text

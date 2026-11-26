@@ -57,8 +57,10 @@ for(const p of pages){
  const description = /<meta name="description" content="([^"]+)">/.exec(html)?.[1];
  assert(title && html.includes(`<meta property="og:title" content="${title}">`));
  assert(description && html.includes(`<meta property="og:description" content="${description}">`));
+ assert(html.includes(`<meta name="twitter:title" content="${title}">`));
+ assert(html.includes(`<meta name="twitter:description" content="${description}">`));
  for (const icon of iconFiles) assert(html.includes(`href="/${icon}">`));
- const heading=/<h1>([\s\S]*?)<\/h1>/.exec(html);assert(heading);assert.equal(heading[1].replace(/<[^>]*>/g,''),p.heading);
+ const heading=/<h1>([\s\S]*?)<\/h1>/.exec(html);assert(heading);assert.equal(heading[1].replace(/<[^>]*>/g,''),[p.heading,p.headingAudience].filter(Boolean).join(' '));
  const bodyChunks=[...html.matchAll(/<!--copy:start-->([\s\S]*?)<!--copy:end-->/g)].map(m=>m[1]).join('');
  assert.equal(bodyChunks,manifest.fallback&&['/services/website-development','/resources/website-brief'].includes(p.path)?`<p>MerkadAgency offers website development. For project information, email <a href="mailto:${email}">${email}</a>.</p><p><a href="/contact">Contact Camilo</a></p>`:p.body,'Every source body byte must be retained in initial HTML');
  for (const [image] of html.matchAll(/<(?:img|source)\b[^>]*>/g)) {

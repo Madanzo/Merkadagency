@@ -35,7 +35,7 @@ Baseline: published main `b1286a0f471b24b2f51c1f7ec8298d67ae68976d`. Draft only.
 
 ## Exact optional email drafts
 
-Recipient for both: `camiloreyna@merkadagency.com`. No cc/bcc. Both are static mailto links; neither submits data or records an event.
+Recipient for both: `camilo.reyna@merkadagency.com`. No cc/bcc. Both are static mailto links; neither submits data or records an event.
 
 **Discuss a new website** — subject: **New website project inquiry**
 

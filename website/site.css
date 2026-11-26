@@ -31,3 +31,18 @@ h2[tabindex]{scroll-margin-block-start:1rem}
   font-size: .8rem;
   color: #bdb8c6;
 }
+
+.screenshot-placeholder{min-height:8rem;display:grid;place-items:center;text-align:center;border-style:dashed}
+.screenshot-placeholder p{margin:.4rem 0 0}
+
+h1 .heading-audience{max-width:36rem;margin-top:.75rem;color:#c6c0ce;font-size:clamp(.95rem,1.65vw,1.2rem);font-weight:500;line-height:1.45;letter-spacing:normal}
+.value-comparison{border-top:1px solid var(--line);margin-block:3.2rem;padding-top:2.7rem;max-width:51rem}
+.comparison-scroll{overflow-x:auto;border:1px solid #413749;border-radius:5px;background:var(--surface)}
+.comparison-scroll:focus-visible{outline:3px solid #e3caff;outline-offset:4px}
+.comparison-scroll table{width:100%;min-width:18rem;border-collapse:collapse;font-size:.85rem;line-height:1.45}
+.comparison-scroll caption{text-align:left;padding:.85rem;font-weight:650;color:#e9e3f1}
+.comparison-scroll :is(th,td){padding:.65rem .6rem;border-top:1px solid #413749;text-align:left;vertical-align:top}
+.comparison-scroll th[scope=row]{width:42%;font-weight:550}
+.comparison-scroll thead,.comparison-scroll :is(th,td):last-child{background:#211a2c}
+.comparison-scroll td span{color:#c7a7fa}
+@media(max-width:800px){.value-comparison{margin-block:2.5rem;padding-top:2rem}.comparison-scroll table{font-size:.72rem}.comparison-scroll :is(th,td){padding:.55rem .35rem}}

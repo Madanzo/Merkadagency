@@ -4,7 +4,7 @@ Prepared, not authorized or published. Owner: Camilo Reyna (public wording/URL d
 
 ## Exact public wording and URLs
 
-Full exact copy/metadata remains [website/content.mjs](../../website/content.mjs); none of the six informational page paragraphs changes in this technical follow-up. It replaces the old live public experience; it is not metadata-only. Website development remains the only offer, contact is `camiloreyna@merkadagency.com`, with no calendar, pricing, dates, results, customer proof or CRM availability promise.
+Full exact copy/metadata remains [website/content.mjs](../../website/content.mjs); none of the six informational page paragraphs changes in this technical follow-up. It replaces the old live public experience; it is not metadata-only. Website development remains the only offer, contact is `camilo.reyna@merkadagency.com`, with no calendar, pricing, dates, results, customer proof or CRM availability promise.
 
 | Canonical page | Public heading |
 |---|---|

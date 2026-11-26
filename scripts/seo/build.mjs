@@ -3,8 +3,10 @@ import { mkdir, readFile, writeFile, rm, cp } from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import {verifyPrivate} from './verify-private.mjs';
-import { address, contactLink, pages, origin, email } from '../../website/content.mjs';
-import {header,footer,pageLayout} from '../../website/layout.mjs';
+import { contactLink, pages, origin, email } from '../../website/content.mjs';
+import {alternates,header,footer,pageLayout} from '../../website/layout.mjs';
+import { withShopPositioning } from '../../website/shop-pages.mjs';
+import { pageSchema } from './schema.mjs';
 const preview = process.argv.includes('--preview');
 const dirty = execFileSync('git', ['status','--porcelain','--untracked-files=all'], {encoding:'utf8'}).trim();
 if (dirty) throw new Error('Commit the reviewable source and evidence before building a release artifact');
@@ -29,50 +31,15 @@ function html(page, fallback = false) {
  // Hosting matches headers against the requested URL, so unknown paths need a document-level policy.
  const errorPolicy = notFound ? `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">` : '';
  const mobileContact = ['/services/website-development','/contact'].includes(page.path);
- const organization = {
-  '@context':'https://schema.org',
-  '@type':'Organization',
-  '@id':origin+'/#organization',
-  name:'MerkadAgency',
-  url:origin,
-  email,
-  address:{'@type':'PostalAddress',...address},
- };
- const websiteOffer = {
-  '@type':'Offer',
-  name:'Website development',
-  url:origin+'/services/website-development',
-  priceSpecification:{'@type':'PriceSpecification',minPrice:500,priceCurrency:'USD'},
- };
- const crmOffer = {
-  '@type':'Offer',
-  name:'Wrap-shop CRM license',
-  url:origin+'/services/wrap-shop-crm',
-  priceSpecification:[
-   {'@type':'UnitPriceSpecification',name:'Setup',price:1500,priceCurrency:'USD'},
-   {'@type':'UnitPriceSpecification',name:'Monthly license',price:800,priceCurrency:'USD',unitCode:'MON'},
-  ],
- };
- const schema = [organization];
- const offers = {
-  '/':[websiteOffer,crmOffer],
-  '/services/marketing-for-wrap-shops':[websiteOffer],
-  '/services/wrap-shop-crm':[crmOffer],
-  '/services/website-development':fallback ? [] : [websiteOffer],
- };
- if (offers[page.path]) {
-  schema[0] = {
-   ...organization,
-   '@type':['Organization','ProfessionalService'],
-   description:'Marketing, website development and CRM for vehicle wrap shops.',
-   ...(offers[page.path].length ? {makesOffer:offers[page.path]} : {}),
-  };
- }
- if(page.path === '/services/website-development') {
-  schema.push({'@context':'https://schema.org','@type':'Service',name:'Website development',serviceType:'Website development',url:origin+page.path,provider:{'@id':organization['@id']}});
- }
- if(page.path !== '/' && page.path !== '/404') schema.push({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'MerkadAgency',item:origin+'/'},{'@type':'ListItem',position:2,name:page.heading,item:origin+page.path}]});
- return `<!doctype html><html lang="en"><head><meta charset="utf-8">${errorPolicy}<meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><meta name="robots" content="${preview || page.path==='/404' ? 'noindex,nofollow' : 'index,follow'}">${page.path==='/404' ? '' : `<link rel="canonical" href="${origin+page.path}">`}<meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${origin+page.path}"><meta property="og:type" content="website"><meta property="og:image" content="${origin}/social-preview.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="MerkadAgency · Website development"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${origin}/social-preview.jpg"><meta name="twitter:image:alt" content="MerkadAgency · Website development">${iconLinks}<link rel="stylesheet" href="/site.css">${notFound ? '' : `<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>`}</head><body><a class="skip" href="#main">Skip to content</a>${header(page.path)}<main id="main" tabindex="-1">${pageLayout(page,fallback)}${mobileContact ? `<div class="mobile-contact">${contactLink}</div>` : ''}</main>${footer()}${page.path==='/contact'?'<script src="/email-brief.js" defer></script>':''}</body></html>`;
+ const lang = page.lang ?? 'en';
+ const locales = alternates(page);
+ const alternateLinks = locales ? Object.entries({ ...locales, 'x-default': locales.en }).map(
+  ([language, path]) => `<link rel="alternate" hreflang="${language}" href="${origin+path}">`,
+ ).join('') : '';
+ const socialAlt = lang === 'es'
+  ? 'MerkadAgency · Marketing y CRM para talleres de rotulación, PPF, polarizado, recubrimiento cerámico y detallado'
+  : 'MerkadAgency · Marketing and CRM for wrap, PPF, tint, ceramic coating and detailing shops';
+ return `<!doctype html><html lang="${lang}"><head><meta charset="utf-8">${errorPolicy}<meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><meta name="robots" content="${preview || page.path==='/404' ? 'noindex,nofollow' : 'index,follow'}">${page.path==='/404' ? '' : `<link rel="canonical" href="${origin+page.path}">`}${alternateLinks}<meta property="og:locale" content="${lang === 'es' ? 'es_US' : 'en_US'}"><meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${origin+page.path}"><meta property="og:type" content="website"><meta property="og:image" content="${origin}/social-preview.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${socialAlt}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(page.title)}"><meta name="twitter:description" content="${escape(page.description)}"><meta name="twitter:image" content="${origin}/social-preview.jpg"><meta name="twitter:image:alt" content="${socialAlt}">${iconLinks}<link rel="stylesheet" href="/site.css">${notFound ? '' : `<script type="application/ld+json">${JSON.stringify(pageSchema(page, fallback)).replaceAll('<','\\u003c')}</script>`}</head><body><a class="skip" href="#main">${lang === 'es' ? 'Saltar al contenido' : 'Skip to content'}</a>${header(page)}<main id="main" tabindex="-1">${pageLayout(page,fallback)}${mobileContact ? `<div class="mobile-contact">${contactLink}</div>` : ''}</main>${footer(page)}${page.path==='/contact'?'<script src="/email-brief.js" defer></script>':''}</body></html>`;
 }
 const outputs = preview ? [['dist-site-preview',false]] : [['dist-site',false],['dist-rollback',true]];
 for (const [dir, fallback] of outputs) {
@@ -96,9 +63,15 @@ for (const [dir, fallback] of outputs) {
      ? {...page,body:`<p>MerkadAgency offers website development. For project information, email <a href="mailto:${email}">${email}</a>.</p><p><a href="/contact">Contact Camilo</a></p>`} : page;
    await writeFile(output,html(safePage,fallback));
  }
- await writeFile(`${dir}/404.html`,html({path:'/404',title:'Page Not Available | MerkadAgency',description:'This page is not available. Explore website development or contact MerkadAgency by email.',heading:'This page is not available.',body:'<p>Find current information about <a href="/services/website-development">website development</a>, or <a href="/contact">contact Camilo by email</a>.</p>'}));
+ await writeFile(`${dir}/404.html`,html(withShopPositioning({path:'/404',title:'Page Not Available | MerkadAgency',description:'This page is not available. Explore website development or contact MerkadAgency by email.',heading:'This page is not available.',body:'<p>Find current information about <a href="/services/website-development">website development</a>, or <a href="/contact">contact Camilo by email</a>.</p>'})));
  await writeFile(`${dir}/robots.txt`,preview?'User-agent: *\nDisallow: /\n':`User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /sign/\nDisallow: /private-app$\nDisallow: /private-app.html\nDisallow: /private-boundary.json\nDisallow: /website-release.json\n\nSitemap: ${origin}/sitemap.xml\n`);
- await writeFile(`${dir}/sitemap.xml`,`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(p=>`<url><loc>${origin+p.path}</loc></url>`).join('')}<url><loc>${origin}/llms.txt</loc></url></urlset>\n`);
+ await writeFile(`${dir}/sitemap.xml`,`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${pages.map(page => {
+  const locales = alternates(page);
+  const links = locales ? Object.entries({ ...locales, 'x-default': locales.en }).map(
+   ([lang, path]) => `<xhtml:link rel="alternate" hreflang="${lang}" href="${origin+path}"/>`,
+  ).join('') : '';
+  return `<url><loc>${origin+page.path}</loc>${links}</url>`;
+ }).join('')}<url><loc>${origin}/llms.txt</loc></url></urlset>\n`);
  await writeFile(`${dir}/website-release.json`,JSON.stringify({source,sourceTree,hostingConfigSha256,intake:false,analytics:false,preview,fallback,publicRoutes:pages.map(p=>p.path)},null,2)+'\n');
 }
 console.log(`Static public site and compatible fallback built from ${source}; intake=false analytics=false preview=${preview}`);

@@ -4,7 +4,7 @@ import { readFile, readdir, stat, mkdtemp, cp, writeFile, rm } from 'node:fs/pro
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { origin, pages } from '../../website/content.mjs';
+import { email, origin, pages } from '../../website/content.mjs';
 const get = async (file,dir='dist-site') => readFile(`${dir}/${file}`,'utf8');
 test('All public pages have useful initial HTML without JavaScript or tracking',async()=>{
  for(const p of pages){const html=await get(p.path==='/'?'index.html':p.path.slice(1)+'.html');assert.match(html,/<main[^>]*>[\s\S]*<h1>/);const withoutHelper=p.path==='/contact'?html.replace('<script src="/email-brief.js" defer></script>',''):html;assert(!/<script(?! type="application\/ld\+json")/.test(withoutHelper));assert(!/<(?:form|input|iframe)\b/.test(html));}
@@ -12,7 +12,7 @@ test('All public pages have useful initial HTML without JavaScript or tracking',
 });
 test('Compatible fallback keeps routes and disabled features without new long-form copy',async()=>{
  const manifest=JSON.parse(await get('website-release.json','dist-rollback'));assert(manifest.fallback);assert.equal(manifest.intake,false);assert.equal(manifest.analytics,false);
- for(const p of pages)assert((await get(p.path==='/'?'index.html':p.path.slice(1)+'.html','dist-rollback')).includes('camiloreyna@merkadagency.com'));
+ for(const p of pages)assert((await get(p.path==='/'?'index.html':p.path.slice(1)+'.html','dist-rollback')).includes(email));
  assert(!(await get('resources/website-brief.html','dist-rollback')).includes('Inventory the existing site'));
  execFileSync('node',['scripts/seo/verify.mjs','dist-rollback']);
 });
@@ -22,7 +22,7 @@ test('Only retained URLs are emitted; obsolete proof and resources cannot be fet
  const errorPage = await get('404.html');
  assert.match(errorPage, /noindex,nofollow/);
  assert.match(errorPage, /<meta http-equiv="Content-Security-Policy" content="default-src 'none';/);
- assert.match(errorPage, /<main id="main" tabindex="-1">[\s\S]*?<h1>This page is not available\.<\/h1>/);
+ assert.match(errorPage, /<main id="main" tabindex="-1">[\s\S]*?<h1>This page is not available\.[\s\S]*?<\/h1>/);
  assert.match(errorPage, /<main[\s\S]*?href="\/services\/website-development"[\s\S]*?href="\/contact"[\s\S]*?<\/main>/);
  assert.doesNotMatch(errorPage, /<script\b|rel="canonical"/);
 });
