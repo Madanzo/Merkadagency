@@ -1,5 +1,7 @@
 import { crmPath, faqSection, marketingPath, phantomPath, shopLinks, shopTypesEs, verticalLinks, verticalLinksEs } from './shop-pages.mjs';
 
+import { valueComparison } from './value-comparison.mjs';
+
 export const spanishHome = '/es';
 export const spanishMarketing = '/es/servicios/marketing-para-talleres';
 export const spanishCrm = '/es/servicios/crm-para-talleres';
@@ -13,24 +15,25 @@ export function spanishPages(email) {
   {
    path: spanishHome,
    englishPath: '/',
-   title: 'Marketing y CRM para rotulación, PPF, polarizado, cerámico y detallado | MerkadAgency',
+   title: 'Marketing y CRM para talleres de rotulación, PPF, polarizado, recubrimiento cerámico y detallado | MerkadAgency',
    description: `Sitios web, SEO local y CRM para ${shopTypesEs}. Muestra tu trabajo y da seguimiento a tus cotizaciones.`,
    heading: 'Haz que te encuentren. Da seguimiento a tus cotizaciones.',
    accent: 'Da seguimiento a tus cotizaciones.',
-   body: `<p class="intro">MerkadAgency crea sitios web y ofrece un CRM para ${shopTypesEs}. Muestra tu trabajo a clientes de tu zona y lleva un registro de cada solicitud de cotización.</p>
+   body: `<p class="intro">Muestra tu trabajo a clientes de tu zona con un portafolio web. Lleva un registro de cada solicitud de cotización en tu CRM.</p>
 ${contact}
 <div class="grid">
 <section class="panel"><h2>Marketing para talleres</h2><p>Muestra tus mejores trabajos, responde las preguntas de tus clientes y explica qué datos necesitas para cotizar. Los sitios web parten de $500.</p><a href="${spanishMarketing}">Conoce el servicio de marketing</a></section>
 <section class="panel"><h2>CRM para talleres</h2><p>Organiza las solicitudes de tu sitio web, los contactos y las cotizaciones en un mismo lugar. La licencia tiene un costo inicial de $1,500 más $800 al mes.</p><a href="${spanishCrm}">Conoce el CRM</a></section>
 <section class="panel"><h2>Phantom Wraps &amp; Coatings</h2><p>Conoce el sitio web y el proceso de cotización del taller de Camilo Reyna en Austin.</p><a href="${spanishPhantom}">Ver el proyecto de Phantom Wraps</a></section>
 </div>
+${valueComparison('es')}
 <h2>Marketing y CRM por especialidad</h2><ul>${shopLinks(verticalLinksEs).map(link => `<li>${link}</li>`).join('')}</ul>
 <h2>¿Solo necesitas un sitio web?</h2><p>Consulta el <a href="/services/website-development" hreflang="en">servicio de desarrollo web (en inglés)</a> para crear o renovar tu sitio.</p>`,
   },
   {
    path: spanishMarketing,
    englishPath: marketingPath,
-   title: 'Marketing para talleres de rotulación, PPF, polarizado, cerámico y detallado | MerkadAgency',
+   title: 'Marketing para talleres de rotulación, PPF, polarizado, recubrimiento cerámico y detallado | MerkadAgency',
    description: `Portafolios web, SEO local y seguimiento de cotizaciones para ${shopTypesEs}. Sitios web desde $500.`,
    heading: 'Marketing para talleres de rotulación, PPF, polarizado, recubrimiento cerámico y detallado.',
    body: `<p class="intro">Ayuda a que los clientes de tu zona encuentren tu taller y entiendan qué trabajos haces. Los sitios web parten de $500. El alcance y los plazos se acuerdan por escrito.</p>
@@ -48,10 +51,10 @@ ${faq([
   {
    path: spanishCrm,
    englishPath: crmPath,
-   title: 'CRM para talleres de rotulación, PPF, polarizado, cerámico y detallado | MerkadAgency',
+   title: 'CRM para talleres de rotulación, PPF, polarizado, recubrimiento cerámico y detallado | MerkadAgency',
    description: `Gestiona solicitudes web, etapas de venta, cotizaciones, facturas y seguimiento en el CRM para ${shopTypesEs}.`,
    heading: 'CRM para gestionar las cotizaciones de tu taller.',
-   body: `<p class="intro">Reúne las solicitudes de tu sitio web, cotizaciones, facturas y seguimiento de clientes en un CRM para ${shopTypesEs}. La licencia tiene un costo inicial de <strong>$1,500 más $800 al mes</strong>.</p>
+   body: `<p class="intro">Reúne las solicitudes de tu sitio web, cotizaciones, facturas y seguimiento de clientes en un solo CRM. La licencia tiene un costo inicial de <strong>$1,500 más $800 al mes</strong>.</p>
 ${contact}
 <h2>¿Qué incluye el CRM de MerkadAgency?</h2>
 <ul>
@@ -63,6 +66,7 @@ ${contact}
 <li><strong>Llamadas con un clic.</strong> Inicia una llamada desde la ficha del cliente con la aplicación de llamadas de tu dispositivo.</li>
 <li><strong>Acceso del equipo.</strong> Invita al personal, asigna permisos y configura el perfil y la marca del taller.</li>
 </ul>
+${valueComparison('es')}
 <h2>Por dentro del CRM</h2>
 <div class="grid">
 <figure class="panel screenshot-placeholder"><figcaption><strong>Etapas de venta</strong><p class="small">Captura de pantalla próximamente.</p></figcaption></figure>

@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { email, origin } from '../../website/content.mjs';
+import { address, email, origin } from '../../website/content.mjs';
 import { crmPath, marketingPath, shopTypes } from '../../website/shop-pages.mjs';
 import { spanishCrm, spanishHome, spanishMarketing } from '../../website/spanish.mjs';
 
@@ -42,6 +42,7 @@ export function pageSchema(page, fallback) {
   image: origin + '/social-preview.jpg',
   description: `Portfolio websites, local SEO and CRM for ${shopTypes}.`,
   contactPoint: { '@type': 'ContactPoint', name: 'Camilo Reyna', email, contactType: 'project inquiries' },
+  address: { '@type': 'PostalAddress', ...address },
   areaServed: [
    { '@type': 'Country', name: 'United States' },
    { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },

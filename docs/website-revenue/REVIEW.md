@@ -14,7 +14,7 @@ The bounded implementation changes the existing service and contact page copy/me
 | Austin service-business or wrap/tint/sign-shop requirements | Same service page, labeled conceptual section | Campaign hypothesis from CAM-257; no claimed office, local client or completed project |
 | Process, content readiness, costs/timing, external tools, ownership and payment arrangements | Same service page, buyer questions | Existing approved process and owner-provided payment direction; no price/date/integration promise |
 | Prepare a detailed brief | Existing `/resources/website-brief` | Already published first-party guide; no separate duplicate resource |
-| Discuss scope or request a quote conversation | Existing `/contact`, or direct email | `camiloreyna@merkadagency.com`; optional draft prompts, nothing submitted by the website |
+| Discuss scope or request a quote conversation | Existing `/contact`, or direct email | `camilo.reyna@merkadagency.com`; optional draft prompts, nothing submitted by the website |
 
 No distinct shop/location page is justified by the available evidence. Query/inquiry counts, keyword volumes and results are unavailable, not zero. Search Console access was previously unavailable; no new query export or inquiry records have been provided. There are no invented demand metrics. No external cross-brand referral is necessary to complete this website-development journey; no unverified destination or relationship is added.
 

@@ -1,15 +1,17 @@
-import { crmPath, marketingPath, phantomPath, shopLinks, shopTypes, verticalLinks, verticalPages } from './shop-pages.mjs';
+import { crmPath, marketingPath, phantomPath, shopLinks, shopTypes, verticalLinks, verticalPages, withShopPositioning } from './shop-pages.mjs';
 import { spanishPages } from './spanish.mjs';
+import { valueComparison } from './value-comparison.mjs';
 
 export const origin = 'https://merkadagency.com';
-export const email = 'camiloreyna@merkadagency.com';
+export const email = 'camilo.reyna@merkadagency.com';
 export const address = {
- streetAddress: '10601 N Lamar Blvd',
+ streetAddress: '12320 Alameda Trace Cir',
  addressLocality: 'Austin',
  addressRegion: 'TX',
- postalCode: '78753',
+ postalCode: '78727',
  addressCountry: 'US',
 };
+const phantomAddressLine = '10601 N Lamar Blvd, Austin, TX 78753';
 export const addressLine = `${address.streetAddress}, ${address.addressLocality}, ${address.addressRegion} ${address.postalCode}`;
 export const contactLabel = 'Email Camilo about your shop';
 export const contactLink = `<a class="cta" href="mailto:${email}">${contactLabel}</a>`;
@@ -24,16 +26,17 @@ const newWebsiteLink = scopeInquiryLink('Discuss a new website', 'New website pr
 const redesignLink = scopeInquiryLink('Discuss a redesign', 'Website redesign inquiry', 'Project type: Redesign\nBusiness and current website:\nMain problem to solve:\nPages or URLs to keep:\nContent to update:\nQuestions about scope:\n');
 const englishPages = [
 {path:'/',title:'Marketing & CRM for Wrap, PPF, Tint, Ceramic Coating & Detailing Shops | MerkadAgency',description:`Portfolio websites, local SEO and CRM for ${shopTypes}. Help local customers find your work and follow up on quotes.`,heading:'Get found locally. Follow up on shop quotes.',accent:'Follow up on shop quotes.',body:`
-<p class="intro">MerkadAgency builds websites and CRM for ${shopTypes}. Show local customers what you do and keep track of every quote request.</p>
+<p class="intro">Show local customers what you do with a portfolio website. Keep track of every quote request in your CRM.</p>
 ${contactLink}
 <div class="grid">
 <section class="panel"><h2>Shop marketing</h2><p>Show your best work, answer local customers’ questions, and ask for the details your team needs to quote a job. Websites start at $500.</p><a href="/services/marketing-for-wrap-shops">Explore shop marketing</a></section>
 <section class="panel"><h2>Shop CRM</h2><p>Bring website inquiries into a workspace for contacts, quotes, the sales pipeline, and email from your shop’s domain. The CRM license is $1,500 setup + $800/month.</p><a href="/services/wrap-shop-crm">Explore the shop CRM</a></section>
 <section class="panel"><h2>Phantom Wraps &amp; Coatings</h2><p>See the website and quote workflow at Camilo Reyna’s own wrap shop in Austin.</p><a href="/work/phantom-wraps">See the Phantom Wraps project</a></section>
 </div>
+${valueComparison('en')}
 <h2>Find marketing and CRM for your specialty</h2><ul>${shopLinks(verticalLinks).map(link => `<li>${link}</li>`).join('')}</ul>
 <h2>Need a website on its own?</h2><p>Explore <a href="/services/website-development">website development</a> for a new site or redesign, or use the <a href="/resources/website-brief">website brief</a> to plan what you need.</p>`},
-{path:'/services/website-development',title:'Websites for Wrap, PPF, Tint, Ceramic Coating & Detailing Shops | MerkadAgency',description:`Plan a new website or redesign for ${shopTypes}. Explore project scope, buyer questions and how to get started.`,heading:'Website development for automotive shops.',accent:'for automotive shops.',body:`
+{path:'/services/website-development',title:'Websites for Wrap, PPF, Tint, Ceramic Coating & Detailing Shops | MerkadAgency',description:`Plan a new website or redesign for ${shopTypes}. Explore project scope, buyer questions and how to get started.`,heading:'Websites for automotive shops.',accent:'for automotive shops.',body:`
 <p class="intro">Show your work, explain your services, and tell customers what to send for a quote. Camilo also takes website inquiries from other businesses.</p>
 ${projectContactLink}
 <p class="small">Websites start at $500. Scope, timing and ongoing responsibilities are agreed in writing.</p>
@@ -101,7 +104,7 @@ ${contactLink}
  description: `Manage website leads, pipeline, quotes, invoices and follow-up in the MerkadAgency CRM for ${shopTypes}.`,
  heading: 'CRM for automotive shop leads and quotes.',
  body: `
-<p class="intro">Keep website leads, quotes, invoices and follow-up in one workspace built for ${shopTypes}. The CRM license is <strong>$1,500 setup + $800/month</strong>.</p>
+<p class="intro">Keep website leads, quotes, invoices and follow-up in one workspace. The CRM license is <strong>$1,500 setup + $800/month</strong>.</p>
 ${contactLink}
 <h2>What’s included in the MerkadAgency CRM?</h2>
 <ul>
@@ -113,6 +116,7 @@ ${contactLink}
 <li><strong>Click-to-call.</strong> Start a call from the customer’s record using the device’s calling app.</li>
 <li><strong>Staff access and branding.</strong> Invite staff, assign roles and set up your shop profile.</li>
 </ul>
+${valueComparison('en')}
 <h2>Inside the CRM</h2>
 <div class="grid">
 <figure class="panel screenshot-placeholder"><figcaption><strong>Sales pipeline</strong><p class="small">Screenshot coming soon.</p></figcaption></figure>
@@ -134,13 +138,13 @@ ${contactLink}
 <p><a href="https://phantomwrapsco.com/#journey">See the original project photos on Phantom’s website</a>.</p>
 <h2>The Austin shop</h2>
 <p>Phantom serves Austin and surrounding Central Texas communities. Its published services include vinyl wraps, commercial and fleet wraps, chrome delete, ceramic coatings, paint protection film, window tint, and interior detailing.</p>
-<p>${addressLine}<br>Shop phone (512) 434-3793<br><a href="https://phantomwrapsco.com/">Visit Phantom Wraps &amp; Coatings for shop hours and service details</a>.</p>
+<p>${phantomAddressLine}<br>Shop phone (512) 434-3793<br><a href="https://phantomwrapsco.com/">Visit Phantom Wraps &amp; Coatings for shop hours and service details</a>.</p>
 <p>For help with your own portfolio and quote workflow, explore <a href="/services/marketing-for-wrap-shops">shop marketing</a>.</p>`},
 {path:'/contact',title:'Contact Camilo About Automotive Shop Marketing & CRM | MerkadAgency',description:`Email Camilo Reyna in Austin about websites, local marketing or CRM for ${shopTypes}.`,heading:'Talk to Camilo about your shop.',body:`
 <p class="intro">Tell Camilo where your shop works, which jobs you want to feature, and how you handle quote requests today.</p>
 ${wrapContactLink}
 <p>Email: <a href="mailto:${email}">${email}</a></p>
-<p>MerkadAgency · Austin, TX</p>
+<p>MerkadAgency · ${addressLine}</p>
 <p class="small">Using webmail? <a href="#email-without-app">Copy the address and optional questions below</a>.</p>
 <h2>Start with a short project summary</h2><ul><li>Your shop name, service area, and the work you want to show.</li><li>Your current website URL, if you have one.</li><li>How you receive quote requests and who follows up.</li><li>The main things visitors should understand or be able to do.</li></ul><p>You do not need a finished brief. If useful, add your main priorities, a budget range and a preferred timeframe for discussion. These details are not an agreed price or delivery date.</p>
 <h2 id="after-you-email" tabindex="-1">What happens after you email?</h2><p>Your inquiry starts a scope discussion; it is not a booking or an agreement to begin work.</p><ol><li><strong>Clarify the request.</strong> Camilo may ask about your audience, current website, priority pages, content and the problem you want to solve. Open questions are welcome.</li><li><strong>Define the proposed work.</strong> Discuss the pages and functions, what to preserve, who supplies and approves content, and the review and launch checks. Separate essential work from later ideas.</li><li><strong>Confirm the agreement.</strong> Before work begins, agree scope, price, timing, payment arrangements and responsibilities in writing. Ask about anything still undecided rather than assuming it is included.</li></ol>
@@ -150,7 +154,7 @@ ${wrapContactLink}
 <div class="panel email-tools" data-email-tools><h3>Optional questions for your email</h3><p>Paste these questions into your email and answer whichever details you know. You can also start with your own questions.</p><pre class="email-brief" data-email-brief>${wrapInquiryBody}</pre><div class="email-actions" data-email-actions hidden><button type="button" data-copy-email="address">Copy email address</button><button type="button" data-copy-email="brief">Copy brief questions</button></div><p class="small email-copy-status" role="status" data-email-copy-status></p></div>
 <p>Do not include passwords, payment details or sensitive customer records. For privacy requests, see our <a href="/legal/privacy">privacy information</a>.</p>`},
 {path:'/legal/privacy',title:'Privacy & Contact Information | MerkadAgency',description:'How to contact Camilo Reyna about privacy at MerkadAgency. This informational website has no inquiry form or analytics tracking enabled.',heading:'Privacy and your information.',body:`<p>This informational website has no inquiry form or analytics tracking enabled. Contacting us by email shares the information you choose to include in that message.</p><h2>Website delivery</h2><p>The site is delivered through Firebase Hosting. Hosting and network providers may process technical request information, such as an IP address, to deliver and protect the website. The public informational pages do not load third-party fonts, advertising trackers or embedded scheduling tools.</p><h2>Email inquiries</h2><p>We use inquiry information to understand and respond to your request. Please avoid sending passwords, payment details or sensitive customer records.</p><h2>Privacy requests</h2><p>Camilo Reyna handles privacy requests at <a href="mailto:${email}">${email}</a>. Explain the information or request you would like us to review. Account or contract services may involve separate information provided for those purposes.</p>`},
-{path:'/legal/terms',title:'Website & CRM Offer Terms | MerkadAgency',description:'Terms for MerkadAgency’s shop marketing, website development and CRM offers. Scope, pricing and responsibilities are confirmed in writing.',heading:'Website information and project terms.',body:`<p>MerkadAgency offers marketing and a CRM license for ${shopTypes}, as well as website development. Websites start at $500. The CRM license is $1,500 setup + $800/month.</p><h2>Project agreements</h2><p>Scope, price, timing, deliverables and ongoing responsibilities require a separate written agreement. This website does not promise a particular delivery date, search ranking, lead volume or revenue result.</p><h2>Planning resources</h2><p>The website brief guide is general planning information. Adapt it to your project and confirm requirements before commissioning work.</p><h2>Contact</h2><p>Email <a href="mailto:${email}">${email}</a> about your project or CRM license. MerkadAgency is based in Austin, Texas.</p>`}
+{path:'/legal/terms',title:'Website & CRM Offer Terms | MerkadAgency',description:'Terms for MerkadAgency’s shop marketing, website development and CRM offers. Scope, pricing and responsibilities are confirmed in writing.',heading:'Website information and project terms.',body:`<p>MerkadAgency offers marketing and a CRM license for ${shopTypes}, as well as website development. Websites start at $500. The CRM license is $1,500 setup + $800/month.</p><h2>Project agreements</h2><p>Scope, price, timing, deliverables and ongoing responsibilities require a separate written agreement. This website does not promise a particular delivery date, search ranking, lead volume or revenue result.</p><h2>Planning resources</h2><p>The website brief guide is general planning information. Adapt it to your project and confirm requirements before commissioning work.</p><h2>Contact</h2><p>Email <a href="mailto:${email}">${email}</a> about your project or CRM license. MerkadAgency is based at ${addressLine}.</p>`}
 ];
 
-export const pages = [...englishPages, ...verticalPages(contactLink), ...spanishPages(email)];
+export const pages = [...englishPages, ...verticalPages(contactLink), ...spanishPages(email)].map(withShopPositioning);

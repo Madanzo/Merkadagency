@@ -16,7 +16,7 @@ All approved website-only positioning, scope-dependent commercial terms, email r
 
 ## Scope
 
-Only `website/content.mjs` changes production output: Home orientation/examples link; Website Development local examples navigation and heading grouping; Contact's three-step discussion sequence. Guide and legal page bodies, all six metadata records, schema inputs, robots/sitemap, releases/workflows and Hosting config remain unchanged. Exact approved contact `camiloreyna@merkadagency.com`; Search Console access account is a separate business identity and never replaces public contact.
+Only `website/content.mjs` changes production output: Home orientation/examples link; Website Development local examples navigation and heading grouping; Contact's three-step discussion sequence. Guide and legal page bodies, all six metadata records, schema inputs, robots/sitemap, releases/workflows and Hosting config remain unchanged. Exact approved contact `camilo.reyna@merkadagency.com`; Search Console access account is a separate business identity and never replaces public contact.
 
 The homepage uses whole-page service/guide links so the separately generated shortened fallback does not gain missing fragment destinations. Detailed fragment links stay in service content omitted by that fallback; `/contact#after-you-email` survives because contact content is retained. The preferred future rollback remains the exact current full restored-design live version, not the shortened fallback.
 

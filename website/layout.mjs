@@ -1,4 +1,4 @@
-import {contactLink, email, pages} from './content.mjs';
+import {addressLine, contactLink, email, pages} from './content.mjs';
 import {crmPath, marketingPath, shopLinks, verticalLinks, verticalLinksEs} from './shop-pages.mjs';
 import {spanishContact, spanishCrm, spanishHome, spanishMarketing, spanishPhantom} from './spanish.mjs';
 
@@ -25,12 +25,13 @@ export function header(page) {
 export function footer(page) {
  const es = page.lang === 'es';
  const specialties = shopLinks(es ? verticalLinksEs : verticalLinks).join('');
- return `<footer class="site-footer"><div class="footer-inner"><div><p class="footer-brand">MerkadAgency <span>· ${es ? 'Marketing y CRM para talleres' : 'Marketing and CRM for automotive shops'}</span></p><a href="mailto:${email}">${email}</a><p>Austin, TX</p></div><nav aria-label="${es ? 'Especialidades' : 'Shop specialties'}">${specialties}</nav><nav aria-label="${es ? 'Información legal' : 'Legal'}"><a href="/legal/privacy" hreflang="en">${es ? 'Privacidad (inglés)' : 'Privacy'}</a><a href="/legal/terms" hreflang="en">${es ? 'Términos (inglés)' : 'Website terms'}</a></nav></div></footer>`;
+ return `<footer class="site-footer"><div class="footer-inner"><div><p class="footer-brand">MerkadAgency <span>· ${es ? 'Marketing y CRM para talleres' : 'Marketing and CRM for automotive shops'}</span></p><a href="mailto:${email}">${email}</a><p>${addressLine}</p></div><nav aria-label="${es ? 'Especialidades' : 'Shop specialties'}">${specialties}</nav><nav aria-label="${es ? 'Información legal' : 'Legal'}"><a href="/legal/privacy" hreflang="en">${es ? 'Privacidad (inglés)' : 'Privacy'}</a><a href="/legal/terms" hreflang="en">${es ? 'Términos (inglés)' : 'Website terms'}</a></nav></div></footer>`;
 }
 
 function heading(page) {
- const { accent } = page;
- return `<h1>${accent ? escape(page.heading.slice(0,-accent.length))+`<span>${escape(accent)}</span>` : escape(page.heading)}</h1>`;
+ const { accent, headingAudience } = page;
+ const primary = accent ? escape(page.heading.slice(0,-accent.length))+`<span>${escape(accent)}</span>` : escape(page.heading);
+ return `<h1>${primary}${headingAudience ? ` <span class="heading-audience">${escape(headingAudience)}</span>` : ''}</h1>`;
 }
 
 function planningVisual(es) {

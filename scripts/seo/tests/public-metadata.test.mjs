@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { JSDOM } from 'jsdom';
-import { pages } from '../../../website/content.mjs';
+import { address, addressLine, email, pages } from '../../../website/content.mjs';
+import { shopTypes, shopTypesEs } from '../../../website/shop-pages.mjs';
 
 const publicPaths = [...pages.map(({ path }) => path), '/404'];
 
@@ -16,7 +17,19 @@ for (const directory of ['dist-site', 'dist-rollback']) {
     for (const path of publicPaths) {
       const file = `${directory}${path === '/' ? '/index' : path}.html`;
       const { window } = new JSDOM(await readFile(file, 'utf8'));
-      const { head } = window.document;
+      const { document } = window;
+      const { head } = document;
+      const audience = document.documentElement.lang === 'es' ? shopTypesEs : shopTypes;
+      const includesAudience = text => text.toLowerCase().replace(' & detailing', ' and detailing').includes(audience.toLowerCase());
+      const title = document.title;
+      const description = head.querySelector('meta[name="description"]').content;
+      const heading = document.querySelector('h1').textContent;
+      for (const text of [title, description, heading]) assert.ok(includesAudience(text), `Missing positioning on ${path}: ${text}`);
+      for (const [network, attribute] of [['og', 'property'], ['twitter', 'name']]) {
+        assert.equal(head.querySelector(`meta[${attribute}="${network}:title"]`).content, title);
+        assert.equal(head.querySelector(`meta[${attribute}="${network}:description"]`).content, description);
+        assert.doesNotMatch(title, /website development/i);
+      }
 
       for (const [label, selector, attribute, seen] of [
         ['title', 'title', null, titles],
@@ -64,7 +77,16 @@ test('localized metadata, FAQ answers and page entities match the public pages a
     const graph = JSON.parse(doc.querySelector('script[type="application/ld+json"]').textContent)['@graph'];
     const business = graph.find(node => node['@type'].includes('Organization'));
     assert.deepEqual(business['@type'], ['Organization', 'ProfessionalService']);
-    assert.equal(business.address, undefined);
+    assert.deepEqual(business.address, { '@type': 'PostalAddress', ...address });
+    assert.equal(business.email, email);
+    assert.equal(business.contactPoint.email, email);
+    assert.ok(doc.querySelector('footer').textContent.includes(addressLine));
+    if (page.path === '/contact') assert.ok(doc.querySelector('main').textContent.includes(addressLine));
+    if (page.path === '/work/phantom-wraps') {
+      const main = doc.querySelector('main').textContent;
+      assert.match(main, /10601 N Lamar Blvd, Austin, TX 78753/);
+      assert.ok(!main.includes(addressLine));
+    }
     assert.deepEqual(business.areaServed.map(area => area.name), ['United States', 'Austin']);
     const faq = [...doc.querySelectorAll('main details')].map(item => [
       item.querySelector('summary').textContent.trim(), item.querySelector('p').textContent.trim(),
@@ -89,4 +111,24 @@ test('localized metadata, FAQ answers and page entities match the public pages a
     window.close();
   }
   sitemap.window.close();
+});
+
+test('English and Spanish home and CRM pages publish the scoped comparison and planned features', async () => {
+  for (const [path, lang] of [['index', 'en'], ['services/wrap-shop-crm', 'en'], ['es', 'es'], ['es/servicios/crm-para-talleres', 'es']]) {
+    const { window } = new JSDOM(await readFile(`dist-site/${path}.html`, 'utf8'));
+    const comparison = window.document.querySelector('.value-comparison');
+    assert.equal(comparison.querySelector('h2').textContent, lang === 'en' ? 'Why we charge more' : 'Por qué cobramos más');
+    assert.match(comparison.querySelector('p').textContent, /\$1,500.*\$800/);
+    const headings = [...comparison.querySelectorAll('thead th[scope="col"]')].map(cell => cell.textContent);
+    assert.deepEqual(headings.slice(1), lang === 'en' ? ['Shop software', 'Typical agency', 'MerkadAgency'] : ['Software para talleres', 'Agencia típica', 'MerkadAgency']);
+    const rows = [...comparison.querySelectorAll('tbody tr')];
+    assert.equal(rows.length, 10);
+    for (const row of rows) {
+      assert.ok(row.querySelector('th[scope="row"]'));
+      assert.equal(row.querySelectorAll('td').length, 3);
+    }
+    const planned = rows.find(row => row.querySelector('th').textContent.match(/AI receptionist|Recepcionista con IA/));
+    assert.equal(planned.lastElementChild.textContent, lang === 'en' ? 'Coming soon' : 'Próximamente');
+    window.close();
+  }
 });

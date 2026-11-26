@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 import { contactLabel, pages } from '../../content.mjs';
 
 const missingPath = '/missing/public-qa-page';
-const email = 'camiloreyna@merkadagency.com';
+const email = 'camilo.reyna@merkadagency.com';
 
 for (const [path, heading, status, lang] of [
   ...pages.map(({ path, heading, lang }) => [path, heading, 200, lang]),

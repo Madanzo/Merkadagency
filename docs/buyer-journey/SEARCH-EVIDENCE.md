@@ -1,6 +1,6 @@
 # Search Console — intended business account confirmed, property access denied
 
-After the owner completed reauthentication, Search Console visibly confirms **`camilo.reyna@merkadagency.com`** in both the account label and “Signed in as” text. This is separate from public contact **`camiloreyna@merkadagency.com`**, which remains unchanged.
+After the owner completed reauthentication, Search Console visibly confirms **`camilo.reyna@merkadagency.com`** in both the account label and “Signed in as” text. The Search Console account and the public contact address were distinct at the time of this check. The public contact address has since been updated to match.
 
 Read-only checks of both existing targets return **“Oops, you don't have access to this property”**:
 

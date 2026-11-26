@@ -51,7 +51,7 @@ Email Camilo your brief or open questions, or review the scope and deliverables 
 
 ## Link destinations
 
-- New guide email link: `mailto:camiloreyna@merkadagency.com` (no new subject/body draft).
+- New guide email link: `mailto:camilo.reyna@merkadagency.com` (no new subject/body draft).
 - New return link: `/services/website-development#scope-and-deliverables`.
 - No page URL, canonical, redirect, sitemap entry, generic draft or project-specific draft changes.
 

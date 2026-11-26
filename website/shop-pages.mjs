@@ -84,3 +84,17 @@ ${contactLink}
 ${faqSection('Frequently asked questions', vertical.faq)}`,
  }));
 }
+
+export function withShopPositioning(page) {
+ const es = page.lang === 'es';
+ const audience = es ? shopTypesEs : shopTypes;
+ const includesAudience = text => text.toLowerCase().replace(' & detailing', ' and detailing').includes(audience.toLowerCase());
+ const title = includesAudience(page.title)
+  ? page.title
+  : page.title.replace(' | MerkadAgency', ` — ${audience} | MerkadAgency`);
+ const description = includesAudience(page.description)
+  ? page.description
+  : `${page.description} ${es ? 'Atendemos a' : 'We serve'} ${audience}.`;
+ const headingAudience = includesAudience(page.heading) ? '' : `${es ? 'Para' : 'For'} ${audience}.`;
+ return { ...page, title, description, headingAudience };
+}
